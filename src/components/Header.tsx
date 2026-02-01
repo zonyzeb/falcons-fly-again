@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-
+import falconsLogo from "@/assets/falcons-logo.png";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
@@ -21,9 +21,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
-            <span className="font-display text-xl md:text-2xl font-bold text-falcon-cream">
-              FALCONS <span className="text-falcon-gold">CC</span>
-            </span>
+            <img src={falconsLogo} alt="Falcons Cricket Club" className="h-12 md:h-14 w-auto" />
           </a>
 
           {/* Desktop Navigation */}
