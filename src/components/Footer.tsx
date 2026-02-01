@@ -1,5 +1,5 @@
 import { Mail, MapPin, Instagram, Twitter, Facebook } from "lucide-react";
-
+import falconsLogo from "@/assets/falcons-logo.png";
 export function Footer() {
   return (
     <footer id="contact" className="bg-falcon-navy py-16 px-4">
@@ -80,11 +80,9 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-falcon-grey/20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-display text-xl font-bold text-falcon-cream">
-            FALCONS <span className="text-falcon-gold">CC</span>
-          </p>
+          <img src={falconsLogo} alt="Falcons Cricket Club" className="h-12 w-auto" />
           <p className="text-falcon-cream/50 text-sm">
-            © 2025 Falcons Cricket Club. Still Hungry. Still Competitive.
+            © 2025 Falcons Cricket Club. Play with Pride. Fly as One.
           </p>
         </div>
       </div>
