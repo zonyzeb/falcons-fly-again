@@ -21,7 +21,7 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-falcon-gold/20 border border-falcon-gold/40 rounded-full px-4 py-1.5 mb-6 animate-fade-in">
-            <span className="text-falcon-gold font-semibold text-sm">Est. 2018</span>
+            <span className="text-falcon-gold font-semibold text-sm">Est. 2025</span>
             <span className="w-1 h-1 rounded-full bg-falcon-gold" />
             <span className="text-falcon-cream/80 text-sm">Working Professionals League</span>
           </div>
@@ -34,7 +34,7 @@ export function HeroSection() {
 
           {/* Tagline */}
           <p className="font-display text-xl md:text-2xl lg:text-3xl text-falcon-cream/90 font-medium mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-            Still Hungry. Still Competitive.
+            Play with Pride. Fly as One.
           </p>
 
           {/* Description */}
