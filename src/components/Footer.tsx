@@ -81,8 +81,8 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-falcon-grey/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <img src={falconsLogo} alt="Falcons Cricket Club" className="h-12 w-auto" />
-          <p className="text-falcon-cream/50 text-sm">
-            © 2025 Falcons Cricket Club. Play with Pride. Fly as One.
+          <p className="text-falcon-cream/50 text-sm text-center md:text-right">
+            © 2026 Falcons Cricket Club. Play with Pride. Fly as One.
           </p>
         </div>
       </div>

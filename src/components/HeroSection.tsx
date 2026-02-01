@@ -22,8 +22,6 @@ export function HeroSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-falcon-gold/20 border border-falcon-gold/40 rounded-full px-4 py-1.5 mb-6 animate-fade-in">
             <span className="text-falcon-gold font-semibold text-sm">Est. 2025</span>
-            <span className="w-1 h-1 rounded-full bg-falcon-gold" />
-            <span className="text-falcon-cream/80 text-sm">Working Professionals League</span>
           </div>
 
           {/* Main Heading */}
