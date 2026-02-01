@@ -1,12 +1,25 @@
 const players = [
-  { name: "Raj Sharma", role: "Captain / All-rounder", stat: "Leads by example, every time" },
-  { name: "Vikram Patel", role: "Opening Batsman", stat: "Still bowls with the old ball" },
-  { name: "Amit Singh", role: "Fast Bowler", stat: "Plays after night shifts" },
-  { name: "Sanjay Kumar", role: "Wicketkeeper", stat: "Never misses a stumping" },
-  { name: "Deepak Reddy", role: "Spin Bowler", stat: "The crafty veteran" },
-  { name: "Arjun Nair", role: "Middle-order Bat", stat: "Clutch performer under pressure" },
-  { name: "Kiran Joshi", role: "All-rounder", stat: "Mr. Reliable" },
-  { name: "Rahul Menon", role: "Opening Bowler", stat: "Early morning gym, then cricket" },
+  { name: "Sherin" },
+  { name: "Jeevan" },
+  { name: "Jithu" },
+  { name: "Sony" },
+  { name: "Ritwik" },
+  { name: "Deepu" },
+  { name: "Sid" },
+  { name: "Anoop" },
+  { name: "Umesh" },
+  { name: "Divin" },
+  { name: "Fahsan" },
+  { name: "Tinu" },
+  { name: "Kannan" },
+  { name: "Yashas" },
+  { name: "Ajas" },
+  { name: "Aman" },
+  { name: "Ramasamy" },
+  { name: "Shabhaz" },
+  { name: "Sushant" },
+  { name: "Ankitx" },
+  { name: "Sohan" },
 ];
 
 export function TeamSection() {
@@ -26,28 +39,22 @@ export function TeamSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4">
           {players.map((player, index) => (
             <div
               key={player.name}
-              className="group bg-falcon-navy-light/50 border border-falcon-grey/20 rounded-xl p-5 hover:border-falcon-gold/40 hover:bg-falcon-navy-light transition-all duration-300"
-              style={{ animationDelay: `${index * 0.05}s` }}
+              className="group flex flex-col items-center text-center p-4 bg-falcon-navy-light/50 border border-falcon-grey/20 rounded-xl hover:border-falcon-gold/40 hover:bg-falcon-navy-light transition-all duration-300"
+              style={{ animationDelay: `${index * 0.03}s` }}
             >
               {/* Avatar Placeholder */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-falcon-gold/30 to-falcon-gold/10 flex items-center justify-center mb-4 group-hover:from-falcon-gold/40 group-hover:to-falcon-gold/20 transition-all">
-                <span className="font-display text-xl font-bold text-falcon-gold">
-                  {player.name.split(' ').map(n => n[0]).join('')}
+              <div className="w-14 h-14 rounded-full bg-gradient-to-br from-falcon-gold/30 to-falcon-gold/10 flex items-center justify-center group-hover:from-falcon-gold/40 group-hover:to-falcon-gold/20 transition-all">
+                <span className="font-display text-lg font-bold text-falcon-gold">
+                  {player.name.charAt(0)}
                 </span>
               </div>
-              <h3 className="font-display text-lg font-semibold text-falcon-cream mb-1">
+              <h3 className="font-display text-base font-semibold text-falcon-cream">
                 {player.name}
               </h3>
-              <p className="text-falcon-gold text-sm font-medium mb-2">
-                {player.role}
-              </p>
-              <p className="text-falcon-cream/60 text-sm italic">
-                "{player.stat}"
-              </p>
             </div>
           ))}
         </div>
