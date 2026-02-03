@@ -117,15 +117,15 @@
 
 @layer components {
   .falcon-section {
-    @apply py-16 md:py-24 px-4;
+    @apply py-20 md:py-32 px-4 relative overflow-hidden;
   }
 
   .falcon-container {
-    @apply max-w-6xl mx-auto;
+    @apply max-w-6xl mx-auto relative z-10;
   }
 
   .falcon-heading {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
   }
 
   .falcon-subheading {
@@ -133,7 +133,11 @@
   }
 
   .falcon-card {
-    @apply bg-card rounded-xl p-6 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-elevated)] transition-all duration-300;
+    @apply bg-card/70 backdrop-blur-xl rounded-2xl p-6 border border-border/50;
+    @apply shadow-[0_8px_32px_-8px_hsl(220_50%_15%_/_0.12)];
+    @apply hover:shadow-[0_20px_50px_-15px_hsl(42_85%_55%_/_0.2)];
+    @apply hover:border-accent/30 hover:-translate-y-1;
+    @apply transition-all duration-300;
   }
 
   .gold-accent {
@@ -142,6 +146,32 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+    @apply shadow-[0_8px_32px_-8px_hsl(220_50%_15%_/_0.15)];
+  }
+
+  .glass-dark {
+    @apply bg-falcon-navy/80 backdrop-blur-xl border border-falcon-grey/20;
+    @apply shadow-[0_8px_32px_-8px_hsl(220_50%_5%_/_0.3)];
+  }
+
+  /* Premium text gradient */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-falcon-gold via-falcon-gold-light to-falcon-gold;
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Glow effects */
+  .glow-gold {
+    box-shadow: 0 0 40px -10px hsl(42 85% 55% / 0.5);
+  }
+
+  .glow-gold-subtle {
+    box-shadow: 0 0 30px -10px hsl(42 85% 55% / 0.3);
   }
 }
 
