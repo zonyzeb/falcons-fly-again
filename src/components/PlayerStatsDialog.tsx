@@ -113,6 +113,20 @@ export function PlayerStatsDialog({ player, open, onOpenChange }: PlayerStatsDia
     { label: "Dot Balls", value: player.dotBalls ?? "–", icon: CircleDot, color: "from-orange-400 to-amber-500" },
   ];
 
+  const hasFieldingStats = player.catches !== undefined || player.runOuts !== undefined;
+  const totalDismissals = hasFieldingStats ? (player.catches ?? 0) + (player.runOuts ?? 0) : "–";
+  const dismissalsPerMatch =
+    hasFieldingStats && player.matches
+      ? (((player.catches ?? 0) + (player.runOuts ?? 0)) / player.matches).toFixed(2)
+      : "–";
+
+  const fieldingStats = [
+    { label: "Catches", value: player.catches ?? "–", icon: Target, color: "from-cyan-400 to-blue-500" },
+    { label: "Run Outs", value: player.runOuts ?? "–", icon: Zap, color: "from-orange-400 to-red-500" },
+    { label: "Dismissals", value: totalDismissals, icon: Shield, color: "from-violet-400 to-purple-500" },
+    { label: "Per Match", value: dismissalsPerMatch, icon: Clock, color: "from-falcon-gold to-amber-500" },
+  ];
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg bg-falcon-navy/95 backdrop-blur-2xl border-falcon-gold/20 text-falcon-cream overflow-hidden max-h-[90vh] overflow-y-auto">
@@ -194,7 +208,7 @@ export function PlayerStatsDialog({ player, open, onOpenChange }: PlayerStatsDia
           className="relative z-10 mt-6"
         >
           <Tabs defaultValue="overall" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 bg-falcon-navy-light/50 border border-falcon-gold/20">
+            <TabsList className="grid w-full grid-cols-4 bg-falcon-navy-light/50 border border-falcon-gold/20">
               <TabsTrigger 
                 value="overall" 
                 className="data-[state=active]:bg-falcon-gold/20 data-[state=active]:text-falcon-gold text-falcon-cream/70"
@@ -212,6 +226,12 @@ export function PlayerStatsDialog({ player, open, onOpenChange }: PlayerStatsDia
                 className="data-[state=active]:bg-falcon-gold/20 data-[state=active]:text-falcon-gold text-falcon-cream/70"
               >
                 Bowling
+              </TabsTrigger>
+              <TabsTrigger 
+                value="fielding"
+                className="data-[state=active]:bg-falcon-gold/20 data-[state=active]:text-falcon-gold text-falcon-cream/70"
+              >
+                Fielding
               </TabsTrigger>
             </TabsList>
 
@@ -257,6 +277,22 @@ export function PlayerStatsDialog({ player, open, onOpenChange }: PlayerStatsDia
                   className="grid grid-cols-2 sm:grid-cols-4 gap-3"
                 >
                   {bowlingStats.map((stat, index) => (
+                    <StatCard key={stat.label} {...stat} index={index} />
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </TabsContent>
+
+            <TabsContent value="fielding" className="mt-4">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key="fielding"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  className="grid grid-cols-2 sm:grid-cols-4 gap-3"
+                >
+                  {fieldingStats.map((stat, index) => (
                     <StatCard key={stat.label} {...stat} index={index} />
                   ))}
                 </motion.div>
