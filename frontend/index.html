@@ -19,6 +19,18 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      // SPA redirect restore: convert ?p= query param back to a real path
+      (function() {
+        var q = new URLSearchParams(location.search);
+        var p = q.get('p');
+        if (p) {
+          q.delete('p');
+          var qs = q.toString();
+          history.replaceState(null, '', p + (qs ? '?' + qs : '') + location.hash);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

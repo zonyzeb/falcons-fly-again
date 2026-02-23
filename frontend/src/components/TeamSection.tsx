@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
+import { Link } from "react-router-dom";
 import { GradientMesh } from "@/components/ui/GradientMesh";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { PlayerStatsDialog } from "@/components/PlayerStatsDialog";
-import { players as playersData, playerStats, getPlayerStats } from "@/data/stats";
-import type { PlayerStatsEntry } from "@/data/stats";
+import { players as playersData, getPlayerBySlug } from "@/data/stats";
 
 const ROLE_LABELS: Record<string, string> = {
   BAT: "Batsman",
@@ -33,28 +32,15 @@ const itemVariants = {
 };
 
 export function TeamSection() {
-  const [selectedPlayer, setSelectedPlayer] = useState<PlayerStatsEntry | null>(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
-
   const teamPlayers = useMemo(
     () =>
       playersData.map((p) => ({
         ...p,
         role: ROLE_LABELS[p.sub_title] || p.sub_title,
-        stats: getPlayerStats(p.name.split(" ")[0]),
+        stats: getPlayerBySlug(p.slug),
       })),
     []
   );
-
-  const handlePlayerClick = (name: string) => {
-    const entry = playerStats.find(
-      (ps) => ps.name.toLowerCase() === name.toLowerCase() || name.toLowerCase().startsWith(ps.name.toLowerCase())
-    );
-    if (entry) {
-      setSelectedPlayer(entry);
-      setDialogOpen(true);
-    }
-  };
 
   return (
     <section id="team" className="falcon-section bg-falcon-navy relative">
@@ -90,54 +76,49 @@ export function TeamSection() {
         >
           {teamPlayers.map((player) => (
             <motion.div key={player.name} variants={itemVariants}>
-              <GlassCard 
-                className="p-5 h-full bg-falcon-navy-light/30 cursor-pointer group" 
-                glowColor="hsl(42 85% 55% / 0.2)"
-                onClick={() => handlePlayerClick(player.name)}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="relative flex-shrink-0">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-falcon-gold to-falcon-gold-light blur-sm opacity-50 group-hover:opacity-80 transition-opacity" />
-                    {player.profile_pic_url && !player.profile_pic_url.includes("default") ? (
-                      <img
-                        src={player.profile_pic_url}
-                        alt={player.name}
-                        className="relative w-12 h-12 rounded-full object-cover border border-falcon-gold/30 group-hover:border-falcon-gold/60 transition-colors"
-                      />
-                    ) : (
-                      <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-falcon-gold/30 to-falcon-gold/10 flex items-center justify-center border border-falcon-gold/30 group-hover:border-falcon-gold/60 transition-colors">
-                        <span className="font-display text-lg font-bold text-falcon-gold">
-                          {player.name.charAt(0)}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-display text-lg font-semibold text-falcon-cream group-hover:text-falcon-gold transition-colors">
-                      {player.name}
-                    </h3>
-                    <p className="text-falcon-gold text-sm font-medium">
-                      {player.role}
-                    </p>
-                    {player.stats?.batting?.runs != null && (
-                      <p className="text-falcon-cream/50 text-xs mt-1.5">
-                        {player.stats.batting.runs} runs
-                        {player.stats.bowling?.wickets ? ` · ${player.stats.bowling.wickets} wkts` : ""}
+              <Link to={`/player/${player.slug}`}>
+                <GlassCard 
+                  className="p-5 h-full bg-falcon-navy-light/30 cursor-pointer group" 
+                  glowColor="hsl(42 85% 55% / 0.2)"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="relative flex-shrink-0">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-falcon-gold to-falcon-gold-light blur-sm opacity-50 group-hover:opacity-80 transition-opacity" />
+                      {player.profile_pic_url && !player.profile_pic_url.includes("default") ? (
+                        <img
+                          src={player.profile_pic_url}
+                          alt={player.name}
+                          className="relative w-12 h-12 rounded-full object-cover border border-falcon-gold/30 group-hover:border-falcon-gold/60 transition-colors"
+                        />
+                      ) : (
+                        <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-falcon-gold/30 to-falcon-gold/10 flex items-center justify-center border border-falcon-gold/30 group-hover:border-falcon-gold/60 transition-colors">
+                          <span className="font-display text-lg font-bold text-falcon-gold">
+                            {player.name.charAt(0)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-display text-lg font-semibold text-falcon-cream group-hover:text-falcon-gold transition-colors">
+                        {player.name}
+                      </h3>
+                      <p className="text-falcon-gold text-sm font-medium">
+                        {player.role}
                       </p>
-                    )}
+                      {player.stats?.batting?.runs != null && (
+                        <p className="text-falcon-cream/50 text-xs mt-1.5">
+                          {player.stats.batting.runs} runs
+                          {player.stats.bowling?.wickets ? ` · ${player.stats.bowling.wickets} wkts` : ""}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </GlassCard>
+                </GlassCard>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
       </div>
-
-      <PlayerStatsDialog
-        player={selectedPlayer}
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-      />
     </section>
   );
 }

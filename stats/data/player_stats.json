@@ -1,7 +1,35 @@
 [
   {
+    "player_id": 39689937,
+    "name": "Ajas M A",
+    "slug": "ajas-m-a",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1750260228952_pVtN3rLnvzv4.jpeg",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
+    "player_id": 46985487,
+    "name": "Aman Singh",
+    "slug": "aman-singh",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
+    "player_id": 39432630,
+    "name": "Ankit Pandey",
+    "slug": "ankit-pandey",
+    "profile_photo": "https://media.cricheroes.in/user_profile/default_user_profile_m.png?v=39432630",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
     "player_id": 40199072,
     "name": "Anoop",
+    "slug": "anoop",
     "profile_photo": "https://media.cricheroes.in/user_profile/default_user_profile_m.png?v=40199072",
     "batting": {
       "innings": 20,
@@ -23,6 +51,7 @@
   {
     "player_id": 15123318,
     "name": "Ashok Ramasamy",
+    "slug": "ashok-ramasamy",
     "profile_photo": "https://media.cricheroes.in/user_profile/1723380053668_dQFL34TK0iAz.jpg",
     "batting": {
       "innings": 25,
@@ -53,6 +82,7 @@
   {
     "player_id": 30986178,
     "name": "Deepu Dileep",
+    "slug": "deepu-dileep",
     "profile_photo": "https://media.cricheroes.in/user_profile/1717775336839_K9JAedgnT0Ca.jpeg",
     "batting": {
       "innings": 22,
@@ -81,8 +111,18 @@
     }
   },
   {
+    "player_id": 6667318,
+    "name": "Divin Barachel",
+    "slug": "divin-barachel",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1746169143459_FuI8L5asSGbC.jpeg",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
     "player_id": 15030454,
     "name": "Fahsan K P",
+    "slug": "fahsan-k-p",
     "profile_photo": "https://media.cricheroes.in/user_profile/1750318555806_g1GHyfl5D9ru.jpeg",
     "batting": {},
     "bowling": {
@@ -101,6 +141,7 @@
   {
     "player_id": 20462321,
     "name": "JD",
+    "slug": "jd",
     "profile_photo": "https://media.cricheroes.in/user_profile/1727465827495_QDZOfdKezXFM.jpeg",
     "batting": {
       "innings": 28,
@@ -141,6 +182,7 @@
   {
     "player_id": 30149791,
     "name": "Kannan Unnikrishnan",
+    "slug": "kannan-unnikrishnan",
     "profile_photo": "https://media.cricheroes.in/user_profile/1715686487573_VBCxvK6xwgV0.jpg",
     "batting": {},
     "bowling": {
@@ -159,6 +201,7 @@
   {
     "player_id": 30328308,
     "name": "Kiran MV",
+    "slug": "kiran-mv",
     "profile_photo": "https://media.cricheroes.in/user_profile/1715750143673_aSisreyQmv2d.jpeg",
     "batting": {},
     "bowling": {
@@ -175,8 +218,18 @@
     "fielding": {}
   },
   {
+    "player_id": 39972548,
+    "name": "Manoj Chilla",
+    "slug": "manoj-chilla",
+    "profile_photo": "https://media.cricheroes.in/user_profile/default_user_profile_m.png?v=39972548",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
     "player_id": 31865911,
     "name": "Premjith PM",
+    "slug": "premjith-pm",
     "profile_photo": "https://media.cricheroes.in/user_profile/1753261081746_8XsNHD6CENW1.jpeg",
     "batting": {
       "innings": 34,
@@ -215,8 +268,27 @@
     }
   },
   {
+    "player_id": 23159796,
+    "name": "Rajesh Lal",
+    "slug": "rajesh-lal",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
+    "player_id": 32453777,
+    "name": "Ramasamy Vallinayagam",
+    "slug": "ramasamy-vallinayagam",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
     "player_id": 14885534,
     "name": "Ravi Shankar",
+    "slug": "ravi-shankar",
     "profile_photo": "https://media.cricheroes.in/user_profile/1657975384061_8FGXjlqIGr2r.jpeg",
     "batting": {},
     "bowling": {
@@ -235,6 +307,7 @@
   {
     "player_id": 32945161,
     "name": "Rithwik K V",
+    "slug": "rithwik-k-v",
     "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
     "batting": {
       "innings": 25,
@@ -263,8 +336,18 @@
     }
   },
   {
+    "player_id": 30332574,
+    "name": "Shahbaz Ahmed",
+    "slug": "shahbaz-ahmed",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
     "player_id": 30144711,
     "name": "Sherin Shamsudeen",
+    "slug": "sherin-shamsudeen",
     "profile_photo": "https://media.cricheroes.in/user_profile/1753368067389_QmYyuYsp4yn4.jpeg",
     "batting": {
       "innings": 54,
@@ -295,6 +378,7 @@
   {
     "player_id": 5552794,
     "name": "Shiva Arsi",
+    "slug": "shiva-arsi",
     "profile_photo": "https://media.cricheroes.in/user_profile/1715171845416_YMouE0TnW3My.jpg",
     "batting": {
       "innings": 20,
@@ -325,6 +409,7 @@
   {
     "player_id": 24040375,
     "name": "Sid",
+    "slug": "sid",
     "profile_photo": "https://media.cricheroes.in/user_profile/1750276613370_znEWMLpnox8u.jpeg",
     "batting": {
       "innings": 47,
@@ -353,8 +438,18 @@
     }
   },
   {
+    "player_id": 21395181,
+    "name": "Sohan Singh",
+    "slug": "sohan-singh",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1752856849342_CcoeYJzhFrDt.jpeg",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
     "player_id": 23042488,
     "name": "Sony",
+    "slug": "sony",
     "profile_photo": "https://media.cricheroes.in/user_profile/1746857713746_Ay1Ld2oXuhtI.jpeg",
     "batting": {},
     "bowling": {
@@ -382,6 +477,7 @@
   {
     "player_id": 21955591,
     "name": "Sunil kumar Metta",
+    "slug": "sunil-kumar-metta",
     "profile_photo": "https://media.cricheroes.in/user_profile/1749237892628_2QlmyJ7f1k28.jpeg",
     "batting": {},
     "bowling": {
@@ -398,8 +494,27 @@
     "fielding": {}
   },
   {
+    "player_id": 2365896,
+    "name": "Sushant Kadam",
+    "slug": "sushant-kadam",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1574316851753_AC1r4lkTjJeA.jpg",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
+    "player_id": 21957964,
+    "name": "Tinu",
+    "slug": "tinu",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
     "player_id": 31156520,
     "name": "Umesh Bh",
+    "slug": "umesh-bh",
     "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
     "batting": {
       "innings": 20,
@@ -429,8 +544,18 @@
     "fielding": {}
   },
   {
+    "player_id": 39398441,
+    "name": "Yashas Paralath",
+    "slug": "yashas-paralath",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {},
+    "bowling": {},
+    "fielding": {}
+  },
+  {
     "player_id": 26253785,
     "name": "Yogi",
+    "slug": "yogi",
     "profile_photo": "https://media.cricheroes.in/user_profile/1752260716057_JR0kvppv7fIa.jpeg",
     "batting": {},
     "bowling": {

@@ -5,7 +5,9 @@ import leaderboardData from "@stats/leaderboard.json";
 import playerStatsData from "@stats/player_stats.json";
 
 export interface Player {
+  player_id: number;
   name: string;
+  slug: string;
   sub_title: string;
   profile_url: string;
   profile_pic_url: string;
@@ -79,6 +81,7 @@ export interface FieldingStats {
 export interface PlayerStatsEntry {
   player_id: number;
   name: string;
+  slug: string;
   profile_photo: string;
   batting: Partial<BattingStats>;
   bowling: Partial<BowlingStats>;
@@ -95,6 +98,14 @@ export function getPlayerStats(name: string): PlayerStatsEntry | undefined {
   return playerStats.find(
     (p) => p.name.toLowerCase() === name.toLowerCase()
   );
+}
+
+export function getPlayerBySlug(slug: string): PlayerStatsEntry | undefined {
+  return playerStats.find((p) => p.slug === slug);
+}
+
+export function getRosterPlayer(slug: string): Player | undefined {
+  return players.find((p) => p.slug === slug);
 }
 
 export function isWin(match: Match): boolean {

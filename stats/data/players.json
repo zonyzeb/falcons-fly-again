@@ -1,132 +1,176 @@
 [
   {
+    "player_id": 39689937,
     "name": "Ajas M A",
+    "slug": "ajas-m-a",
     "sub_title": "BOWL",
     "profile_url": "https://cricheroes.com/player-profile/39689937",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1750260228952_pVtN3rLnvzv4.jpeg"
   },
   {
+    "player_id": 46985487,
     "name": "Aman Singh",
+    "slug": "aman-singh",
     "sub_title": "ALL",
     "profile_url": "https://cricheroes.com/player-profile/46985487",
     "profile_pic_url": "https://media.cricheroes.in/default/user_profile.png"
   },
   {
+    "player_id": 39432630,
     "name": "Ankit Pandey",
+    "slug": "ankit-pandey",
     "sub_title": "BAT",
     "profile_url": "https://cricheroes.com/player-profile/39432630",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/default_user_profile_m.png?v=39432630"
   },
   {
+    "player_id": 40199072,
     "name": "Anoop",
+    "slug": "anoop",
     "sub_title": "BAT",
     "profile_url": "https://cricheroes.com/player-profile/40199072",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/default_user_profile_m.png?v=40199072"
   },
   {
+    "player_id": 30986178,
     "name": "Deepu Dileep",
+    "slug": "deepu-dileep",
     "sub_title": "BAT,WK",
     "profile_url": "https://cricheroes.com/player-profile/30986178",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1717775336839_K9JAedgnT0Ca.jpeg"
   },
   {
+    "player_id": 6667318,
     "name": "Divin Barachel",
+    "slug": "divin-barachel",
     "sub_title": "ALL",
     "profile_url": "https://cricheroes.com/player-profile/6667318",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1746169143459_FuI8L5asSGbC.jpeg"
   },
   {
+    "player_id": 15030454,
     "name": "Fahsan K P",
+    "slug": "fahsan-k-p",
     "sub_title": "ALL",
     "profile_url": "https://cricheroes.com/player-profile/15030454",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1750318555806_g1GHyfl5D9ru.jpeg"
   },
   {
+    "player_id": 20462321,
     "name": "JD",
+    "slug": "jd",
     "sub_title": "ALL",
     "profile_url": "https://cricheroes.com/player-profile/20462321",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1727465827495_QDZOfdKezXFM.jpeg"
   },
   {
+    "player_id": 30149791,
     "name": "Kannan Unnikrishnan",
+    "slug": "kannan-unnikrishnan",
     "sub_title": "BOWL",
     "profile_url": "https://cricheroes.com/player-profile/30149791",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1715686487573_VBCxvK6xwgV0.jpg"
   },
   {
+    "player_id": 39972548,
     "name": "Manoj Chilla",
+    "slug": "manoj-chilla",
     "sub_title": "",
     "profile_url": "https://cricheroes.com/player-profile/39972548",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/default_user_profile_m.png?v=39972548"
   },
   {
+    "player_id": 31865911,
     "name": "Premjith PM",
+    "slug": "premjith-pm",
     "sub_title": "ALL",
     "profile_url": "https://cricheroes.com/player-profile/31865911",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1753261081746_8XsNHD6CENW1.jpeg"
   },
   {
+    "player_id": 23159796,
     "name": "Rajesh Lal",
+    "slug": "rajesh-lal",
     "sub_title": "",
     "profile_url": "https://cricheroes.com/player-profile/23159796",
     "profile_pic_url": "https://media.cricheroes.in/default/user_profile.png"
   },
   {
+    "player_id": 32453777,
     "name": "Ramasamy Vallinayagam",
+    "slug": "ramasamy-vallinayagam",
     "sub_title": "BAT",
     "profile_url": "https://cricheroes.com/player-profile/32453777",
     "profile_pic_url": "https://media.cricheroes.in/default/user_profile.png"
   },
   {
+    "player_id": 32945161,
     "name": "Rithwik K V",
+    "slug": "rithwik-k-v",
     "sub_title": "BAT,WK",
     "profile_url": "https://cricheroes.com/player-profile/32945161",
     "profile_pic_url": "https://media.cricheroes.in/default/user_profile.png"
   },
   {
+    "player_id": 30332574,
     "name": "Shahbaz Ahmed",
+    "slug": "shahbaz-ahmed",
     "sub_title": "BAT",
     "profile_url": "https://cricheroes.com/player-profile/30332574",
     "profile_pic_url": "https://media.cricheroes.in/default/user_profile.png"
   },
   {
+    "player_id": 30144711,
     "name": "Sherin Shamsudeen",
+    "slug": "sherin-shamsudeen",
     "sub_title": "BAT",
     "profile_url": "https://cricheroes.com/player-profile/30144711",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1753368067389_QmYyuYsp4yn4.jpeg"
   },
   {
+    "player_id": 24040375,
     "name": "Sid",
+    "slug": "sid",
     "sub_title": "BAT",
     "profile_url": "https://cricheroes.com/player-profile/24040375",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1750276613370_znEWMLpnox8u.jpeg"
   },
   {
+    "player_id": 21395181,
     "name": "Sohan Singh",
+    "slug": "sohan-singh",
     "sub_title": "ALL",
     "profile_url": "https://cricheroes.com/player-profile/21395181",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1752856849342_CcoeYJzhFrDt.jpeg"
   },
   {
+    "player_id": 23042488,
     "name": "Sony",
+    "slug": "sony",
     "sub_title": "BOWL",
     "profile_url": "https://cricheroes.com/player-profile/23042488",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1746857713746_Ay1Ld2oXuhtI.jpeg"
   },
   {
+    "player_id": 2365896,
     "name": "Sushant Kadam",
+    "slug": "sushant-kadam",
     "sub_title": "ALL",
     "profile_url": "https://cricheroes.com/player-profile/2365896",
     "profile_pic_url": "https://media.cricheroes.in/user_profile/1574316851753_AC1r4lkTjJeA.jpg"
   },
   {
+    "player_id": 21957964,
     "name": "Tinu",
+    "slug": "tinu",
     "sub_title": "BOWL",
     "profile_url": "https://cricheroes.com/player-profile/21957964",
     "profile_pic_url": "https://media.cricheroes.in/default/user_profile.png"
   },
   {
+    "player_id": 39398441,
     "name": "Yashas Paralath",
+    "slug": "yashas-paralath",
     "sub_title": "BOWL",
     "profile_url": "https://cricheroes.com/player-profile/39398441",
     "profile_pic_url": "https://media.cricheroes.in/default/user_profile.png"

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Falcons Cricket Club</title>
+    <script>
+      // SPA redirect for GitHub Pages
+      // Converts the path into a query param so index.html can restore it
+      var repo = '/falcons-fly-again';
+      var path = location.pathname.replace(repo, '');
+      if (path && path !== '/') {
+        location.replace(
+          repo + '/?p=' + encodeURIComponent(path) + location.hash
+        );
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

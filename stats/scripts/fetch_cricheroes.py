@@ -189,13 +189,20 @@ def build_leaderboard(category, items):
     return output
 
 
+def make_slug(name):
+    return name.strip().lower().replace(" ", "-")
+
+
 def build_players(items):
     output = []
     for item in items:
         player_id = item.get("player_id")
+        name = item.get("name") or ""
         output.append(
             {
-                "name": item.get("name") or "",
+                "player_id": player_id,
+                "name": name,
+                "slug": make_slug(name),
                 "sub_title": item.get("player_skill") or "",
                 "profile_url": f"https://cricheroes.com/player-profile/{player_id}"
                 if player_id
@@ -217,15 +224,25 @@ def build_player_stats(batting_data, bowling_data, fielding_data):
     """Merge batting, bowling, and fielding leaderboard data into per-player stats."""
     players = {}
 
+    def ensure_player(pid, item):
+        if pid not in players:
+            name = item.get("name") or ""
+            players[pid] = {
+                "player_id": pid,
+                "name": name,
+                "slug": make_slug(name),
+                "profile_photo": item.get("profile_photo") or "",
+                "batting": {},
+                "bowling": {},
+                "fielding": {},
+            }
+
     for item in batting_data:
         pid = item.get("player_id")
         if not pid:
             continue
-        players[pid] = {
-            "player_id": pid,
-            "name": item.get("name") or "",
-            "profile_photo": item.get("profile_photo") or "",
-            "batting": {
+        ensure_player(pid, item)
+        players[pid]["batting"] = {
                 "innings": safe_int(item.get("innings")),
                 "runs": safe_int(item.get("total_runs")),
                 "balls_faced": safe_int(item.get("ball_faced")),
@@ -238,24 +255,13 @@ def build_player_stats(batting_data, bowling_data, fielding_data):
                 "sixes": safe_int(item.get("6s")),
                 "fifties": safe_int(item.get("50s")),
                 "hundreds": safe_int(item.get("100s")),
-            },
-            "bowling": {},
-            "fielding": {},
         }
 
     for item in bowling_data:
         pid = item.get("player_id")
         if not pid:
             continue
-        if pid not in players:
-            players[pid] = {
-                "player_id": pid,
-                "name": item.get("name") or "",
-                "profile_photo": item.get("profile_photo") or "",
-                "batting": {},
-                "bowling": {},
-                "fielding": {},
-            }
+        ensure_player(pid, item)
         players[pid]["bowling"] = {
             "innings": safe_int(item.get("innings")),
             "wickets": safe_int(item.get("total_wickets")),
@@ -272,15 +278,7 @@ def build_player_stats(batting_data, bowling_data, fielding_data):
         pid = item.get("player_id")
         if not pid:
             continue
-        if pid not in players:
-            players[pid] = {
-                "player_id": pid,
-                "name": item.get("name") or "",
-                "profile_photo": item.get("profile_photo") or "",
-                "batting": {},
-                "bowling": {},
-                "fielding": {},
-            }
+        ensure_player(pid, item)
         players[pid]["fielding"] = {
             "matches": safe_int(item.get("total_match")),
             "catches": safe_int(item.get("catches")),
@@ -350,16 +348,25 @@ def run():
 
     team_stats = build_team_stats(combined_raw, {TEAM_ID, LEGACY_TEAM_ID})
 
-    # Leaderboard: try current team first, fall back to legacy
+    # Leaderboard: fetch from both teams and merge (current team data wins on conflicts)
     print("Fetching leaderboards...")
     raw_leaderboards = {}
     leaderboard = {}
     for category in ("batting", "bowling", "fielding"):
-        items = fetch_leaderboard_safe(TEAM_ID, category)
-        if not items:
-            items = fetch_leaderboard_safe(LEGACY_TEAM_ID, category)
-        raw_leaderboards[category] = items
-        leaderboard[category] = build_leaderboard(category, items)
+        legacy_items = fetch_leaderboard_safe(LEGACY_TEAM_ID, category)
+        current_items = fetch_leaderboard_safe(TEAM_ID, category)
+        seen_pids = set()
+        merged = []
+        for item in current_items:
+            pid = item.get("player_id")
+            if pid:
+                seen_pids.add(pid)
+            merged.append(item)
+        for item in legacy_items:
+            if item.get("player_id") not in seen_pids:
+                merged.append(item)
+        raw_leaderboards[category] = merged
+        leaderboard[category] = build_leaderboard(category, merged)
 
     # Per-player stats merged from all leaderboards
     print("Building player stats...")
@@ -369,6 +376,22 @@ def run():
         raw_leaderboards.get("fielding", []),
     )
     print(f"  Stats for {len(player_stats)} players")
+
+    # Ensure every roster player has an entry in player_stats
+    stats_by_pid = {s["player_id"]: s for s in player_stats}
+    for p in players:
+        pid = p.get("player_id")
+        if pid and pid not in stats_by_pid:
+            player_stats.append({
+                "player_id": pid,
+                "name": p["name"],
+                "slug": p["slug"],
+                "profile_photo": p.get("profile_pic_url", ""),
+                "batting": {},
+                "bowling": {},
+                "fielding": {},
+            })
+    player_stats.sort(key=lambda p: p.get("name", ""))
 
     save_json("players.json", players)
     save_json("matches.json", matches)
