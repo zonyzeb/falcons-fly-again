@@ -1,0 +1,158 @@
+{
+  "batting": [
+    {
+      "player_name": "Sherin Shamsudeen",
+      "stat": "1137 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Deepu Dileep",
+      "stat": "680 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Sid",
+      "stat": "561 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Premjith PM",
+      "stat": "528 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Shiva Arsi",
+      "stat": "430 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Umesh Bh",
+      "stat": "341 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Anoop",
+      "stat": "328 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Rithwik K V",
+      "stat": "289 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Ashok Ramasamy",
+      "stat": "232 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "JD",
+      "stat": "229 runs",
+      "profile": "batting"
+    }
+  ],
+  "bowling": [
+    {
+      "player_name": "Sony",
+      "stat": "57 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Yogi",
+      "stat": "57 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "JD",
+      "stat": "52 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Premjith PM",
+      "stat": "49 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Umesh Bh",
+      "stat": "23 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Sunil kumar Metta",
+      "stat": "19 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Kiran MV",
+      "stat": "12 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Kannan Unnikrishnan",
+      "stat": "11 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Ravi Shankar",
+      "stat": "10 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Fahsan K P",
+      "stat": "10 wickets",
+      "profile": "bowling"
+    }
+  ],
+  "fielding": [
+    {
+      "player_name": "Rithwik K V",
+      "stat": "33 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Sherin Shamsudeen",
+      "stat": "24 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Deepu Dileep",
+      "stat": "24 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "JD",
+      "stat": "20 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Ashok Ramasamy",
+      "stat": "19 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Sid",
+      "stat": "21 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Yogi",
+      "stat": "14 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Premjith PM",
+      "stat": "15 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Sony",
+      "stat": "9 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Shiva Arsi",
+      "stat": "16 catches",
+      "profile": "fielding"
+    }
+  ]
+}

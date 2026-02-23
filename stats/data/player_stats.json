@@ -1,0 +1,458 @@
+[
+  {
+    "player_id": 40199072,
+    "name": "Anoop",
+    "profile_photo": "https://media.cricheroes.in/user_profile/default_user_profile_m.png?v=40199072",
+    "batting": {
+      "innings": 20,
+      "runs": 328,
+      "balls_faced": 210,
+      "highest_score": 58,
+      "highest_score_not_out": "",
+      "average": 25.23,
+      "strike_rate": 156.19,
+      "not_outs": 7,
+      "fours": 15,
+      "sixes": 31,
+      "fifties": 2,
+      "hundreds": 0
+    },
+    "bowling": {},
+    "fielding": {}
+  },
+  {
+    "player_id": 15123318,
+    "name": "Ashok Ramasamy",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1723380053668_dQFL34TK0iAz.jpg",
+    "batting": {
+      "innings": 25,
+      "runs": 232,
+      "balls_faced": 333,
+      "highest_score": 41,
+      "highest_score_not_out": "",
+      "average": 10.55,
+      "strike_rate": 69.67,
+      "not_outs": 3,
+      "fours": 17,
+      "sixes": 4,
+      "fifties": 0,
+      "hundreds": 0
+    },
+    "bowling": {},
+    "fielding": {
+      "matches": 29,
+      "catches": 8,
+      "caught_behind": 11,
+      "run_outs": 3,
+      "assisted_run_outs": 2,
+      "stumpings": 1,
+      "caught_and_bowled": 0,
+      "total_dismissals": 23
+    }
+  },
+  {
+    "player_id": 30986178,
+    "name": "Deepu Dileep",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1717775336839_K9JAedgnT0Ca.jpeg",
+    "batting": {
+      "innings": 22,
+      "runs": 680,
+      "balls_faced": 357,
+      "highest_score": 195,
+      "highest_score_not_out": "",
+      "average": 32.38,
+      "strike_rate": 190.48,
+      "not_outs": 1,
+      "fours": 43,
+      "sixes": 63,
+      "fifties": 3,
+      "hundreds": 1
+    },
+    "bowling": {},
+    "fielding": {
+      "matches": 22,
+      "catches": 7,
+      "caught_behind": 17,
+      "run_outs": 2,
+      "assisted_run_outs": 4,
+      "stumpings": 1,
+      "caught_and_bowled": 0,
+      "total_dismissals": 27
+    }
+  },
+  {
+    "player_id": 15030454,
+    "name": "Fahsan K P",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1750318555806_g1GHyfl5D9ru.jpeg",
+    "batting": {},
+    "bowling": {
+      "innings": 9,
+      "wickets": 10,
+      "overs": "18.0",
+      "runs_conceded": 11,
+      "best_figures": 3,
+      "economy": 6.83,
+      "average": 12.3,
+      "strike_rate": 10.8,
+      "maidens": 0
+    },
+    "fielding": {}
+  },
+  {
+    "player_id": 20462321,
+    "name": "JD",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1727465827495_QDZOfdKezXFM.jpeg",
+    "batting": {
+      "innings": 28,
+      "runs": 229,
+      "balls_faced": 191,
+      "highest_score": 49,
+      "highest_score_not_out": "",
+      "average": 10.9,
+      "strike_rate": 119.9,
+      "not_outs": 7,
+      "fours": 7,
+      "sixes": 21,
+      "fifties": 0,
+      "hundreds": 0
+    },
+    "bowling": {
+      "innings": 44,
+      "wickets": 52,
+      "overs": "122.2",
+      "runs_conceded": 15,
+      "best_figures": 4,
+      "economy": 7.46,
+      "average": 17.56,
+      "strike_rate": 14.12,
+      "maidens": 1
+    },
+    "fielding": {
+      "matches": 46,
+      "catches": 19,
+      "caught_behind": 0,
+      "run_outs": 4,
+      "assisted_run_outs": 0,
+      "stumpings": 0,
+      "caught_and_bowled": 1,
+      "total_dismissals": 24
+    }
+  },
+  {
+    "player_id": 30149791,
+    "name": "Kannan Unnikrishnan",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1715686487573_VBCxvK6xwgV0.jpg",
+    "batting": {},
+    "bowling": {
+      "innings": 10,
+      "wickets": 11,
+      "overs": "19.0",
+      "runs_conceded": 17,
+      "best_figures": 2,
+      "economy": 7.63,
+      "average": 13.18,
+      "strike_rate": 10.36,
+      "maidens": 0
+    },
+    "fielding": {}
+  },
+  {
+    "player_id": 30328308,
+    "name": "Kiran MV",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1715750143673_aSisreyQmv2d.jpeg",
+    "batting": {},
+    "bowling": {
+      "innings": 15,
+      "wickets": 12,
+      "overs": "31.2",
+      "runs_conceded": 9,
+      "best_figures": 4,
+      "economy": 6.86,
+      "average": 17.92,
+      "strike_rate": 15.67,
+      "maidens": 0
+    },
+    "fielding": {}
+  },
+  {
+    "player_id": 31865911,
+    "name": "Premjith PM",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1753261081746_8XsNHD6CENW1.jpeg",
+    "batting": {
+      "innings": 34,
+      "runs": 528,
+      "balls_faced": 399,
+      "highest_score": 52,
+      "highest_score_not_out": "",
+      "average": 16.5,
+      "strike_rate": 132.33,
+      "not_outs": 2,
+      "fours": 36,
+      "sixes": 38,
+      "fifties": 1,
+      "hundreds": 0
+    },
+    "bowling": {
+      "innings": 34,
+      "wickets": 49,
+      "overs": "88.0",
+      "runs_conceded": 20,
+      "best_figures": 4,
+      "economy": 7.18,
+      "average": 12.9,
+      "strike_rate": 10.78,
+      "maidens": 4
+    },
+    "fielding": {
+      "matches": 41,
+      "catches": 12,
+      "caught_behind": 2,
+      "run_outs": 2,
+      "assisted_run_outs": 5,
+      "stumpings": 0,
+      "caught_and_bowled": 1,
+      "total_dismissals": 17
+    }
+  },
+  {
+    "player_id": 14885534,
+    "name": "Ravi Shankar",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1657975384061_8FGXjlqIGr2r.jpeg",
+    "batting": {},
+    "bowling": {
+      "innings": 9,
+      "wickets": 10,
+      "overs": "26.2",
+      "runs_conceded": 25,
+      "best_figures": 3,
+      "economy": 5.35,
+      "average": 14.1,
+      "strike_rate": 15.8,
+      "maidens": 1
+    },
+    "fielding": {}
+  },
+  {
+    "player_id": 32945161,
+    "name": "Rithwik K V",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {
+      "innings": 25,
+      "runs": 289,
+      "balls_faced": 243,
+      "highest_score": 47,
+      "highest_score_not_out": "",
+      "average": 14.45,
+      "strike_rate": 118.93,
+      "not_outs": 5,
+      "fours": 18,
+      "sixes": 14,
+      "fifties": 0,
+      "hundreds": 0
+    },
+    "bowling": {},
+    "fielding": {
+      "matches": 29,
+      "catches": 7,
+      "caught_behind": 26,
+      "run_outs": 2,
+      "assisted_run_outs": 8,
+      "stumpings": 2,
+      "caught_and_bowled": 0,
+      "total_dismissals": 37
+    }
+  },
+  {
+    "player_id": 30144711,
+    "name": "Sherin Shamsudeen",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1753368067389_QmYyuYsp4yn4.jpeg",
+    "batting": {
+      "innings": 54,
+      "runs": 1137,
+      "balls_faced": 866,
+      "highest_score": 56,
+      "highest_score_not_out": "",
+      "average": 29.15,
+      "strike_rate": 131.29,
+      "not_outs": 15,
+      "fours": 53,
+      "sixes": 90,
+      "fifties": 5,
+      "hundreds": 0
+    },
+    "bowling": {},
+    "fielding": {
+      "matches": 55,
+      "catches": 23,
+      "caught_behind": 1,
+      "run_outs": 7,
+      "assisted_run_outs": 0,
+      "stumpings": 0,
+      "caught_and_bowled": 0,
+      "total_dismissals": 31
+    }
+  },
+  {
+    "player_id": 5552794,
+    "name": "Shiva Arsi",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1715171845416_YMouE0TnW3My.jpg",
+    "batting": {
+      "innings": 20,
+      "runs": 430,
+      "balls_faced": 339,
+      "highest_score": 60,
+      "highest_score_not_out": "*",
+      "average": 23.89,
+      "strike_rate": 126.84,
+      "not_outs": 2,
+      "fours": 42,
+      "sixes": 9,
+      "fifties": 3,
+      "hundreds": 0
+    },
+    "bowling": {},
+    "fielding": {
+      "matches": 22,
+      "catches": 16,
+      "caught_behind": 0,
+      "run_outs": 0,
+      "assisted_run_outs": 0,
+      "stumpings": 0,
+      "caught_and_bowled": 0,
+      "total_dismissals": 16
+    }
+  },
+  {
+    "player_id": 24040375,
+    "name": "Sid",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1750276613370_znEWMLpnox8u.jpeg",
+    "batting": {
+      "innings": 47,
+      "runs": 561,
+      "balls_faced": 484,
+      "highest_score": 61,
+      "highest_score_not_out": "*",
+      "average": 14.38,
+      "strike_rate": 115.91,
+      "not_outs": 8,
+      "fours": 34,
+      "sixes": 31,
+      "fifties": 1,
+      "hundreds": 0
+    },
+    "bowling": {},
+    "fielding": {
+      "matches": 54,
+      "catches": 13,
+      "caught_behind": 8,
+      "run_outs": 2,
+      "assisted_run_outs": 0,
+      "stumpings": 0,
+      "caught_and_bowled": 0,
+      "total_dismissals": 23
+    }
+  },
+  {
+    "player_id": 23042488,
+    "name": "Sony",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1746857713746_Ay1Ld2oXuhtI.jpeg",
+    "batting": {},
+    "bowling": {
+      "innings": 41,
+      "wickets": 57,
+      "overs": "120.2",
+      "runs_conceded": 14,
+      "best_figures": 4,
+      "economy": 6.29,
+      "average": 13.28,
+      "strike_rate": 12.67,
+      "maidens": 3
+    },
+    "fielding": {
+      "matches": 43,
+      "catches": 7,
+      "caught_behind": 0,
+      "run_outs": 8,
+      "assisted_run_outs": 1,
+      "stumpings": 0,
+      "caught_and_bowled": 2,
+      "total_dismissals": 17
+    }
+  },
+  {
+    "player_id": 21955591,
+    "name": "Sunil kumar Metta",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1749237892628_2QlmyJ7f1k28.jpeg",
+    "batting": {},
+    "bowling": {
+      "innings": 14,
+      "wickets": 19,
+      "overs": "45.5",
+      "runs_conceded": 17,
+      "best_figures": 3,
+      "economy": 5.32,
+      "average": 12.84,
+      "strike_rate": 14.47,
+      "maidens": 0
+    },
+    "fielding": {}
+  },
+  {
+    "player_id": 31156520,
+    "name": "Umesh Bh",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {
+      "innings": 20,
+      "runs": 341,
+      "balls_faced": 239,
+      "highest_score": 45,
+      "highest_score_not_out": "",
+      "average": 17.05,
+      "strike_rate": 142.68,
+      "not_outs": 0,
+      "fours": 17,
+      "sixes": 30,
+      "fifties": 0,
+      "hundreds": 0
+    },
+    "bowling": {
+      "innings": 20,
+      "wickets": 23,
+      "overs": "53.5",
+      "runs_conceded": 12,
+      "best_figures": 3,
+      "economy": 5.85,
+      "average": 13.7,
+      "strike_rate": 14.04,
+      "maidens": 3
+    },
+    "fielding": {}
+  },
+  {
+    "player_id": 26253785,
+    "name": "Yogi",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1752260716057_JR0kvppv7fIa.jpeg",
+    "batting": {},
+    "bowling": {
+      "innings": 42,
+      "wickets": 57,
+      "overs": "113.2",
+      "runs_conceded": 9,
+      "best_figures": 5,
+      "economy": 7.11,
+      "average": 14.14,
+      "strike_rate": 11.93,
+      "maidens": 2
+    },
+    "fielding": {
+      "matches": 45,
+      "catches": 10,
+      "caught_behind": 0,
+      "run_outs": 5,
+      "assisted_run_outs": 1,
+      "stumpings": 0,
+      "caught_and_bowled": 4,
+      "total_dismissals": 19
+    }
+  }
+]

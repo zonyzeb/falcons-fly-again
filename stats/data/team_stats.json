@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Matches",
+    "value": "38"
+  },
+  {
+    "label": "Wins",
+    "value": "17"
+  },
+  {
+    "label": "Losses",
+    "value": "20"
+  },
+  {
+    "label": "Ties",
+    "value": "0"
+  },
+  {
+    "label": "No Result",
+    "value": "1"
+  },
+  {
+    "label": "Win %",
+    "value": "44.7%"
+  }
+]

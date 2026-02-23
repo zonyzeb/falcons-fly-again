@@ -22,10 +22,12 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false,
 
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@stats/*": ["../stats/data/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../stats/data"]
 }
