@@ -49,6 +49,221 @@
       "player_name": "JD",
       "stat": "229 runs",
       "profile": "batting"
+    },
+    {
+      "player_name": "Kiran MV",
+      "stat": "203 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Yogi",
+      "stat": "166 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Arun u",
+      "stat": "150 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "SaiKrishna Gundeti",
+      "stat": "101 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Sony",
+      "stat": "92 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Cyril R",
+      "stat": "85 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Rajesh Bathula",
+      "stat": "72 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Fahsan K P",
+      "stat": "65 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Akash Temkar",
+      "stat": "62 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Vigram Raja",
+      "stat": "59 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Jithin T",
+      "stat": "58 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Ravi Shankar",
+      "stat": "53 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Naved Akhtar",
+      "stat": "50 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Divin Barachel",
+      "stat": "48 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Jeevan George",
+      "stat": "48 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Anbarasan Thamizharasan",
+      "stat": "41 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Sajid",
+      "stat": "40 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Sunil kumar Metta",
+      "stat": "33 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Naveen Kollanda Helenalund Cricket",
+      "stat": "32 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Kannan Unnikrishnan",
+      "stat": "31 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Tharun Raj",
+      "stat": "20 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Manikiran A",
+      "stat": "14 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Manideep Beri",
+      "stat": "13 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Srinivas Attaluri",
+      "stat": "12 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Praveen Helenalund Cricket",
+      "stat": "12 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Kranthi G",
+      "stat": "12 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Premjith PM",
+      "stat": "11 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Jeeva Nallusamy",
+      "stat": "8 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Rakesh Ravindran K",
+      "stat": "7 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Hariprasad M N",
+      "stat": "6 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Vignesh K",
+      "stat": "6 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Tinu",
+      "stat": "4 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Ajas M A",
+      "stat": "4 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Vishnu Ajithsuma",
+      "stat": "4 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Veera Rajkumar",
+      "stat": "3 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Yashas Paralath",
+      "stat": "3 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Mahesh Angadi",
+      "stat": "3 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Shahbaz Ahmed",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Anand TS",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Gaurav Arora",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Balaji Rajagopal",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Shinu",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Matthew Helenalund Cricket",
+      "stat": "1 runs",
+      "profile": "batting"
     }
   ],
   "bowling": [
@@ -101,6 +316,141 @@
       "player_name": "Fahsan K P",
       "stat": "10 wickets",
       "profile": "bowling"
+    },
+    {
+      "player_name": "Tinu",
+      "stat": "10 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Ajas M A",
+      "stat": "10 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Jeevan George",
+      "stat": "9 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Shiva Arsi",
+      "stat": "9 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Divin Barachel",
+      "stat": "9 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Vigram Raja",
+      "stat": "8 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Rithwik K V",
+      "stat": "8 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Mahesh Angadi",
+      "stat": "6 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Anbarasan Thamizharasan",
+      "stat": "5 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Praveen Helenalund Cricket",
+      "stat": "5 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Sherin Shamsudeen",
+      "stat": "3 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "SaiKrishna Gundeti",
+      "stat": "3 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Sid",
+      "stat": "3 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Jeeva Nallusamy",
+      "stat": "3 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Yashas Paralath",
+      "stat": "2 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Anand TS",
+      "stat": "2 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Anoop",
+      "stat": "2 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Srinivas Attaluri",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Manikiran A",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Gaurav Arora",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Matthew Helenalund Cricket",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Vishnu Ajithsuma",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Rajesh Bathula",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Ramasamy Vallinayagam",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Tharun Raj",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Cyril R",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "RishiBhai",
+      "stat": "1 wickets",
+      "profile": "bowling"
     }
   ],
   "fielding": [
@@ -152,6 +502,161 @@
     {
       "player_name": "Shiva Arsi",
       "stat": "16 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Anoop",
+      "stat": "15 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Umesh Bh",
+      "stat": "10 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Akash Temkar",
+      "stat": "9 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Kiran MV",
+      "stat": "7 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Divin Barachel",
+      "stat": "7 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Jeevan George",
+      "stat": "7 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Ravi Shankar",
+      "stat": "7 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Ajas M A",
+      "stat": "4 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Sunil kumar Metta",
+      "stat": "5 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Rajesh Bathula",
+      "stat": "3 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Mahesh Angadi",
+      "stat": "4 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Sajid",
+      "stat": "4 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Kannan Unnikrishnan",
+      "stat": "3 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Jeeva Nallusamy",
+      "stat": "3 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Praveen Helenalund Cricket",
+      "stat": "3 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Vishnu Ajithsuma",
+      "stat": "3 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Ravi Sweden",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Cyril R",
+      "stat": "0 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Vigram Raja",
+      "stat": "2 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Tinu",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Fahsan K P",
+      "stat": "2 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "SaiKrishna Gundeti",
+      "stat": "2 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Anand TS",
+      "stat": "0 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Balaji Rajagopal",
+      "stat": "0 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Shinu vs",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Gaurav Arora",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Srinivas Attaluri",
+      "stat": "0 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Rakesh Ravindran K",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Yashas Paralath",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Tharun Raj",
+      "stat": "0 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Naved Akhtar",
+      "stat": "1 catches",
       "profile": "fielding"
     }
   ]

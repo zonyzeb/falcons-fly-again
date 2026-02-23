@@ -303,15 +303,27 @@ def fetch_matches_safe(team_id, max_pages):
         raise
 
 
-def fetch_leaderboard_safe(team_id, category):
-    try:
-        payload = fetch_json(f"leaderboard/get-team-{category}-leaderboard/{team_id}")
-        return payload.get("data", [])
-    except RuntimeError as e:
-        if "no" in str(e).lower() and "found" in str(e).lower():
-            print(f"  No {category} leaderboard for team {team_id}")
-            return []
-        raise
+def fetch_leaderboard_safe(team_id, category, max_pages=10):
+    all_items = []
+    path = f"leaderboard/get-team-{category}-leaderboard/{team_id}"
+    pages = 0
+    while path and pages < max_pages:
+        try:
+            payload = fetch_json(path)
+        except RuntimeError as e:
+            if "no" in str(e).lower() and "found" in str(e).lower():
+                if pages == 0:
+                    print(f"  No {category} leaderboard for team {team_id}")
+                break
+            raise
+        data = payload.get("data", [])
+        if not data:
+            break
+        all_items.extend(data)
+        next_path = payload.get("page", {}).get("next")
+        path = next_path if next_path else None
+        pages += 1
+    return all_items
 
 
 def run():
