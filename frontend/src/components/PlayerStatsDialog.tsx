@@ -97,7 +97,6 @@ export function PlayerStatsDialog({ player, open, onOpenChange }: PlayerStatsDia
         { label: "Catches", value: val(field.catches), icon: Target, color: "from-cyan-400 to-blue-500" },
         { label: "Run Outs", value: val(field.run_outs), icon: Zap, color: "from-orange-400 to-red-500" },
         { label: "Stumpings", value: val(field.stumpings), icon: Shield, color: "from-teal-400 to-cyan-500" },
-        { label: "Dismissals", value: val(field.total_dismissals), icon: Award, color: "from-violet-400 to-purple-500" },
       ]
     : [];
 

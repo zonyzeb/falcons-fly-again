@@ -213,6 +213,89 @@ def build_players(items):
     return output
 
 
+def fetch_player_career_stats(player_id):
+    """Fetch complete career statistics for a player from the CricHeroes API."""
+    try:
+        payload = fetch_json(f"player/get-player-statistic/{player_id}", params={"pagesize": 100})
+        return payload.get("data", {}).get("statistics", {})
+    except Exception as e:
+        print(f"  Warning: could not fetch stats for player {player_id}: {e}")
+        return {}
+
+
+def stats_list_to_dict(items):
+    """Convert CricHeroes stats array [{"title": "Runs", "value": 216}, ...] to a dict."""
+    return {item["title"]: item["value"] for item in items if "title" in item}
+
+
+def parse_career_batting(raw_dict):
+    """Transform raw batting stats dict into our normalized format."""
+    if not raw_dict:
+        return {}
+    hs_raw = str(raw_dict.get("Highest Runs", "0"))
+    is_not_out = hs_raw.endswith("*")
+    hs_val = hs_raw.rstrip("*")
+    try:
+        hs_num = int(hs_val)
+    except ValueError:
+        hs_num = 0
+    return {
+        "matches": safe_int(raw_dict.get("Matches")),
+        "innings": safe_int(raw_dict.get("Innings")),
+        "not_outs": safe_int(raw_dict.get("Not out")),
+        "runs": safe_int(raw_dict.get("Runs")),
+        "highest_score": hs_num,
+        "highest_score_not_out": "*" if is_not_out else "",
+        "average": safe_float(raw_dict.get("Avg")),
+        "strike_rate": safe_float(raw_dict.get("SR")),
+        "thirties": safe_int(raw_dict.get("30s")),
+        "fifties": safe_int(raw_dict.get("50s")),
+        "hundreds": safe_int(raw_dict.get("100s")),
+        "fours": safe_int(raw_dict.get("4s")),
+        "sixes": safe_int(raw_dict.get("6s")),
+        "ducks": safe_int(raw_dict.get("Ducks")),
+    }
+
+
+def parse_career_bowling(raw_dict):
+    """Transform raw bowling stats dict into our normalized format."""
+    if not raw_dict:
+        return {}
+    return {
+        "matches": safe_int(raw_dict.get("Matches")),
+        "innings": safe_int(raw_dict.get("Innings")),
+        "overs": str(raw_dict.get("Overs", "0")),
+        "maidens": safe_int(raw_dict.get("Maidens")),
+        "wickets": safe_int(raw_dict.get("Wickets")),
+        "runs_conceded": safe_int(raw_dict.get("Runs")),
+        "best_figures": str(raw_dict.get("Best Bowling", "0/0")),
+        "three_wickets": safe_int(raw_dict.get("3 Wickets")),
+        "five_wickets": safe_int(raw_dict.get("5 Wickets")),
+        "economy": safe_float(raw_dict.get("Economy")),
+        "strike_rate": safe_float(raw_dict.get("SR")),
+        "average": safe_float(raw_dict.get("Avg")),
+        "wides": safe_int(raw_dict.get("Wides")),
+        "noballs": safe_int(raw_dict.get("NoBalls")),
+        "dot_balls": safe_int(raw_dict.get("Dot Balls")),
+        "fours_conceded": safe_int(raw_dict.get("4s")),
+        "sixes_conceded": safe_int(raw_dict.get("6s")),
+    }
+
+
+def parse_career_fielding(raw_dict):
+    """Transform raw fielding stats dict into our normalized format."""
+    if not raw_dict:
+        return {}
+    return {
+        "matches": safe_int(raw_dict.get("Matches")),
+        "catches": safe_int(raw_dict.get("Catches")),
+        "caught_behind": safe_int(raw_dict.get("Caught behind")),
+        "run_outs": safe_int(raw_dict.get("Run outs")),
+        "stumpings": safe_int(raw_dict.get("Stumpings")),
+        "assisted_run_outs": safe_int(raw_dict.get("Assisted Run Outs")),
+    }
+
+
 def safe_float(value, default=0.0):
     try:
         return float(value)
@@ -220,77 +303,29 @@ def safe_float(value, default=0.0):
         return default
 
 
-def build_player_stats(batting_data, bowling_data, fielding_data):
-    """Merge batting, bowling, and fielding leaderboard data into per-player stats."""
-    players = {}
-
-    def ensure_player(pid, item):
-        if pid not in players:
-            name = item.get("name") or ""
-            players[pid] = {
-                "player_id": pid,
-                "name": name,
-                "slug": make_slug(name),
-                "profile_photo": item.get("profile_photo") or "",
-                "batting": {},
-                "bowling": {},
-                "fielding": {},
-            }
-
-    for item in batting_data:
-        pid = item.get("player_id")
-        if not pid:
-            continue
-        ensure_player(pid, item)
-        players[pid]["batting"] = {
-                "innings": safe_int(item.get("innings")),
-                "runs": safe_int(item.get("total_runs")),
-                "balls_faced": safe_int(item.get("ball_faced")),
-                "highest_score": safe_int(item.get("highest_run")),
-                "highest_score_not_out": item.get("highest_run_with_not_out") or "",
-                "average": safe_float(item.get("average")),
-                "strike_rate": safe_float(item.get("strike_rate")),
-                "not_outs": safe_int(item.get("not_out")),
-                "fours": safe_int(item.get("4s")),
-                "sixes": safe_int(item.get("6s")),
-                "fifties": safe_int(item.get("50s")),
-                "hundreds": safe_int(item.get("100s")),
+def build_player_stats_from_api(player_id, name, slug, profile_photo):
+    """Fetch and transform career stats for a single player."""
+    raw = fetch_player_career_stats(player_id)
+    if not raw:
+        return {
+            "player_id": player_id, "name": name, "slug": slug,
+            "profile_photo": profile_photo,
+            "batting": {}, "bowling": {}, "fielding": {},
         }
 
-    for item in bowling_data:
-        pid = item.get("player_id")
-        if not pid:
-            continue
-        ensure_player(pid, item)
-        players[pid]["bowling"] = {
-            "innings": safe_int(item.get("innings")),
-            "wickets": safe_int(item.get("total_wickets")),
-            "overs": item.get("overs") or "0",
-            "runs_conceded": safe_int(item.get("runs")),
-            "best_figures": safe_int(item.get("highest_wicket")),
-            "economy": safe_float(item.get("economy")),
-            "average": safe_float(item.get("avg")),
-            "strike_rate": safe_float(item.get("SR")),
-            "maidens": safe_int(item.get("maidens")),
-        }
+    bat_dict = stats_list_to_dict(raw.get("batting", []))
+    bowl_dict = stats_list_to_dict(raw.get("bowling", []))
+    field_dict = stats_list_to_dict(raw.get("fielding", []))
 
-    for item in fielding_data:
-        pid = item.get("player_id")
-        if not pid:
-            continue
-        ensure_player(pid, item)
-        players[pid]["fielding"] = {
-            "matches": safe_int(item.get("total_match")),
-            "catches": safe_int(item.get("catches")),
-            "caught_behind": safe_int(item.get("caught_behind")),
-            "run_outs": safe_int(item.get("run_outs")),
-            "assisted_run_outs": safe_int(item.get("assist_run_outs")),
-            "stumpings": safe_int(item.get("stumpings")),
-            "caught_and_bowled": safe_int(item.get("caught_and_bowl")),
-            "total_dismissals": safe_int(item.get("total_dismissal")),
-        }
-
-    return sorted(players.values(), key=lambda p: p.get("name", ""))
+    return {
+        "player_id": player_id,
+        "name": name,
+        "slug": slug,
+        "profile_photo": profile_photo,
+        "batting": parse_career_batting(bat_dict),
+        "bowling": parse_career_bowling(bowl_dict),
+        "fielding": parse_career_fielding(field_dict),
+    }
 
 
 def fetch_matches_safe(team_id, max_pages):
@@ -360,9 +395,8 @@ def run():
 
     team_stats = build_team_stats(combined_raw, {TEAM_ID, LEGACY_TEAM_ID})
 
-    # Leaderboard: fetch from both teams and merge (current team data wins on conflicts)
+    # Leaderboard (kept for quick summary on homepage)
     print("Fetching leaderboards...")
-    raw_leaderboards = {}
     leaderboard = {}
     for category in ("batting", "bowling", "fielding"):
         legacy_items = fetch_leaderboard_safe(LEGACY_TEAM_ID, category)
@@ -377,32 +411,28 @@ def run():
         for item in legacy_items:
             if item.get("player_id") not in seen_pids:
                 merged.append(item)
-        raw_leaderboards[category] = merged
         leaderboard[category] = build_leaderboard(category, merged)
 
-    # Per-player stats merged from all leaderboards
-    print("Building player stats...")
-    player_stats = build_player_stats(
-        raw_leaderboards.get("batting", []),
-        raw_leaderboards.get("bowling", []),
-        raw_leaderboards.get("fielding", []),
-    )
-    print(f"  Stats for {len(player_stats)} players")
-
-    # Ensure every roster player has an entry in player_stats
-    stats_by_pid = {s["player_id"]: s for s in player_stats}
-    for p in players:
+    # Fetch career stats for each roster player via the player stats API
+    print(f"Fetching career stats for {len(players)} players...")
+    player_stats = []
+    for i, p in enumerate(players):
         pid = p.get("player_id")
-        if pid and pid not in stats_by_pid:
+        name = p.get("name", "")
+        slug = p.get("slug", make_slug(name))
+        photo = p.get("profile_pic_url", "")
+        if pid:
+            entry = build_player_stats_from_api(pid, name, slug, photo)
+            player_stats.append(entry)
+            match_count = entry.get("batting", {}).get("matches", 0) or entry.get("bowling", {}).get("matches", 0)
+            print(f"  [{i + 1}/{len(players)}] {name}: {match_count} matches")
+        else:
             player_stats.append({
-                "player_id": pid,
-                "name": p["name"],
-                "slug": p["slug"],
-                "profile_photo": p.get("profile_pic_url", ""),
-                "batting": {},
-                "bowling": {},
-                "fielding": {},
+                "player_id": pid, "name": name, "slug": slug,
+                "profile_photo": photo,
+                "batting": {}, "bowling": {}, "fielding": {},
             })
+        time.sleep(0.3)
     player_stats.sort(key=lambda p: p.get("name", ""))
 
     save_json("players.json", players)

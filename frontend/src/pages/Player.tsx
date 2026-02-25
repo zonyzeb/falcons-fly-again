@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, ExternalLink, Trophy, Target, Flame, TrendingUp, Award, Zap, Crosshair, CircleDot, Percent, Star, Shield } from "lucide-react";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { GradientMesh } from "@/components/ui/GradientMesh";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { getPlayerBySlug, getRosterPlayer } from "@/data/stats";
@@ -48,11 +50,15 @@ export default function PlayerPage() {
 
   if (!stats && !roster) {
     return (
-      <div className="min-h-screen bg-falcon-navy flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-display font-bold text-falcon-cream mb-4">Player not found</h1>
-          <Link to="/" className="text-falcon-gold hover:underline">Back to home</Link>
+      <div className="min-h-screen bg-falcon-navy">
+        <Header />
+        <div className="flex items-center justify-center" style={{ minHeight: "60vh" }}>
+          <div className="text-center">
+            <h1 className="text-4xl font-display font-bold text-falcon-cream mb-4">Player not found</h1>
+            <Link to="/" className="text-falcon-gold hover:underline">Back to home</Link>
+          </div>
         </div>
+        <Footer />
       </div>
     );
   }
@@ -72,47 +78,55 @@ export default function PlayerPage() {
   const hasAnyStats = hasBatting || hasBowling || hasFielding;
 
   const battingCards = hasBatting ? [
-    { label: "Innings", value: val(bat.innings), icon: Trophy, color: "from-falcon-gold to-amber-500" },
+    { label: "Matches", value: val(bat.matches), icon: Trophy, color: "from-falcon-gold to-amber-500" },
+    { label: "Innings", value: val(bat.innings), icon: Trophy, color: "from-amber-400 to-orange-500" },
     { label: "Runs", value: val(bat.runs), icon: TrendingUp, color: "from-emerald-400 to-green-500" },
     { label: "Average", value: val(bat.average), icon: Percent, color: "from-cyan-400 to-blue-500" },
     { label: "Strike Rate", value: val(bat.strike_rate), icon: Zap, color: "from-rose-400 to-red-500" },
-    { label: "High Score", value: bat.highest_score_not_out ? `${bat.highest_score}*` : val(bat.highest_score), icon: Star, color: "from-violet-400 to-purple-500" },
+    { label: "High Score", value: bat.highest_score_not_out ? `${bat.highest_score}${bat.highest_score_not_out}` : val(bat.highest_score), icon: Star, color: "from-violet-400 to-purple-500" },
     { label: "Not Outs", value: val(bat.not_outs), icon: Shield, color: "from-teal-400 to-cyan-500" },
+    { label: "30s", value: val(bat.thirties), icon: Award, color: "from-lime-400 to-green-500" },
     { label: "50s", value: val(bat.fifties), icon: Award, color: "from-amber-400 to-orange-500" },
     { label: "100s", value: val(bat.hundreds), icon: Award, color: "from-falcon-gold to-yellow-500" },
     { label: "4s", value: val(bat.fours), icon: Crosshair, color: "from-orange-400 to-amber-500" },
     { label: "6s", value: val(bat.sixes), icon: Flame, color: "from-pink-400 to-rose-500" },
-    { label: "Balls Faced", value: val(bat.balls_faced), icon: CircleDot, color: "from-slate-400 to-gray-500" },
+    { label: "Ducks", value: val(bat.ducks), icon: CircleDot, color: "from-slate-400 to-gray-500" },
   ] : [];
 
   const bowlingCards = hasBowling ? [
-    { label: "Innings", value: val(bowl.innings), icon: Trophy, color: "from-falcon-gold to-amber-500" },
+    { label: "Matches", value: val(bowl.matches), icon: Trophy, color: "from-falcon-gold to-amber-500" },
+    { label: "Innings", value: val(bowl.innings), icon: Trophy, color: "from-amber-400 to-orange-500" },
     { label: "Wickets", value: val(bowl.wickets), icon: Target, color: "from-rose-400 to-red-500" },
+    { label: "Overs", value: val(bowl.overs), icon: CircleDot, color: "from-slate-400 to-gray-500" },
     { label: "Economy", value: val(bowl.economy), icon: TrendingUp, color: "from-emerald-400 to-green-500" },
     { label: "Average", value: val(bowl.average), icon: Percent, color: "from-cyan-400 to-blue-500" },
     { label: "Strike Rate", value: val(bowl.strike_rate), icon: Zap, color: "from-orange-400 to-amber-500" },
     { label: "Best Figures", value: val(bowl.best_figures), icon: Star, color: "from-violet-400 to-purple-500" },
-    { label: "Overs", value: val(bowl.overs), icon: CircleDot, color: "from-slate-400 to-gray-500" },
-    { label: "Runs Conceded", value: val(bowl.runs_conceded), icon: Flame, color: "from-pink-400 to-rose-500" },
+    { label: "Runs Given", value: val(bowl.runs_conceded), icon: Flame, color: "from-pink-400 to-rose-500" },
     { label: "Maidens", value: val(bowl.maidens), icon: Shield, color: "from-teal-400 to-cyan-500" },
+    { label: "3 Wickets", value: val(bowl.three_wickets), icon: Award, color: "from-violet-400 to-indigo-500" },
+    { label: "5 Wickets", value: val(bowl.five_wickets), icon: Award, color: "from-falcon-gold to-yellow-500" },
+    { label: "Dot Balls", value: val(bowl.dot_balls), icon: CircleDot, color: "from-gray-400 to-slate-500" },
+    { label: "Wides", value: val(bowl.wides), icon: Crosshair, color: "from-amber-400 to-orange-500" },
+    { label: "No Balls", value: val(bowl.noballs), icon: Award, color: "from-red-400 to-rose-500" },
   ] : [];
 
   const fieldingCards = hasFielding ? [
     { label: "Matches", value: val(field.matches), icon: Trophy, color: "from-falcon-gold to-amber-500" },
     { label: "Catches", value: val(field.catches), icon: Target, color: "from-cyan-400 to-blue-500" },
+    { label: "Caught Behind", value: val(field.caught_behind), icon: Target, color: "from-sky-400 to-blue-500" },
     { label: "Run Outs", value: val(field.run_outs), icon: Zap, color: "from-orange-400 to-red-500" },
     { label: "Stumpings", value: val(field.stumpings), icon: Shield, color: "from-teal-400 to-cyan-500" },
-    { label: "Caught Behind", value: val(field.caught_behind), icon: Target, color: "from-violet-400 to-purple-500" },
-    { label: "Caught & Bowled", value: val(field.caught_and_bowled), icon: Crosshair, color: "from-emerald-400 to-green-500" },
-    { label: "Assisted Run Outs", value: val(field.assisted_run_outs), icon: Award, color: "from-amber-400 to-orange-500" },
-    { label: "Total Dismissals", value: val(field.total_dismissals), icon: Star, color: "from-rose-400 to-red-500" },
+    { label: "Assisted Run Outs", value: val(field.assisted_run_outs), icon: Zap, color: "from-amber-400 to-orange-500" },
   ] : [];
 
   return (
-    <div className="min-h-screen bg-falcon-navy relative">
-      <GradientMesh variant="hero" />
+    <div className="min-h-screen bg-falcon-navy">
+      <Header />
+      <div className="relative">
+        <GradientMesh variant="hero" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 py-8">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 pt-24 pb-12">
         {/* Back link */}
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
           <Link
@@ -238,6 +252,8 @@ export default function PlayerPage() {
           </motion.section>
         )}
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

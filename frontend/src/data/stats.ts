@@ -41,30 +41,40 @@ export interface Leaderboard {
 }
 
 export interface BattingStats {
+  matches: number;
   innings: number;
+  not_outs: number;
   runs: number;
-  balls_faced: number;
   highest_score: number;
   highest_score_not_out: string;
   average: number;
   strike_rate: number;
-  not_outs: number;
-  fours: number;
-  sixes: number;
+  thirties: number;
   fifties: number;
   hundreds: number;
+  fours: number;
+  sixes: number;
+  ducks: number;
 }
 
 export interface BowlingStats {
+  matches: number;
   innings: number;
-  wickets: number;
   overs: string;
-  runs_conceded: number;
-  best_figures: number;
-  economy: number;
-  average: number;
-  strike_rate: number;
   maidens: number;
+  wickets: number;
+  runs_conceded: number;
+  best_figures: string;
+  three_wickets: number;
+  five_wickets: number;
+  economy: number;
+  strike_rate: number;
+  average: number;
+  wides: number;
+  noballs: number;
+  dot_balls: number;
+  fours_conceded: number;
+  sixes_conceded: number;
 }
 
 export interface FieldingStats {
@@ -72,10 +82,8 @@ export interface FieldingStats {
   catches: number;
   caught_behind: number;
   run_outs: number;
-  assisted_run_outs: number;
   stumpings: number;
-  caught_and_bowled: number;
-  total_dismissals: number;
+  assisted_run_outs: number;
 }
 
 export interface PlayerStatsEntry {
