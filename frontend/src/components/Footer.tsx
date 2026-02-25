@@ -1,9 +1,22 @@
 import { forwardRef } from "react";
 import { Mail, MapPin, Instagram, Twitter, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 import falconsLogo from "@/assets/falcons-logo.png";
 
 export const Footer = forwardRef<HTMLElement>((_, ref) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
+
+  const handleNavClick = (hash: string) => {
+    if (isHome) {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${hash}`);
+    }
+  };
+
   return (
     <footer ref={ref} id="contact" className="bg-falcon-navy py-20 px-4 relative overflow-hidden">
       {/* Subtle gradient orbs */}
@@ -57,18 +70,25 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
               Quick Links
             </h3>
             <nav className="space-y-3">
-              {["About", "The Squad", "Matches", "Gallery", "Join Us"].map((link, index) => (
+              {[
+                { label: "About", hash: "about" },
+                { label: "The Squad", hash: "team" },
+                { label: "Matches", hash: "matches" },
+                { label: "Gallery", hash: "gallery" },
+                { label: "Join Us", hash: "join" },
+              ].map((link, index) => (
                 <motion.a
-                  key={link}
-                  href={`#${link.toLowerCase().replace(" ", "-")}`}
+                  key={link.hash}
+                  href={`/#${link.hash}`}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.hash); }}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 + index * 0.05 }}
                   whileHover={{ x: 4 }}
-                  className="block text-falcon-cream/60 hover:text-falcon-gold transition-colors"
+                  className="block text-falcon-cream/60 hover:text-falcon-gold transition-colors cursor-pointer"
                 >
-                  {link}
+                  {link.label}
                 </motion.a>
               ))}
             </nav>

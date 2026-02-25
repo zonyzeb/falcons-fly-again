@@ -1,22 +1,35 @@
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import falconsLogo from "@/assets/falcons-logo.png";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#team", label: "The Squad" },
-  { href: "#matches", label: "Matches" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#join", label: "Join Us" },
-  { href: "#contact", label: "Contact" },
+  { hash: "home", label: "Home" },
+  { hash: "about", label: "About" },
+  { hash: "team", label: "The Squad" },
+  { hash: "matches", label: "Matches" },
+  { hash: "gallery", label: "Gallery" },
+  { hash: "join", label: "Join Us" },
+  { hash: "contact", label: "Contact" },
 ];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === "/";
+
+  const handleNavClick = (hash: string) => {
+    setIsOpen(false);
+    if (isHome) {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${hash}`);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,8 +54,9 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.a
-            href="#home"
-            className="flex items-center gap-2"
+            href="/#home"
+            onClick={(e) => { e.preventDefault(); handleNavClick("home"); }}
+            className="flex items-center gap-2 cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
@@ -53,12 +67,13 @@ export function Header() {
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link, index) => (
               <motion.a
-                key={link.href}
-                href={link.href}
+                key={link.hash}
+                href={`/#${link.hash}`}
+                onClick={(e) => { e.preventDefault(); handleNavClick(link.hash); }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="relative px-4 py-2 text-falcon-cream/80 hover:text-falcon-gold transition-colors duration-200 font-medium text-sm group"
+                className="relative px-4 py-2 text-falcon-cream/80 hover:text-falcon-gold transition-colors duration-200 font-medium text-sm group cursor-pointer"
               >
                 {link.label}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-falcon-gold group-hover:w-3/4 transition-all duration-300" />
@@ -99,13 +114,13 @@ export function Header() {
               <div className="flex flex-col gap-2 glass-dark rounded-2xl p-4 mt-2">
                 {navLinks.map((link, index) => (
                   <motion.a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    key={link.hash}
+                    href={`/#${link.hash}`}
+                    onClick={(e) => { e.preventDefault(); handleNavClick(link.hash); }}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="px-4 py-3 text-falcon-cream/80 hover:text-falcon-gold hover:bg-falcon-navy-light/50 rounded-xl transition-all duration-200 font-medium"
+                    className="px-4 py-3 text-falcon-cream/80 hover:text-falcon-gold hover:bg-falcon-navy-light/50 rounded-xl transition-all duration-200 font-medium cursor-pointer"
                   >
                     {link.label}
                   </motion.a>
