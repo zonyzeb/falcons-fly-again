@@ -11,8 +11,12 @@ import { lazy, Suspense } from "react";
 
 const AdminLayout = lazy(() => import("@/admin/components/AdminLayout"));
 const LoginPage = lazy(() => import("@/admin/pages/Login"));
+const MatchSetupPage = lazy(() => import("@/admin/pages/MatchSetup"));
 const SquadPage = lazy(() => import("@/admin/pages/Squad"));
 const CombinationsPage = lazy(() => import("@/admin/pages/Combinations"));
+const BattingAnalysisPage = lazy(() => import("@/admin/pages/BattingAnalysis"));
+const BowlingAnalysisPage = lazy(() => import("@/admin/pages/BowlingAnalysis"));
+const ImpactStrategyPage = lazy(() => import("@/admin/pages/ImpactStrategy"));
 const MatchesPage = lazy(() => import("@/admin/pages/Matches"));
 const InsightsPage = lazy(() => import("@/admin/pages/Insights"));
 const AvailabilityPage = lazy(() => import("@/admin/pages/Availability"));
@@ -42,8 +46,12 @@ const App = () => (
             <Route path="/admin">
               <Route index element={<LoginPage />} />
               <Route element={<RequireAuth><AdminLayout /></RequireAuth>}>
+                <Route path="setup" element={<MatchSetupPage />} />
                 <Route path="squad" element={<SquadPage />} />
                 <Route path="combinations" element={<CombinationsPage />} />
+                <Route path="batting" element={<BattingAnalysisPage />} />
+                <Route path="bowling" element={<BowlingAnalysisPage />} />
+                <Route path="impact" element={<ImpactStrategyPage />} />
                 <Route path="matches" element={<MatchesPage />} />
                 <Route path="insights" element={<InsightsPage />} />
                 <Route path="availability" element={<AvailabilityPage />} />
