@@ -1,0 +1,10 @@
+{
+  "name": "falcons-cricket-club",
+  "private": true,
+  "scripts": {
+    "preinstall": "cd frontend && npm install",
+    "dev": "cd frontend && npx vite",
+    "build": "cd frontend && npm run build",
+    "test": "cd frontend && npm run test"
+  }
+}
