@@ -20,6 +20,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,8 +45,8 @@ export function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-falcon-navy/90 backdrop-blur-xl shadow-[0_4px_30px_-10px_hsl(220_50%_5%_/_0.3)]"
+        scrolled || !isHome
+          ? "bg-falcon-navy/95 backdrop-blur-xl shadow-[0_4px_30px_-10px_hsl(220_50%_5%_/_0.3)]"
           : "bg-transparent"
       }`}
     >
