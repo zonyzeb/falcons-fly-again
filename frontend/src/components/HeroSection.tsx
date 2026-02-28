@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { GradientMesh } from "@/components/ui/GradientMesh";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-cricket.jpg";
 
 export function HeroSection() {
@@ -115,7 +116,7 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="hero" size="xl" asChild className="group relative overflow-hidden">
-              <a href="#matches">
+              <Link to="/matches">
                 <span className="relative z-10">Match Schedule</span>
                 <motion.div
                   className="absolute inset-0 bg-falcon-gold-light/20"
@@ -123,10 +124,10 @@ export function HeroSection() {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.5 }}
                 />
-              </a>
+              </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild className="group backdrop-blur-sm">
-              <a href="#about">About the Falcons</a>
+              <Link to="/about">About the Falcons</Link>
             </Button>
           </motion.div>
         </div>

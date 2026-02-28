@@ -1,31 +1,17 @@
 import { forwardRef } from "react";
 import { Mail, MapPin, Instagram, Twitter, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import falconsLogo from "@/assets/falcons-logo.png";
 
 export const Footer = forwardRef<HTMLElement>((_, ref) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isHome = location.pathname === "/";
-
-  const handleNavClick = (hash: string) => {
-    if (isHome) {
-      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate(`/#${hash}`);
-    }
-  };
-
   return (
-    <footer ref={ref} id="contact" className="bg-falcon-navy py-20 px-4 relative overflow-hidden">
-      {/* Subtle gradient orbs */}
+    <footer ref={ref} className="bg-falcon-navy py-20 px-4 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-falcon-gold/5 rounded-full blur-[100px]" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-falcon-gold/5 rounded-full blur-[80px]" />
       
       <div className="falcon-container relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +45,6 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -71,30 +56,31 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
             </h3>
             <nav className="space-y-3">
               {[
-                { label: "About", hash: "about" },
-                { label: "The Squad", hash: "team" },
-                { label: "Matches", hash: "matches" },
-                { label: "Gallery", hash: "gallery" },
-                { label: "Join Us", hash: "join" },
+                { label: "About", to: "/about" },
+                { label: "The Squad", to: "/team" },
+                { label: "Matches", to: "/matches" },
+                { label: "Gallery", to: "/gallery" },
+                { label: "Join Us", to: "/join" },
+                { label: "Contact", to: "/contact" },
               ].map((link, index) => (
-                <motion.a
-                  key={link.hash}
-                  href={`/#${link.hash}`}
-                  onClick={(e) => { e.preventDefault(); handleNavClick(link.hash); }}
+                <motion.div
+                  key={link.to}
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 + index * 0.05 }}
-                  whileHover={{ x: 4 }}
-                  className="block text-falcon-cream/60 hover:text-falcon-gold transition-colors cursor-pointer"
                 >
-                  {link.label}
-                </motion.a>
+                  <Link
+                    to={link.to}
+                    className="block text-falcon-cream/60 hover:text-falcon-gold transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
           </motion.div>
 
-          {/* Social & Newsletter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -127,7 +113,6 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
           </motion.div>
         </div>
 
-        {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -135,12 +120,14 @@ export const Footer = forwardRef<HTMLElement>((_, ref) => {
           transition={{ delay: 0.4 }}
           className="mt-16 pt-8 border-t border-falcon-grey/20 flex flex-col md:flex-row items-center justify-between gap-6"
         >
-          <motion.img
-            whileHover={{ scale: 1.05 }}
-            src={falconsLogo}
-            alt="Falcons Cricket Club"
-            className="h-14 w-auto"
-          />
+          <Link to="/">
+            <motion.img
+              whileHover={{ scale: 1.05 }}
+              src={falconsLogo}
+              alt="Falcons Cricket Club"
+              className="h-14 w-auto"
+            />
+          </Link>
           <p className="text-falcon-cream/40 text-sm text-center md:text-right">
             © 2026 Falcons Cricket Club.{" "}
             <span className="text-falcon-gold/60">Play with Pride. Fly as One.</span>

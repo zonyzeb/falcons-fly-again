@@ -55,7 +55,7 @@ export default function PlayerPage() {
         <div className="flex items-center justify-center" style={{ minHeight: "60vh" }}>
           <div className="text-center">
             <h1 className="text-4xl font-display font-bold text-falcon-cream mb-4">Player not found</h1>
-            <Link to="/" className="text-falcon-gold hover:underline">Back to home</Link>
+            <Link to="/team" className="text-falcon-gold hover:underline">Back to Squad</Link>
           </div>
         </div>
         <Footer />
@@ -130,7 +130,7 @@ export default function PlayerPage() {
         {/* Back link */}
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
           <Link
-            to="/#team"
+            to="/team"
             className="inline-flex items-center gap-2 text-falcon-gold hover:text-falcon-gold-light transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />

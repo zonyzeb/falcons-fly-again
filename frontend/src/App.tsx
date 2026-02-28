@@ -3,11 +3,19 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
+import { PublicLayout } from "@/components/PublicLayout";
 import Player from "./pages/Player";
 import NotFound from "./pages/NotFound";
 import { isAuthenticated } from "@/admin/store";
 import { lazy, Suspense } from "react";
+
+const HomePage = lazy(() => import("@/pages/Home"));
+const AboutPage = lazy(() => import("@/pages/About"));
+const TeamPage = lazy(() => import("@/pages/Team"));
+const MatchesPublicPage = lazy(() => import("@/pages/Matches"));
+const GalleryPage = lazy(() => import("@/pages/Gallery"));
+const JoinUsPage = lazy(() => import("@/pages/JoinUs"));
+const ContactPage = lazy(() => import("@/pages/Contact"));
 
 const AdminLayout = lazy(() => import("@/admin/components/AdminLayout"));
 const LoginPage = lazy(() => import("@/admin/pages/Login"));
@@ -17,7 +25,7 @@ const CombinationsPage = lazy(() => import("@/admin/pages/Combinations"));
 const BattingAnalysisPage = lazy(() => import("@/admin/pages/BattingAnalysis"));
 const BowlingAnalysisPage = lazy(() => import("@/admin/pages/BowlingAnalysis"));
 const ImpactStrategyPage = lazy(() => import("@/admin/pages/ImpactStrategy"));
-const MatchesPage = lazy(() => import("@/admin/pages/Matches"));
+const AdminMatchesPage = lazy(() => import("@/admin/pages/Matches"));
 const InsightsPage = lazy(() => import("@/admin/pages/Insights"));
 const AvailabilityPage = lazy(() => import("@/admin/pages/Availability"));
 
@@ -41,8 +49,21 @@ const App = () => (
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="/" element={<Index />} />
+            {/* Public pages with shared Header + Footer */}
+            <Route element={<PublicLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/team" element={<TeamPage />} />
+              <Route path="/matches" element={<MatchesPublicPage />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/join" element={<JoinUsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Route>
+
+            {/* Player page has its own Header/Footer */}
             <Route path="/player/:slug" element={<Player />} />
+
+            {/* Admin */}
             <Route path="/admin">
               <Route index element={<LoginPage />} />
               <Route element={<RequireAuth><AdminLayout /></RequireAuth>}>
@@ -52,11 +73,12 @@ const App = () => (
                 <Route path="batting" element={<BattingAnalysisPage />} />
                 <Route path="bowling" element={<BowlingAnalysisPage />} />
                 <Route path="impact" element={<ImpactStrategyPage />} />
-                <Route path="matches" element={<MatchesPage />} />
+                <Route path="matches" element={<AdminMatchesPage />} />
                 <Route path="insights" element={<InsightsPage />} />
                 <Route path="availability" element={<AvailabilityPage />} />
               </Route>
             </Route>
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

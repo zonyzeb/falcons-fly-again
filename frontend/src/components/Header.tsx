@@ -1,18 +1,18 @@
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import falconsLogo from "@/assets/falcons-logo.png";
 
 const navLinks = [
-  { hash: "home", label: "Home" },
-  { hash: "about", label: "About" },
-  { hash: "team", label: "The Squad" },
-  { hash: "matches", label: "Matches" },
-  { hash: "gallery", label: "Gallery" },
-  { hash: "join", label: "Join Us" },
-  { hash: "contact", label: "Contact" },
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/team", label: "The Squad" },
+  { to: "/matches", label: "Matches" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/join", label: "Join Us" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -20,16 +20,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isHome = location.pathname === "/";
-
-  const handleNavClick = (hash: string) => {
-    setIsOpen(false);
-    if (isHome) {
-      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      navigate(`/#${hash}`);
-    }
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +28,15 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  const handleNavClick = (to: string) => {
+    setIsOpen(false);
+    navigate(to);
+  };
 
   return (
     <motion.header
@@ -52,45 +51,50 @@ export function Header() {
     >
       <div className="falcon-container">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <motion.a
-            href="/#home"
-            onClick={(e) => { e.preventDefault(); handleNavClick("home"); }}
-            className="flex items-center gap-2 cursor-pointer"
+          <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <img src={falconsLogo} alt="Falcons Cricket Club" className="h-12 md:h-14 w-auto" />
-          </motion.a>
+            <Link to="/" className="flex items-center gap-2">
+              <img src={falconsLogo} alt="Falcons Cricket Club" className="h-12 md:h-14 w-auto" />
+            </Link>
+          </motion.div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={link.hash}
-                href={`/#${link.hash}`}
-                onClick={(e) => { e.preventDefault(); handleNavClick(link.hash); }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="relative px-4 py-2 text-falcon-cream/80 hover:text-falcon-gold transition-colors duration-200 font-medium text-sm group cursor-pointer"
-              >
-                {link.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-falcon-gold group-hover:w-3/4 transition-all duration-300" />
-              </motion.a>
-            ))}
+            {navLinks.map((link, index) => {
+              const isActive = location.pathname === link.to;
+              return (
+                <motion.div
+                  key={link.to}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <Link
+                    to={link.to}
+                    className={`relative px-4 py-2 transition-colors duration-200 font-medium text-sm group ${
+                      isActive ? "text-falcon-gold" : "text-falcon-cream/80 hover:text-falcon-gold"
+                    }`}
+                  >
+                    {link.label}
+                    <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-falcon-gold transition-all duration-300 ${
+                      isActive ? "w-3/4" : "w-0 group-hover:w-3/4"
+                    }`} />
+                  </Link>
+                </motion.div>
+              );
+            })}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: 0.4 }}
             >
-              <Button variant="gold" size="sm" className="ml-4 glow-gold-subtle">
-                Get in Touch
+              <Button variant="gold" size="sm" className="ml-4 glow-gold-subtle" asChild>
+                <Link to="/contact">Get in Touch</Link>
               </Button>
             </motion.div>
           </nav>
 
-          {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
@@ -101,7 +105,6 @@ export function Header() {
           </motion.button>
         </div>
 
-        {/* Mobile Navigation */}
         <AnimatePresence>
           {isOpen && (
             <motion.nav
@@ -112,21 +115,29 @@ export function Header() {
               className="lg:hidden pb-6 overflow-hidden"
             >
               <div className="flex flex-col gap-2 glass-dark rounded-2xl p-4 mt-2">
-                {navLinks.map((link, index) => (
-                  <motion.a
-                    key={link.hash}
-                    href={`/#${link.hash}`}
-                    onClick={(e) => { e.preventDefault(); handleNavClick(link.hash); }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="px-4 py-3 text-falcon-cream/80 hover:text-falcon-gold hover:bg-falcon-navy-light/50 rounded-xl transition-all duration-200 font-medium cursor-pointer"
-                  >
-                    {link.label}
-                  </motion.a>
-                ))}
-                <Button variant="gold" className="mt-4">
-                  Get in Touch
+                {navLinks.map((link, index) => {
+                  const isActive = location.pathname === link.to;
+                  return (
+                    <motion.div
+                      key={link.to}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                    >
+                      <Link
+                        to={link.to}
+                        onClick={() => setIsOpen(false)}
+                        className={`block px-4 py-3 rounded-xl transition-all duration-200 font-medium ${
+                          isActive ? "text-falcon-gold bg-falcon-navy-light/50" : "text-falcon-cream/80 hover:text-falcon-gold hover:bg-falcon-navy-light/50"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+                <Button variant="gold" className="mt-4" asChild>
+                  <Link to="/contact" onClick={() => setIsOpen(false)}>Get in Touch</Link>
                 </Button>
               </div>
             </motion.nav>
