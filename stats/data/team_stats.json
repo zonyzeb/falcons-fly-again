@@ -5,11 +5,11 @@
   },
   {
     "label": "Wins",
-    "value": "17"
+    "value": "19"
   },
   {
     "label": "Losses",
-    "value": "20"
+    "value": "21"
   },
   {
     "label": "Ties",
@@ -17,10 +17,10 @@
   },
   {
     "label": "No Result",
-    "value": "4"
+    "value": "1"
   },
   {
     "label": "Win %",
-    "value": "41.5%"
+    "value": "46.3%"
   }
 ]
