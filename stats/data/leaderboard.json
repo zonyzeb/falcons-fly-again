@@ -1,7 +1,7 @@
 {
   "batting": [
     {
-      "player_name": "Premjith PM",
+      "player_name": "Prem",
       "stat": "40 runs",
       "profile": "batting"
     },
@@ -273,7 +273,7 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Premjith PM",
+      "player_name": "Prem",
       "stat": "1 wickets",
       "profile": "bowling"
     },
@@ -470,7 +470,7 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Premjith PM",
+      "player_name": "Prem",
       "stat": "0 catches",
       "profile": "fielding"
     },
