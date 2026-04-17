@@ -401,6 +401,55 @@
     }
   },
   {
+    "player_id": 16010861,
+    "name": "Mahesh Angadi",
+    "slug": "mahesh-angadi",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1663418392346_dAayM8KgeSZ9.jpg",
+    "batting": {
+      "matches": 138,
+      "innings": 68,
+      "not_outs": 28,
+      "runs": 339,
+      "highest_score": 34,
+      "highest_score_not_out": "",
+      "average": 8.48,
+      "strike_rate": 87.37,
+      "thirties": 1,
+      "fifties": 0,
+      "hundreds": 0,
+      "fours": 19,
+      "sixes": 14,
+      "ducks": 8
+    },
+    "bowling": {
+      "matches": 138,
+      "innings": 128,
+      "overs": "303.0",
+      "maidens": 14,
+      "wickets": 163,
+      "runs_conceded": 2023,
+      "best_figures": "4/9",
+      "three_wickets": 22,
+      "five_wickets": 0,
+      "economy": 6.68,
+      "strike_rate": 11.15,
+      "average": 12.41,
+      "wides": 177,
+      "noballs": 47,
+      "dot_balls": 1023,
+      "fours_conceded": 108,
+      "sixes_conceded": 83
+    },
+    "fielding": {
+      "matches": 138,
+      "catches": 42,
+      "caught_behind": 0,
+      "run_outs": 22,
+      "stumpings": 0,
+      "assisted_run_outs": 5
+    }
+  },
+  {
     "player_id": 39972548,
     "name": "Manoj Chilla",
     "slug": "manoj-chilla",
