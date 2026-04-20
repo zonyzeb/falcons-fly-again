@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown, Clock, Shield, Star, Swords, Flame, Bird } from "lucide-react";
+import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown, Clock, Shield, Swords, Flame, Bird } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { GradientMesh } from "@/components/ui/GradientMesh";
@@ -294,20 +294,6 @@ function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: bool
                     <p className="text-xs font-semibold text-falcon-gold uppercase tracking-wider">Falcon of the Match</p>
                     <p className="text-sm font-semibold text-foreground truncate">{sc.falcon_of_match.name}</p>
                     <p className="text-xs text-muted-foreground capitalize">{sc.falcon_of_match.type} · {sc.falcon_of_match.stat}</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Man of the Match */}
-              {sc.player_of_match && (
-                <div className="rounded-xl px-4 py-3 bg-white/5 border border-border/30 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 border border-border/30 flex items-center justify-center shrink-0">
-                    <Star className="w-4 h-4 text-muted-foreground" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Player of the Match</p>
-                    <p className="text-sm font-semibold text-foreground truncate">{sc.player_of_match.name}</p>
-                    <p className="text-xs text-muted-foreground">{sc.player_of_match.team} · {sc.player_of_match.stat}</p>
                   </div>
                 </div>
               )}
