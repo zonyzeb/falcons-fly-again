@@ -438,6 +438,12 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
       transition={{ duration: 0.4, delay: index * 0.07 }}
     >
       <GlassCard interactive={false} className="overflow-hidden">
+        {/* Win/loss bar */}
+        <div className="flex h-1.5 w-full overflow-hidden">
+          <div className="bg-emerald-500" style={{ width: `${winPct}%` }} />
+          <div className="bg-rose-500 flex-1" />
+        </div>
+
         <button
           onClick={() => setOpen((v) => !v)}
           className="w-full text-left px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 hover:bg-accent/5 transition-colors"
@@ -450,7 +456,11 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
               <p className="text-xs text-muted-foreground">
                 {tournament.matches.length} match{tournament.matches.length !== 1 ? "es" : ""}
                 {" · "}
-                Latest: {tournament.latestDate}
+                <span className="text-emerald-400">{tournament.wins}W</span>
+                {" "}
+                <span className="text-rose-400">{tournament.losses}L</span>
+                {" · "}
+                {winPct}%
               </p>
               {tournament.falconOfTournament && (
                 <span className="inline-flex items-center gap-1 text-xs text-falcon-gold">
@@ -462,28 +472,9 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
             </div>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0">
-            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
-              {tournament.wins}W
-            </span>
-            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-rose-500/15 text-rose-400 border border-rose-500/25">
-              {tournament.losses}L
-            </span>
-
-            <div className="hidden sm:flex flex-col items-end gap-1 w-20">
-              <span className="text-xs text-muted-foreground">{winPct}% wins</span>
-              <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-gradient-to-r from-falcon-gold/70 to-falcon-gold"
-                  style={{ width: `${winPct}%` }}
-                />
-              </div>
-            </div>
-
-            <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <ChevronDown className="w-4 h-4 text-muted-foreground" />
-            </motion.div>
-          </div>
+          <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }} className="shrink-0">
+            <ChevronDown className="w-4 h-4 text-muted-foreground" />
+          </motion.div>
         </button>
 
         <AnimatePresence initial={false}>
