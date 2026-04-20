@@ -328,6 +328,79 @@ def build_player_stats_from_api(player_id, name, slug, profile_photo):
     }
 
 
+def fetch_match_scorecard(match_id):
+    try:
+        payload = fetch_json(f"scorecard/get-scorecard/{match_id}")
+        data = payload.get("data", {})
+        if not data:
+            return None
+
+        # Collect all batting rows from both team scorecards
+        all_batting = []
+        all_bowling = []
+        for team_key in ("team_a", "team_b"):
+            team = data.get(team_key, {})
+            team_name = team.get("name", "")
+            for inning in team.get("scorecard", []):
+                for b in inning.get("batting", []):
+                    runs = safe_int(b.get("runs"))
+                    balls = safe_int(b.get("balls"))
+                    if balls > 0:
+                        all_batting.append({
+                            "name": b.get("name", ""),
+                            "team": team_name,
+                            "runs": runs,
+                            "balls": balls,
+                            "sr": safe_float(b.get("SR")),
+                            "fours": safe_int(b.get("4s")),
+                            "sixes": safe_int(b.get("6s")),
+                            "not_out": b.get("how_to_out", "") in ("not out", ""),
+                        })
+                for b in inning.get("bowling", []):
+                    overs = safe_float(b.get("overs"))
+                    if overs > 0:
+                        all_bowling.append({
+                            "name": b.get("name", ""),
+                            "team": team_name,
+                            "wickets": safe_int(b.get("wickets")),
+                            "overs": overs,
+                            "runs": safe_int(b.get("runs")),
+                            "economy": safe_float(b.get("economy_rate")),
+                            "maidens": safe_int(b.get("maidens")),
+                        })
+
+        top_batters = sorted(all_batting, key=lambda x: (-x["runs"], -x["sr"]))[:3]
+        top_bowlers = sorted(all_bowling, key=lambda x: (-x["wickets"], x["economy"] if x["economy"] > 0 else 99))[:3]
+
+        # Derive MOM: score each player by impact
+        def batter_impact(b):
+            return b["runs"] + b["sixes"] * 3 + b["fours"] + (10 if b["not_out"] else 0)
+
+        def bowler_impact(b):
+            return b["wickets"] * 20 + (b["maidens"] * 5) + max(0, (8 - b["economy"]) * 2)
+
+        best_batter = max(all_batting, key=batter_impact, default=None)
+        best_bowler = max(all_bowling, key=bowler_impact, default=None)
+        mom = None
+        if best_batter and best_bowler:
+            bi = batter_impact(best_batter)
+            boi = bowler_impact(best_bowler)
+            mom = {"name": best_batter["name"], "team": best_batter["team"], "stat": f"{best_batter['runs']} runs"} if bi >= boi else {"name": best_bowler["name"], "team": best_bowler["team"], "stat": f"{best_bowler['wickets']}/{best_bowler['runs']}"}
+        elif best_batter:
+            mom = {"name": best_batter["name"], "team": best_batter["team"], "stat": f"{best_batter['runs']} runs"}
+        elif best_bowler:
+            mom = {"name": best_bowler["name"], "team": best_bowler["team"], "stat": f"{best_bowler['wickets']}/{best_bowler['runs']}"}
+
+        return {
+            "top_batters": top_batters,
+            "top_bowlers": top_bowlers,
+            "player_of_match": mom,
+        }
+    except Exception as e:
+        print(f"  Warning: scorecard fetch failed for match {match_id}: {e}")
+        return None
+
+
 def fetch_matches_safe(team_id, max_pages):
     try:
         return fetch_paginated(f"team/get-team-match/{team_id}", max_pages)
@@ -435,11 +508,25 @@ def run():
         time.sleep(0.3)
     player_stats.sort(key=lambda p: p.get("name", ""))
 
+    # Fetch per-match scorecards (top batters, bowlers, derived MOM)
+    print(f"Fetching scorecards for {len(combined_raw)} matches...")
+    match_scorecards = {}
+    for i, m in enumerate(combined_raw):
+        mid = m.get("match_id")
+        if not mid:
+            continue
+        sc = fetch_match_scorecard(mid)
+        if sc:
+            match_scorecards[str(mid)] = sc
+            print(f"  [{i + 1}/{len(combined_raw)}] {m.get('tournament_name', '')} — {len(sc['top_batters'])} batters, {len(sc['top_bowlers'])} bowlers")
+        time.sleep(0.3)
+
     save_json("players.json", players)
     save_json("matches.json", matches)
     save_json("team_stats.json", team_stats)
     save_json("leaderboard.json", leaderboard)
     save_json("player_stats.json", player_stats)
+    save_json("match_scorecards.json", match_scorecards)
     print("Done!")
 
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown, Clock, Shield } from "lucide-react";
+import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown, Clock, Shield, Star, Swords, Flame } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { GradientMesh } from "@/components/ui/GradientMesh";
@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { matches as matchesData, isWin, type Match } from "@/data/stats";
+import { matches as matchesData, matchScorecards, isWin, type Match, type ScorecardBatter, type ScorecardBowler } from "@/data/stats";
 
 interface Tournament {
   name: string;
@@ -91,6 +91,45 @@ const tournaments = groupByTournament(matchesData);
 
 // ── Match Preview Dialog ──────────────────────────────────────────────────────
 
+function BatterRow({ b, rank }: { b: ScorecardBatter; rank: number }) {
+  return (
+    <div className="flex items-center gap-3 py-2 border-t border-border/20 first:border-t-0">
+      <span className="w-4 text-xs text-muted-foreground/50 font-mono shrink-0">{rank}</span>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-foreground truncate">
+          {b.name}{b.not_out && <span className="text-falcon-gold text-xs ml-1">*</span>}
+        </p>
+        <p className="text-xs text-muted-foreground">{b.team}</p>
+      </div>
+      <div className="text-right shrink-0">
+        <span className="text-sm font-bold text-foreground tabular-nums">{b.runs}</span>
+        <span className="text-xs text-muted-foreground ml-1">({b.balls})</span>
+      </div>
+      <div className="text-right shrink-0 w-14 hidden sm:block">
+        <span className="text-xs text-muted-foreground">{b.fours}×4 {b.sixes}×6</span>
+      </div>
+    </div>
+  );
+}
+
+function BowlerRow({ b, rank }: { b: ScorecardBowler; rank: number }) {
+  return (
+    <div className="flex items-center gap-3 py-2 border-t border-border/20 first:border-t-0">
+      <span className="w-4 text-xs text-muted-foreground/50 font-mono shrink-0">{rank}</span>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-foreground truncate">{b.name}</p>
+        <p className="text-xs text-muted-foreground">{b.team}</p>
+      </div>
+      <div className="text-right shrink-0">
+        <span className="text-sm font-bold text-foreground tabular-nums">{b.wickets}/{b.runs}</span>
+      </div>
+      <div className="text-right shrink-0 w-16 hidden sm:block">
+        <span className="text-xs text-muted-foreground">{b.overs} ov · {b.economy.toFixed(1)} er</span>
+      </div>
+    </div>
+  );
+}
+
 function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: boolean; onClose: () => void }) {
   const won = isWin(match);
   const scores = match.score.map(parseScoreLine);
@@ -98,14 +137,17 @@ function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: bool
   const winner = winnerName(match.result);
   const margin = winMargin(match.result);
 
+  const matchId = match.url ? match.url.split("/").pop() ?? "" : "";
+  const sc = matchId ? matchScorecards[matchId] ?? null : null;
+
   const isFalcons = (name: string) =>
     /falcons|hsc falcons|helenelund/i.test(name);
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-      <DialogContent className="max-w-md border-border/50 bg-card/95 backdrop-blur-xl p-0 overflow-hidden">
+      <DialogContent className="max-w-lg border-border/50 bg-card/95 backdrop-blur-xl p-0 overflow-hidden max-h-[90vh] overflow-y-auto">
         {/* Coloured top bar */}
-        <div className={`h-1.5 w-full ${won ? "bg-gradient-to-r from-emerald-500 to-emerald-400" : "bg-gradient-to-r from-rose-600 to-rose-400"}`} />
+        <div className={`h-1.5 w-full shrink-0 ${won ? "bg-gradient-to-r from-emerald-500 to-emerald-400" : "bg-gradient-to-r from-rose-600 to-rose-400"}`} />
 
         <div className="px-6 pt-5 pb-6 space-y-5">
           <DialogHeader>
@@ -136,7 +178,7 @@ function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: bool
             </div>
           </DialogHeader>
 
-          {/* Scorecard */}
+          {/* Scores */}
           <div className="space-y-2">
             {scores.map((s, i) => {
               const isTeamFalcons = isFalcons(s.team);
@@ -144,36 +186,26 @@ function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: bool
               return (
                 <div
                   key={i}
-                  className={`flex items-center justify-between rounded-xl px-4 py-3 border transition-colors ${
-                    isWinner
-                      ? "bg-emerald-500/10 border-emerald-500/25"
-                      : "bg-white/5 border-border/30"
+                  className={`flex items-center justify-between rounded-xl px-4 py-3 border ${
+                    isWinner ? "bg-emerald-500/10 border-emerald-500/25" : "bg-white/5 border-border/30"
                   }`}
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                      isTeamFalcons
-                        ? "bg-falcon-gold/20 border border-falcon-gold/30"
-                        : "bg-white/10 border border-border/30"
+                      isTeamFalcons ? "bg-falcon-gold/20 border border-falcon-gold/30" : "bg-white/10 border border-border/30"
                     }`}>
                       <Shield className={`w-3.5 h-3.5 ${isTeamFalcons ? "text-falcon-gold" : "text-muted-foreground"}`} />
                     </div>
                     <span className={`text-sm font-medium truncate ${isWinner ? "text-foreground" : "text-muted-foreground"}`}>
                       {s.team}
                     </span>
-                    {isWinner && (
-                      <Trophy className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    )}
+                    {isWinner && <Trophy className="w-3.5 h-3.5 text-emerald-400 shrink-0" />}
                   </div>
                   <div className="text-right shrink-0 ml-3">
                     {s.runs > 0 ? (
                       <>
-                        <span className={`text-lg font-bold tabular-nums ${isWinner ? "text-foreground" : "text-muted-foreground"}`}>
-                          {s.runs}
-                        </span>
-                        <span className={`text-sm ${isWinner ? "text-muted-foreground" : "text-muted-foreground/60"}`}>
-                          /{s.wickets}
-                        </span>
+                        <span className={`text-lg font-bold tabular-nums ${isWinner ? "text-foreground" : "text-muted-foreground"}`}>{s.runs}</span>
+                        <span className="text-sm text-muted-foreground/60">/{s.wickets}</span>
                       </>
                     ) : (
                       <span className="text-sm text-muted-foreground">{s.raw}</span>
@@ -184,11 +216,9 @@ function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: bool
             })}
           </div>
 
-          {/* Result banner */}
+          {/* Result */}
           <div className={`rounded-xl px-4 py-3 text-center ${
-            won
-              ? "bg-emerald-500/10 border border-emerald-500/20"
-              : "bg-rose-500/10 border border-rose-500/20"
+            won ? "bg-emerald-500/10 border border-emerald-500/20" : "bg-rose-500/10 border border-rose-500/20"
           }`}>
             <p className={`text-sm font-semibold ${won ? "text-emerald-400" : "text-rose-400"}`}>
               {won ? "Victory" : "Defeat"}
@@ -200,7 +230,55 @@ function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: bool
             )}
           </div>
 
-          {/* Scorecard link */}
+          {sc && (
+            <>
+              {/* Man of the Match */}
+              {sc.player_of_match && (
+                <div className="rounded-xl px-4 py-3 bg-falcon-gold/10 border border-falcon-gold/25 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-falcon-gold/20 border border-falcon-gold/30 flex items-center justify-center shrink-0">
+                    <Star className="w-4 h-4 text-falcon-gold" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold text-falcon-gold uppercase tracking-wider">Player of the Match</p>
+                    <p className="text-sm font-semibold text-foreground truncate">{sc.player_of_match.name}</p>
+                    <p className="text-xs text-muted-foreground">{sc.player_of_match.team} · {sc.player_of_match.stat}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Top Batters */}
+              {sc.top_batters.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Flame className="w-3.5 h-3.5 text-falcon-gold" />
+                    <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Top Batters</span>
+                  </div>
+                  <div className="rounded-xl bg-white/5 border border-border/30 px-4 py-1">
+                    {sc.top_batters.map((b, i) => (
+                      <BatterRow key={i} b={b} rank={i + 1} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Top Bowlers */}
+              {sc.top_bowlers.length > 0 && (
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Swords className="w-3.5 h-3.5 text-falcon-gold" />
+                    <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Top Bowlers</span>
+                  </div>
+                  <div className="rounded-xl bg-white/5 border border-border/30 px-4 py-1">
+                    {sc.top_bowlers.map((b, i) => (
+                      <BowlerRow key={i} b={b} rank={i + 1} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Full scorecard link */}
           {match.url && (
             <a
               href={match.url}

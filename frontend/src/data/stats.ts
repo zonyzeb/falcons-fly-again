@@ -3,6 +3,7 @@ import matchesData from "@stats/matches.json";
 import teamStatsData from "@stats/team_stats.json";
 import leaderboardData from "@stats/leaderboard.json";
 import playerStatsData from "@stats/player_stats.json";
+import matchScorecardsData from "@stats/match_scorecards.json";
 
 export interface Player {
   player_id: number;
@@ -96,11 +97,39 @@ export interface PlayerStatsEntry {
   fielding: Partial<FieldingStats>;
 }
 
+export interface ScorecardBatter {
+  name: string;
+  team: string;
+  runs: number;
+  balls: number;
+  sr: number;
+  fours: number;
+  sixes: number;
+  not_out: boolean;
+}
+
+export interface ScorecardBowler {
+  name: string;
+  team: string;
+  wickets: number;
+  overs: number;
+  runs: number;
+  economy: number;
+  maidens: number;
+}
+
+export interface MatchScorecard {
+  top_batters: ScorecardBatter[];
+  top_bowlers: ScorecardBowler[];
+  player_of_match: { name: string; team: string; stat: string } | null;
+}
+
 export const players: Player[] = playersData;
 export const matches: Match[] = matchesData;
 export const teamStats: TeamStat[] = teamStatsData;
 export const leaderboard: Leaderboard = leaderboardData;
 export const playerStats: PlayerStatsEntry[] = playerStatsData;
+export const matchScorecards: Record<string, MatchScorecard> = matchScorecardsData as Record<string, MatchScorecard>;
 
 export function getPlayerStats(name: string): PlayerStatsEntry | undefined {
   return playerStats.find(
