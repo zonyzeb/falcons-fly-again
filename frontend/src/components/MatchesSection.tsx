@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown, Clock, Shield, Star, Swords, Flame } from "lucide-react";
+import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown, Clock, Shield, Star, Swords, Flame, Bird } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { GradientMesh } from "@/components/ui/GradientMesh";
@@ -12,12 +12,19 @@ import {
 } from "@/components/ui/dialog";
 import { matches as matchesData, matchScorecards, isWin, type Match, type ScorecardBatter, type ScorecardBowler } from "@/data/stats";
 
+interface FalconAward {
+  name: string;
+  stat: string;
+  detail: string;
+}
+
 interface Tournament {
   name: string;
   matches: Match[];
   wins: number;
   losses: number;
   latestDate: string;
+  falconOfTournament: FalconAward | null;
 }
 
 interface ParsedScore {
@@ -59,6 +66,49 @@ function withYear(name: string, matches: Match[]): string {
   return year ? `${name} ${year}` : name;
 }
 
+function batterImpact(b: ScorecardBatter) {
+  return b.runs + b.sixes * 3 + b.fours + (b.not_out ? 10 : 0);
+}
+
+function bowlerImpact(b: ScorecardBowler) {
+  return b.wickets * 20 + b.maidens * 5 + Math.max(0, (8 - b.economy) * 2);
+}
+
+function falconOfTournament(ms: Match[]): FalconAward | null {
+  const players: Record<string, { runs: number; wickets: number; matches: Set<string>; batImpact: number; bowlImpact: number }> = {};
+
+  for (const m of ms) {
+    const mid = m.url?.split("/").pop() ?? "";
+    const sc = mid ? matchScorecards[mid] : null;
+    if (!sc) continue;
+
+    for (const b of sc.falcon_batters ?? []) {
+      const p = players[b.name] ??= { runs: 0, wickets: 0, matches: new Set(), batImpact: 0, bowlImpact: 0 };
+      p.runs += b.runs;
+      p.batImpact += batterImpact(b);
+      p.matches.add(mid);
+    }
+    for (const b of sc.falcon_bowlers ?? []) {
+      const p = players[b.name] ??= { runs: 0, wickets: 0, matches: new Set(), batImpact: 0, bowlImpact: 0 };
+      p.wickets += b.wickets;
+      p.bowlImpact += bowlerImpact(b);
+      p.matches.add(mid);
+    }
+  }
+
+  const ranked = Object.entries(players)
+    .map(([name, s]) => ({ name, ...s, totalImpact: s.batImpact + s.bowlImpact }))
+    .sort((a, b) => b.totalImpact - a.totalImpact);
+
+  if (!ranked.length) return null;
+  const best = ranked[0];
+  const primaryStat = best.batImpact >= best.bowlImpact
+    ? `${best.runs} runs`
+    : `${best.wickets} wkts`;
+  const detail = `${best.matches.size} match${best.matches.size !== 1 ? "es" : ""}`;
+  return { name: best.name, stat: primaryStat, detail };
+}
+
 function groupByTournament(matches: Match[]): Tournament[] {
   const map = new Map<string, Match[]>();
   for (const match of matches) {
@@ -73,6 +123,7 @@ function groupByTournament(matches: Match[]): Tournament[] {
       wins: ms.filter(isWin).length,
       losses: ms.filter((m) => !isWin(m)).length,
       latestDate: ms[0]?.date ?? "",
+      falconOfTournament: falconOfTournament(ms),
     }))
     .sort((a, b) => {
       const parse = (d: string) => {
@@ -232,14 +283,28 @@ function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: bool
 
           {sc && (
             <>
-              {/* Man of the Match */}
-              {sc.player_of_match && (
+              {/* Falcon of the Match */}
+              {sc.falcon_of_match && (
                 <div className="rounded-xl px-4 py-3 bg-falcon-gold/10 border border-falcon-gold/25 flex items-center gap-3">
                   <div className="w-8 h-8 rounded-lg bg-falcon-gold/20 border border-falcon-gold/30 flex items-center justify-center shrink-0">
-                    <Star className="w-4 h-4 text-falcon-gold" />
+                    <Bird className="w-4 h-4 text-falcon-gold" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold text-falcon-gold uppercase tracking-wider">Player of the Match</p>
+                    <p className="text-xs font-semibold text-falcon-gold uppercase tracking-wider">Falcon of the Match</p>
+                    <p className="text-sm font-semibold text-foreground truncate">{sc.falcon_of_match.name}</p>
+                    <p className="text-xs text-muted-foreground capitalize">{sc.falcon_of_match.type} · {sc.falcon_of_match.stat}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Man of the Match */}
+              {sc.player_of_match && (
+                <div className="rounded-xl px-4 py-3 bg-white/5 border border-border/30 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/10 border border-border/30 flex items-center justify-center shrink-0">
+                    <Star className="w-4 h-4 text-muted-foreground" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Player of the Match</p>
                     <p className="text-sm font-semibold text-foreground truncate">{sc.player_of_match.name}</p>
                     <p className="text-xs text-muted-foreground">{sc.player_of_match.team} · {sc.player_of_match.stat}</p>
                   </div>
@@ -381,11 +446,20 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
             <h3 className="font-semibold text-foreground text-base leading-snug truncate">
               {tournament.name}
             </h3>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              {tournament.matches.length} match{tournament.matches.length !== 1 ? "es" : ""}
-              {" · "}
-              Latest: {tournament.latestDate}
-            </p>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
+              <p className="text-xs text-muted-foreground">
+                {tournament.matches.length} match{tournament.matches.length !== 1 ? "es" : ""}
+                {" · "}
+                Latest: {tournament.latestDate}
+              </p>
+              {tournament.falconOfTournament && (
+                <span className="inline-flex items-center gap-1 text-xs text-falcon-gold">
+                  <Bird className="w-3 h-3" />
+                  <span className="font-medium">{tournament.falconOfTournament.name}</span>
+                  <span className="text-falcon-gold/60">· {tournament.falconOfTournament.stat}</span>
+                </span>
+              )}
+            </div>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">

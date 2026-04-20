@@ -375,32 +375,55 @@ def fetch_match_scorecard(match_id):
                             "maidens": safe_int(b.get("maidens")),
                         })
 
-        top_batters = sorted(all_batting, key=lambda x: (-x["runs"], -x["sr"]))[:3]
-        top_bowlers = sorted(all_bowling, key=lambda x: (-x["wickets"], x["economy"] if x["economy"] > 0 else 99))[:3]
+        FALCON_NAMES = {"falcons", "hsc falcons", "helenelund cricket club"}
 
-        # Derive MOM: score each player by impact
+        def is_falcon(team_name):
+            return team_name.lower() in FALCON_NAMES
+
         def batter_impact(b):
             return b["runs"] + b["sixes"] * 3 + b["fours"] + (10 if b["not_out"] else 0)
 
         def bowler_impact(b):
             return b["wickets"] * 20 + (b["maidens"] * 5) + max(0, (8 - b["economy"]) * 2)
 
+        top_batters = sorted(all_batting, key=lambda x: (-x["runs"], -x["sr"]))[:3]
+        top_bowlers = sorted(all_bowling, key=lambda x: (-x["wickets"], x["economy"] if x["economy"] > 0 else 99))[:3]
+
+        # Derive overall MOM
         best_batter = max(all_batting, key=batter_impact, default=None)
         best_bowler = max(all_bowling, key=bowler_impact, default=None)
         mom = None
         if best_batter and best_bowler:
-            bi = batter_impact(best_batter)
-            boi = bowler_impact(best_bowler)
+            bi, boi = batter_impact(best_batter), bowler_impact(best_bowler)
             mom = {"name": best_batter["name"], "team": best_batter["team"], "stat": f"{best_batter['runs']} runs"} if bi >= boi else {"name": best_bowler["name"], "team": best_bowler["team"], "stat": f"{best_bowler['wickets']}/{best_bowler['runs']}"}
         elif best_batter:
             mom = {"name": best_batter["name"], "team": best_batter["team"], "stat": f"{best_batter['runs']} runs"}
         elif best_bowler:
             mom = {"name": best_bowler["name"], "team": best_bowler["team"], "stat": f"{best_bowler['wickets']}/{best_bowler['runs']}"}
 
+        # Falcon players only — stored in full so the frontend can aggregate across a tournament
+        falcon_batters = [b for b in all_batting if is_falcon(b["team"])]
+        falcon_bowlers = [b for b in all_bowling if is_falcon(b["team"])]
+
+        # Falcon of the Match
+        best_fb = max(falcon_batters, key=batter_impact, default=None)
+        best_fbow = max(falcon_bowlers, key=bowler_impact, default=None)
+        fotm = None
+        if best_fb and best_fbow:
+            bi, boi = batter_impact(best_fb), bowler_impact(best_fbow)
+            fotm = {"name": best_fb["name"], "stat": f"{best_fb['runs']} runs", "type": "batting"} if bi >= boi else {"name": best_fbow["name"], "stat": f"{best_fbow['wickets']}/{best_fbow['runs']}", "type": "bowling"}
+        elif best_fb:
+            fotm = {"name": best_fb["name"], "stat": f"{best_fb['runs']} runs", "type": "batting"}
+        elif best_fbow:
+            fotm = {"name": best_fbow["name"], "stat": f"{best_fbow['wickets']}/{best_fbow['runs']}", "type": "bowling"}
+
         return {
             "top_batters": top_batters,
             "top_bowlers": top_bowlers,
             "player_of_match": mom,
+            "falcon_batters": falcon_batters,
+            "falcon_bowlers": falcon_bowlers,
+            "falcon_of_match": fotm,
         }
     except Exception as e:
         print(f"  Warning: scorecard fetch failed for match {match_id}: {e}")

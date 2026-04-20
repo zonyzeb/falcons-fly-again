@@ -65,6 +65,107 @@
       "name": "Deepu Dileep",
       "team": "Falcons",
       "stat": "127 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 32,
+        "balls": 20,
+        "sr": 160.0,
+        "fours": 1,
+        "sixes": 3,
+        "not_out": true
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 127,
+        "balls": 40,
+        "sr": 317.5,
+        "fours": 4,
+        "sixes": 17,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 1.0,
+        "runs": 7,
+        "economy": 7.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 8,
+        "economy": 8.0,
+        "maidens": 0
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 4,
+        "economy": 4.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 3,
+        "economy": 3.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 1,
+        "economy": 1.0,
+        "maidens": 0
+      },
+      {
+        "name": "Ankit Pandey",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 25,
+        "economy": 12.5,
+        "maidens": 0
+      },
+      {
+        "name": "Shahbaz Ahmed",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 2.0,
+        "runs": 19,
+        "economy": 9.5,
+        "maidens": 0
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 8,
+        "economy": 8.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Deepu Dileep",
+      "stat": "127 runs",
+      "type": "batting"
     }
   },
   "24104200": {
@@ -133,6 +234,109 @@
       "name": "Umesh Bh",
       "team": "Falcons",
       "stat": "40 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 13,
+        "sr": 84.62,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 38,
+        "balls": 16,
+        "sr": 237.5,
+        "fours": 1,
+        "sixes": 4,
+        "not_out": false
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 40,
+        "balls": 14,
+        "sr": 285.71,
+        "fours": 2,
+        "sixes": 4,
+        "not_out": true
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 30,
+        "balls": 17,
+        "sr": 176.47,
+        "fours": 1,
+        "sixes": 3,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 9,
+        "economy": 4.5,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 4,
+        "economy": 2.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 16,
+        "economy": 8.0,
+        "maidens": 0
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 24,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 13,
+        "economy": 13.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 8,
+        "economy": 8.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Umesh Bh",
+      "stat": "40 runs",
+      "type": "batting"
     }
   },
   "24072516": {
@@ -201,6 +405,129 @@
       "name": "Sherin Shamsudeen",
       "team": "Falcons",
       "stat": "49 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 13,
+        "balls": 7,
+        "sr": 185.71,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 4,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 49,
+        "balls": 25,
+        "sr": 196.0,
+        "fours": 2,
+        "sixes": 5,
+        "not_out": true
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 37,
+        "balls": 17,
+        "sr": 217.65,
+        "fours": 0,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 4,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 3,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 12,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 1.0,
+        "runs": 1,
+        "economy": 1.0,
+        "maidens": 0
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 15,
+        "economy": 7.5,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 14,
+        "economy": 7.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 18,
+        "economy": 9.0,
+        "maidens": 0
+      },
+      {
+        "name": "Shahbaz Ahmed",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 16,
+        "economy": 16.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sherin Shamsudeen",
+      "stat": "49 runs",
+      "type": "batting"
     }
   },
   "24038937": {
@@ -269,6 +596,139 @@
       "name": "Abhishek Mahapatra",
       "team": "Jai Juppo",
       "stat": "2/9"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 19,
+        "balls": 8,
+        "sr": 237.5,
+        "fours": 1,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 9,
+        "sr": 22.22,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 24,
+        "balls": 13,
+        "sr": 184.62,
+        "fours": 0,
+        "sixes": 3,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 8,
+        "sr": 137.5,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Ankit Pandey",
+        "team": "Falcons",
+        "runs": 7,
+        "balls": 12,
+        "sr": 58.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Shahbaz Ahmed",
+        "team": "Falcons",
+        "runs": 9,
+        "balls": 7,
+        "sr": 128.57,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "runs": 3,
+        "balls": 5,
+        "sr": 60.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Mahesh Angadi",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 11,
+        "economy": 5.5,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 20,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 17,
+        "economy": 8.5,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 17,
+        "economy": 8.5,
+        "maidens": 0
+      },
+      {
+        "name": "Ankit Pandey",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 8,
+        "economy": 8.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 10,
+        "economy": 10.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sherin Shamsudeen",
+      "stat": "24 runs",
+      "type": "batting"
     }
   },
   "24038985": {
@@ -337,6 +797,140 @@
       "name": "Deepu Dileep",
       "team": "Falcons",
       "stat": "58 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 8,
+        "balls": 3,
+        "sr": 266.67,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 58,
+        "balls": 30,
+        "sr": 193.33,
+        "fours": 4,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 3,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 4,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Ankit Pandey",
+        "team": "Falcons",
+        "runs": 34,
+        "balls": 13,
+        "sr": 261.54,
+        "fours": 1,
+        "sixes": 4,
+        "not_out": false
+      },
+      {
+        "name": "Rajesh Lal",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 5,
+        "sr": 40.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "Shahbaz Ahmed",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Mahesh Angadi",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 25,
+        "economy": 12.5,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 8,
+        "economy": 4.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 13,
+        "economy": 6.5,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 12,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 25,
+        "economy": 12.5,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Deepu Dileep",
+      "stat": "58 runs",
+      "type": "batting"
     }
   },
   "23225736": {
@@ -405,6 +999,110 @@
       "name": "Sudharshan Y K",
       "team": "SSK ULTRAS",
       "stat": "2/5"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "runs": 15,
+        "balls": 13,
+        "sr": 115.38,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 3,
+        "balls": 3,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 5,
+        "balls": 6,
+        "sr": 83.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 2,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 11,
+        "economy": 11.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 11,
+        "economy": 11.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yashas Paralath",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 8,
+        "economy": 8.0,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 5,
+        "economy": 5.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 8,
+        "economy": 8.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "JD  (c)",
+      "stat": "1/5",
+      "type": "bowling"
     }
   },
   "23225734": {
@@ -473,6 +1171,90 @@
       "name": "Premjith PM",
       "team": "Falcons",
       "stat": "23 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "runs": 23,
+        "balls": 17,
+        "sr": 135.29,
+        "fours": 1,
+        "sixes": 2,
+        "not_out": true
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 6,
+        "balls": 7,
+        "sr": 85.71,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 3,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Yashas Paralath",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 9,
+        "economy": 9.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 6,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 4,
+        "economy": 4.0,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 10,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 4,
+        "economy": 4.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Premjith PM",
+      "stat": "23 runs",
+      "type": "batting"
     }
   },
   "23225732": {
@@ -541,6 +1323,110 @@
       "name": "JD  (c)",
       "team": "Falcons",
       "stat": "2/3"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 3,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 9,
+        "balls": 8,
+        "sr": 112.5,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 7,
+        "balls": 9,
+        "sr": 77.78,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 9,
+        "balls": 7,
+        "sr": 128.57,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 3,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Yashas Paralath",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 4,
+        "economy": 4.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 10,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 1.0,
+        "runs": 3,
+        "economy": 3.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 8,
+        "economy": 8.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 5,
+        "economy": 5.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "JD  (c)",
+      "stat": "2/3",
+      "type": "bowling"
     }
   },
   "19277438": {
@@ -609,6 +1495,140 @@
       "name": "Deepu Dileep  (wk)",
       "team": "HSC Falcons",
       "stat": "71 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Shahbaz Ahmed",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 2,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep  (wk)",
+        "team": "HSC Falcons",
+        "runs": 71,
+        "balls": 37,
+        "sr": 191.89,
+        "fours": 2,
+        "sixes": 8,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 10,
+        "balls": 14,
+        "sr": 71.43,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 8,
+        "balls": 11,
+        "sr": 72.73,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 3,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "runs": 1,
+        "balls": 3,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "HSC Falcons",
+        "runs": 17,
+        "balls": 14,
+        "sr": 121.43,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "runs": 4,
+        "balls": 6,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "wickets": 3,
+        "overs": 3.0,
+        "runs": 30,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Ramasamy Vallinayagam",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 44,
+        "economy": 14.67,
+        "maidens": 0
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 22,
+        "economy": 7.33,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 28,
+        "economy": 9.33,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Deepu Dileep  (wk)",
+      "stat": "71 runs",
+      "type": "batting"
     }
   },
   "19060208": {
@@ -677,6 +1697,129 @@
       "name": "Sherin Shamsudeen",
       "team": "HSC Falcons",
       "stat": "41 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "runs": 5,
+        "balls": 3,
+        "sr": 166.67,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "HSC Falcons",
+        "runs": 37,
+        "balls": 24,
+        "sr": 154.17,
+        "fours": 3,
+        "sixes": 3,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "HSC Falcons",
+        "runs": 6,
+        "balls": 15,
+        "sr": 40.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 41,
+        "balls": 23,
+        "sr": 178.26,
+        "fours": 0,
+        "sixes": 4,
+        "not_out": true
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 17,
+        "balls": 10,
+        "sr": 170.0,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 4,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 24,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 14,
+        "economy": 4.67,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 17,
+        "economy": 17.0,
+        "maidens": 0
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 20,
+        "economy": 6.67,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 23,
+        "economy": 11.5,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 28,
+        "economy": 14.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sherin Shamsudeen",
+      "stat": "41 runs",
+      "type": "batting"
     }
   },
   "19238550": {
@@ -745,6 +1888,160 @@
       "name": "Anbarasan Thamizharasan",
       "team": "HSC Falcons",
       "stat": "3/4"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "runs": 11,
+        "balls": 6,
+        "sr": 183.33,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Jeeva Nallusamy",
+        "team": "HSC Falcons",
+        "runs": 4,
+        "balls": 6,
+        "sr": 66.67,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "HSC Falcons",
+        "runs": 1,
+        "balls": 3,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 10,
+        "balls": 21,
+        "sr": 47.62,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anbarasan Thamizharasan",
+        "team": "HSC Falcons",
+        "runs": 8,
+        "balls": 11,
+        "sr": 72.73,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 3,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 6,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rakesh Ravindran K",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 3,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Anbarasan Thamizharasan",
+        "team": "HSC Falcons",
+        "wickets": 3,
+        "overs": 2.0,
+        "runs": 4,
+        "economy": 2.0,
+        "maidens": 0
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 13,
+        "economy": 6.5,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 18,
+        "economy": 9.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 11,
+        "economy": 5.5,
+        "maidens": 0
+      },
+      {
+        "name": "Jeeva Nallusamy",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 14,
+        "economy": 7.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Anbarasan Thamizharasan",
+      "stat": "3/4",
+      "type": "bowling"
     }
   },
   "19202763": {
@@ -813,6 +2110,130 @@
       "name": "Manideep Beri",
       "team": "United Jaguars",
       "stat": "3/5"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "runs": 22,
+        "balls": 9,
+        "sr": 244.44,
+        "fours": 1,
+        "sixes": 3,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "HSC Falcons",
+        "runs": 10,
+        "balls": 12,
+        "sr": 83.33,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Jeeva Nallusamy",
+        "team": "HSC Falcons",
+        "runs": 4,
+        "balls": 3,
+        "sr": 133.33,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 5,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anbarasan Thamizharasan",
+        "team": "HSC Falcons",
+        "runs": 33,
+        "balls": 14,
+        "sr": 235.71,
+        "fours": 0,
+        "sixes": 5,
+        "not_out": true
+      },
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "runs": 6,
+        "balls": 12,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Anbarasan Thamizharasan",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 12,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 11,
+        "economy": 5.5,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 10,
+        "economy": 5.0,
+        "maidens": 0
+      },
+      {
+        "name": "Jeeva Nallusamy",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 34,
+        "economy": 17.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 23,
+        "economy": 11.5,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Anbarasan Thamizharasan",
+      "stat": "33 runs",
+      "type": "batting"
     }
   },
   "19202759": {
@@ -881,6 +2302,179 @@
       "name": "Baljeet",
       "team": "Kista Rising Stars",
       "stat": "119 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "HSC Falcons",
+        "runs": 13,
+        "balls": 6,
+        "sr": 216.67,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "HSC Falcons",
+        "runs": 34,
+        "balls": 14,
+        "sr": 242.86,
+        "fours": 0,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 7,
+        "balls": 5,
+        "sr": 140.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "HSC Falcons",
+        "runs": 52,
+        "balls": 20,
+        "sr": 260.0,
+        "fours": 0,
+        "sixes": 7,
+        "not_out": false
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "runs": 1,
+        "balls": 3,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 2,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 2,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Ajas M A",
+        "team": "HSC Falcons",
+        "runs": 1,
+        "balls": 4,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "HSC Falcons",
+        "runs": 3,
+        "balls": 3,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "Rakesh Ravindran K",
+        "team": "HSC Falcons",
+        "runs": 7,
+        "balls": 2,
+        "sr": 350.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 32,
+        "economy": 16.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 20,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "HSC Falcons",
+        "wickets": 3,
+        "overs": 2.0,
+        "runs": 21,
+        "economy": 10.5,
+        "maidens": 1
+      },
+      {
+        "name": "Anoop",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 18,
+        "economy": 18.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 23,
+        "economy": 23.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 50,
+        "economy": 25.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Anoop",
+      "stat": "52 runs",
+      "type": "batting"
     }
   },
   "19202750": {
@@ -949,6 +2543,109 @@
       "name": "JD  (c)",
       "team": "HSC Falcons",
       "stat": "4/25"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "runs": 40,
+        "balls": 14,
+        "sr": 285.71,
+        "fours": 2,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "HSC Falcons",
+        "runs": 35,
+        "balls": 17,
+        "sr": 205.88,
+        "fours": 0,
+        "sixes": 4,
+        "not_out": true
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "runs": 14,
+        "balls": 13,
+        "sr": 107.69,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 31,
+        "balls": 11,
+        "sr": 281.82,
+        "fours": 1,
+        "sixes": 4,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 42,
+        "economy": 21.0,
+        "maidens": 0
+      },
+      {
+        "name": "Mahesh Angadi",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 17,
+        "economy": 8.5,
+        "maidens": 0
+      },
+      {
+        "name": "JD  (c)",
+        "team": "HSC Falcons",
+        "wickets": 4,
+        "overs": 2.0,
+        "runs": 25,
+        "economy": 12.5,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 23,
+        "economy": 11.5,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 12,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 11,
+        "economy": 11.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "JD  (c)",
+      "stat": "4/25",
+      "type": "bowling"
     }
   },
   "19172266": {
@@ -1017,6 +2714,150 @@
       "name": "kannan",
       "team": "Stockholm Capitals",
       "stat": "71 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM  (c)",
+        "team": "HSC Falcons",
+        "runs": 52,
+        "balls": 32,
+        "sr": 162.5,
+        "fours": 2,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "HSC Falcons",
+        "runs": 23,
+        "balls": 20,
+        "sr": 115.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "HSC Falcons",
+        "runs": 8,
+        "balls": 4,
+        "sr": 200.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 3,
+        "balls": 11,
+        "sr": 27.27,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 3,
+        "balls": 6,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "runs": 6,
+        "balls": 6,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "runs": 10,
+        "balls": 7,
+        "sr": 142.86,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "HSC Falcons",
+        "runs": 4,
+        "balls": 3,
+        "sr": 133.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.3,
+        "runs": 25,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 30,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 25,
+        "economy": 8.33,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "wickets": 3,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Premjith PM  (c)",
+      "stat": "52 runs",
+      "type": "batting"
     }
   },
   "19094113": {
@@ -1085,6 +2926,139 @@
       "name": "Umesh Bh",
       "team": "HSC Falcons",
       "stat": "3/13"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM  (c)",
+        "team": "HSC Falcons",
+        "runs": 22,
+        "balls": 22,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "HSC Falcons",
+        "runs": 7,
+        "balls": 4,
+        "sr": 175.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "HSC Falcons",
+        "runs": 3,
+        "balls": 6,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 30,
+        "balls": 27,
+        "sr": 111.11,
+        "fours": 2,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 7,
+        "sr": 28.57,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "HSC Falcons",
+        "runs": 36,
+        "balls": 21,
+        "sr": 171.43,
+        "fours": 0,
+        "sixes": 4,
+        "not_out": true
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 8,
+        "balls": 4,
+        "sr": 200.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 26,
+        "economy": 8.67,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "wickets": 3,
+        "overs": 2.3,
+        "runs": 13,
+        "economy": 5.2,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 7,
+        "economy": 2.33,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 10,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 5,
+        "economy": 5.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Umesh Bh",
+      "stat": "3/13",
+      "type": "bowling"
     }
   },
   "18939580": {
@@ -1153,6 +3127,119 @@
       "name": "Sony",
       "team": "HSC Falcons",
       "stat": "4/5"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM  (c)",
+        "team": "HSC Falcons",
+        "runs": 9,
+        "balls": 9,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep  (wk)",
+        "team": "HSC Falcons",
+        "runs": 8,
+        "balls": 6,
+        "sr": 133.33,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "HSC Falcons",
+        "runs": 43,
+        "balls": 26,
+        "sr": 165.38,
+        "fours": 3,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 19,
+        "balls": 17,
+        "sr": 111.76,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "runs": 12,
+        "balls": 3,
+        "sr": 400.0,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 26,
+        "economy": 8.67,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "wickets": 4,
+        "overs": 3.0,
+        "runs": 5,
+        "economy": 1.67,
+        "maidens": 0
+      },
+      {
+        "name": "Yashas Paralath",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 10,
+        "economy": 3.33,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 19,
+        "economy": 6.33,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 13,
+        "economy": 13.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 22,
+        "economy": 11.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sony",
+      "stat": "4/5",
+      "type": "bowling"
     }
   },
   "18878085": {
@@ -1221,6 +3308,138 @@
       "name": "Rocky Rana",
       "team": "Nordic Warriors",
       "stat": "63 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM  (c)",
+        "team": "HSC Falcons",
+        "runs": 16,
+        "balls": 21,
+        "sr": 76.19,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "HSC Falcons",
+        "runs": 56,
+        "balls": 26,
+        "sr": 215.38,
+        "fours": 4,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "runs": 23,
+        "balls": 17,
+        "sr": 135.29,
+        "fours": 0,
+        "sixes": 3,
+        "not_out": false
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "runs": 3,
+        "balls": 6,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "HSC Falcons",
+        "runs": 20,
+        "balls": 11,
+        "sr": 181.82,
+        "fours": 1,
+        "sixes": 2,
+        "not_out": true
+      },
+      {
+        "name": "Ajas M A",
+        "team": "HSC Falcons",
+        "runs": 3,
+        "balls": 4,
+        "sr": 75.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 25,
+        "economy": 8.33,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 14,
+        "economy": 4.67,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 27,
+        "economy": 13.5,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 7,
+        "economy": 7.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 28,
+        "economy": 14.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 1.0,
+        "runs": 3,
+        "economy": 3.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Deepu Dileep",
+      "stat": "56 runs",
+      "type": "batting"
     }
   },
   "18957752": {
@@ -1289,6 +3508,140 @@
       "name": "Deepu Dileep  (wk)",
       "team": "HSC Falcons",
       "stat": "84 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem  (c)",
+        "team": "HSC Falcons",
+        "runs": 10,
+        "balls": 10,
+        "sr": 100.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep  (wk)",
+        "team": "HSC Falcons",
+        "runs": 84,
+        "balls": 35,
+        "sr": 240.0,
+        "fours": 6,
+        "sixes": 7,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "HSC Falcons",
+        "runs": 47,
+        "balls": 24,
+        "sr": 195.83,
+        "fours": 3,
+        "sixes": 3,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 0,
+        "balls": 2,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "runs": 1,
+        "balls": 4,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "runs": 5,
+        "balls": 3,
+        "sr": 166.67,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "HSC Falcons",
+        "runs": 32,
+        "balls": 9,
+        "sr": 355.56,
+        "fours": 1,
+        "sixes": 4,
+        "not_out": true
+      },
+      {
+        "name": "Shinu",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 3,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 13,
+        "economy": 6.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 22,
+        "economy": 7.33,
+        "maidens": 0
+      },
+      {
+        "name": "Prem  (c)",
+        "team": "HSC Falcons",
+        "wickets": 3,
+        "overs": 2.3,
+        "runs": 10,
+        "economy": 4.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "HSC Falcons",
+        "wickets": 3,
+        "overs": 2.0,
+        "runs": 3,
+        "economy": 1.5,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 9,
+        "economy": 9.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Deepu Dileep  (wk)",
+      "stat": "84 runs",
+      "type": "batting"
     }
   },
   "18799692": {
@@ -1357,6 +3710,179 @@
       "name": "Kishore",
       "team": "Keep It Cool Stockholm",
       "stat": "38 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 6,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep  (wk)",
+        "team": "Falcons",
+        "runs": 16,
+        "balls": 8,
+        "sr": 200.0,
+        "fours": 2,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 13,
+        "sr": 84.62,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "runs": 13,
+        "balls": 16,
+        "sr": 81.25,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 4,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 11,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "runs": 12,
+        "balls": 10,
+        "sr": 120.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 5,
+        "balls": 10,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 2,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "runs": 4,
+        "balls": 7,
+        "sr": 57.14,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 22,
+        "economy": 7.33,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 19,
+        "economy": 6.33,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 12,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 10,
+        "economy": 5.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Divin Barachel",
+      "stat": "2/10",
+      "type": "bowling"
     }
   },
   "18743615": {
@@ -1425,6 +3951,170 @@
       "name": "Manideep Beri",
       "team": "United Jaguars",
       "stat": "4/9"
+    },
+    "falcon_batters": [
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 6,
+        "sr": 16.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 27,
+        "balls": 21,
+        "sr": 128.57,
+        "fours": 1,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 6,
+        "sr": 16.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 3,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 4,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 3,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 11,
+        "sr": 100.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 8,
+        "balls": 9,
+        "sr": 88.89,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anand TS",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 4,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "runs": 5,
+        "balls": 2,
+        "sr": 250.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 16,
+        "economy": 5.33,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 20,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 10,
+        "economy": 5.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 26,
+        "economy": 8.67,
+        "maidens": 0
+      },
+      {
+        "name": "Anand TS",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 18,
+        "economy": 9.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Anand TS",
+      "stat": "2/18",
+      "type": "bowling"
     }
   },
   "18713025": {
@@ -1493,6 +4183,129 @@
       "name": "Sid",
       "team": "Falcons",
       "stat": "61 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "runs": 3,
+        "balls": 12,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep  (wk)",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 3,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 7,
+        "balls": 7,
+        "sr": 100.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 61,
+        "balls": 28,
+        "sr": 217.86,
+        "fours": 5,
+        "sixes": 5,
+        "not_out": true
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "runs": 28,
+        "balls": 27,
+        "sr": 103.7,
+        "fours": 4,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 6,
+        "balls": 4,
+        "sr": 150.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 13,
+        "economy": 4.33,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 14,
+        "economy": 4.67,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 16,
+        "economy": 5.33,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 32,
+        "economy": 10.67,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 15,
+        "economy": 15.0,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 18,
+        "economy": 9.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sid",
+      "stat": "61 runs",
+      "type": "batting"
     }
   },
   "18713024": {
@@ -1530,7 +4343,7 @@
     ],
     "top_bowlers": [
       {
-        "name": "Premjith PM  (c)",
+        "name": "Prem  (c)",
         "team": "Falcons",
         "wickets": 4,
         "overs": 3.0,
@@ -1558,9 +4371,102 @@
       }
     ],
     "player_of_match": {
-      "name": "Premjith PM  (c)",
+      "name": "Prem  (c)",
       "team": "Falcons",
       "stat": "4/10"
+    },
+    "falcon_batters": [
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 27,
+        "balls": 26,
+        "sr": 103.85,
+        "fours": 3,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "Deepu Dileep  (wk)",
+        "team": "Falcons",
+        "runs": 19,
+        "balls": 12,
+        "sr": 158.33,
+        "fours": 4,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 51,
+        "balls": 29,
+        "sr": 175.86,
+        "fours": 4,
+        "sixes": 4,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 27,
+        "economy": 9.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 10,
+        "economy": 3.33,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 13,
+        "economy": 6.5,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 19,
+        "economy": 9.5,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 22,
+        "economy": 11.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem  (c)",
+        "team": "Falcons",
+        "wickets": 4,
+        "overs": 3.0,
+        "runs": 10,
+        "economy": 3.33,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Prem  (c)",
+      "stat": "4/10",
+      "type": "bowling"
     }
   },
   "18610218": {
@@ -1629,6 +4535,118 @@
       "name": "Tinu",
       "team": "Falcons",
       "stat": "3/11"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 4,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 31,
+        "balls": 24,
+        "sr": 129.17,
+        "fours": 3,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 28,
+        "balls": 31,
+        "sr": 90.32,
+        "fours": 1,
+        "sixes": 3,
+        "not_out": true
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 20,
+        "balls": 18,
+        "sr": 111.11,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 8,
+        "economy": 2.67,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 12,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 20,
+        "economy": 6.67,
+        "maidens": 0
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 3.0,
+        "runs": 11,
+        "economy": 3.67,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 15,
+        "economy": 5.0,
+        "maidens": 1
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 6,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 10,
+        "economy": 10.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Tinu",
+      "stat": "3/11",
+      "type": "bowling"
     }
   },
   "18461358": {
@@ -1697,6 +4715,179 @@
       "name": "Achyuth",
       "team": "United Jaguars",
       "stat": "2/16"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 13,
+        "balls": 15,
+        "sr": 86.67,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 7,
+        "balls": 8,
+        "sr": 87.5,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 2,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 6,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "runs": 6,
+        "balls": 7,
+        "sr": 85.71,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 2,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Jithin T",
+        "team": "Falcons",
+        "runs": 25,
+        "balls": 23,
+        "sr": 108.7,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "Falcons",
+        "runs": 25,
+        "balls": 18,
+        "sr": 138.89,
+        "fours": 1,
+        "sixes": 3,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 4,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 9,
+        "sr": 22.22,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 7,
+        "sr": 28.57,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 4.0,
+        "runs": 30,
+        "economy": 7.5,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 4.0,
+        "runs": 15,
+        "economy": 3.75,
+        "maidens": 1
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.3,
+        "runs": 22,
+        "economy": 6.29,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 7,
+        "economy": 2.33,
+        "maidens": 1
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 6,
+        "economy": 3.0,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 15,
+        "economy": 7.5,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Premjith PM  (c)",
+      "stat": "1/7",
+      "type": "bowling"
     }
   },
   "18408049": {
@@ -1765,6 +4956,119 @@
       "name": "Deepu Dileep",
       "team": "Falcons",
       "stat": "195 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 41,
+        "balls": 21,
+        "sr": 195.24,
+        "fours": 2,
+        "sixes": 4,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 195,
+        "balls": 65,
+        "sr": 300.0,
+        "fours": 11,
+        "sixes": 22,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 10,
+        "balls": 8,
+        "sr": 125.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 44,
+        "balls": 20,
+        "sr": 220.0,
+        "fours": 4,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 7,
+        "sr": 157.14,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 4,
+        "overs": 4.0,
+        "runs": 8,
+        "economy": 2.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 14,
+        "economy": 4.67,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 4.0,
+        "runs": 17,
+        "economy": 4.25,
+        "maidens": 1
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 4.0,
+        "runs": 20,
+        "economy": 5.0,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 10,
+        "economy": 5.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM  (c)",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 15,
+        "economy": 7.5,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Deepu Dileep",
+      "stat": "195 runs",
+      "type": "batting"
     }
   },
   "18235807": {
@@ -1833,6 +5137,159 @@
       "name": "Anoop  (c)",
       "team": "Falcons",
       "stat": "58 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "runs": 8,
+        "balls": 9,
+        "sr": 88.89,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep  (wk)",
+        "team": "Falcons",
+        "runs": 32,
+        "balls": 26,
+        "sr": 123.08,
+        "fours": 5,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 18,
+        "balls": 16,
+        "sr": 112.5,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "runs": 3,
+        "balls": 5,
+        "sr": 60.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop  (c)",
+        "team": "Falcons",
+        "runs": 58,
+        "balls": 26,
+        "sr": 223.08,
+        "fours": 3,
+        "sixes": 6,
+        "not_out": false
+      },
+      {
+        "name": "Jithin T",
+        "team": "Falcons",
+        "runs": 14,
+        "balls": 14,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Kiran MV",
+        "team": "Falcons",
+        "runs": 7,
+        "balls": 11,
+        "sr": 63.64,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 16,
+        "balls": 12,
+        "sr": 133.33,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 1,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 4.0,
+        "runs": 36,
+        "economy": 9.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 4.0,
+        "runs": 43,
+        "economy": 10.75,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 4.0,
+        "runs": 20,
+        "economy": 5.0,
+        "maidens": 1
+      },
+      {
+        "name": "Tinu",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 23,
+        "economy": 7.67,
+        "maidens": 0
+      },
+      {
+        "name": "Kiran MV",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 13,
+        "economy": 13.0,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 3.4,
+        "runs": 31,
+        "economy": 8.45,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Anoop  (c)",
+      "stat": "58 runs",
+      "type": "batting"
     }
   },
   "18244817": {
@@ -1848,7 +5305,7 @@
         "not_out": false
       },
       {
-        "name": "Premjith PM  (c)",
+        "name": "Prem  (c)",
         "team": "Falcons",
         "runs": 21,
         "balls": 17,
@@ -1901,6 +5358,188 @@
       "name": "Mahesh Angadi",
       "team": "Rockstars",
       "stat": "3/17"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem  (c)",
+        "team": "Falcons",
+        "runs": 21,
+        "balls": 17,
+        "sr": 123.53,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 3,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 4,
+        "balls": 12,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 3,
+        "balls": 4,
+        "sr": 75.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 4,
+        "balls": 9,
+        "sr": 44.44,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 12,
+        "balls": 14,
+        "sr": 85.71,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 9,
+        "sr": 122.22,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "Falcons",
+        "runs": 9,
+        "balls": 11,
+        "sr": 81.82,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "runs": 13,
+        "balls": 14,
+        "sr": 92.86,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 2,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Jeevan George",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 5,
+        "sr": 40.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 4.0,
+        "runs": 34,
+        "economy": 8.5,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 4.0,
+        "runs": 29,
+        "economy": 7.25,
+        "maidens": 0
+      },
+      {
+        "name": "Prem  (c)",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 3.4,
+        "runs": 37,
+        "economy": 10.09,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 24,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 19,
+        "economy": 9.5,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 10,
+        "economy": 5.0,
+        "maidens": 0
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 15,
+        "economy": 7.5,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Yogi",
+      "stat": "3/29",
+      "type": "bowling"
     }
   },
   "18190724": {
@@ -1969,6 +5608,188 @@
       "name": "Yogi",
       "team": "Falcons",
       "stat": "5/22"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 4,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Prem  (c)",
+        "team": "Falcons",
+        "runs": 46,
+        "balls": 32,
+        "sr": 143.75,
+        "fours": 4,
+        "sixes": 3,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 23,
+        "balls": 25,
+        "sr": 92.0,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 3,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 17,
+        "balls": 14,
+        "sr": 121.43,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "runs": 6,
+        "balls": 10,
+        "sr": 60.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Kiran MV",
+        "team": "Falcons",
+        "runs": 21,
+        "balls": 20,
+        "sr": 105.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 3,
+        "balls": 9,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Ashok Ramasamy  (wk)",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 2,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 1,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 4.0,
+        "runs": 14,
+        "economy": 3.5,
+        "maidens": 1
+      },
+      {
+        "name": "Prem  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.5,
+        "runs": 16,
+        "economy": 5.65,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 5,
+        "economy": 5.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 4.0,
+        "runs": 11,
+        "economy": 2.75,
+        "maidens": 1
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 5,
+        "overs": 4.0,
+        "runs": 22,
+        "economy": 5.5,
+        "maidens": 0
+      },
+      {
+        "name": "Kiran MV",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 12,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 26,
+        "economy": 13.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Yogi",
+      "stat": "5/22",
+      "type": "bowling"
     }
   },
   "18101380": {
@@ -2037,6 +5858,124 @@
       "name": "Rishi Deshmukh",
       "team": "Stockholm Ninjas",
       "stat": "3/27"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 20,
+        "balls": 14,
+        "sr": 142.86,
+        "fours": 3,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 27,
+        "balls": 20,
+        "sr": 135.0,
+        "fours": 2,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 23,
+        "balls": 18,
+        "sr": 127.78,
+        "fours": 2,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Deepu Dileep",
+        "team": "Falcons",
+        "runs": 5,
+        "balls": 6,
+        "sr": 83.33,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Jithin T",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 6,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Ashok Ramasamy  (wk)",
+        "team": "Falcons",
+        "runs": 12,
+        "balls": 17,
+        "sr": 70.59,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 15,
+        "balls": 21,
+        "sr": 71.43,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 5,
+        "sr": 220.0,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 3,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sony",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 2,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 3,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [],
+    "falcon_of_match": {
+      "name": "Anoop",
+      "stat": "27 runs",
+      "type": "batting"
     }
   },
   "17831712": {
@@ -2105,6 +6044,197 @@
       "name": "Murali Krishna Chaturvedi",
       "team": "Kista Rising Stars",
       "stat": "44 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Ashok Ramasamy  (wk)",
+        "team": "Helenelund Cricket Club",
+        "runs": 2,
+        "balls": 6,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Helenelund Cricket Club",
+        "runs": 24,
+        "balls": 18,
+        "sr": 133.33,
+        "fours": 4,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Rajesh Bathula",
+        "team": "Helenelund Cricket Club",
+        "runs": 0,
+        "balls": 4,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Akash Temkar",
+        "team": "Helenelund Cricket Club",
+        "runs": 13,
+        "balls": 15,
+        "sr": 86.67,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "SaiKrishna Gundeti",
+        "team": "Helenelund Cricket Club",
+        "runs": 6,
+        "balls": 15,
+        "sr": 40.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Cyril R",
+        "team": "Helenelund Cricket Club",
+        "runs": 49,
+        "balls": 28,
+        "sr": 175.0,
+        "fours": 5,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Kiran MV  (c)",
+        "team": "Helenelund Cricket Club",
+        "runs": 5,
+        "balls": 11,
+        "sr": 45.45,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Helenelund Cricket Club",
+        "runs": 4,
+        "balls": 6,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Jeevan George",
+        "team": "Helenelund Cricket Club",
+        "runs": 5,
+        "balls": 6,
+        "sr": 83.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sony",
+        "team": "Helenelund Cricket Club",
+        "runs": 2,
+        "balls": 3,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Praveen Helenalund Cricket",
+        "team": "Helenelund Cricket Club",
+        "runs": 0,
+        "balls": 4,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Praveen Helenalund Cricket",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 18,
+        "economy": 9.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 4.0,
+        "runs": 14,
+        "economy": 3.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sid",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 23,
+        "economy": 7.67,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Helenelund Cricket Club",
+        "wickets": 3,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Kiran MV  (c)",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 10,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "SaiKrishna Gundeti",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 15,
+        "economy": 7.5,
+        "maidens": 0
+      },
+      {
+        "name": "Jeevan George",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 7,
+        "economy": 3.5,
+        "maidens": 0
+      },
+      {
+        "name": "Cyril R",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 18,
+        "economy": 18.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sony",
+      "stat": "3/18",
+      "type": "bowling"
     }
   },
   "17645172": {
@@ -2173,6 +6303,168 @@
       "name": "Sherin Shamsudeen",
       "team": "Falcons",
       "stat": "55 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "runs": 10,
+        "balls": 10,
+        "sr": 100.0,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 14,
+        "balls": 13,
+        "sr": 107.69,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Ashok Ramasamy",
+        "team": "Falcons",
+        "runs": 4,
+        "balls": 8,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 55,
+        "balls": 36,
+        "sr": 152.78,
+        "fours": 1,
+        "sixes": 5,
+        "not_out": true
+      },
+      {
+        "name": "Kiran MV",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 2,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 13,
+        "sr": 84.62,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 9,
+        "balls": 7,
+        "sr": 128.57,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 13,
+        "balls": 5,
+        "sr": 260.0,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "runs": 23,
+        "balls": 12,
+        "sr": 191.67,
+        "fours": 4,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 4.0,
+        "runs": 42,
+        "economy": 10.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 19,
+        "economy": 6.33,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 4.0,
+        "runs": 19,
+        "economy": 4.75,
+        "maidens": 1
+      },
+      {
+        "name": "Sunil kumar Metta",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 18,
+        "economy": 9.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 21,
+        "economy": 10.5,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 3,
+        "economy": 1.5,
+        "maidens": 1
+      },
+      {
+        "name": "Kiran MV",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 22,
+        "economy": 7.33,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sherin Shamsudeen",
+      "stat": "55 runs",
+      "type": "batting"
     }
   },
   "17645196": {
@@ -2241,6 +6533,139 @@
       "name": "Romy",
       "team": "Kalinga Warriors",
       "stat": "55 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Ashok Ramasamy",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 3,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 5,
+        "balls": 11,
+        "sr": 45.45,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "runs": 20,
+        "balls": 33,
+        "sr": 60.61,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Kiran MV",
+        "team": "Falcons",
+        "runs": 28,
+        "balls": 30,
+        "sr": 93.33,
+        "fours": 3,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 14,
+        "sr": 78.57,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 27,
+        "balls": 18,
+        "sr": 150.0,
+        "fours": 3,
+        "sixes": 1,
+        "not_out": true
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 27,
+        "balls": 13,
+        "sr": 207.69,
+        "fours": 0,
+        "sixes": 4,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 4.0,
+        "runs": 27,
+        "economy": 6.75,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 4.0,
+        "runs": 30,
+        "economy": 7.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sunil kumar Metta",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 4.0,
+        "runs": 42,
+        "economy": 10.5,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 16,
+        "economy": 8.0,
+        "maidens": 0
+      },
+      {
+        "name": "Vigram Raja",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 27,
+        "economy": 13.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 4.0,
+        "runs": 37,
+        "economy": 9.25,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "JD",
+      "stat": "27 runs",
+      "type": "batting"
     }
   },
   "17465098": {
@@ -2309,6 +6734,188 @@
       "name": "Akshat Dhimole",
       "team": "Jai Juppo",
       "stat": "81 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 18,
+        "balls": 6,
+        "sr": 300.0,
+        "fours": 1,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Jithin T",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 5,
+        "sr": 40.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 48,
+        "balls": 20,
+        "sr": 240.0,
+        "fours": 4,
+        "sixes": 4,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 7,
+        "balls": 11,
+        "sr": 63.64,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Vigram Raja",
+        "team": "Falcons",
+        "runs": 25,
+        "balls": 42,
+        "sr": 59.52,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 24,
+        "balls": 12,
+        "sr": 200.0,
+        "fours": 1,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 3,
+        "balls": 7,
+        "sr": 42.86,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 4,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Ashok Ramasamy",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 2,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Jeevan George",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 4.0,
+        "runs": 27,
+        "economy": 6.75,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 29,
+        "economy": 9.67,
+        "maidens": 0
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 4.0,
+        "runs": 16,
+        "economy": 4.0,
+        "maidens": 0
+      },
+      {
+        "name": "Vigram Raja",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 4.0,
+        "runs": 37,
+        "economy": 9.25,
+        "maidens": 0
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 13,
+        "economy": 6.5,
+        "maidens": 0
+      },
+      {
+        "name": "Anoop",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 20,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Kannan Unnikrishnan",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 17,
+        "economy": 17.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sherin Shamsudeen",
+      "stat": "48 runs",
+      "type": "batting"
     }
   },
   "17408196": {
@@ -2377,6 +6984,188 @@
       "name": "Sudheer GV  (wk)",
       "team": "United Jaguars",
       "stat": "59 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 10,
+        "sr": 20.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 25,
+        "balls": 21,
+        "sr": 119.05,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 17,
+        "balls": 22,
+        "sr": 77.27,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Jithin T",
+        "team": "Falcons",
+        "runs": 15,
+        "balls": 11,
+        "sr": 136.36,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Ashok Ramasamy",
+        "team": "Falcons",
+        "runs": 6,
+        "balls": 6,
+        "sr": 100.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 22,
+        "balls": 12,
+        "sr": 183.33,
+        "fours": 1,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Hariprasad M N",
+        "team": "Falcons",
+        "runs": 6,
+        "balls": 6,
+        "sr": 100.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Vigram Raja",
+        "team": "Falcons",
+        "runs": 10,
+        "balls": 8,
+        "sr": 125.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Gaurav Arora",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 5,
+        "sr": 40.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 2,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 4.0,
+        "runs": 27,
+        "economy": 6.75,
+        "maidens": 0
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 4.0,
+        "runs": 27,
+        "economy": 6.75,
+        "maidens": 1
+      },
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 4.0,
+        "runs": 18,
+        "economy": 4.5,
+        "maidens": 0
+      },
+      {
+        "name": "Gaurav Arora",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 24,
+        "economy": 24.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 17,
+        "economy": 17.0,
+        "maidens": 0
+      },
+      {
+        "name": "Vigram Raja",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 4.0,
+        "runs": 34,
+        "economy": 8.5,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 19,
+        "economy": 9.5,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sony  (c)",
+      "stat": "2/27",
+      "type": "bowling"
     }
   },
   "17176908": {
@@ -2445,6 +7234,109 @@
       "name": "Rithwik K V",
       "team": "Falcons",
       "stat": "42 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "runs": 11,
+        "balls": 7,
+        "sr": 157.14,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "runs": 42,
+        "balls": 24,
+        "sr": 175.0,
+        "fours": 1,
+        "sixes": 4,
+        "not_out": true
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 8,
+        "balls": 7,
+        "sr": 114.29,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 7,
+        "balls": 13,
+        "sr": 53.85,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 3.0,
+        "runs": 17,
+        "economy": 5.67,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 24,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 30,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Divin Barachel",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 23,
+        "economy": 7.67,
+        "maidens": 0
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 11,
+        "economy": 11.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Rithwik K V",
+      "stat": "42 runs",
+      "type": "batting"
     }
   },
   "17120648": {
@@ -2491,7 +7383,7 @@
         "maidens": 0
       },
       {
-        "name": "Premjith PM",
+        "name": "Prem",
         "team": "Falcons",
         "wickets": 3,
         "overs": 3.0,
@@ -2513,6 +7405,169 @@
       "name": "Sherin Shamsudeen",
       "team": "Falcons",
       "stat": "56 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 45,
+        "balls": 25,
+        "sr": 180.0,
+        "fours": 1,
+        "sixes": 4,
+        "not_out": false
+      },
+      {
+        "name": "Shiva Arsi",
+        "team": "Falcons",
+        "runs": 8,
+        "balls": 7,
+        "sr": 114.29,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 56,
+        "balls": 26,
+        "sr": 215.38,
+        "fours": 2,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 4,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 2,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 6,
+        "balls": 6,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sajid",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 5,
+        "sr": 40.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 7,
+        "balls": 4,
+        "sr": 175.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 4,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Kiran MV",
+        "team": "Falcons",
+        "runs": 3,
+        "balls": 5,
+        "sr": 60.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 18,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 21,
+        "economy": 7.0,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 22,
+        "economy": 7.33,
+        "maidens": 1
+      },
+      {
+        "name": "Ajas M A",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 40,
+        "economy": 20.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 3.0,
+        "runs": 34,
+        "economy": 11.33,
+        "maidens": 0
+      },
+      {
+        "name": "Shiva Arsi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 16,
+        "economy": 16.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sherin Shamsudeen",
+      "stat": "56 runs",
+      "type": "batting"
     }
   },
   "17053820": {
@@ -2581,6 +7636,119 @@
       "name": "Ajas M A",
       "team": "Falcons",
       "stat": "4/11"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 5,
+        "balls": 3,
+        "sr": 166.67,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Shiva Arsi",
+        "team": "Falcons",
+        "runs": 33,
+        "balls": 22,
+        "sr": 150.0,
+        "fours": 5,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "runs": 16,
+        "balls": 12,
+        "sr": 133.33,
+        "fours": 3,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 33,
+        "balls": 26,
+        "sr": 126.92,
+        "fours": 2,
+        "sixes": 2,
+        "not_out": true
+      },
+      {
+        "name": "Ashok Ramasamy",
+        "team": "Falcons",
+        "runs": 2,
+        "balls": 10,
+        "sr": 20.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 9,
+        "economy": 3.0,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 26,
+        "economy": 8.67,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "Falcons",
+        "wickets": 4,
+        "overs": 3.0,
+        "runs": 11,
+        "economy": 3.67,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 8,
+        "economy": 2.67,
+        "maidens": 0
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 16,
+        "economy": 16.0,
+        "maidens": 0
+      },
+      {
+        "name": "Shiva Arsi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 24,
+        "economy": 12.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Ajas M A",
+      "stat": "4/11",
+      "type": "bowling"
     }
   },
   "16933428": {
@@ -2649,6 +7817,158 @@
       "name": "Premjith PM",
       "team": "Falcons",
       "stat": "3/16"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "runs": 22,
+        "balls": 19,
+        "sr": 115.79,
+        "fours": 3,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "runs": 24,
+        "balls": 21,
+        "sr": 114.29,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 12,
+        "balls": 11,
+        "sr": 109.09,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Falcons",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Shiva Arsi",
+        "team": "Falcons",
+        "runs": 19,
+        "balls": 15,
+        "sr": 126.67,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Falcons",
+        "runs": 33,
+        "balls": 15,
+        "sr": 220.0,
+        "fours": 1,
+        "sixes": 3,
+        "not_out": true
+      },
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "runs": 13,
+        "balls": 8,
+        "sr": 162.5,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "runs": 1,
+        "balls": 1,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 29,
+        "economy": 9.67,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 16,
+        "economy": 5.33,
+        "maidens": 0
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 26,
+        "economy": 8.67,
+        "maidens": 0
+      },
+      {
+        "name": "Premjith PM",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 3.0,
+        "runs": 16,
+        "economy": 5.33,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 11,
+        "economy": 11.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 19,
+        "economy": 19.0,
+        "maidens": 0
+      },
+      {
+        "name": "Shiva Arsi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 15,
+        "economy": 15.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Premjith PM",
+      "stat": "3/16",
+      "type": "bowling"
     }
   },
   "16933376": {
@@ -2686,7 +8006,7 @@
     ],
     "top_bowlers": [
       {
-        "name": "Premjith PM",
+        "name": "Prem",
         "team": "Falcons",
         "wickets": 3,
         "overs": 3.0,
@@ -2717,6 +8037,108 @@
       "name": "Sherin Shamsudeen",
       "team": "Falcons",
       "stat": "51 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "runs": 9,
+        "balls": 7,
+        "sr": 128.57,
+        "fours": 2,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Falcons",
+        "runs": 33,
+        "balls": 21,
+        "sr": 157.14,
+        "fours": 2,
+        "sixes": 2,
+        "not_out": true
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Falcons",
+        "runs": 51,
+        "balls": 36,
+        "sr": 141.67,
+        "fours": 4,
+        "sixes": 2,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 3.0,
+        "runs": 11,
+        "economy": 3.67,
+        "maidens": 0
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Falcons",
+        "wickets": 1,
+        "overs": 3.0,
+        "runs": 16,
+        "economy": 5.33,
+        "maidens": 0
+      },
+      {
+        "name": "Ajas M A",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 24,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 24,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Fahsan K P",
+        "team": "Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 11,
+        "economy": 11.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Falcons",
+        "wickets": 3,
+        "overs": 3.0,
+        "runs": 8,
+        "economy": 2.67,
+        "maidens": 0
+      },
+      {
+        "name": "Kannan Unnikrishnan",
+        "team": "Falcons",
+        "wickets": 2,
+        "overs": 1.0,
+        "runs": 3,
+        "economy": 3.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sherin Shamsudeen",
+      "stat": "51 runs",
+      "type": "batting"
     }
   },
   "16844310": {
@@ -2732,7 +8154,7 @@
         "not_out": false
       },
       {
-        "name": "Premjith PM",
+        "name": "Prem",
         "team": "Helenelund Cricket Club",
         "runs": 31,
         "balls": 18,
@@ -2785,6 +8207,155 @@
       "name": "Umesh Bh",
       "team": "Helenelund Cricket Club",
       "stat": "3/11"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "Helenelund Cricket Club",
+        "runs": 38,
+        "balls": 13,
+        "sr": 292.31,
+        "fours": 1,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Vishnu Ajithsuma",
+        "team": "Helenelund Cricket Club",
+        "runs": 1,
+        "balls": 6,
+        "sr": 16.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Prem",
+        "team": "Helenelund Cricket Club",
+        "runs": 31,
+        "balls": 18,
+        "sr": 172.22,
+        "fours": 2,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Helenelund Cricket Club",
+        "runs": 12,
+        "balls": 5,
+        "sr": 240.0,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": true
+      },
+      {
+        "name": "Sid",
+        "team": "Helenelund Cricket Club",
+        "runs": 9,
+        "balls": 9,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Helenelund Cricket Club",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 7,
+        "economy": 3.5,
+        "maidens": 0
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "Helenelund Cricket Club",
+        "wickets": 3,
+        "overs": 3.0,
+        "runs": 11,
+        "economy": 3.67,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 7,
+        "economy": 3.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sony  (c)",
+        "team": "Helenelund Cricket Club",
+        "wickets": 2,
+        "overs": 1.0,
+        "runs": 4,
+        "economy": 4.0,
+        "maidens": 0
+      },
+      {
+        "name": "Jeevan George",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 11,
+        "economy": 11.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 13,
+        "economy": 6.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sherin Shamsudeen",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 5,
+        "economy": 5.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sid",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 9,
+        "economy": 9.0,
+        "maidens": 0
+      },
+      {
+        "name": "Vishnu Ajithsuma",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 8,
+        "economy": 8.0,
+        "maidens": 0
+      },
+      {
+        "name": "RishiBhai",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 21,
+        "economy": 21.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Umesh Bh",
+      "stat": "3/11",
+      "type": "bowling"
     }
   },
   "16698810": {
@@ -2810,7 +8381,7 @@
         "not_out": true
       },
       {
-        "name": "Premjith PM",
+        "name": "Prem",
         "team": "HSC Falcons",
         "runs": 43,
         "balls": 22,
@@ -2840,7 +8411,7 @@
         "maidens": 0
       },
       {
-        "name": "Premjith PM",
+        "name": "Prem",
         "team": "HSC Falcons",
         "wickets": 1,
         "overs": 1.0,
@@ -2853,6 +8424,119 @@
       "name": "Baljeet",
       "team": "Rockstars",
       "stat": "75 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Prem",
+        "team": "HSC Falcons",
+        "runs": 43,
+        "balls": 22,
+        "sr": 195.45,
+        "fours": 1,
+        "sixes": 5,
+        "not_out": true
+      },
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "runs": 16,
+        "balls": 15,
+        "sr": 106.67,
+        "fours": 0,
+        "sixes": 2,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 7,
+        "balls": 9,
+        "sr": 77.78,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen  (c)",
+        "team": "HSC Falcons",
+        "runs": 10,
+        "balls": 5,
+        "sr": 200.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Manideep Beri",
+        "team": "HSC Falcons",
+        "runs": 13,
+        "balls": 11,
+        "sr": 118.18,
+        "fours": 1,
+        "sixes": 1,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 12,
+        "economy": 6.0,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 33,
+        "economy": 16.5,
+        "maidens": 0
+      },
+      {
+        "name": "Manideep Beri",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 45,
+        "economy": 22.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 33,
+        "economy": 16.5,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 20,
+        "economy": 20.0,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 7,
+        "economy": 7.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Prem",
+      "stat": "43 runs",
+      "type": "batting"
     }
   },
   "16515366": {
@@ -2921,6 +8605,161 @@
       "name": "Abhishek Kaul",
       "team": "Smashers",
       "stat": "3/7"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "runs": 5,
+        "balls": 3,
+        "sr": 166.67,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "HSC Falcons",
+        "runs": 5,
+        "balls": 8,
+        "sr": 62.5,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Prem  (wk)",
+        "team": "HSC Falcons",
+        "runs": 12,
+        "balls": 12,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Arun u",
+        "team": "HSC Falcons",
+        "runs": 1,
+        "balls": 2,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Veera Rajkumar",
+        "team": "HSC Falcons",
+        "runs": 3,
+        "balls": 7,
+        "sr": 42.86,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen  (c)",
+        "team": "HSC Falcons",
+        "runs": 10,
+        "balls": 8,
+        "sr": 125.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "runs": 5,
+        "balls": 5,
+        "sr": 100.0,
+        "fours": 1,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Tharun Raj",
+        "team": "HSC Falcons",
+        "runs": 3,
+        "balls": 4,
+        "sr": 75.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "runs": 5,
+        "balls": 3,
+        "sr": 166.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Jeevan George",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 4,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Kannan Unnikrishnan",
+        "team": "HSC Falcons",
+        "runs": 2,
+        "balls": 4,
+        "sr": 50.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 14,
+        "economy": 7.0,
+        "maidens": 0
+      },
+      {
+        "name": "Jeevan George",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 12,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 1.2,
+        "runs": 15,
+        "economy": 11.25,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 14,
+        "economy": 14.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sony",
+      "stat": "1/15",
+      "type": "bowling"
     }
   },
   "16370393": {
@@ -2989,6 +8828,109 @@
       "name": "Arun u",
       "team": "HSC Falcons",
       "stat": "92 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "runs": 36,
+        "balls": 19,
+        "sr": 189.47,
+        "fours": 1,
+        "sixes": 4,
+        "not_out": false
+      },
+      {
+        "name": "Prem  (wk)",
+        "team": "HSC Falcons",
+        "runs": 7,
+        "balls": 5,
+        "sr": 140.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Arun u",
+        "team": "HSC Falcons",
+        "runs": 92,
+        "balls": 31,
+        "sr": 296.77,
+        "fours": 3,
+        "sixes": 12,
+        "not_out": true
+      },
+      {
+        "name": "Sherin Shamsudeen  (c)",
+        "team": "HSC Falcons",
+        "runs": 24,
+        "balls": 11,
+        "sr": 218.18,
+        "fours": 1,
+        "sixes": 2,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "Umesh Bh",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 15,
+        "economy": 7.5,
+        "maidens": 0
+      },
+      {
+        "name": "JD",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 29,
+        "economy": 14.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 19,
+        "economy": 19.0,
+        "maidens": 0
+      },
+      {
+        "name": "Shiva Arsi",
+        "team": "HSC Falcons",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 20,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Yogi",
+        "team": "HSC Falcons",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 21,
+        "economy": 10.5,
+        "maidens": 0
+      },
+      {
+        "name": "Arun u",
+        "team": "HSC Falcons",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 21,
+        "economy": 21.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Arun u",
+      "stat": "92 runs",
+      "type": "batting"
     }
   },
   "16257057": {
@@ -3057,6 +8999,139 @@
       "name": "Arun u",
       "team": "Helenelund Cricket Club",
       "stat": "48 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Premjith PM",
+        "team": "Helenelund Cricket Club",
+        "runs": 9,
+        "balls": 7,
+        "sr": 128.57,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Arun u",
+        "team": "Helenelund Cricket Club",
+        "runs": 48,
+        "balls": 23,
+        "sr": 208.7,
+        "fours": 3,
+        "sixes": 5,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Helenelund Cricket Club",
+        "runs": 2,
+        "balls": 8,
+        "sr": 25.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Tharun Raj",
+        "team": "Helenelund Cricket Club",
+        "runs": 2,
+        "balls": 7,
+        "sr": 28.57,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Helenelund Cricket Club",
+        "runs": 1,
+        "balls": 3,
+        "sr": 33.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      },
+      {
+        "name": "Sherin Shamsudeen  (c)",
+        "team": "Helenelund Cricket Club",
+        "runs": 6,
+        "balls": 2,
+        "sr": 300.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Akash Temkar",
+        "team": "Helenelund Cricket Club",
+        "runs": 1,
+        "balls": 1,
+        "sr": 100.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 2.0,
+        "runs": 11,
+        "economy": 5.5,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Helenelund Cricket Club",
+        "wickets": 2,
+        "overs": 2.0,
+        "runs": 19,
+        "economy": 9.5,
+        "maidens": 0
+      },
+      {
+        "name": "Rithwik K V",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 7,
+        "economy": 7.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sid",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 10,
+        "economy": 10.0,
+        "maidens": 0
+      },
+      {
+        "name": "Tharun Raj",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 17,
+        "economy": 17.0,
+        "maidens": 0
+      },
+      {
+        "name": "Arun u",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 17,
+        "economy": 17.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Arun u",
+      "stat": "48 runs",
+      "type": "batting"
     }
   },
   "16254758": {
@@ -3112,7 +9187,7 @@
         "maidens": 0
       },
       {
-        "name": "Premjith PM",
+        "name": "Prem",
         "team": "Helenelund Cricket Club",
         "wickets": 1,
         "overs": 1.0,
@@ -3125,6 +9200,139 @@
       "name": "Abhishek Kaul",
       "team": "Smashers",
       "stat": "53 runs"
+    },
+    "falcon_batters": [
+      {
+        "name": "Rithwik K V  (wk)",
+        "team": "Helenelund Cricket Club",
+        "runs": 15,
+        "balls": 8,
+        "sr": 187.5,
+        "fours": 2,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Akash Temkar",
+        "team": "Helenelund Cricket Club",
+        "runs": 4,
+        "balls": 10,
+        "sr": 40.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Arun u",
+        "team": "Helenelund Cricket Club",
+        "runs": 9,
+        "balls": 4,
+        "sr": 225.0,
+        "fours": 0,
+        "sixes": 1,
+        "not_out": false
+      },
+      {
+        "name": "Sherin Shamsudeen  (c)",
+        "team": "Helenelund Cricket Club",
+        "runs": 37,
+        "balls": 18,
+        "sr": 205.56,
+        "fours": 2,
+        "sixes": 4,
+        "not_out": true
+      },
+      {
+        "name": "Prem",
+        "team": "Helenelund Cricket Club",
+        "runs": 0,
+        "balls": 1,
+        "sr": 0.0,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "Sid",
+        "team": "Helenelund Cricket Club",
+        "runs": 2,
+        "balls": 3,
+        "sr": 66.67,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": false
+      },
+      {
+        "name": "JD",
+        "team": "Helenelund Cricket Club",
+        "runs": 5,
+        "balls": 6,
+        "sr": 83.33,
+        "fours": 0,
+        "sixes": 0,
+        "not_out": true
+      }
+    ],
+    "falcon_bowlers": [
+      {
+        "name": "JD",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 13,
+        "economy": 6.5,
+        "maidens": 0
+      },
+      {
+        "name": "Prem",
+        "team": "Helenelund Cricket Club",
+        "wickets": 1,
+        "overs": 1.0,
+        "runs": 11,
+        "economy": 11.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sony",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 2.0,
+        "runs": 21,
+        "economy": 10.5,
+        "maidens": 0
+      },
+      {
+        "name": "Arun u",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 12,
+        "economy": 12.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sherin Shamsudeen  (c)",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 14,
+        "economy": 14.0,
+        "maidens": 0
+      },
+      {
+        "name": "Sid",
+        "team": "Helenelund Cricket Club",
+        "wickets": 0,
+        "overs": 1.0,
+        "runs": 25,
+        "economy": 25.0,
+        "maidens": 0
+      }
+    ],
+    "falcon_of_match": {
+      "name": "Sherin Shamsudeen  (c)",
+      "stat": "37 runs",
+      "type": "batting"
     }
   }
 }

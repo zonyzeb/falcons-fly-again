@@ -122,6 +122,9 @@ export interface MatchScorecard {
   top_batters: ScorecardBatter[];
   top_bowlers: ScorecardBowler[];
   player_of_match: { name: string; team: string; stat: string } | null;
+  falcon_batters: ScorecardBatter[];
+  falcon_bowlers: ScorecardBowler[];
+  falcon_of_match: { name: string; stat: string; type: "batting" | "bowling" } | null;
 }
 
 export const players: Player[] = playersData;
