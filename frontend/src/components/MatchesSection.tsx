@@ -14,6 +14,17 @@ interface Tournament {
   latestDate: string;
 }
 
+function yearFromDate(date: string): string {
+  const yr = date.split("-")[2];
+  return yr ? `20${yr}` : "";
+}
+
+function withYear(name: string, matches: Match[]): string {
+  if (/\d{4}/.test(name)) return name;
+  const year = yearFromDate(matches[0]?.date ?? "");
+  return year ? `${name} ${year}` : name;
+}
+
 function groupByTournament(matches: Match[]): Tournament[] {
   const map = new Map<string, Match[]>();
   for (const match of matches) {
@@ -23,7 +34,7 @@ function groupByTournament(matches: Match[]): Tournament[] {
   }
   return Array.from(map.entries())
     .map(([name, ms]) => ({
-      name,
+      name: withYear(name, ms),
       matches: ms,
       wins: ms.filter(isWin).length,
       losses: ms.filter((m) => !isWin(m)).length,
