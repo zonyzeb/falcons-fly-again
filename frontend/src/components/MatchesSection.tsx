@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown } from "lucide-react";
+import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown, Clock, Shield } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { GradientMesh } from "@/components/ui/GradientMesh";
 import { GlassCard } from "@/components/ui/GlassCard";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { matches as matchesData, isWin, type Match } from "@/data/stats";
 
 interface Tournament {
@@ -12,6 +18,34 @@ interface Tournament {
   wins: number;
   losses: number;
   latestDate: string;
+}
+
+interface ParsedScore {
+  team: string;
+  runs: number;
+  wickets: number;
+  raw: string;
+}
+
+function parseScoreLine(line: string): ParsedScore {
+  const m = line.match(/^(.+?)\s+(\d+)\/(\d+)\s*$/);
+  if (m) return { team: m[1], runs: parseInt(m[2]), wickets: parseInt(m[3]), raw: line };
+  return { team: line, runs: 0, wickets: 0, raw: line };
+}
+
+function extractOvers(info: string): string {
+  const m = info.match(/(\d+)\s*Ov/i);
+  return m ? `T${m[1]}` : "";
+}
+
+function winnerName(result: string): string {
+  const m = result.match(/^(.+?)\s+won\s+by/i);
+  return m ? m[1].trim() : "";
+}
+
+function winMargin(result: string): string {
+  const m = result.match(/won\s+by\s+(.+)$/i);
+  return m ? m[1].trim() : "";
 }
 
 function yearFromDate(date: string): string {
@@ -55,58 +89,197 @@ function groupByTournament(matches: Match[]): Tournament[] {
 
 const tournaments = groupByTournament(matchesData);
 
-function MatchRow({ match }: { match: Match }) {
+// ── Match Preview Dialog ──────────────────────────────────────────────────────
+
+function MatchPreviewDialog({ match, open, onClose }: { match: Match; open: boolean; onClose: () => void }) {
   const won = isWin(match);
+  const scores = match.score.map(parseScoreLine);
+  const format = extractOvers(match.info);
+  const winner = winnerName(match.result);
+  const margin = winMargin(match.result);
+
+  const isFalcons = (name: string) =>
+    /falcons|hsc falcons|helenelund/i.test(name);
+
   return (
-    <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6 py-4 px-5 border-t border-border/30 first:border-t-0">
-      <div className="flex items-center gap-2 md:w-28 shrink-0">
-        <Calendar className="w-3.5 h-3.5 text-falcon-gold/60" />
-        <span className="text-sm text-muted-foreground">{match.date}</span>
-      </div>
+    <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
+      <DialogContent className="max-w-md border-border/50 bg-card/95 backdrop-blur-xl p-0 overflow-hidden">
+        {/* Coloured top bar */}
+        <div className={`h-1.5 w-full ${won ? "bg-gradient-to-r from-emerald-500 to-emerald-400" : "bg-gradient-to-r from-rose-600 to-rose-400"}`} />
 
-      <div className="flex-1 min-w-0">
-        {match.score.map((line, i) => (
-          <p
-            key={i}
-            className={`text-sm truncate ${i === 0 ? "font-semibold text-foreground" : "text-muted-foreground mt-0.5"}`}
-          >
-            {line}
-          </p>
-        ))}
-      </div>
+        <div className="px-6 pt-5 pb-6 space-y-5">
+          <DialogHeader>
+            <div className="flex items-start justify-between gap-3 pr-6">
+              <div className="min-w-0">
+                <DialogTitle className="text-base font-semibold text-foreground leading-snug">
+                  {match.tournament || "Friendly"}
+                </DialogTitle>
+                <div className="flex flex-wrap items-center gap-2 mt-2">
+                  <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
+                    <Calendar className="w-3 h-3 text-falcon-gold/60" />
+                    {match.date}
+                  </div>
+                  {match.venue && (
+                    <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
+                      <MapPin className="w-3 h-3 text-falcon-gold/60" />
+                      {match.venue}
+                    </div>
+                  )}
+                  {format && (
+                    <div className="flex items-center gap-1.5 text-muted-foreground text-xs">
+                      <Clock className="w-3 h-3 text-falcon-gold/60" />
+                      {format}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </DialogHeader>
 
-      {match.venue && (
-        <div className="flex items-center gap-1.5 text-muted-foreground md:w-36 shrink-0">
-          <MapPin className="w-3.5 h-3.5 text-falcon-gold/50 shrink-0" />
-          <span className="text-xs truncate">{match.venue}</span>
-        </div>
-      )}
+          {/* Scorecard */}
+          <div className="space-y-2">
+            {scores.map((s, i) => {
+              const isTeamFalcons = isFalcons(s.team);
+              const isWinner = winner && s.team.toLowerCase().includes(winner.toLowerCase().slice(0, 8));
+              return (
+                <div
+                  key={i}
+                  className={`flex items-center justify-between rounded-xl px-4 py-3 border transition-colors ${
+                    isWinner
+                      ? "bg-emerald-500/10 border-emerald-500/25"
+                      : "bg-white/5 border-border/30"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
+                      isTeamFalcons
+                        ? "bg-falcon-gold/20 border border-falcon-gold/30"
+                        : "bg-white/10 border border-border/30"
+                    }`}>
+                      <Shield className={`w-3.5 h-3.5 ${isTeamFalcons ? "text-falcon-gold" : "text-muted-foreground"}`} />
+                    </div>
+                    <span className={`text-sm font-medium truncate ${isWinner ? "text-foreground" : "text-muted-foreground"}`}>
+                      {s.team}
+                    </span>
+                    {isWinner && (
+                      <Trophy className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    )}
+                  </div>
+                  <div className="text-right shrink-0 ml-3">
+                    {s.runs > 0 ? (
+                      <>
+                        <span className={`text-lg font-bold tabular-nums ${isWinner ? "text-foreground" : "text-muted-foreground"}`}>
+                          {s.runs}
+                        </span>
+                        <span className={`text-sm ${isWinner ? "text-muted-foreground" : "text-muted-foreground/60"}`}>
+                          /{s.wickets}
+                        </span>
+                      </>
+                    ) : (
+                      <span className="text-sm text-muted-foreground">{s.raw}</span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-      <div className="flex items-center gap-2 md:justify-end shrink-0">
-        <Badge
-          className={
+          {/* Result banner */}
+          <div className={`rounded-xl px-4 py-3 text-center ${
             won
-              ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30 backdrop-blur-sm text-xs"
-              : "bg-rose-500/20 text-rose-400 border-rose-500/30 backdrop-blur-sm text-xs"
-          }
-        >
-          <Trophy className="w-3 h-3 mr-1" />
-          {won ? "Won" : "Lost"}
-        </Badge>
-        {match.url && (
-          <a
-            href={match.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-falcon-gold/50 hover:text-falcon-gold transition-colors"
-          >
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-        )}
-      </div>
-    </div>
+              ? "bg-emerald-500/10 border border-emerald-500/20"
+              : "bg-rose-500/10 border border-rose-500/20"
+          }`}>
+            <p className={`text-sm font-semibold ${won ? "text-emerald-400" : "text-rose-400"}`}>
+              {won ? "Victory" : "Defeat"}
+            </p>
+            {margin && (
+              <p className="text-xs text-muted-foreground mt-0.5">
+                {winner} won by <span className="font-medium text-foreground">{margin}</span>
+              </p>
+            )}
+          </div>
+
+          {/* Scorecard link */}
+          {match.url && (
+            <a
+              href={match.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-falcon-gold/30 text-falcon-gold hover:bg-falcon-gold/10 transition-colors text-sm font-medium"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              Full Scorecard on CricHeroes
+            </a>
+          )}
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
+
+// ── Match Row ─────────────────────────────────────────────────────────────────
+
+function MatchRow({ match }: { match: Match }) {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const won = isWin(match);
+
+  return (
+    <>
+      <button
+        onClick={() => setDialogOpen(true)}
+        className="w-full text-left flex flex-col md:flex-row md:items-center gap-3 md:gap-6 py-4 px-5 border-t border-border/30 first:border-t-0 hover:bg-accent/5 transition-colors group"
+      >
+        <div className="flex items-center gap-2 md:w-28 shrink-0">
+          <Calendar className="w-3.5 h-3.5 text-falcon-gold/60" />
+          <span className="text-sm text-muted-foreground">{match.date}</span>
+        </div>
+
+        <div className="flex-1 min-w-0">
+          {match.score.map((line, i) => (
+            <p
+              key={i}
+              className={`text-sm truncate ${i === 0 ? "font-semibold text-foreground" : "text-muted-foreground mt-0.5"}`}
+            >
+              {line}
+            </p>
+          ))}
+        </div>
+
+        {match.venue && (
+          <div className="flex items-center gap-1.5 text-muted-foreground md:w-36 shrink-0">
+            <MapPin className="w-3.5 h-3.5 text-falcon-gold/50 shrink-0" />
+            <span className="text-xs truncate">{match.venue}</span>
+          </div>
+        )}
+
+        <div className="flex items-center gap-2 md:justify-end shrink-0">
+          <Badge
+            className={
+              won
+                ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30 backdrop-blur-sm text-xs"
+                : "bg-rose-500/20 text-rose-400 border-rose-500/30 backdrop-blur-sm text-xs"
+            }
+          >
+            <Trophy className="w-3 h-3 mr-1" />
+            {won ? "Won" : "Lost"}
+          </Badge>
+          <span className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity hidden md:block">
+            View →
+          </span>
+        </div>
+      </button>
+
+      <MatchPreviewDialog
+        match={match}
+        open={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+      />
+    </>
+  );
+}
+
+// ── Tournament Card ───────────────────────────────────────────────────────────
 
 function TournamentCard({ tournament, index }: { tournament: Tournament; index: number }) {
   const [open, setOpen] = useState(index === 0);
@@ -122,7 +295,6 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
       transition={{ duration: 0.4, delay: index * 0.07 }}
     >
       <GlassCard interactive={false} className="overflow-hidden">
-        {/* Tournament header — clickable */}
         <button
           onClick={() => setOpen((v) => !v)}
           className="w-full text-left px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 hover:bg-accent/5 transition-colors"
@@ -139,7 +311,6 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
           </div>
 
           <div className="flex items-center gap-3 shrink-0">
-            {/* W/L pills */}
             <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/25">
               {tournament.wins}W
             </span>
@@ -147,7 +318,6 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
               {tournament.losses}L
             </span>
 
-            {/* Win % bar */}
             <div className="hidden sm:flex flex-col items-end gap-1 w-20">
               <span className="text-xs text-muted-foreground">{winPct}% wins</span>
               <div className="w-full h-1.5 rounded-full bg-white/10 overflow-hidden">
@@ -164,7 +334,6 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
           </div>
         </button>
 
-        {/* Match rows */}
         <AnimatePresence initial={false}>
           {open && (
             <motion.div
@@ -187,6 +356,8 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
     </motion.div>
   );
 }
+
+// ── Page Section ──────────────────────────────────────────────────────────────
 
 export function MatchesSection() {
   return (
