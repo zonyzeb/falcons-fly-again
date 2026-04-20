@@ -12,10 +12,9 @@ import {
 } from "@/components/ui/dialog";
 import { matches as matchesData, matchScorecards, isWin, type Match, type ScorecardBatter, type ScorecardBowler } from "@/data/stats";
 
-interface FalconAward {
+interface FalconStar {
   name: string;
   stat: string;
-  detail: string;
 }
 
 interface Tournament {
@@ -24,7 +23,8 @@ interface Tournament {
   wins: number;
   losses: number;
   latestDate: string;
-  falconOfTournament: FalconAward | null;
+  falconBat: FalconStar | null;
+  falconBowl: FalconStar | null;
 }
 
 interface ParsedScore {
@@ -74,39 +74,40 @@ function bowlerImpact(b: ScorecardBowler) {
   return b.wickets * 20 + b.maidens * 5 + Math.max(0, (8 - b.economy) * 2);
 }
 
-function falconOfTournament(ms: Match[]): FalconAward | null {
-  const players: Record<string, { runs: number; wickets: number; matches: Set<string>; batImpact: number; bowlImpact: number }> = {};
+function falconsOfTournament(ms: Match[]): { bat: FalconStar | null; bowl: FalconStar | null } {
+  const batters: Record<string, number> = {};
+  const bowlers: Record<string, number> = {};
 
   for (const m of ms) {
     const mid = m.url?.split("/").pop() ?? "";
     const sc = mid ? matchScorecards[mid] : null;
     if (!sc) continue;
-
-    for (const b of sc.falcon_batters ?? []) {
-      const p = players[b.name] ??= { runs: 0, wickets: 0, matches: new Set(), batImpact: 0, bowlImpact: 0 };
-      p.runs += b.runs;
-      p.batImpact += batterImpact(b);
-      p.matches.add(mid);
-    }
-    for (const b of sc.falcon_bowlers ?? []) {
-      const p = players[b.name] ??= { runs: 0, wickets: 0, matches: new Set(), batImpact: 0, bowlImpact: 0 };
-      p.wickets += b.wickets;
-      p.bowlImpact += bowlerImpact(b);
-      p.matches.add(mid);
-    }
+    for (const b of sc.falcon_batters ?? [])
+      batters[b.name] = (batters[b.name] ?? 0) + batterImpact(b);
+    for (const b of sc.falcon_bowlers ?? [])
+      bowlers[b.name] = (bowlers[b.name] ?? 0) + bowlerImpact(b);
   }
 
-  const ranked = Object.entries(players)
-    .map(([name, s]) => ({ name, ...s, totalImpact: s.batImpact + s.bowlImpact }))
-    .sort((a, b) => b.totalImpact - a.totalImpact);
+  // Aggregate actual totals for display stat
+  const batTotals: Record<string, number> = {};
+  const bowlTotals: Record<string, number> = {};
+  for (const m of ms) {
+    const mid = m.url?.split("/").pop() ?? "";
+    const sc = mid ? matchScorecards[mid] : null;
+    if (!sc) continue;
+    for (const b of sc.falcon_batters ?? [])
+      batTotals[b.name] = (batTotals[b.name] ?? 0) + b.runs;
+    for (const b of sc.falcon_bowlers ?? [])
+      bowlTotals[b.name] = (bowlTotals[b.name] ?? 0) + b.wickets;
+  }
 
-  if (!ranked.length) return null;
-  const best = ranked[0];
-  const primaryStat = best.batImpact >= best.bowlImpact
-    ? `${best.runs} runs`
-    : `${best.wickets} wkts`;
-  const detail = `${best.matches.size} match${best.matches.size !== 1 ? "es" : ""}`;
-  return { name: best.name, stat: primaryStat, detail };
+  const topBat = Object.entries(batters).sort((a, b) => b[1] - a[1])[0];
+  const topBowl = Object.entries(bowlers).sort((a, b) => b[1] - a[1])[0];
+
+  return {
+    bat: topBat ? { name: topBat[0], stat: `${batTotals[topBat[0]] ?? 0} runs` } : null,
+    bowl: topBowl ? { name: topBowl[0], stat: `${bowlTotals[topBowl[0]] ?? 0} wkts` } : null,
+  };
 }
 
 function groupByTournament(matches: Match[]): Tournament[] {
@@ -123,7 +124,7 @@ function groupByTournament(matches: Match[]): Tournament[] {
       wins: ms.filter(isWin).length,
       losses: ms.filter((m) => !isWin(m)).length,
       latestDate: ms[0]?.date ?? "",
-      falconOfTournament: falconOfTournament(ms),
+      ...(() => { const f = falconsOfTournament(ms); return { falconBat: f.bat, falconBowl: f.bowl }; })(),
     }))
     .sort((a, b) => {
       const parse = (d: string) => {
@@ -462,14 +463,28 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
                 {" · "}
                 {winPct}%
               </p>
-              {tournament.falconOfTournament && (
-                <span className="inline-flex items-center gap-1 text-xs text-falcon-gold">
-                  <Bird className="w-3 h-3" />
-                  <span className="font-medium">{tournament.falconOfTournament.name}</span>
-                  <span className="text-falcon-gold/60">· {tournament.falconOfTournament.stat}</span>
-                </span>
-              )}
             </div>
+            {(tournament.falconBat || tournament.falconBowl) && (
+              <div className="flex flex-wrap items-center gap-3 mt-2">
+                <span className="text-xs font-semibold text-falcon-gold uppercase tracking-wider flex items-center gap-1">
+                  <Bird className="w-3 h-3" /> Falcons of the Tournament
+                </span>
+                {tournament.falconBat && (
+                  <span className="inline-flex items-center gap-1.5 text-xs bg-falcon-gold/10 border border-falcon-gold/20 rounded-full px-2.5 py-0.5">
+                    <span className="text-falcon-gold">🏏</span>
+                    <span className="font-medium text-foreground">{tournament.falconBat.name}</span>
+                    <span className="text-muted-foreground">{tournament.falconBat.stat}</span>
+                  </span>
+                )}
+                {tournament.falconBowl && (
+                  <span className="inline-flex items-center gap-1.5 text-xs bg-falcon-gold/10 border border-falcon-gold/20 rounded-full px-2.5 py-0.5">
+                    <span className="text-falcon-gold">🎯</span>
+                    <span className="font-medium text-foreground">{tournament.falconBowl.name}</span>
+                    <span className="text-muted-foreground">{tournament.falconBowl.stat}</span>
+                  </span>
+                )}
+              </div>
+            )}
           </div>
 
           <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }} className="shrink-0">
