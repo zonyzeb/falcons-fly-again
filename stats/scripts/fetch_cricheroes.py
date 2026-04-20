@@ -335,12 +335,18 @@ def fetch_match_scorecard(match_id):
         if not data:
             return None
 
-        # Collect all batting rows from both team scorecards
+        # Collect all batting rows from both team scorecards.
+        # Each team's scorecard innings contains:
+        #   batting → batters from THAT team
+        #   bowling → bowlers from the OPPOSING team
         all_batting = []
         all_bowling = []
-        for team_key in ("team_a", "team_b"):
+        pairs = [("team_a", "team_b"), ("team_b", "team_a")]
+        for team_key, opposing_key in pairs:
             team = data.get(team_key, {})
+            opposing = data.get(opposing_key, {})
             team_name = team.get("name", "")
+            opposing_name = opposing.get("name", "")
             for inning in team.get("scorecard", []):
                 for b in inning.get("batting", []):
                     runs = safe_int(b.get("runs"))
@@ -361,7 +367,7 @@ def fetch_match_scorecard(match_id):
                     if overs > 0:
                         all_bowling.append({
                             "name": b.get("name", ""),
-                            "team": team_name,
+                            "team": opposing_name,
                             "wickets": safe_int(b.get("wickets")),
                             "overs": overs,
                             "runs": safe_int(b.get("runs")),

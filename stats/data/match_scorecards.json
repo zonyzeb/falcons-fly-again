@@ -35,7 +35,7 @@
     "top_bowlers": [
       {
         "name": "Shahbaz Ahmed",
-        "team": "Stockholm Ninjas",
+        "team": "Falcons",
         "wickets": 3,
         "overs": 2.0,
         "runs": 19,
@@ -44,7 +44,7 @@
       },
       {
         "name": "JD  (c)",
-        "team": "Stockholm Ninjas",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 1.0,
         "runs": 7,
@@ -53,7 +53,7 @@
       },
       {
         "name": "Sony",
-        "team": "Stockholm Ninjas",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 1.0,
         "runs": 3,
@@ -103,7 +103,7 @@
     "top_bowlers": [
       {
         "name": "JD  (c)",
-        "team": "Masters Undefined",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 4,
@@ -112,7 +112,7 @@
       },
       {
         "name": "Sudharshan Y K",
-        "team": "Falcons",
+        "team": "Masters Undefined",
         "wickets": 2,
         "overs": 2.0,
         "runs": 38,
@@ -121,7 +121,7 @@
       },
       {
         "name": "Umesh Bh",
-        "team": "Masters Undefined",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 2.0,
         "runs": 9,
@@ -171,7 +171,7 @@
     "top_bowlers": [
       {
         "name": "JD  (c)",
-        "team": "Kista Rising Stars",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 1.0,
         "runs": 1,
@@ -180,7 +180,7 @@
       },
       {
         "name": "Indrasena Reddy  (c)",
-        "team": "Falcons",
+        "team": "Kista Rising Stars",
         "wickets": 2,
         "overs": 2.0,
         "runs": 20,
@@ -189,7 +189,7 @@
       },
       {
         "name": "Yogi",
-        "team": "Falcons",
+        "team": "Kista Rising Stars",
         "wickets": 1,
         "overs": 2.0,
         "runs": 9,
@@ -239,7 +239,7 @@
     "top_bowlers": [
       {
         "name": "Abhishek Mahapatra",
-        "team": "Falcons",
+        "team": "Jai Juppo",
         "wickets": 2,
         "overs": 2.0,
         "runs": 9,
@@ -248,7 +248,7 @@
       },
       {
         "name": "Ashutosh Samal",
-        "team": "Falcons",
+        "team": "Jai Juppo",
         "wickets": 2,
         "overs": 2.0,
         "runs": 27,
@@ -257,7 +257,7 @@
       },
       {
         "name": "Mahesh Angadi",
-        "team": "Jai Juppo",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 2.0,
         "runs": 11,
@@ -267,7 +267,7 @@
     ],
     "player_of_match": {
       "name": "Abhishek Mahapatra",
-      "team": "Falcons",
+      "team": "Jai Juppo",
       "stat": "2/9"
     }
   },
@@ -307,7 +307,7 @@
     "top_bowlers": [
       {
         "name": "JD  (c)",
-        "team": "Vasby Strikers",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 8,
@@ -316,7 +316,7 @@
       },
       {
         "name": "Sony",
-        "team": "Vasby Strikers",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 13,
@@ -325,7 +325,7 @@
       },
       {
         "name": "Kashyap Bhaskar",
-        "team": "Falcons",
+        "team": "Vasby Strikers",
         "wickets": 1,
         "overs": 2.0,
         "runs": 10,
@@ -375,7 +375,7 @@
     "top_bowlers": [
       {
         "name": "Sudharshan Y K",
-        "team": "Falcons",
+        "team": "SSK ULTRAS",
         "wickets": 2,
         "overs": 1.0,
         "runs": 5,
@@ -384,7 +384,7 @@
       },
       {
         "name": "JD  (c)",
-        "team": "SSK ULTRAS",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 1.0,
         "runs": 5,
@@ -393,7 +393,7 @@
       },
       {
         "name": "Premjith PM",
-        "team": "SSK ULTRAS",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 1.0,
         "runs": 8,
@@ -403,7 +403,7 @@
     ],
     "player_of_match": {
       "name": "Sudharshan Y K",
-      "team": "Falcons",
+      "team": "SSK ULTRAS",
       "stat": "2/5"
     }
   },
@@ -443,7 +443,7 @@
     "top_bowlers": [
       {
         "name": "Sourav Das",
-        "team": "Falcons",
+        "team": "Stockholm Capitals",
         "wickets": 0,
         "overs": 0.2,
         "runs": 1,
@@ -452,7 +452,7 @@
       },
       {
         "name": "Divin Barachel",
-        "team": "Stockholm Capitals",
+        "team": "Falcons",
         "wickets": 0,
         "overs": 1.0,
         "runs": 4,
@@ -461,7 +461,7 @@
       },
       {
         "name": "Premjith PM",
-        "team": "Stockholm Capitals",
+        "team": "Falcons",
         "wickets": 0,
         "overs": 1.0,
         "runs": 4,
@@ -511,7 +511,7 @@
     "top_bowlers": [
       {
         "name": "JD  (c)",
-        "team": "Kista Rising Stars",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 1.0,
         "runs": 3,
@@ -520,7 +520,7 @@
       },
       {
         "name": "Indrasena Reddy  (c)",
-        "team": "Falcons",
+        "team": "Kista Rising Stars",
         "wickets": 1,
         "overs": 1.0,
         "runs": 6,
@@ -529,7 +529,7 @@
       },
       {
         "name": "Yashas Paralath",
-        "team": "Kista Rising Stars",
+        "team": "Falcons",
         "wickets": 0,
         "overs": 1.0,
         "runs": 4,
@@ -539,7 +539,7 @@
     ],
     "player_of_match": {
       "name": "JD  (c)",
-      "team": "Kista Rising Stars",
+      "team": "Falcons",
       "stat": "2/3"
     }
   },
@@ -579,7 +579,7 @@
     "top_bowlers": [
       {
         "name": "JD  (c)",
-        "team": "Masters Undefined",
+        "team": "HSC Falcons",
         "wickets": 3,
         "overs": 3.0,
         "runs": 30,
@@ -588,7 +588,7 @@
       },
       {
         "name": "Mansoor Ilahi",
-        "team": "HSC Falcons",
+        "team": "Masters Undefined",
         "wickets": 2,
         "overs": 3.0,
         "runs": 32,
@@ -597,7 +597,7 @@
       },
       {
         "name": "Anbarasan Thamizharasan",
-        "team": "HSC Falcons",
+        "team": "Masters Undefined",
         "wickets": 1,
         "overs": 3.0,
         "runs": 17,
@@ -647,7 +647,7 @@
     "top_bowlers": [
       {
         "name": "sarath",
-        "team": "HSC Falcons",
+        "team": "Keep It Capitals",
         "wickets": 2,
         "overs": 3.0,
         "runs": 13,
@@ -656,7 +656,7 @@
       },
       {
         "name": "Fahsan K P",
-        "team": "Keep It Capitals",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 14,
@@ -665,7 +665,7 @@
       },
       {
         "name": "Rithwik K V",
-        "team": "Keep It Capitals",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 20,
@@ -715,7 +715,7 @@
     "top_bowlers": [
       {
         "name": "Anbarasan Thamizharasan",
-        "team": "Smashers",
+        "team": "HSC Falcons",
         "wickets": 3,
         "overs": 2.0,
         "runs": 4,
@@ -724,7 +724,7 @@
       },
       {
         "name": "Anant Anand",
-        "team": "HSC Falcons",
+        "team": "Smashers",
         "wickets": 2,
         "overs": 2.0,
         "runs": 4,
@@ -733,7 +733,7 @@
       },
       {
         "name": "Sameer Hankare",
-        "team": "HSC Falcons",
+        "team": "Smashers",
         "wickets": 2,
         "overs": 2.0,
         "runs": 11,
@@ -743,7 +743,7 @@
     ],
     "player_of_match": {
       "name": "Anbarasan Thamizharasan",
-      "team": "Smashers",
+      "team": "HSC Falcons",
       "stat": "3/4"
     }
   },
@@ -783,7 +783,7 @@
     "top_bowlers": [
       {
         "name": "Manideep Beri",
-        "team": "HSC Falcons",
+        "team": "United Jaguars",
         "wickets": 3,
         "overs": 2.0,
         "runs": 5,
@@ -792,7 +792,7 @@
       },
       {
         "name": "JD  (c)",
-        "team": "United Jaguars",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 10,
@@ -801,7 +801,7 @@
       },
       {
         "name": "Anbarasan Thamizharasan",
-        "team": "United Jaguars",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 12,
@@ -811,7 +811,7 @@
     ],
     "player_of_match": {
       "name": "Manideep Beri",
-      "team": "HSC Falcons",
+      "team": "United Jaguars",
       "stat": "3/5"
     }
   },
@@ -851,7 +851,7 @@
     "top_bowlers": [
       {
         "name": "Indrasena Reddy  (c)",
-        "team": "HSC Falcons",
+        "team": "Kista Rising Stars",
         "wickets": 4,
         "overs": 2.0,
         "runs": 23,
@@ -860,7 +860,7 @@
       },
       {
         "name": "Mahesh Angadi",
-        "team": "Kista Rising Stars",
+        "team": "HSC Falcons",
         "wickets": 3,
         "overs": 2.0,
         "runs": 21,
@@ -869,7 +869,7 @@
       },
       {
         "name": "Manish Pandey",
-        "team": "HSC Falcons",
+        "team": "Kista Rising Stars",
         "wickets": 2,
         "overs": 2.0,
         "runs": 24,
@@ -919,7 +919,7 @@
     "top_bowlers": [
       {
         "name": "JD  (c)",
-        "team": "Nordic Warriors",
+        "team": "HSC Falcons",
         "wickets": 4,
         "overs": 2.0,
         "runs": 25,
@@ -928,7 +928,7 @@
       },
       {
         "name": "Saravanan Annatchi",
-        "team": "HSC Falcons",
+        "team": "Nordic Warriors",
         "wickets": 1,
         "overs": 2.0,
         "runs": 13,
@@ -937,7 +937,7 @@
       },
       {
         "name": "Mahesh Angadi",
-        "team": "Nordic Warriors",
+        "team": "HSC Falcons",
         "wickets": 1,
         "overs": 2.0,
         "runs": 17,
@@ -947,7 +947,7 @@
     ],
     "player_of_match": {
       "name": "JD  (c)",
-      "team": "Nordic Warriors",
+      "team": "HSC Falcons",
       "stat": "4/25"
     }
   },
@@ -987,7 +987,7 @@
     "top_bowlers": [
       {
         "name": "Fahsan K P",
-        "team": "Stockholm Capitals",
+        "team": "HSC Falcons",
         "wickets": 3,
         "overs": 3.0,
         "runs": 18,
@@ -996,7 +996,7 @@
       },
       {
         "name": "Pawan",
-        "team": "HSC Falcons",
+        "team": "Stockholm Capitals",
         "wickets": 2,
         "overs": 2.0,
         "runs": 13,
@@ -1005,7 +1005,7 @@
       },
       {
         "name": "Hanumant Rajain",
-        "team": "HSC Falcons",
+        "team": "Stockholm Capitals",
         "wickets": 2,
         "overs": 3.0,
         "runs": 25,
@@ -1055,7 +1055,7 @@
     "top_bowlers": [
       {
         "name": "Umesh Bh",
-        "team": "Kalinga Warriors",
+        "team": "HSC Falcons",
         "wickets": 3,
         "overs": 2.3,
         "runs": 13,
@@ -1064,7 +1064,7 @@
       },
       {
         "name": "Premjith PM  (c)",
-        "team": "Kalinga Warriors",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 7,
@@ -1073,7 +1073,7 @@
       },
       {
         "name": "Sony",
-        "team": "Kalinga Warriors",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 18,
@@ -1083,7 +1083,7 @@
     ],
     "player_of_match": {
       "name": "Umesh Bh",
-      "team": "Kalinga Warriors",
+      "team": "HSC Falcons",
       "stat": "3/13"
     }
   },
@@ -1123,7 +1123,7 @@
     "top_bowlers": [
       {
         "name": "Sony",
-        "team": "Rockstars",
+        "team": "HSC Falcons",
         "wickets": 4,
         "overs": 3.0,
         "runs": 5,
@@ -1132,7 +1132,7 @@
       },
       {
         "name": "Mahesh Angadi",
-        "team": "HSC Falcons",
+        "team": "Rockstars",
         "wickets": 2,
         "overs": 3.0,
         "runs": 25,
@@ -1141,7 +1141,7 @@
       },
       {
         "name": "Premjith PM  (c)",
-        "team": "Rockstars",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 22,
@@ -1151,7 +1151,7 @@
     ],
     "player_of_match": {
       "name": "Sony",
-      "team": "Rockstars",
+      "team": "HSC Falcons",
       "stat": "4/5"
     }
   },
@@ -1191,7 +1191,7 @@
     "top_bowlers": [
       {
         "name": "Tinu",
-        "team": "Nordic Warriors",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 1.0,
         "runs": 3,
@@ -1200,7 +1200,7 @@
       },
       {
         "name": "Amol Zambare",
-        "team": "HSC Falcons",
+        "team": "Nordic Warriors",
         "wickets": 2,
         "overs": 3.0,
         "runs": 12,
@@ -1209,7 +1209,7 @@
       },
       {
         "name": "JD",
-        "team": "Nordic Warriors",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 25,
@@ -1259,7 +1259,7 @@
     "top_bowlers": [
       {
         "name": "Tinu",
-        "team": "Stockholm Ninjas",
+        "team": "HSC Falcons",
         "wickets": 3,
         "overs": 2.0,
         "runs": 3,
@@ -1268,7 +1268,7 @@
       },
       {
         "name": "Prem  (c)",
-        "team": "Stockholm Ninjas",
+        "team": "HSC Falcons",
         "wickets": 3,
         "overs": 2.3,
         "runs": 10,
@@ -1277,7 +1277,7 @@
       },
       {
         "name": "Sony",
-        "team": "Stockholm Ninjas",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 22,
@@ -1327,7 +1327,7 @@
     "top_bowlers": [
       {
         "name": "Divin Barachel",
-        "team": "Keep It Cool Stockholm",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 10,
@@ -1336,7 +1336,7 @@
       },
       {
         "name": "sarath",
-        "team": "Falcons",
+        "team": "Keep It Cool Stockholm",
         "wickets": 2,
         "overs": 3.0,
         "runs": 16,
@@ -1345,7 +1345,7 @@
       },
       {
         "name": "Raveed Sohail",
-        "team": "Falcons",
+        "team": "Keep It Cool Stockholm",
         "wickets": 2,
         "overs": 3.0,
         "runs": 16,
@@ -1395,7 +1395,7 @@
     "top_bowlers": [
       {
         "name": "Manideep Beri",
-        "team": "Falcons",
+        "team": "United Jaguars",
         "wickets": 4,
         "overs": 3.0,
         "runs": 9,
@@ -1404,7 +1404,7 @@
       },
       {
         "name": "Bala",
-        "team": "Falcons",
+        "team": "United Jaguars",
         "wickets": 2,
         "overs": 1.0,
         "runs": 2,
@@ -1413,7 +1413,7 @@
       },
       {
         "name": "Anand TS",
-        "team": "United Jaguars",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 18,
@@ -1423,7 +1423,7 @@
     ],
     "player_of_match": {
       "name": "Manideep Beri",
-      "team": "Falcons",
+      "team": "United Jaguars",
       "stat": "4/9"
     }
   },
@@ -1463,7 +1463,7 @@
     "top_bowlers": [
       {
         "name": "Sony",
-        "team": "Stockholm Capitals",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 13,
@@ -1472,7 +1472,7 @@
       },
       {
         "name": "Prashanth Ramesh",
-        "team": "Falcons",
+        "team": "Stockholm Capitals",
         "wickets": 2,
         "overs": 3.0,
         "runs": 15,
@@ -1481,7 +1481,7 @@
       },
       {
         "name": "Fahsan K P",
-        "team": "Stockholm Capitals",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 18,
@@ -1531,7 +1531,7 @@
     "top_bowlers": [
       {
         "name": "Premjith PM  (c)",
-        "team": "Nordic Vikings",
+        "team": "Falcons",
         "wickets": 4,
         "overs": 3.0,
         "runs": 10,
@@ -1540,7 +1540,7 @@
       },
       {
         "name": "Divin Barachel",
-        "team": "Nordic Vikings",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 22,
@@ -1549,7 +1549,7 @@
       },
       {
         "name": "Sony",
-        "team": "Nordic Vikings",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 3.0,
         "runs": 10,
@@ -1559,7 +1559,7 @@
     ],
     "player_of_match": {
       "name": "Premjith PM  (c)",
-      "team": "Nordic Vikings",
+      "team": "Falcons",
       "stat": "4/10"
     }
   },
@@ -1599,7 +1599,7 @@
     "top_bowlers": [
       {
         "name": "Tinu",
-        "team": "Tre Cricket Club",
+        "team": "Falcons",
         "wickets": 3,
         "overs": 3.0,
         "runs": 11,
@@ -1608,7 +1608,7 @@
       },
       {
         "name": "JD",
-        "team": "Tre Cricket Club",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 8,
@@ -1617,7 +1617,7 @@
       },
       {
         "name": "Premjith PM  (c)",
-        "team": "Tre Cricket Club",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 15,
@@ -1627,7 +1627,7 @@
     ],
     "player_of_match": {
       "name": "Tinu",
-      "team": "Tre Cricket Club",
+      "team": "Falcons",
       "stat": "3/11"
     }
   },
@@ -1667,7 +1667,7 @@
     "top_bowlers": [
       {
         "name": "Arun u",
-        "team": "Falcons",
+        "team": "United Jaguars",
         "wickets": 2,
         "overs": 3.0,
         "runs": 11,
@@ -1676,7 +1676,7 @@
       },
       {
         "name": "Achyuth",
-        "team": "Falcons",
+        "team": "United Jaguars",
         "wickets": 2,
         "overs": 4.0,
         "runs": 16,
@@ -1685,7 +1685,7 @@
       },
       {
         "name": "Karthick Natarajan",
-        "team": "Falcons",
+        "team": "United Jaguars",
         "wickets": 2,
         "overs": 2.0,
         "runs": 8,
@@ -1695,7 +1695,7 @@
     ],
     "player_of_match": {
       "name": "Achyuth",
-      "team": "Falcons",
+      "team": "United Jaguars",
       "stat": "2/16"
     }
   },
@@ -1735,7 +1735,7 @@
     "top_bowlers": [
       {
         "name": "JD",
-        "team": "Stockholm Yodhas",
+        "team": "Falcons",
         "wickets": 4,
         "overs": 4.0,
         "runs": 8,
@@ -1744,7 +1744,7 @@
       },
       {
         "name": "Umesh Bh",
-        "team": "Stockholm Yodhas",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 4.0,
         "runs": 17,
@@ -1753,7 +1753,7 @@
       },
       {
         "name": "Mangesh Khade",
-        "team": "Falcons",
+        "team": "Stockholm Yodhas",
         "wickets": 2,
         "overs": 3.0,
         "runs": 40,
@@ -1803,7 +1803,7 @@
     "top_bowlers": [
       {
         "name": "Premjith PM",
-        "team": "Smashers",
+        "team": "Falcons",
         "wickets": 3,
         "overs": 4.0,
         "runs": 20,
@@ -1812,7 +1812,7 @@
       },
       {
         "name": "Divin Barachel",
-        "team": "Smashers",
+        "team": "Falcons",
         "wickets": 3,
         "overs": 3.4,
         "runs": 31,
@@ -1821,7 +1821,7 @@
       },
       {
         "name": "Amol Zambare",
-        "team": "Falcons",
+        "team": "Smashers",
         "wickets": 2,
         "overs": 4.0,
         "runs": 21,
@@ -1871,7 +1871,7 @@
     "top_bowlers": [
       {
         "name": "Rahul Manalath",
-        "team": "Falcons",
+        "team": "Rockstars",
         "wickets": 3,
         "overs": 3.0,
         "runs": 13,
@@ -1880,7 +1880,7 @@
       },
       {
         "name": "Mahesh Angadi",
-        "team": "Falcons",
+        "team": "Rockstars",
         "wickets": 3,
         "overs": 2.4,
         "runs": 17,
@@ -1889,7 +1889,7 @@
       },
       {
         "name": "Yogi",
-        "team": "Rockstars",
+        "team": "Falcons",
         "wickets": 3,
         "overs": 4.0,
         "runs": 29,
@@ -1899,7 +1899,7 @@
     ],
     "player_of_match": {
       "name": "Mahesh Angadi",
-      "team": "Falcons",
+      "team": "Rockstars",
       "stat": "3/17"
     }
   },
@@ -1939,7 +1939,7 @@
     "top_bowlers": [
       {
         "name": "Yogi",
-        "team": "Kista Rising Stars",
+        "team": "Falcons",
         "wickets": 5,
         "overs": 4.0,
         "runs": 22,
@@ -1948,7 +1948,7 @@
       },
       {
         "name": "Indrasena Reddy",
-        "team": "Falcons",
+        "team": "Kista Rising Stars",
         "wickets": 4,
         "overs": 4.0,
         "runs": 14,
@@ -1957,7 +1957,7 @@
       },
       {
         "name": "Sony",
-        "team": "Kista Rising Stars",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 4.0,
         "runs": 14,
@@ -1967,7 +1967,7 @@
     ],
     "player_of_match": {
       "name": "Yogi",
-      "team": "Kista Rising Stars",
+      "team": "Falcons",
       "stat": "5/22"
     }
   },
@@ -2007,7 +2007,7 @@
     "top_bowlers": [
       {
         "name": "Rishi Deshmukh",
-        "team": "Falcons",
+        "team": "Stockholm Ninjas",
         "wickets": 3,
         "overs": 4.0,
         "runs": 27,
@@ -2016,7 +2016,7 @@
       },
       {
         "name": "Yashoda De Zoysa",
-        "team": "Falcons",
+        "team": "Stockholm Ninjas",
         "wickets": 2,
         "overs": 3.0,
         "runs": 15,
@@ -2025,7 +2025,7 @@
       },
       {
         "name": "Avinash D  (c)",
-        "team": "Falcons",
+        "team": "Stockholm Ninjas",
         "wickets": 2,
         "overs": 4.0,
         "runs": 21,
@@ -2035,7 +2035,7 @@
     ],
     "player_of_match": {
       "name": "Rishi Deshmukh",
-      "team": "Falcons",
+      "team": "Stockholm Ninjas",
       "stat": "3/27"
     }
   },
@@ -2075,7 +2075,7 @@
     "top_bowlers": [
       {
         "name": "Sony",
-        "team": "Kista Rising Stars",
+        "team": "Helenelund Cricket Club",
         "wickets": 3,
         "overs": 3.0,
         "runs": 18,
@@ -2084,7 +2084,7 @@
       },
       {
         "name": "Indrasena Reddy  (c)",
-        "team": "Helenelund Cricket Club",
+        "team": "Kista Rising Stars",
         "wickets": 3,
         "overs": 3.0,
         "runs": 21,
@@ -2093,7 +2093,7 @@
       },
       {
         "name": "Vishal Mishra",
-        "team": "Helenelund Cricket Club",
+        "team": "Kista Rising Stars",
         "wickets": 2,
         "overs": 4.0,
         "runs": 17,
@@ -2143,7 +2143,7 @@
     "top_bowlers": [
       {
         "name": "Premjith PM",
-        "team": "Rockstars",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 3,
@@ -2152,7 +2152,7 @@
       },
       {
         "name": "Yogi",
-        "team": "Rockstars",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 4.0,
         "runs": 19,
@@ -2161,7 +2161,7 @@
       },
       {
         "name": "Rahul Manalath",
-        "team": "Falcons",
+        "team": "Rockstars",
         "wickets": 2,
         "overs": 4.0,
         "runs": 27,
@@ -2211,7 +2211,7 @@
     "top_bowlers": [
       {
         "name": "Abinash Sahu",
-        "team": "Falcons",
+        "team": "Kalinga Warriors",
         "wickets": 2,
         "overs": 2.0,
         "runs": 9,
@@ -2220,7 +2220,7 @@
       },
       {
         "name": "JD",
-        "team": "Kalinga Warriors",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 4.0,
         "runs": 27,
@@ -2229,7 +2229,7 @@
       },
       {
         "name": "Yogi",
-        "team": "Kalinga Warriors",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 4.0,
         "runs": 30,
@@ -2279,7 +2279,7 @@
     "top_bowlers": [
       {
         "name": "Sudarshan Kulkarni",
-        "team": "Falcons",
+        "team": "Jai Juppo",
         "wickets": 3,
         "overs": 4.0,
         "runs": 30,
@@ -2288,7 +2288,7 @@
       },
       {
         "name": "Raj Jadhav",
-        "team": "Falcons",
+        "team": "Jai Juppo",
         "wickets": 2,
         "overs": 3.4,
         "runs": 16,
@@ -2297,7 +2297,7 @@
       },
       {
         "name": "Rishi Bhai  (c)",
-        "team": "Falcons",
+        "team": "Jai Juppo",
         "wickets": 2,
         "overs": 4.0,
         "runs": 24,
@@ -2347,7 +2347,7 @@
     "top_bowlers": [
       {
         "name": "Anand N",
-        "team": "Falcons",
+        "team": "United Jaguars",
         "wickets": 3,
         "overs": 3.2,
         "runs": 12,
@@ -2356,7 +2356,7 @@
       },
       {
         "name": "Bala",
-        "team": "Falcons",
+        "team": "United Jaguars",
         "wickets": 3,
         "overs": 3.0,
         "runs": 18,
@@ -2365,7 +2365,7 @@
       },
       {
         "name": "Abed",
-        "team": "Falcons",
+        "team": "United Jaguars",
         "wickets": 2,
         "overs": 2.0,
         "runs": 9,
@@ -2415,7 +2415,7 @@
     "top_bowlers": [
       {
         "name": "Sony  (c)",
-        "team": "Nordic Vikings",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 3.0,
         "runs": 17,
@@ -2424,7 +2424,7 @@
       },
       {
         "name": "Ashutosh Samal",
-        "team": "Falcons",
+        "team": "Nordic Vikings",
         "wickets": 1,
         "overs": 2.1,
         "runs": 15,
@@ -2433,7 +2433,7 @@
       },
       {
         "name": "Divin Barachel",
-        "team": "Nordic Vikings",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 3.0,
         "runs": 23,
@@ -2483,7 +2483,7 @@
     "top_bowlers": [
       {
         "name": "Alok Kumar",
-        "team": "Falcons",
+        "team": "Stockholm Capitals",
         "wickets": 3,
         "overs": 3.0,
         "runs": 19,
@@ -2492,7 +2492,7 @@
       },
       {
         "name": "Premjith PM",
-        "team": "Stockholm Capitals",
+        "team": "Falcons",
         "wickets": 3,
         "overs": 3.0,
         "runs": 34,
@@ -2501,7 +2501,7 @@
       },
       {
         "name": "Prashanth Ramesh",
-        "team": "Falcons",
+        "team": "Stockholm Capitals",
         "wickets": 2,
         "overs": 2.1,
         "runs": 13,
@@ -2551,7 +2551,7 @@
     "top_bowlers": [
       {
         "name": "Ajas M A",
-        "team": "Kista Rising Stars",
+        "team": "Falcons",
         "wickets": 4,
         "overs": 3.0,
         "runs": 11,
@@ -2560,7 +2560,7 @@
       },
       {
         "name": "Prem",
-        "team": "Kista Rising Stars",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 3.0,
         "runs": 8,
@@ -2569,7 +2569,7 @@
       },
       {
         "name": "Sony  (c)",
-        "team": "Kista Rising Stars",
+        "team": "Falcons",
         "wickets": 1,
         "overs": 3.0,
         "runs": 9,
@@ -2579,7 +2579,7 @@
     ],
     "player_of_match": {
       "name": "Ajas M A",
-      "team": "Kista Rising Stars",
+      "team": "Falcons",
       "stat": "4/11"
     }
   },
@@ -2619,7 +2619,7 @@
     "top_bowlers": [
       {
         "name": "Premjith PM",
-        "team": "Smashers",
+        "team": "Falcons",
         "wickets": 3,
         "overs": 3.0,
         "runs": 16,
@@ -2628,7 +2628,7 @@
       },
       {
         "name": "Abhishek Kaul",
-        "team": "Falcons",
+        "team": "Smashers",
         "wickets": 2,
         "overs": 3.0,
         "runs": 17,
@@ -2637,7 +2637,7 @@
       },
       {
         "name": "Mahesh Angadi",
-        "team": "Falcons",
+        "team": "Smashers",
         "wickets": 2,
         "overs": 3.0,
         "runs": 27,
@@ -2647,7 +2647,7 @@
     ],
     "player_of_match": {
       "name": "Premjith PM",
-      "team": "Smashers",
+      "team": "Falcons",
       "stat": "3/16"
     }
   },
@@ -2687,7 +2687,7 @@
     "top_bowlers": [
       {
         "name": "Premjith PM",
-        "team": "Royal Challengers Sodertalje",
+        "team": "Falcons",
         "wickets": 3,
         "overs": 3.0,
         "runs": 8,
@@ -2696,7 +2696,7 @@
       },
       {
         "name": "Kannan Unnikrishnan",
-        "team": "Royal Challengers Sodertalje",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 1.0,
         "runs": 3,
@@ -2705,7 +2705,7 @@
       },
       {
         "name": "Ajas M A",
-        "team": "Royal Challengers Sodertalje",
+        "team": "Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 24,
@@ -2755,7 +2755,7 @@
     "top_bowlers": [
       {
         "name": "Umesh Bh",
-        "team": "Kista Rising Stars",
+        "team": "Helenelund Cricket Club",
         "wickets": 3,
         "overs": 3.0,
         "runs": 11,
@@ -2764,7 +2764,7 @@
       },
       {
         "name": "JD",
-        "team": "Kista Rising Stars",
+        "team": "Helenelund Cricket Club",
         "wickets": 2,
         "overs": 2.0,
         "runs": 7,
@@ -2773,7 +2773,7 @@
       },
       {
         "name": "Sony  (c)",
-        "team": "Kista Rising Stars",
+        "team": "Helenelund Cricket Club",
         "wickets": 2,
         "overs": 1.0,
         "runs": 4,
@@ -2783,7 +2783,7 @@
     ],
     "player_of_match": {
       "name": "Umesh Bh",
-      "team": "Kista Rising Stars",
+      "team": "Helenelund Cricket Club",
       "stat": "3/11"
     }
   },
@@ -2823,7 +2823,7 @@
     "top_bowlers": [
       {
         "name": "Kareemulla Shaik  (c)",
-        "team": "HSC Falcons",
+        "team": "Rockstars",
         "wickets": 2,
         "overs": 2.0,
         "runs": 5,
@@ -2832,7 +2832,7 @@
       },
       {
         "name": "Umesh Bh",
-        "team": "Rockstars",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 12,
@@ -2841,7 +2841,7 @@
       },
       {
         "name": "Premjith PM",
-        "team": "Rockstars",
+        "team": "HSC Falcons",
         "wickets": 1,
         "overs": 1.0,
         "runs": 7,
@@ -2891,7 +2891,7 @@
     "top_bowlers": [
       {
         "name": "Abhishek Kaul",
-        "team": "HSC Falcons",
+        "team": "Smashers",
         "wickets": 3,
         "overs": 2.0,
         "runs": 7,
@@ -2900,7 +2900,7 @@
       },
       {
         "name": "Anant Anand",
-        "team": "HSC Falcons",
+        "team": "Smashers",
         "wickets": 2,
         "overs": 2.0,
         "runs": 6,
@@ -2909,7 +2909,7 @@
       },
       {
         "name": "Puneet Kumar",
-        "team": "HSC Falcons",
+        "team": "Smashers",
         "wickets": 2,
         "overs": 2.0,
         "runs": 12,
@@ -2919,7 +2919,7 @@
     ],
     "player_of_match": {
       "name": "Abhishek Kaul",
-      "team": "HSC Falcons",
+      "team": "Smashers",
       "stat": "3/7"
     }
   },
@@ -2959,7 +2959,7 @@
     "top_bowlers": [
       {
         "name": "Yogi",
-        "team": "Jai Juppo",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 21,
@@ -2968,7 +2968,7 @@
       },
       {
         "name": "JD",
-        "team": "Jai Juppo",
+        "team": "HSC Falcons",
         "wickets": 2,
         "overs": 2.0,
         "runs": 29,
@@ -2977,7 +2977,7 @@
       },
       {
         "name": "Umesh Bh",
-        "team": "Jai Juppo",
+        "team": "HSC Falcons",
         "wickets": 1,
         "overs": 2.0,
         "runs": 15,
@@ -3027,7 +3027,7 @@
     "top_bowlers": [
       {
         "name": "Santosh Basutkar  (c)",
-        "team": "Helenelund Cricket Club",
+        "team": "Smashers",
         "wickets": 2,
         "overs": 1.0,
         "runs": 7,
@@ -3036,7 +3036,7 @@
       },
       {
         "name": "Sony",
-        "team": "Smashers",
+        "team": "Helenelund Cricket Club",
         "wickets": 2,
         "overs": 2.0,
         "runs": 19,
@@ -3045,7 +3045,7 @@
       },
       {
         "name": "Anant Anand",
-        "team": "Helenelund Cricket Club",
+        "team": "Smashers",
         "wickets": 1,
         "overs": 2.0,
         "runs": 8,
@@ -3095,7 +3095,7 @@
     "top_bowlers": [
       {
         "name": "Anant Anand",
-        "team": "Helenelund Cricket Club",
+        "team": "Smashers",
         "wickets": 1,
         "overs": 2.0,
         "runs": 10,
@@ -3104,7 +3104,7 @@
       },
       {
         "name": "Puneet Kumar",
-        "team": "Helenelund Cricket Club",
+        "team": "Smashers",
         "wickets": 1,
         "overs": 1.0,
         "runs": 10,
@@ -3113,7 +3113,7 @@
       },
       {
         "name": "Premjith PM",
-        "team": "Smashers",
+        "team": "Helenelund Cricket Club",
         "wickets": 1,
         "overs": 1.0,
         "runs": 11,
