@@ -427,8 +427,20 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
       <GlassCard interactive={false} className="overflow-hidden">
         {/* Win/loss bar */}
         <div className="flex h-1.5 w-full overflow-hidden">
-          <div className="bg-emerald-500" style={{ width: `${winPct}%` }} />
-          <div className="bg-rose-500 flex-1" />
+          <motion.div
+            className="bg-emerald-500 shrink-0"
+            initial={{ width: 0 }}
+            whileInView={{ width: `${winPct}%` }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.07 + 0.2 }}
+          />
+          <motion.div
+            className="bg-rose-500 shrink-0"
+            initial={{ width: 0 }}
+            whileInView={{ width: `${100 - winPct}%` }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.07 + 0.2 }}
+          />
         </div>
 
         <button
