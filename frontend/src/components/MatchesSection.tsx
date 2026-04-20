@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Calendar, MapPin, Trophy, ExternalLink, ChevronDown, Clock, Shield, Swords, Flame, Bird } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
@@ -53,6 +53,10 @@ function winnerName(result: string): string {
 function winMargin(result: string): string {
   const m = result.match(/won\s+by\s+(.+)$/i);
   return m ? m[1].trim() : "";
+}
+
+function toSlug(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
 function yearFromDate(date: string): string {
@@ -412,10 +416,30 @@ function MatchRow({ match }: { match: Match }) {
 // ── Tournament Card ───────────────────────────────────────────────────────────
 
 function TournamentCard({ tournament, index }: { tournament: Tournament; index: number }) {
-  const [open, setOpen] = useState(index === 0);
+  const slug = toSlug(tournament.name);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isHashMatch = typeof window !== "undefined" && window.location.hash === `#${slug}`;
+  const [open, setOpen] = useState(index === 0 || isHashMatch);
   const winPct = tournament.matches.length
     ? Math.round((tournament.wins / tournament.matches.length) * 100)
     : 0;
+
+  // Scroll into view on initial load if hash matches
+  useEffect(() => {
+    if (isHashMatch) {
+      setTimeout(() => cardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 300);
+    }
+  }, []);
+
+  function handleToggle() {
+    const next = !open;
+    setOpen(next);
+    if (next) {
+      history.replaceState(null, "", `#${slug}`);
+    } else if (window.location.hash === `#${slug}`) {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+  }
 
   return (
     <motion.div
@@ -424,6 +448,7 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.07 }}
     >
+      <div ref={cardRef} id={slug} className="scroll-mt-24">
       <GlassCard interactive={false} className="overflow-hidden">
         {/* Win/loss bar */}
         <div className="flex h-1.5 w-full overflow-hidden">
@@ -444,7 +469,7 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
         </div>
 
         <button
-          onClick={() => setOpen((v) => !v)}
+          onClick={handleToggle}
           className="w-full text-left px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 hover:bg-accent/5 transition-colors"
         >
           <div className="flex-1 min-w-0">
@@ -509,6 +534,7 @@ function TournamentCard({ tournament, index }: { tournament: Tournament; index: 
           )}
         </AnimatePresence>
       </GlassCard>
+      </div>
     </motion.div>
   );
 }
