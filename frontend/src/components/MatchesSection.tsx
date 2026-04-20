@@ -418,18 +418,22 @@ function MatchRow({ match }: { match: Match }) {
 function TournamentCard({ tournament, index }: { tournament: Tournament; index: number }) {
   const slug = toSlug(tournament.name);
   const cardRef = useRef<HTMLDivElement>(null);
-  const isHashMatch = typeof window !== "undefined" && window.location.hash === `#${slug}`;
-  const [open, setOpen] = useState(index === 0 || isHashMatch);
+  const [open, setOpen] = useState(index === 0);
   const winPct = tournament.matches.length
     ? Math.round((tournament.wins / tournament.matches.length) * 100)
     : 0;
 
-  // Scroll into view on initial load if hash matches
   useEffect(() => {
-    if (isHashMatch) {
-      setTimeout(() => cardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 300);
+    function syncHash() {
+      if (window.location.hash === `#${slug}`) {
+        setOpen(true);
+        setTimeout(() => cardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      }
     }
-  }, []);
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [slug]);
 
   function handleToggle() {
     const next = !open;
