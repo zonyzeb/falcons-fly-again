@@ -2,17 +2,17 @@
   "batting": [
     {
       "player_name": "Deepu Dileep",
-      "stat": "243 runs",
+      "stat": "250 runs",
       "profile": "batting"
     },
     {
       "player_name": "Prem",
-      "stat": "123 runs",
+      "stat": "170 runs",
       "profile": "batting"
     },
     {
       "player_name": "Sherin Shamsudeen",
-      "stat": "103 runs",
+      "stat": "104 runs",
       "profile": "batting"
     },
     {
@@ -22,26 +22,46 @@
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "41 runs",
+      "stat": "42 runs",
       "profile": "batting"
     },
     {
       "player_name": "Rithwik K V",
-      "stat": "30 runs",
+      "stat": "34 runs",
       "profile": "batting"
     },
     {
       "player_name": "Shahbaz Ahmed",
-      "stat": "9 runs",
+      "stat": "11 runs",
       "profile": "batting"
     },
     {
       "player_name": "JD",
-      "stat": "7 runs",
+      "stat": "8 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Yashas Paralath",
+      "stat": "3 runs",
       "profile": "batting"
     },
     {
       "player_name": "Rajesh Lal",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Manoj Chilla",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Tinu",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Divin Barachel",
       "stat": "2 runs",
       "profile": "batting"
     },
@@ -131,11 +151,6 @@
       "profile": "batting"
     },
     {
-      "player_name": "Divin Barachel",
-      "stat": "48 runs",
-      "profile": "batting"
-    },
-    {
       "player_name": "Jeevan George",
       "stat": "48 runs",
       "profile": "batting"
@@ -221,11 +236,6 @@
       "profile": "batting"
     },
     {
-      "player_name": "Tinu",
-      "stat": "4 runs",
-      "profile": "batting"
-    },
-    {
       "player_name": "Gurpreet Singh",
       "stat": "4 runs",
       "profile": "batting"
@@ -289,7 +299,7 @@
   "bowling": [
     {
       "player_name": "JD",
-      "stat": "12 wickets",
+      "stat": "14 wickets",
       "profile": "bowling"
     },
     {
@@ -298,7 +308,12 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Tinu",
+      "player_name": "Prem",
+      "stat": "4 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Sherin Shamsudeen",
       "stat": "3 wickets",
       "profile": "bowling"
     },
@@ -308,7 +323,7 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Prem",
+      "player_name": "Tinu",
       "stat": "3 wickets",
       "profile": "bowling"
     },
@@ -320,6 +335,11 @@
     {
       "player_name": "Shahbaz Ahmed",
       "stat": "3 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Yashas Paralath",
+      "stat": "1 wickets",
       "profile": "bowling"
     },
     {
@@ -390,11 +410,6 @@
     {
       "player_name": "Praveen Helenalund Cricket",
       "stat": "5 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Sherin Shamsudeen",
-      "stat": "3 wickets",
       "profile": "bowling"
     },
     {
@@ -486,7 +501,7 @@
   "fielding": [
     {
       "player_name": "Rithwik K V",
-      "stat": "7 catches",
+      "stat": "8 catches",
       "profile": "fielding"
     },
     {
@@ -500,12 +515,12 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Rajesh Lal",
-      "stat": "2 catches",
+      "player_name": "Ankit Pandey",
+      "stat": "3 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "Ankit Pandey",
+      "player_name": "Rajesh Lal",
       "stat": "2 catches",
       "profile": "fielding"
     },
@@ -520,8 +535,23 @@
       "profile": "fielding"
     },
     {
+      "player_name": "Prem",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Manoj Chilla",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
       "player_name": "Divin Barachel",
       "stat": "0 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Yashas Paralath",
+      "stat": "1 catches",
       "profile": "fielding"
     },
     {
@@ -532,11 +562,6 @@
     {
       "player_name": "Deepu Dileep",
       "stat": "1 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Prem",
-      "stat": "0 catches",
       "profile": "fielding"
     },
     {
