@@ -7,27 +7,27 @@
     },
     {
       "player_name": "Prem",
-      "stat": "170 runs",
+      "stat": "172 runs",
       "profile": "batting"
     },
     {
       "player_name": "Sherin Shamsudeen",
-      "stat": "104 runs",
+      "stat": "135 runs",
       "profile": "batting"
     },
     {
       "player_name": "Umesh Bh",
-      "stat": "84 runs",
+      "stat": "90 runs",
       "profile": "batting"
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "42 runs",
+      "stat": "60 runs",
       "profile": "batting"
     },
     {
       "player_name": "Rithwik K V",
-      "stat": "34 runs",
+      "stat": "37 runs",
       "profile": "batting"
     },
     {
@@ -37,7 +37,17 @@
     },
     {
       "player_name": "JD",
+      "stat": "10 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Fahsan K P",
       "stat": "8 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Divin Barachel",
+      "stat": "6 runs",
       "profile": "batting"
     },
     {
@@ -57,11 +67,6 @@
     },
     {
       "player_name": "Tinu",
-      "stat": "2 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Divin Barachel",
       "stat": "2 runs",
       "profile": "batting"
     },
@@ -123,11 +128,6 @@
     {
       "player_name": "Rajesh Bathula",
       "stat": "72 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Fahsan K P",
-      "stat": "65 runs",
       "profile": "batting"
     },
     {
@@ -299,12 +299,12 @@
   "bowling": [
     {
       "player_name": "JD",
-      "stat": "14 wickets",
+      "stat": "15 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Sony",
-      "stat": "5 wickets",
+      "stat": "6 wickets",
       "profile": "bowling"
     },
     {
@@ -313,12 +313,12 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Sherin Shamsudeen",
-      "stat": "3 wickets",
+      "player_name": "Umesh Bh",
+      "stat": "4 wickets",
       "profile": "bowling"
     },
     {
-      "player_name": "Umesh Bh",
+      "player_name": "Sherin Shamsudeen",
       "stat": "3 wickets",
       "profile": "bowling"
     },
@@ -501,7 +501,7 @@
   "fielding": [
     {
       "player_name": "Rithwik K V",
-      "stat": "8 catches",
+      "stat": "9 catches",
       "profile": "fielding"
     },
     {
@@ -510,12 +510,12 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Sony",
-      "stat": "3 catches",
+      "player_name": "Ankit Pandey",
+      "stat": "4 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "Ankit Pandey",
+      "player_name": "Sony",
       "stat": "3 catches",
       "profile": "fielding"
     },
@@ -545,13 +545,13 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Divin Barachel",
-      "stat": "0 catches",
+      "player_name": "Yashas Paralath",
+      "stat": "1 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "Yashas Paralath",
-      "stat": "1 catches",
+      "player_name": "Divin Barachel",
+      "stat": "0 catches",
       "profile": "fielding"
     },
     {
