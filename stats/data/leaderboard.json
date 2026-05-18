@@ -2,7 +2,7 @@
   "batting": [
     {
       "player_name": "Deepu Dileep",
-      "stat": "250 runs",
+      "stat": "274 runs",
       "profile": "batting"
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "player_name": "Umesh Bh",
-      "stat": "90 runs",
+      "stat": "95 runs",
       "profile": "batting"
     },
     {
@@ -31,8 +31,18 @@
       "profile": "batting"
     },
     {
+      "player_name": "Sony",
+      "stat": "24 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "Shahbaz Ahmed",
-      "stat": "11 runs",
+      "stat": "17 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Divin Barachel",
+      "stat": "15 runs",
       "profile": "batting"
     },
     {
@@ -46,8 +56,18 @@
       "profile": "batting"
     },
     {
-      "player_name": "Divin Barachel",
-      "stat": "6 runs",
+      "player_name": "Jeevan George",
+      "stat": "8 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Tinu",
+      "stat": "4 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Kannan Unnikrishnan",
+      "stat": "3 runs",
       "profile": "batting"
     },
     {
@@ -62,11 +82,6 @@
     },
     {
       "player_name": "Manoj Chilla",
-      "stat": "2 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Tinu",
       "stat": "2 runs",
       "profile": "batting"
     },
@@ -111,11 +126,6 @@
       "profile": "batting"
     },
     {
-      "player_name": "Sony",
-      "stat": "92 runs",
-      "profile": "batting"
-    },
-    {
       "player_name": "Cyril R",
       "stat": "85 runs",
       "profile": "batting"
@@ -151,11 +161,6 @@
       "profile": "batting"
     },
     {
-      "player_name": "Jeevan George",
-      "stat": "48 runs",
-      "profile": "batting"
-    },
-    {
       "player_name": "Sajid",
       "stat": "44 runs",
       "profile": "batting"
@@ -173,11 +178,6 @@
     {
       "player_name": "Naveen Kollanda Helenalund Cricket",
       "stat": "32 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Kannan Unnikrishnan",
-      "stat": "31 runs",
       "profile": "batting"
     },
     {
@@ -308,6 +308,11 @@
       "profile": "bowling"
     },
     {
+      "player_name": "Tinu",
+      "stat": "4 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "Prem",
       "stat": "4 wickets",
       "profile": "bowling"
@@ -318,12 +323,12 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Sherin Shamsudeen",
-      "stat": "3 wickets",
+      "player_name": "Shahbaz Ahmed",
+      "stat": "4 wickets",
       "profile": "bowling"
     },
     {
-      "player_name": "Tinu",
+      "player_name": "Sherin Shamsudeen",
       "stat": "3 wickets",
       "profile": "bowling"
     },
@@ -333,8 +338,13 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Shahbaz Ahmed",
-      "stat": "3 wickets",
+      "player_name": "Jeevan George",
+      "stat": "2 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Divin Barachel",
+      "stat": "2 wickets",
       "profile": "bowling"
     },
     {
@@ -344,6 +354,11 @@
     },
     {
       "player_name": "Rithwik K V",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Kannan Unnikrishnan",
       "stat": "1 wickets",
       "profile": "bowling"
     },
@@ -368,11 +383,6 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Kannan Unnikrishnan",
-      "stat": "11 wickets",
-      "profile": "bowling"
-    },
-    {
       "player_name": "Shiva Arsi",
       "stat": "10 wickets",
       "profile": "bowling"
@@ -390,16 +400,6 @@
     {
       "player_name": "Ajas M A",
       "stat": "10 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Jeevan George",
-      "stat": "9 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Divin Barachel",
-      "stat": "9 wickets",
       "profile": "bowling"
     },
     {
@@ -510,12 +510,22 @@
       "profile": "fielding"
     },
     {
+      "player_name": "Sony",
+      "stat": "4 catches",
+      "profile": "fielding"
+    },
+    {
       "player_name": "Ankit Pandey",
       "stat": "4 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "Sony",
+      "player_name": "Deepu Dileep",
+      "stat": "2 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Prem",
       "stat": "3 catches",
       "profile": "fielding"
     },
@@ -535,8 +545,8 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Prem",
-      "stat": "1 catches",
+      "player_name": "Kannan Unnikrishnan",
+      "stat": "0 catches",
       "profile": "fielding"
     },
     {
@@ -556,11 +566,6 @@
     },
     {
       "player_name": "Sherin Shamsudeen",
-      "stat": "1 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Deepu Dileep",
       "stat": "1 catches",
       "profile": "fielding"
     },
@@ -626,11 +631,6 @@
     },
     {
       "player_name": "Rajesh Bathula",
-      "stat": "3 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Kannan Unnikrishnan",
       "stat": "3 catches",
       "profile": "fielding"
     },
