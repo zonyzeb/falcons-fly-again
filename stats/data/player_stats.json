@@ -455,7 +455,7 @@
     "slug": "mahesh-angadi",
     "profile_photo": "https://media.cricheroes.in/user_profile/1663418392346_dAayM8KgeSZ9.jpg",
     "batting": {
-      "matches": 149,
+      "matches": 148,
       "innings": 70,
       "not_outs": 29,
       "runs": 339,
@@ -471,7 +471,7 @@
       "ducks": 9
     },
     "bowling": {
-      "matches": 149,
+      "matches": 148,
       "innings": 139,
       "overs": "328.5",
       "maidens": 14,
@@ -490,7 +490,7 @@
       "sixes_conceded": 92
     },
     "fielding": {
-      "matches": 149,
+      "matches": 148,
       "catches": 46,
       "caught_behind": 0,
       "run_outs": 25,
@@ -553,7 +553,7 @@
     "slug": "prem",
     "profile_photo": "https://media.cricheroes.in/user_profile/1753261081746_8XsNHD6CENW1.jpeg",
     "batting": {
-      "matches": 93,
+      "matches": 92,
       "innings": 76,
       "not_outs": 10,
       "runs": 1119,
@@ -569,7 +569,7 @@
       "ducks": 9
     },
     "bowling": {
-      "matches": 93,
+      "matches": 92,
       "innings": 79,
       "overs": "179.1",
       "maidens": 6,
@@ -588,7 +588,7 @@
       "sixes_conceded": 74
     },
     "fielding": {
-      "matches": 93,
+      "matches": 92,
       "catches": 23,
       "caught_behind": 5,
       "run_outs": 6,
@@ -994,7 +994,7 @@
     "slug": "sony",
     "profile_photo": "https://media.cricheroes.in/user_profile/1746857713746_Ay1Ld2oXuhtI.jpeg",
     "batting": {
-      "matches": 88,
+      "matches": 87,
       "innings": 41,
       "not_outs": 17,
       "runs": 240,
@@ -1010,7 +1010,7 @@
       "ducks": 5
     },
     "bowling": {
-      "matches": 88,
+      "matches": 87,
       "innings": 81,
       "overs": "207.3",
       "maidens": 6,
@@ -1029,7 +1029,7 @@
       "sixes_conceded": 42
     },
     "fielding": {
-      "matches": 88,
+      "matches": 87,
       "catches": 23,
       "caught_behind": 0,
       "run_outs": 11,
