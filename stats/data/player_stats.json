@@ -357,7 +357,7 @@
     "slug": "jeevan-george",
     "profile_photo": "https://media.cricheroes.in/user_profile/1776699633798_HxkgiYvpaDZ1.jpeg",
     "batting": {
-      "matches": 66,
+      "matches": 67,
       "innings": 42,
       "not_outs": 7,
       "runs": 162,
@@ -373,7 +373,7 @@
       "ducks": 7
     },
     "bowling": {
-      "matches": 66,
+      "matches": 67,
       "innings": 27,
       "overs": "45.0",
       "maidens": 0,
@@ -392,7 +392,7 @@
       "sixes_conceded": 21
     },
     "fielding": {
-      "matches": 66,
+      "matches": 67,
       "catches": 7,
       "caught_behind": 7,
       "run_outs": 4,
@@ -896,7 +896,7 @@
     "slug": "sid",
     "profile_photo": "https://media.cricheroes.in/user_profile/1750276613370_znEWMLpnox8u.jpeg",
     "batting": {
-      "matches": 118,
+      "matches": 119,
       "innings": 104,
       "not_outs": 22,
       "runs": 1467,
@@ -912,7 +912,7 @@
       "ducks": 7
     },
     "bowling": {
-      "matches": 118,
+      "matches": 119,
       "innings": 39,
       "overs": "59.5",
       "maidens": 0,
@@ -931,7 +931,7 @@
       "sixes_conceded": 22
     },
     "fielding": {
-      "matches": 118,
+      "matches": 119,
       "catches": 26,
       "caught_behind": 27,
       "run_outs": 7,
@@ -1141,7 +1141,7 @@
     "slug": "umesh-bh",
     "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
     "batting": {
-      "matches": 36,
+      "matches": 37,
       "innings": 32,
       "not_outs": 4,
       "runs": 467,
@@ -1157,7 +1157,7 @@
       "ducks": 3
     },
     "bowling": {
-      "matches": 36,
+      "matches": 37,
       "innings": 33,
       "overs": "82.5",
       "maidens": 3,
@@ -1176,7 +1176,7 @@
       "sixes_conceded": 25
     },
     "fielding": {
-      "matches": 36,
+      "matches": 37,
       "catches": 14,
       "caught_behind": 0,
       "run_outs": 2,
