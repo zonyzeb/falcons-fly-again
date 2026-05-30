@@ -5,7 +5,7 @@
   },
   {
     "label": "Wins",
-    "value": "25"
+    "value": "26"
   },
   {
     "label": "Losses",
@@ -17,10 +17,10 @@
   },
   {
     "label": "No Result",
-    "value": "2"
+    "value": "1"
   },
   {
     "label": "Win %",
-    "value": "49.0%"
+    "value": "51.0%"
   }
 ]
