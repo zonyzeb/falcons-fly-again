@@ -455,7 +455,7 @@
     "slug": "mahesh-angadi",
     "profile_photo": "https://media.cricheroes.in/user_profile/1663418392346_dAayM8KgeSZ9.jpg",
     "batting": {
-      "matches": 151,
+      "matches": 152,
       "innings": 73,
       "not_outs": 30,
       "runs": 374,
@@ -471,7 +471,7 @@
       "ducks": 10
     },
     "bowling": {
-      "matches": 151,
+      "matches": 152,
       "innings": 142,
       "overs": "335.5",
       "maidens": 16,
@@ -490,7 +490,7 @@
       "sixes_conceded": 93
     },
     "fielding": {
-      "matches": 151,
+      "matches": 152,
       "catches": 47,
       "caught_behind": 0,
       "run_outs": 25,
