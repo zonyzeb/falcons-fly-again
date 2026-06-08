@@ -2,12 +2,12 @@
   "batting": [
     {
       "player_name": "Deepu Dileep",
-      "stat": "421 runs",
+      "stat": "423 runs",
       "profile": "batting"
     },
     {
       "player_name": "Prem",
-      "stat": "200 runs",
+      "stat": "206 runs",
       "profile": "batting"
     },
     {
@@ -17,12 +17,12 @@
     },
     {
       "player_name": "Umesh Bh",
-      "stat": "127 runs",
+      "stat": "135 runs",
       "profile": "batting"
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "86 runs",
+      "stat": "87 runs",
       "profile": "batting"
     },
     {
@@ -31,18 +31,18 @@
       "profile": "batting"
     },
     {
-      "player_name": "Rithwik K V",
-      "stat": "41 runs",
+      "player_name": "Manoj Chilla",
+      "stat": "46 runs",
       "profile": "batting"
     },
     {
       "player_name": "Sony",
-      "stat": "24 runs",
+      "stat": "42 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Manoj Chilla",
-      "stat": "21 runs",
+      "player_name": "Rithwik K V",
+      "stat": "41 runs",
       "profile": "batting"
     },
     {
@@ -56,18 +56,23 @@
       "profile": "batting"
     },
     {
+      "player_name": "Aman Singh",
+      "stat": "13 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "Fahsan K P",
-      "stat": "10 runs",
+      "stat": "13 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Tinu",
+      "stat": "9 runs",
       "profile": "batting"
     },
     {
       "player_name": "Jeevan George",
       "stat": "8 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Tinu",
-      "stat": "4 runs",
       "profile": "batting"
     },
     {
@@ -82,6 +87,11 @@
     },
     {
       "player_name": "Rajesh Lal",
+      "stat": "2 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Fagun Al Fuad",
       "stat": "2 runs",
       "profile": "batting"
     },
@@ -314,17 +324,17 @@
     },
     {
       "player_name": "Sony",
-      "stat": "10 wickets",
+      "stat": "12 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Umesh Bh",
-      "stat": "8 wickets",
+      "stat": "10 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Prem",
-      "stat": "7 wickets",
+      "stat": "8 wickets",
       "profile": "bowling"
     },
     {
@@ -334,7 +344,7 @@
     },
     {
       "player_name": "Manoj Chilla",
-      "stat": "4 wickets",
+      "stat": "5 wickets",
       "profile": "bowling"
     },
     {
@@ -531,17 +541,17 @@
     },
     {
       "player_name": "Deepu Dileep",
-      "stat": "7 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "JD",
-      "stat": "3 catches",
+      "stat": "9 catches",
       "profile": "fielding"
     },
     {
       "player_name": "Sony",
       "stat": "5 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "JD",
+      "stat": "4 catches",
       "profile": "fielding"
     },
     {
@@ -582,6 +592,11 @@
     {
       "player_name": "Kannan Unnikrishnan",
       "stat": "0 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Fahsan K P",
+      "stat": "1 catches",
       "profile": "fielding"
     },
     {
@@ -702,11 +717,6 @@
     {
       "player_name": "Cyril R",
       "stat": "0 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Fahsan K P",
-      "stat": "2 catches",
       "profile": "fielding"
     },
     {
