@@ -2,12 +2,12 @@
   "batting": [
     {
       "player_name": "Deepu Dileep",
-      "stat": "423 runs",
+      "stat": "440 runs",
       "profile": "batting"
     },
     {
       "player_name": "Prem",
-      "stat": "206 runs",
+      "stat": "229 runs",
       "profile": "batting"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "87 runs",
+      "stat": "88 runs",
       "profile": "batting"
     },
     {
@@ -32,17 +32,22 @@
     },
     {
       "player_name": "Manoj Chilla",
-      "stat": "46 runs",
+      "stat": "52 runs",
       "profile": "batting"
     },
     {
       "player_name": "Sony",
-      "stat": "42 runs",
+      "stat": "51 runs",
       "profile": "batting"
     },
     {
       "player_name": "Rithwik K V",
-      "stat": "41 runs",
+      "stat": "51 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Fahsan K P",
+      "stat": "22 runs",
       "profile": "batting"
     },
     {
@@ -52,16 +57,11 @@
     },
     {
       "player_name": "JD",
-      "stat": "18 runs",
+      "stat": "20 runs",
       "profile": "batting"
     },
     {
       "player_name": "Aman Singh",
-      "stat": "13 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Fahsan K P",
       "stat": "13 runs",
       "profile": "batting"
     },
@@ -76,12 +76,22 @@
       "profile": "batting"
     },
     {
-      "player_name": "Kannan Unnikrishnan",
-      "stat": "3 runs",
+      "player_name": "Ramasamy Vallinayagam",
+      "stat": "7 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Shinu",
+      "stat": "4 runs",
       "profile": "batting"
     },
     {
       "player_name": "Yashas Paralath",
+      "stat": "3 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Kannan Unnikrishnan",
       "stat": "3 runs",
       "profile": "batting"
     },
@@ -306,11 +316,6 @@
       "profile": "batting"
     },
     {
-      "player_name": "Shinu",
-      "stat": "2 runs",
-      "profile": "batting"
-    },
-    {
       "player_name": "Matthew Helenalund Cricket",
       "stat": "1 runs",
       "profile": "batting"
@@ -338,12 +343,12 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Tinu",
-      "stat": "5 wickets",
+      "player_name": "Manoj Chilla",
+      "stat": "6 wickets",
       "profile": "bowling"
     },
     {
-      "player_name": "Manoj Chilla",
+      "player_name": "Tinu",
       "stat": "5 wickets",
       "profile": "bowling"
     },
@@ -373,6 +378,16 @@
       "profile": "bowling"
     },
     {
+      "player_name": "Ankit Pandey",
+      "stat": "2 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Fahsan K P",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "Yashas Paralath",
       "stat": "1 wickets",
       "profile": "bowling"
@@ -384,11 +399,6 @@
     },
     {
       "player_name": "Kannan Unnikrishnan",
-      "stat": "1 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Ankit Pandey",
       "stat": "1 wickets",
       "profile": "bowling"
     },
@@ -414,11 +424,6 @@
     },
     {
       "player_name": "Shiva Arsi",
-      "stat": "10 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Fahsan K P",
       "stat": "10 wickets",
       "profile": "bowling"
     },
@@ -545,13 +550,13 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Sony",
+      "player_name": "JD",
       "stat": "5 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "JD",
-      "stat": "4 catches",
+      "player_name": "Sony",
+      "stat": "5 catches",
       "profile": "fielding"
     },
     {

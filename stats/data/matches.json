@@ -1,6 +1,18 @@
 [
   {
     "tournament": "SPL-T20 V1 - SSA Season 2026",
+    "info": "North Sp\u00e5ngadalen, 10-Jun-26, 18 Ov",
+    "score": [
+      "Falcons 92/9",
+      "Stockholm Capitals 93/3"
+    ],
+    "result": "Stockholm Capitals won by 7 wickets",
+    "url": "https://cricheroes.com/scorecard/25420580",
+    "date": "10-Jun-26",
+    "venue": "North Sp\u00e5ngadalen"
+  },
+  {
+    "tournament": "SPL-T20 V1 - SSA Season 2026",
     "info": "South Sp\u00e5ngadalen, 07-Jun-26, 20 Ov",
     "score": [
       "Keep It Cool Stockholm 171/8",
