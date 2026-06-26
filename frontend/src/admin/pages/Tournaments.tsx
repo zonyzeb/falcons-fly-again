@@ -7,6 +7,25 @@ import {
 
 const EMPTY = { name: "", format: "", season: "", start_date: "", fee: "", paid_by: "" };
 
+// Defined at module scope (not inside the page) so they keep a stable identity
+// across renders — otherwise every keystroke remounts the input and drops focus.
+function Field({ ph, type = "text", val, on, w }: { ph: string; type?: string; val: string; on: (v: string) => void; w?: string }) {
+  return (
+    <input type={type} value={val} onChange={(e) => on(e.target.value)} placeholder={ph}
+      className={`px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream placeholder:text-falcon-cream/30 focus:outline-none focus:border-falcon-gold/40 ${w ?? ""}`} />
+  );
+}
+
+function PaidBySelect({ val, on, profiles }: { val: string; on: (v: string) => void; profiles: Profile[] }) {
+  return (
+    <select value={val} onChange={(e) => on(e.target.value)}
+      className="px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40">
+      <option value="">Paid by…</option>
+      {profiles.map((p) => <option key={p.id} value={p.id}>{p.full_name || "Unnamed"}</option>)}
+    </select>
+  );
+}
+
 export default function TournamentsPage() {
   const [items, setItems] = useState<Tournament[]>([]);
   const [profiles, setProfiles] = useState<Profile[]>([]);
@@ -67,19 +86,6 @@ export default function TournamentsPage() {
     catch (err) { setError(err instanceof Error ? err.message : "Could not delete."); }
   };
 
-  const Field = ({ ph, type = "text", val, on, w }: { ph: string; type?: string; val: string; on: (v: string) => void; w?: string }) => (
-    <input type={type} value={val} onChange={(e) => on(e.target.value)} placeholder={ph}
-      className={`px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream placeholder:text-falcon-cream/30 focus:outline-none focus:border-falcon-gold/40 ${w ?? ""}`} />
-  );
-
-  const PaidBySelect = ({ val, on }: { val: string; on: (v: string) => void }) => (
-    <select value={val} onChange={(e) => on(e.target.value)}
-      className="px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40">
-      <option value="">Paid by…</option>
-      {profiles.map((p) => <option key={p.id} value={p.id}>{p.full_name || "Unnamed"}</option>)}
-    </select>
-  );
-
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-display font-bold text-falcon-cream flex items-center gap-3">
@@ -98,7 +104,7 @@ export default function TournamentsPage() {
           <Field ph="Season (year)" type="number" val={form.season} on={(v) => setForm({ ...form, season: v })} />
           <Field ph="Start date" type="date" val={form.start_date} on={(v) => setForm({ ...form, start_date: v })} />
           <Field ph="Fee (SEK)" type="number" val={form.fee} on={(v) => setForm({ ...form, fee: v })} />
-          <PaidBySelect val={form.paid_by} on={(v) => setForm({ ...form, paid_by: v })} />
+          <PaidBySelect val={form.paid_by} on={(v) => setForm({ ...form, paid_by: v })} profiles={profiles} />
           <button type="submit" disabled={saving}
             className="lg:col-span-3 sm:w-auto px-4 py-2.5 bg-gradient-to-r from-falcon-gold to-amber-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2">
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />} Add tournament
@@ -121,7 +127,7 @@ export default function TournamentsPage() {
                   <Field ph="Season" type="number" val={edit.season} on={(v) => setEdit({ ...edit, season: v })} />
                   <Field ph="Start date" type="date" val={edit.start_date} on={(v) => setEdit({ ...edit, start_date: v })} />
                   <Field ph="Fee (SEK)" type="number" val={edit.fee} on={(v) => setEdit({ ...edit, fee: v })} />
-                  <PaidBySelect val={edit.paid_by} on={(v) => setEdit({ ...edit, paid_by: v })} />
+                  <PaidBySelect val={edit.paid_by} on={(v) => setEdit({ ...edit, paid_by: v })} profiles={profiles} />
                   <div className="flex gap-2 lg:col-span-3">
                     <button onClick={() => saveEdit(t.id)} className="px-3 py-1.5 text-xs rounded-lg bg-emerald-500/15 text-emerald-300 flex items-center gap-1"><Check className="w-3.5 h-3.5" /> Save</button>
                     <button onClick={() => setEditId(null)} className="px-3 py-1.5 text-xs rounded-lg bg-white/5 text-falcon-cream/50 flex items-center gap-1"><X className="w-3.5 h-3.5" /> Cancel</button>

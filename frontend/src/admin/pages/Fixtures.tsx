@@ -21,6 +21,25 @@ function fmtDate(d: string) {
 
 const EMPTY = { tournament_id: "", opponent: "", match_date: "", match_time: "", ground: "", notes: "" };
 
+// Module scope so inputs keep focus across renders (a component defined inside
+// the page remounts on every keystroke).
+function TournamentSelect({ value, onChange, tournaments }: { value: string; onChange: (v: string) => void; tournaments: Tournament[] }) {
+  return (
+    <select value={value} onChange={(e) => onChange(e.target.value)}
+      className="px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40">
+      <option value="">— tournament —</option>
+      {tournaments.map((t) => <option key={t.id} value={t.id}>{t.name}{t.season ? ` (${t.season})` : ""}</option>)}
+    </select>
+  );
+}
+
+function Field({ ph, type = "text", val, on }: { ph: string; type?: string; val: string; on: (v: string) => void }) {
+  return (
+    <input type={type} value={val} onChange={(e) => on(e.target.value)} placeholder={ph}
+      className="px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream placeholder:text-falcon-cream/30 focus:outline-none focus:border-falcon-gold/40" />
+  );
+}
+
 export default function FixturesPage() {
   const { user } = useAuth();
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
@@ -101,19 +120,6 @@ export default function FixturesPage() {
     } catch (err) { setError(err instanceof Error ? err.message : "Could not set status."); }
   };
 
-  const TournamentSelect = ({ value, onChange }: { value: string; onChange: (v: string) => void }) => (
-    <select value={value} onChange={(e) => onChange(e.target.value)}
-      className="px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40">
-      <option value="">— tournament —</option>
-      {tournaments.map((t) => <option key={t.id} value={t.id}>{t.name}{t.season ? ` (${t.season})` : ""}</option>)}
-    </select>
-  );
-
-  const Field = ({ ph, type = "text", val, on }: { ph: string; type?: string; val: string; on: (v: string) => void }) => (
-    <input type={type} value={val} onChange={(e) => on(e.target.value)} placeholder={ph}
-      className="px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream placeholder:text-falcon-cream/30 focus:outline-none focus:border-falcon-gold/40" />
-  );
-
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-display font-bold text-falcon-cream flex items-center gap-3">
@@ -132,7 +138,7 @@ export default function FixturesPage() {
             <Plus className="w-4 h-4" /> Add a match
           </h2>
           <form onSubmit={add} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            <TournamentSelect value={form.tournament_id} onChange={(v) => setForm({ ...form, tournament_id: v })} />
+            <TournamentSelect value={form.tournament_id} onChange={(v) => setForm({ ...form, tournament_id: v })} tournaments={tournaments} />
             <Field ph="Against (opponent)" val={form.opponent} on={(v) => setForm({ ...form, opponent: v })} />
             <Field ph="Ground / venue" val={form.ground} on={(v) => setForm({ ...form, ground: v })} />
             <Field ph="Date" type="date" val={form.match_date} on={(v) => setForm({ ...form, match_date: v })} />
@@ -161,7 +167,7 @@ export default function FixturesPage() {
               <div key={f.id} className="bg-[#0d1424] border border-white/5 rounded-xl overflow-hidden">
                 {editId === f.id ? (
                   <div className="p-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                    <TournamentSelect value={edit.tournament_id} onChange={(v) => setEdit({ ...edit, tournament_id: v })} />
+                    <TournamentSelect value={edit.tournament_id} onChange={(v) => setEdit({ ...edit, tournament_id: v })} tournaments={tournaments} />
                     <Field ph="Against" val={edit.opponent} on={(v) => setEdit({ ...edit, opponent: v })} />
                     <Field ph="Ground" val={edit.ground} on={(v) => setEdit({ ...edit, ground: v })} />
                     <Field ph="Date" type="date" val={edit.match_date} on={(v) => setEdit({ ...edit, match_date: v })} />

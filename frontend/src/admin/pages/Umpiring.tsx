@@ -13,6 +13,17 @@ import {
   type SwapRequest,
 } from "@/lib/db";
 
+// Module scope so the select keeps focus across renders.
+function MemberSelect({ value, onChange, profiles }: { value: string; onChange: (v: string) => void; profiles: Profile[] }) {
+  return (
+    <select value={value} onChange={(e) => onChange(e.target.value)}
+      className="px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-falcon-cream focus:outline-none focus:border-falcon-gold/40">
+      <option value="">— umpire —</option>
+      {profiles.map((p) => <option key={p.id} value={p.id}>{p.full_name || "Unnamed"}</option>)}
+    </select>
+  );
+}
+
 function fmtDate(d: string) {
   const dt = new Date(d + "T00:00:00");
   return dt.toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short", year: "numeric" });
@@ -111,19 +122,6 @@ export default function UmpiringPage() {
     catch (err) { setError(err instanceof Error ? err.message : "Could not resolve."); }
   };
 
-  const MemberSelect = ({ value, onChange }: { value: string; onChange: (v: string) => void }) => (
-    <select
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-      className="px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-falcon-cream focus:outline-none focus:border-falcon-gold/40"
-    >
-      <option value="">— umpire —</option>
-      {profiles.map((p) => (
-        <option key={p.id} value={p.id}>{p.full_name || "Unnamed"}</option>
-      ))}
-    </select>
-  );
-
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-display font-bold text-falcon-cream flex items-center gap-3">
@@ -146,8 +144,8 @@ export default function UmpiringPage() {
             onChange={(e) => setDate(e.target.value)}
             className="px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40"
           />
-          <MemberSelect value={ump1} onChange={setUmp1} />
-          <MemberSelect value={ump2} onChange={setUmp2} />
+          <MemberSelect value={ump1} onChange={setUmp1} profiles={profiles} />
+          <MemberSelect value={ump2} onChange={setUmp2} profiles={profiles} />
           <input
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
@@ -211,8 +209,8 @@ export default function UmpiringPage() {
                     <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-2 items-center">
                       <input type="date" value={edit.duty_date} onChange={(e) => setEdit({ ...edit, duty_date: e.target.value })}
                         className="px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-falcon-cream focus:outline-none focus:border-falcon-gold/40" />
-                      <MemberSelect value={edit.umpire1} onChange={(v) => setEdit({ ...edit, umpire1: v })} />
-                      <MemberSelect value={edit.umpire2} onChange={(v) => setEdit({ ...edit, umpire2: v })} />
+                      <MemberSelect value={edit.umpire1} onChange={(v) => setEdit({ ...edit, umpire1: v })} profiles={profiles} />
+                      <MemberSelect value={edit.umpire2} onChange={(v) => setEdit({ ...edit, umpire2: v })} profiles={profiles} />
                       <input value={edit.notes} onChange={(e) => setEdit({ ...edit, notes: e.target.value })} placeholder="Note"
                         className="px-2 py-1.5 bg-white/5 border border-white/10 rounded-lg text-xs text-falcon-cream focus:outline-none focus:border-falcon-gold/40" />
                       <div className="flex gap-2">
