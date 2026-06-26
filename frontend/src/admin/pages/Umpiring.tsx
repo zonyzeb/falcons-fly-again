@@ -173,7 +173,7 @@ export default function UmpiringPage() {
       {/* Assign */}
       <div className="bg-[#0d1424] border border-white/5 rounded-xl p-5">
         <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-3 flex items-center gap-2">
-          <Plus className="w-4 h-4" /> Assign a duty
+          <Plus className="w-4 h-4" /> Add a duty
         </h2>
         <form onSubmit={addDuty} className="grid sm:grid-cols-2 lg:grid-cols-6 gap-3 items-center">
           <input
@@ -204,6 +204,7 @@ export default function UmpiringPage() {
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />} Add
           </button>
         </form>
+        <p className="mt-2 text-xs text-falcon-cream/40">Umpires are optional — create the slot now and assign people later.</p>
         {addConflict.msgs.length > 0 && (
           <div className="mt-3 space-y-1.5">
             {addConflict.msgs.map((m, i) => (
@@ -250,11 +251,16 @@ export default function UmpiringPage() {
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Rota */}
         <div className="lg:col-span-2 bg-[#0d1424] border border-white/5 rounded-xl p-5">
-          <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-3">Duty rota ({duties.length})</h2>
+          <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-3 flex items-center gap-2">
+            Duty rota ({duties.length})
+            {duties.filter((d) => !d.umpire1 && !d.umpire2).length > 0 && (
+              <span className="text-amber-400/80 normal-case font-medium text-xs">· {duties.filter((d) => !d.umpire1 && !d.umpire2).length} unassigned</span>
+            )}
+          </h2>
           {loading ? (
             <Loader2 className="w-6 h-6 text-falcon-gold animate-spin mx-auto my-6" />
           ) : duties.length === 0 ? (
-            <p className="text-falcon-cream/30 text-sm text-center py-6">No duties yet. Assign one above.</p>
+            <p className="text-falcon-cream/30 text-sm text-center py-6">No duties yet. Create one above.</p>
           ) : (
             <div className="space-y-2">
               {duties.map((d) => (
@@ -288,9 +294,17 @@ export default function UmpiringPage() {
                         <div className="text-falcon-cream/40 text-xs">{fmtDate(d.duty_date).split(", ").slice(1).join(" ")}{d.duty_time ? ` · ${d.duty_time.slice(0, 5)}` : ""}</div>
                       </div>
                       <div className="flex-1 text-sm">
-                        <span className="text-falcon-cream">{nameOf(d.umpire1)}</span>
-                        <span className="text-falcon-cream/30"> & </span>
-                        <span className="text-falcon-cream">{nameOf(d.umpire2)}</span>
+                        {!d.umpire1 && !d.umpire2 ? (
+                          <button onClick={() => startEdit(d)} className="inline-flex items-center gap-1 text-xs font-medium text-amber-400/90 hover:text-amber-300">
+                            <Plus className="w-3.5 h-3.5" /> Assign umpires
+                          </button>
+                        ) : (
+                          <>
+                            <span className="text-falcon-cream">{nameOf(d.umpire1)}</span>
+                            <span className="text-falcon-cream/30"> & </span>
+                            <span className="text-falcon-cream">{nameOf(d.umpire2)}</span>
+                          </>
+                        )}
                         {d.notes && <span className="block text-xs text-falcon-cream/40">{d.notes}</span>}
                       </div>
                       <button onClick={() => startEdit(d)} className="p-1.5 rounded-lg text-falcon-cream/40 hover:text-falcon-gold hover:bg-white/5"><Pencil className="w-4 h-4" /></button>
