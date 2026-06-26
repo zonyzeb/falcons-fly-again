@@ -212,12 +212,14 @@ export interface Tournament {
   format: string | null;
   season: number | null;
   start_date: string | null;
+  fee_sek: number | null;
+  paid_by: string | null; // auth user id of the member who paid
 }
 
 export async function fetchTournaments(): Promise<Tournament[]> {
   const { data, error } = await supabase
     .from("tournaments")
-    .select("id, name, format, season, start_date")
+    .select("id, name, format, season, start_date, fee_sek, paid_by")
     .order("start_date", { ascending: false, nullsFirst: false })
     .order("name", { ascending: true });
   if (error) throw error;
