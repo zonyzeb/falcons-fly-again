@@ -36,9 +36,9 @@ export function UpcomingMatches() {
                 {fmtDate(f.match_date)}
               </div>
               <h3 className="font-display text-lg font-bold text-falcon-cream leading-tight">
-                {f.opponent ? <>Falcons <span className="text-falcon-gold/70">vs</span> {f.opponent}</> : f.tournament}
+                {f.opponent ? <>Falcons <span className="text-falcon-gold/70">vs</span> {f.opponent}</> : f.tournament?.name}
               </h3>
-              {f.opponent && <p className="text-falcon-cream/50 text-sm mt-0.5">{f.tournament}</p>}
+              {f.opponent && f.tournament?.name && <p className="text-falcon-cream/50 text-sm mt-0.5">{f.tournament.name}</p>}
               <div className="mt-4 space-y-1.5 text-sm text-falcon-cream/60">
                 {f.match_time && (
                   <div className="flex items-center gap-2"><Clock className="w-3.5 h-3.5 text-falcon-gold/60" /> {f.match_time.slice(0, 5)}</div>
@@ -46,8 +46,8 @@ export function UpcomingMatches() {
                 {f.ground && (
                   <div className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5 text-falcon-gold/60" /> {f.ground}</div>
                 )}
-                {f.format && (
-                  <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-md bg-falcon-gold/10 text-falcon-gold/80">{f.format}</span>
+                {f.tournament?.format && (
+                  <span className="inline-block mt-1 text-xs px-2 py-0.5 rounded-md bg-falcon-gold/10 text-falcon-gold/80">{f.tournament.format}</span>
                 )}
               </div>
             </div>

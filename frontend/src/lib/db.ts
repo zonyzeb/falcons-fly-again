@@ -204,18 +204,56 @@ export async function resolveSwapRequest(req: SwapRequest, approve: boolean) {
   if (error) throw error;
 }
 
-// ── fixtures (upcoming matches) ──
+// ── tournaments ──
+
+export interface Tournament {
+  id: string;
+  name: string;
+  format: string | null;
+  season: number | null;
+  start_date: string | null;
+}
+
+export async function fetchTournaments(): Promise<Tournament[]> {
+  const { data, error } = await supabase
+    .from("tournaments")
+    .select("id, name, format, season, start_date")
+    .order("start_date", { ascending: false, nullsFirst: false })
+    .order("name", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as Tournament[];
+}
+
+export async function createTournament(input: Omit<Tournament, "id">) {
+  const { error } = await supabase.from("tournaments").insert(input);
+  if (error) throw error;
+}
+
+export async function updateTournament(id: string, patch: Partial<Omit<Tournament, "id">>) {
+  const { error } = await supabase.from("tournaments").update(patch).eq("id", id);
+  if (error) throw error;
+}
+
+export async function deleteTournament(id: string) {
+  const { error } = await supabase.from("tournaments").delete().eq("id", id);
+  if (error) throw error;
+}
+
+// ── fixtures (matches within a tournament) ──
 
 export interface Fixture {
   id: string;
-  tournament: string;
+  tournament_id: string;
   opponent: string | null;
   match_date: string; // YYYY-MM-DD
   match_time: string | null; // HH:MM[:SS]
   ground: string | null;
-  format: string | null;
   notes: string | null;
+  tournament?: Tournament | null; // joined
 }
+
+const FIXTURE_SELECT =
+  "id, tournament_id, opponent, match_date, match_time, ground, notes, tournament:tournaments(id, name, format, season, start_date)";
 
 export type MatchAvailStatus = "available" | "maybe" | "unavailable";
 
@@ -230,11 +268,11 @@ export interface MatchAvailability {
 export async function fetchFixtures(): Promise<Fixture[]> {
   const { data, error } = await supabase
     .from("fixtures")
-    .select("id, tournament, opponent, match_date, match_time, ground, format, notes")
+    .select(FIXTURE_SELECT)
     .order("match_date", { ascending: true })
     .order("match_time", { ascending: true, nullsFirst: true });
   if (error) throw error;
-  return (data ?? []) as Fixture[];
+  return (data ?? []) as unknown as Fixture[];
 }
 
 /** Upcoming fixtures (today onward) — used by the public site. */
@@ -242,20 +280,29 @@ export async function fetchUpcomingFixtures(): Promise<Fixture[]> {
   const today = new Date().toISOString().slice(0, 10);
   const { data, error } = await supabase
     .from("fixtures")
-    .select("id, tournament, opponent, match_date, match_time, ground, format, notes")
+    .select(FIXTURE_SELECT)
     .gte("match_date", today)
     .order("match_date", { ascending: true })
     .order("match_time", { ascending: true, nullsFirst: true });
   if (error) throw error;
-  return (data ?? []) as Fixture[];
+  return (data ?? []) as unknown as Fixture[];
 }
 
-export async function createFixture(input: Omit<Fixture, "id">) {
+export type FixtureInput = {
+  tournament_id: string;
+  opponent: string | null;
+  match_date: string;
+  match_time: string | null;
+  ground: string | null;
+  notes: string | null;
+};
+
+export async function createFixture(input: FixtureInput) {
   const { error } = await supabase.from("fixtures").insert(input);
   if (error) throw error;
 }
 
-export async function updateFixture(id: string, patch: Partial<Omit<Fixture, "id">>) {
+export async function updateFixture(id: string, patch: Partial<FixtureInput>) {
   const { error } = await supabase.from("fixtures").update(patch).eq("id", id);
   if (error) throw error;
 }

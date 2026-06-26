@@ -96,7 +96,7 @@ export default function MyAvailability() {
                 <div className="flex items-center justify-between gap-3 mb-3">
                   <div className="min-w-0">
                     <div className="text-falcon-cream text-sm font-medium truncate">
-                      {f.tournament}{f.opponent ? <span className="text-falcon-cream/60"> · vs {f.opponent}</span> : null}
+                      {f.tournament?.name ?? "Match"}{f.opponent ? <span className="text-falcon-cream/60"> · vs {f.opponent}</span> : null}
                     </div>
                     <div className="text-xs text-falcon-cream/40">
                       {fmtDate(f.match_date)}{f.match_time ? ` · ${f.match_time.slice(0, 5)}` : ""}
