@@ -204,6 +204,99 @@ export async function resolveSwapRequest(req: SwapRequest, approve: boolean) {
   if (error) throw error;
 }
 
+// ── fixtures (upcoming matches) ──
+
+export interface Fixture {
+  id: string;
+  tournament: string;
+  opponent: string | null;
+  match_date: string; // YYYY-MM-DD
+  match_time: string | null; // HH:MM[:SS]
+  ground: string | null;
+  format: string | null;
+  notes: string | null;
+}
+
+export type MatchAvailStatus = "available" | "maybe" | "unavailable";
+
+export interface MatchAvailability {
+  id: string;
+  fixture_id: string;
+  player_id: number;
+  status: MatchAvailStatus;
+  set_by: string | null;
+}
+
+export async function fetchFixtures(): Promise<Fixture[]> {
+  const { data, error } = await supabase
+    .from("fixtures")
+    .select("id, tournament, opponent, match_date, match_time, ground, format, notes")
+    .order("match_date", { ascending: true })
+    .order("match_time", { ascending: true, nullsFirst: true });
+  if (error) throw error;
+  return (data ?? []) as Fixture[];
+}
+
+/** Upcoming fixtures (today onward) — used by the public site. */
+export async function fetchUpcomingFixtures(): Promise<Fixture[]> {
+  const today = new Date().toISOString().slice(0, 10);
+  const { data, error } = await supabase
+    .from("fixtures")
+    .select("id, tournament, opponent, match_date, match_time, ground, format, notes")
+    .gte("match_date", today)
+    .order("match_date", { ascending: true })
+    .order("match_time", { ascending: true, nullsFirst: true });
+  if (error) throw error;
+  return (data ?? []) as Fixture[];
+}
+
+export async function createFixture(input: Omit<Fixture, "id">) {
+  const { error } = await supabase.from("fixtures").insert(input);
+  if (error) throw error;
+}
+
+export async function updateFixture(id: string, patch: Partial<Omit<Fixture, "id">>) {
+  const { error } = await supabase.from("fixtures").update(patch).eq("id", id);
+  if (error) throw error;
+}
+
+export async function deleteFixture(id: string) {
+  const { error } = await supabase.from("fixtures").delete().eq("id", id);
+  if (error) throw error;
+}
+
+export async function fetchFixtureAvailability(fixtureId: string): Promise<MatchAvailability[]> {
+  const { data, error } = await supabase
+    .from("match_availability")
+    .select("id, fixture_id, player_id, status, set_by")
+    .eq("fixture_id", fixtureId);
+  if (error) throw error;
+  return (data ?? []) as MatchAvailability[];
+}
+
+/** Availability rows for a given player across all fixtures (member's own view). */
+export async function fetchPlayerAvailability(playerId: number): Promise<MatchAvailability[]> {
+  const { data, error } = await supabase
+    .from("match_availability")
+    .select("id, fixture_id, player_id, status, set_by")
+    .eq("player_id", playerId);
+  if (error) throw error;
+  return (data ?? []) as MatchAvailability[];
+}
+
+/** Upsert a player's availability for a fixture (member sets own, or admin sets anyone). */
+export async function setMatchAvailability(input: {
+  fixture_id: string;
+  player_id: number;
+  status: MatchAvailStatus;
+  set_by: string | null;
+}) {
+  const { error } = await supabase
+    .from("match_availability")
+    .upsert({ ...input, updated_at: new Date().toISOString() }, { onConflict: "fixture_id,player_id" });
+  if (error) throw error;
+}
+
 // ── invites (serverless) ──
 
 export async function inviteMember(input: {

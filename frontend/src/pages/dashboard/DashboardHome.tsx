@@ -2,31 +2,42 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CalendarCheck, User, ArrowRight, Trophy, Gavel } from "lucide-react";
 import { useAuth } from "@/auth/AuthProvider";
-import { fetchMyAvailability, fetchMyDuties, type AvailStatus, type Duty } from "@/lib/db";
+import { fetchUpcomingFixtures, fetchPlayerAvailability, fetchMyDuties, type MatchAvailStatus, type Duty, type Fixture } from "@/lib/db";
 import { teamStats, matches } from "@/data/stats";
 
-const STATUS_LABEL: Record<AvailStatus, { label: string; cls: string }> = {
+const STATUS_LABEL: Record<MatchAvailStatus, { label: string; cls: string }> = {
   available: { label: "Available", cls: "text-emerald-400" },
   maybe: { label: "Maybe", cls: "text-amber-400" },
-  unavailable: { label: "Unavailable", cls: "text-red-400" },
+  unavailable: { label: "Can't play", cls: "text-red-400" },
 };
 
 export default function DashboardHome() {
   const { user, profile } = useAuth();
-  const [status, setStatus] = useState<AvailStatus | null>(null);
+  const [nextFixture, setNextFixture] = useState<Fixture | null>(null);
+  const [fixtureStatus, setFixtureStatus] = useState<MatchAvailStatus | null>(null);
   const [nextDuty, setNextDuty] = useState<Duty | null>(null);
   const nextMatch = matches[0];
+  const playerId = profile?.player_id ?? null;
 
   useEffect(() => {
     if (!user) return;
-    fetchMyAvailability(user.id).then((r) => setStatus(r?.status ?? null)).catch(() => {});
+    fetchUpcomingFixtures()
+      .then(async (fs) => {
+        const next = fs[0] ?? null;
+        setNextFixture(next);
+        if (next && playerId != null) {
+          const rows = await fetchPlayerAvailability(playerId);
+          setFixtureStatus(rows.find((r) => r.fixture_id === next.id)?.status ?? null);
+        }
+      })
+      .catch(() => {});
     fetchMyDuties(user.id)
       .then((ds) => {
         const today = new Date().toISOString().slice(0, 10);
         setNextDuty(ds.find((d) => d.duty_date >= today) ?? ds[ds.length - 1] ?? null);
       })
       .catch(() => {});
-  }, [user]);
+  }, [user, playerId]);
 
   const firstName = (profile?.full_name || "").split(" ")[0] || "Falcon";
 
@@ -47,11 +58,17 @@ export default function DashboardHome() {
             <span className="font-semibold">My Availability</span>
           </div>
           <p className="text-sm text-falcon-cream/50">
-            Current status:{" "}
-            {status ? (
-              <span className={STATUS_LABEL[status].cls}>{STATUS_LABEL[status].label}</span>
+            {nextFixture ? (
+              <>
+                Next match:{" "}
+                {fixtureStatus ? (
+                  <span className={STATUS_LABEL[fixtureStatus].cls}>{STATUS_LABEL[fixtureStatus].label}</span>
+                ) : (
+                  <span className="text-falcon-cream/30">tap to respond</span>
+                )}
+              </>
             ) : (
-              <span className="text-falcon-cream/30">not set</span>
+              <span className="text-falcon-cream/30">No upcoming matches</span>
             )}
           </p>
           <span className="mt-3 inline-flex items-center gap-1 text-xs text-falcon-gold/70 group-hover:text-falcon-gold">

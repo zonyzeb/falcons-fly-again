@@ -38,6 +38,7 @@ const AdminMatchesPage = lazy(() => import("@/admin/pages/Matches"));
 const InsightsPage = lazy(() => import("@/admin/pages/Insights"));
 const AvailabilityPage = lazy(() => import("@/admin/pages/Availability"));
 const UmpiringPage = lazy(() => import("@/admin/pages/Umpiring"));
+const FixturesPage = lazy(() => import("@/admin/pages/Fixtures"));
 const MembersPage = lazy(() => import("@/admin/pages/Members"));
 
 const Loading = () => (
@@ -100,6 +101,7 @@ const App = () => (
                   <Route path="insights" element={<InsightsPage />} />
                   <Route path="availability" element={<AvailabilityPage />} />
                   <Route path="umpiring" element={<UmpiringPage />} />
+                  <Route path="fixtures" element={<FixturesPage />} />
                   <Route path="members" element={<MembersPage />} />
                 </Route>
               </Route>
