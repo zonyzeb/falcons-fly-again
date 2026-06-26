@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Users, Swords, BarChart3, Brain, CalendarCheck, LogOut, Menu, X, Shield, Settings, Crosshair, TrendingUp, Zap, UserCog, Gavel, CalendarPlus, Trophy } from "lucide-react";
+import { Users, Swords, BarChart3, Brain, CalendarCheck, LogOut, Menu, X, Shield, Settings, Crosshair, TrendingUp, Zap, UserCog, Gavel, CalendarPlus, Trophy, LayoutDashboard } from "lucide-react";
 import { useState, useEffect } from "react";
 import { loadSetup, getFormatConfig } from "@/admin/store";
 import type { MatchSetup } from "@/admin/store";
@@ -104,9 +104,15 @@ export default function AdminLayout() {
             >
               {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
-            <NavLink to="/" className="text-falcon-cream/40 hover:text-falcon-gold text-sm transition-colors">
-              ← Back to Site
-            </NavLink>
+            <div className="flex items-center gap-3">
+              <NavLink to="/dashboard" className="flex items-center gap-1.5 text-falcon-cream/60 hover:text-falcon-gold text-sm transition-colors">
+                <LayoutDashboard className="w-3.5 h-3.5" /> Member view
+              </NavLink>
+              <span className="text-falcon-cream/20">|</span>
+              <NavLink to="/" className="text-falcon-cream/40 hover:text-falcon-gold text-sm transition-colors">
+                Back to Site
+              </NavLink>
+            </div>
             <div className="ml-auto flex items-center gap-3">
               <div className="flex items-center gap-2 px-3 py-1.5 bg-falcon-gold/10 border border-falcon-gold/20 rounded-lg text-xs">
                 <span className="text-falcon-gold font-semibold">{config.label}</span>
