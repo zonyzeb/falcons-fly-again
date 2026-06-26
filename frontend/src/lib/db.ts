@@ -89,6 +89,7 @@ export async function fetchAllAvailability(): Promise<AvailabilityRow[]> {
 export interface Duty {
   id: string;
   duty_date: string; // YYYY-MM-DD
+  duty_time: string | null; // HH:MM[:SS]
   umpire1: string | null;
   umpire2: string | null;
   notes: string | null;
@@ -110,7 +111,7 @@ export interface SwapRequest {
 export async function fetchDuties(): Promise<Duty[]> {
   const { data, error } = await supabase
     .from("umpiring_duties")
-    .select("id, duty_date, umpire1, umpire2, notes")
+    .select("id, duty_date, duty_time, umpire1, umpire2, notes")
     .order("duty_date", { ascending: true });
   if (error) throw error;
   return (data ?? []) as Duty[];
@@ -119,7 +120,7 @@ export async function fetchDuties(): Promise<Duty[]> {
 export async function fetchMyDuties(userId: string): Promise<Duty[]> {
   const { data, error } = await supabase
     .from("umpiring_duties")
-    .select("id, duty_date, umpire1, umpire2, notes")
+    .select("id, duty_date, duty_time, umpire1, umpire2, notes")
     .or(`umpire1.eq.${userId},umpire2.eq.${userId}`)
     .order("duty_date", { ascending: true });
   if (error) throw error;
@@ -128,6 +129,7 @@ export async function fetchMyDuties(userId: string): Promise<Duty[]> {
 
 export async function createDuty(input: {
   duty_date: string;
+  duty_time?: string | null;
   umpire1: string | null;
   umpire2: string | null;
   notes?: string | null;
