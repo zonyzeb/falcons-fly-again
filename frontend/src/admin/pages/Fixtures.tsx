@@ -1,13 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { CalendarPlus, Loader2, Plus, Trash2, Pencil, Check, X, ChevronDown, Users } from "lucide-react";
+import { CalendarPlus, Loader2, Plus, Trash2, Pencil, Check, X, ChevronDown, Users, Gavel } from "lucide-react";
 import { players } from "@/data/stats";
 import { useAuth } from "@/auth/AuthProvider";
 import {
   fetchFixtures, createFixture, updateFixture, deleteFixture,
-  fetchFixtureAvailability, setMatchAvailability, fetchTournaments,
-  type Fixture, type MatchAvailability, type MatchAvailStatus, type Tournament,
+  fetchFixtureAvailability, setMatchAvailability, fetchTournaments, fetchDuties,
+  type Fixture, type MatchAvailability, type MatchAvailStatus, type Tournament, type Duty,
 } from "@/lib/db";
+
+const toMin = (t: string | null) => {
+  if (!t) return null;
+  const [h, m] = t.split(":").map(Number);
+  return h * 60 + m;
+};
+
+// Warn (not block — the match takes priority) when a fixture lands near an
+// existing umpiring duty, so the admin can reassign the duty.
+function matchDutyClashes(date: string, time: string, duties: Duty[]): string[] {
+  if (!date) return [];
+  const out: string[] = [];
+  for (const d of duties) {
+    if (d.duty_date !== date) continue;
+    const fm = toMin(time || null);
+    const dm = toMin(d.duty_time);
+    const at = d.duty_time ? ` at ${d.duty_time.slice(0, 5)}` : "";
+    out.push(
+      fm != null && dm != null && Math.abs(fm - dm) <= 240
+        ? `An umpiring duty${at} is within 4h of this match`
+        : `An umpiring duty${at} is on the same day`
+    );
+  }
+  return out;
+}
 
 const STATUSES: { key: MatchAvailStatus; label: string; active: string }[] = [
   { key: "available",   label: "Available",   active: "bg-emerald-500/20 border-emerald-500/40 text-emerald-300" },
@@ -44,6 +69,7 @@ export default function FixturesPage() {
   const { user } = useAuth();
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [tournaments, setTournaments] = useState<Tournament[]>([]);
+  const [duties, setDuties] = useState<Duty[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [form, setForm] = useState({ ...EMPTY });
@@ -56,12 +82,15 @@ export default function FixturesPage() {
 
   const load = () => {
     setLoading(true);
-    Promise.all([fetchFixtures(), fetchTournaments()])
-      .then(([f, t]) => { setFixtures(f); setTournaments(t); })
+    Promise.all([fetchFixtures(), fetchTournaments(), fetchDuties()])
+      .then(([f, t, d]) => { setFixtures(f); setTournaments(t); setDuties(d); })
       .catch((e) => setError(e instanceof Error ? e.message : "Failed to load."))
       .finally(() => setLoading(false));
   };
   useEffect(load, []);
+
+  const addDutyWarn = useMemo(() => matchDutyClashes(form.match_date, form.match_time, duties), [form.match_date, form.match_time, duties]);
+  const editDutyWarn = useMemo(() => matchDutyClashes(edit.match_date, edit.match_time, duties), [edit.match_date, edit.match_time, duties]);
 
   const toForm = (f: Fixture) => ({
     tournament_id: f.tournament_id, opponent: f.opponent ?? "", match_date: f.match_date,
@@ -150,6 +179,15 @@ export default function FixturesPage() {
               {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />} Add match
             </button>
           </form>
+          {addDutyWarn.length > 0 && (
+            <div className="mt-3 space-y-1.5">
+              {addDutyWarn.map((m, i) => (
+                <div key={i} className="flex items-center gap-2 text-xs text-amber-300 bg-amber-500/10 border border-amber-500/20 px-3 py-2 rounded-lg">
+                  <Gavel className="w-3.5 h-3.5 shrink-0" /> {m} — consider reassigning it.
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
 
@@ -177,6 +215,9 @@ export default function FixturesPage() {
                       <button onClick={() => saveEdit(f.id)} className="px-3 py-1.5 text-xs rounded-lg bg-emerald-500/15 text-emerald-300 flex items-center gap-1"><Check className="w-3.5 h-3.5" /> Save</button>
                       <button onClick={() => setEditId(null)} className="px-3 py-1.5 text-xs rounded-lg bg-white/5 text-falcon-cream/50 flex items-center gap-1"><X className="w-3.5 h-3.5" /> Cancel</button>
                     </div>
+                    {editDutyWarn.map((m, i) => (
+                      <div key={i} className="lg:col-span-3 flex items-center gap-2 text-xs text-amber-300"><Gavel className="w-3.5 h-3.5 shrink-0" /> {m} — consider reassigning it.</div>
+                    ))}
                   </div>
                 ) : (
                   <div className="flex items-center gap-4 p-4">
