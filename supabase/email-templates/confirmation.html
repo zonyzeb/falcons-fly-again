@@ -1,0 +1,47 @@
+<!-- Supabase template: Confirm signup -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0f1e;margin:0;padding:32px 12px;font-family:Arial,Helvetica,sans-serif;">
+  <tr>
+    <td align="center">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background-color:#0d1424;border:1px solid #1e2a44;border-radius:16px;overflow:hidden;">
+        <tr>
+          <td align="center" style="padding:36px 32px 8px 32px;">
+            <!-- LOGO -->
+            <div style="display:inline-block;width:56px;height:56px;line-height:56px;border-radius:14px;background:linear-gradient(135deg,#EAB44A,#d97706);color:#0a0f1e;font-size:24px;font-weight:bold;">★</div>
+            <div style="margin-top:14px;font-size:13px;letter-spacing:3px;color:#EAB44A;font-weight:bold;">FALCONS CRICKET CLUB</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:16px 36px 8px 36px;">
+            <h1 style="margin:0 0 12px 0;font-size:22px;color:#F5F2EC;font-weight:bold;">Confirm your account</h1>
+            <p style="margin:0 0 20px 0;font-size:15px;line-height:1.6;color:#9aa3b2;">
+              Welcome to the Falcons team portal. Confirm your email address below to activate your account.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" style="padding:8px 36px 28px 36px;">
+            <a href="{{ .ConfirmationURL }}" style="display:inline-block;background:linear-gradient(135deg,#EAB44A,#d97706);color:#0a0f1e;text-decoration:none;font-weight:bold;font-size:15px;padding:14px 32px;border-radius:12px;">
+              Confirm my email
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 36px 28px 36px;">
+            <p style="margin:0;font-size:12px;line-height:1.6;color:#6b7488;">
+              If the button doesn't work, copy and paste this link into your browser:<br>
+              <a href="{{ .ConfirmationURL }}" style="color:#EAB44A;word-break:break-all;">{{ .ConfirmationURL }}</a>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:20px 36px;border-top:1px solid #1e2a44;">
+            <p style="margin:0;font-size:12px;line-height:1.6;color:#6b7488;">
+              Play with Pride. Fly as One.<br>
+              If you didn't create this account, you can safely ignore this email.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

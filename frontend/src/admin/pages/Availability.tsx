@@ -1,7 +1,14 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { CalendarCheck, Zap, AlertTriangle, Users, Check, Star } from "lucide-react";
 import { loadState, saveState, getPlayerStats } from "@/admin/store";
 import type { SquadPlayer } from "@/admin/store";
+import { fetchAllAvailability, type AvailStatus, type FitnessStatus } from "@/lib/db";
+
+const STATUS_PILL: Record<AvailStatus, { label: string; cls: string }> = {
+  available: { label: "Available", cls: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
+  maybe: { label: "Maybe", cls: "text-amber-400 bg-amber-500/10 border-amber-500/30" },
+  unavailable: { label: "Unavailable", cls: "text-red-400 bg-red-500/10 border-red-500/30" },
+};
 
 function computeFormScore(p: SquadPlayer): number {
   const stats = getPlayerStats(p.player_id);
@@ -100,6 +107,22 @@ function PlayerRow({ p, rank }: { p: SquadPlayer; rank: number }) {
 
 export default function AvailabilityPage() {
   const [state, setState] = useState(loadState);
+  // Member-submitted availability from Supabase, keyed by linked player_id.
+  const [cloud, setCloud] = useState<Map<number, { status: AvailStatus; fitness: FitnessStatus }>>(
+    new Map()
+  );
+
+  useEffect(() => {
+    fetchAllAvailability()
+      .then((rows) => {
+        const map = new Map<number, { status: AvailStatus; fitness: FitnessStatus }>();
+        for (const r of rows) {
+          if (r.player_id != null) map.set(r.player_id, { status: r.status, fitness: r.fitness });
+        }
+        setCloud(map);
+      })
+      .catch(() => {}); // unconfigured / offline → fall back to local toggles
+  }, []);
 
   const toggleAvailability = (id: number) => {
     const next = {
@@ -110,10 +133,21 @@ export default function AvailabilityPage() {
     saveState(next);
   };
 
-  const { main, alt, risks } = useMemo(() => suggestXI(state.squad), [state.squad]);
+  // A member's own response (when their account is linked) overrides the local toggle.
+  const mergedSquad = useMemo(
+    () =>
+      state.squad.map((p) => {
+        const c = cloud.get(p.player_id);
+        if (!c) return p;
+        return { ...p, available: c.status === "available", fitness: c.fitness };
+      }),
+    [state.squad, cloud]
+  );
 
-  const availableCount = state.squad.filter((p) => p.active && p.available).length;
-  const fitCount = state.squad.filter((p) => p.active && p.available && p.fitness === "Fit").length;
+  const { main, alt, risks } = useMemo(() => suggestXI(mergedSquad), [mergedSquad]);
+
+  const availableCount = mergedSquad.filter((p) => p.active && p.available).length;
+  const fitCount = mergedSquad.filter((p) => p.active && p.available && p.fitness === "Fit").length;
 
   return (
     <div className="space-y-6">
@@ -144,25 +178,46 @@ export default function AvailabilityPage() {
             <Users className="w-4 h-4" /> Mark Availability
           </h2>
           <div className="space-y-1 max-h-[60vh] overflow-y-auto pr-1">
-            {state.squad.filter((p) => p.active).map((p) => (
-              <button
-                key={p.player_id}
-                onClick={() => toggleAvailability(p.player_id)}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-colors ${
-                  p.available ? "bg-emerald-500/5 border border-emerald-500/20" : "hover:bg-white/5 border border-transparent"
-                }`}
-              >
-                <div className={`w-5 h-5 rounded-md border flex items-center justify-center ${
-                  p.available ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-400" : "border-white/10"
-                }`}>
-                  {p.available && <Check className="w-3 h-3" />}
-                </div>
-                <span className="text-falcon-cream text-sm flex-1">{p.name}</span>
-                <span className={`text-xs ${p.fitness === "Fit" ? "text-emerald-400" : p.fitness === "Doubtful" ? "text-amber-400" : "text-red-400"}`}>
-                  {p.fitness}
-                </span>
-              </button>
-            ))}
+            {state.squad.filter((p) => p.active).map((p) => {
+              const response = cloud.get(p.player_id);
+              if (response) {
+                // Member set this themselves — show their response (read-only).
+                const pill = STATUS_PILL[response.status];
+                return (
+                  <div
+                    key={p.player_id}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg border border-white/5 bg-white/[0.02]"
+                  >
+                    <span className="text-falcon-cream text-sm flex-1">{p.name}</span>
+                    <span className={`text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-full border ${pill.cls}`}>
+                      {pill.label}
+                    </span>
+                    <span className={`text-xs ${response.fitness === "Fit" ? "text-emerald-400" : response.fitness === "Doubtful" ? "text-amber-400" : "text-red-400"}`}>
+                      {response.fitness}
+                    </span>
+                  </div>
+                );
+              }
+              return (
+                <button
+                  key={p.player_id}
+                  onClick={() => toggleAvailability(p.player_id)}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left transition-colors ${
+                    p.available ? "bg-emerald-500/5 border border-emerald-500/20" : "hover:bg-white/5 border border-transparent"
+                  }`}
+                >
+                  <div className={`w-5 h-5 rounded-md border flex items-center justify-center ${
+                    p.available ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-400" : "border-white/10"
+                  }`}>
+                    {p.available && <Check className="w-3 h-3" />}
+                  </div>
+                  <span className="text-falcon-cream text-sm flex-1">{p.name}</span>
+                  <span className={`text-xs ${p.fitness === "Fit" ? "text-emerald-400" : p.fitness === "Doubtful" ? "text-amber-400" : "text-red-400"}`}>
+                    {p.fitness}
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
 

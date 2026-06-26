@@ -1,8 +1,9 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Users, Swords, BarChart3, Brain, CalendarCheck, LogOut, Menu, X, Shield, Settings, Crosshair, TrendingUp, Zap } from "lucide-react";
+import { Users, Swords, BarChart3, Brain, CalendarCheck, LogOut, Menu, X, Shield, Settings, Crosshair, TrendingUp, Zap, UserCog, Gavel } from "lucide-react";
 import { useState, useEffect } from "react";
-import { logout, loadSetup, getFormatConfig } from "@/admin/store";
+import { loadSetup, getFormatConfig } from "@/admin/store";
 import type { MatchSetup } from "@/admin/store";
+import { useAuth } from "@/auth/AuthProvider";
 
 const navItems = [
   { to: "/admin/setup", label: "Match Setup", icon: Settings },
@@ -14,12 +15,15 @@ const navItems = [
   { to: "/admin/matches", label: "Matches", icon: BarChart3 },
   { to: "/admin/insights", label: "Insights", icon: Brain },
   { to: "/admin/availability", label: "Availability", icon: CalendarCheck },
+  { to: "/admin/umpiring", label: "Umpiring", icon: Gavel },
+  { to: "/admin/members", label: "Members", icon: UserCog },
 ];
 
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [setup, setSetup] = useState<MatchSetup>(loadSetup);
   const navigate = useNavigate();
+  const { signOut } = useAuth();
 
   useEffect(() => {
     const handler = () => setSetup(loadSetup());
@@ -29,9 +33,9 @@ export default function AdminLayout() {
 
   const config = getFormatConfig(setup);
 
-  const handleLogout = () => {
-    logout();
-    navigate("/admin");
+  const handleLogout = async () => {
+    await signOut();
+    navigate("/login");
   };
 
   return (

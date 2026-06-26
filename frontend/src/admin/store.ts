@@ -427,22 +427,5 @@ export function getMatches() {
 }
 
 // ── Auth ──
-
-export const ADMIN_PASSWORD = "falcons2025";
-const AUTH_KEY = "falcons_admin_auth";
-
-export function isAuthenticated(): boolean {
-  return sessionStorage.getItem(AUTH_KEY) === "true";
-}
-
-export function login(password: string): boolean {
-  if (password === ADMIN_PASSWORD) {
-    sessionStorage.setItem(AUTH_KEY, "true");
-    return true;
-  }
-  return false;
-}
-
-export function logout() {
-  sessionStorage.removeItem(AUTH_KEY);
-}
+// Authentication now lives in Supabase via @/auth/AuthProvider.
+// The old hardcoded-password gate has been removed.
