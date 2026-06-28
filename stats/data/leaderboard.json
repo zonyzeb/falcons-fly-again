@@ -121,18 +121,18 @@
       "profile": "batting"
     },
     {
-      "player_name": "Ashok Ramasamy",
-      "stat": "234 runs",
+      "player_name": "Kiran MV",
+      "stat": "247 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Kiran MV",
-      "stat": "231 runs",
+      "player_name": "Ashok Ramasamy",
+      "stat": "242 runs",
       "profile": "batting"
     },
     {
       "player_name": "Yogi",
-      "stat": "180 runs",
+      "stat": "201 runs",
       "profile": "batting"
     },
     {
@@ -156,13 +156,13 @@
       "profile": "batting"
     },
     {
-      "player_name": "Rajesh Bathula",
-      "stat": "72 runs",
+      "player_name": "Ravi Shankar",
+      "stat": "74 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Ravi Shankar",
-      "stat": "65 runs",
+      "player_name": "Rajesh Bathula",
+      "stat": "72 runs",
       "profile": "batting"
     },
     {
@@ -201,13 +201,18 @@
       "profile": "batting"
     },
     {
-      "player_name": "Tharun R",
-      "stat": "20 runs",
+      "player_name": "Kranthi G",
+      "stat": "30 runs",
       "profile": "batting"
     },
     {
       "player_name": "Manikiran A",
-      "stat": "14 runs",
+      "stat": "25 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Tharun R",
+      "stat": "20 runs",
       "profile": "batting"
     },
     {
@@ -222,11 +227,6 @@
     },
     {
       "player_name": "Praveen Helenalund Cricket",
-      "stat": "12 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Kranthi G",
       "stat": "12 runs",
       "profile": "batting"
     },
@@ -251,6 +251,11 @@
       "profile": "batting"
     },
     {
+      "player_name": "Vishnu Ajithsuma",
+      "stat": "7 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "Hariprasad M N",
       "stat": "6 runs",
       "profile": "batting"
@@ -266,12 +271,12 @@
       "profile": "batting"
     },
     {
-      "player_name": "Ajas M A",
+      "player_name": "Balaji Rajagopal",
       "stat": "4 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Vishnu Ajithsuma",
+      "player_name": "Ajas M A",
       "stat": "4 runs",
       "profile": "batting"
     },
@@ -282,6 +287,11 @@
     },
     {
       "player_name": "Yashas Paralath",
+      "stat": "3 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "sai krishna V S",
       "stat": "3 runs",
       "profile": "batting"
     },
@@ -302,16 +312,6 @@
     },
     {
       "player_name": "Gaurav Arora",
-      "stat": "2 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "sai krishna V S",
-      "stat": "2 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Balaji Rajagopal",
       "stat": "2 runs",
       "profile": "batting"
     },
@@ -409,7 +409,7 @@
     },
     {
       "player_name": "Yogi",
-      "stat": "60 wickets",
+      "stat": "61 wickets",
       "profile": "bowling"
     },
     {
@@ -418,13 +418,13 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Kiran MV",
+      "player_name": "Ravi Shankar",
       "stat": "15 wickets",
       "profile": "bowling"
     },
     {
-      "player_name": "Ravi Shankar",
-      "stat": "14 wickets",
+      "player_name": "Kiran MV",
+      "stat": "15 wickets",
       "profile": "bowling"
     },
     {
@@ -453,6 +453,11 @@
       "profile": "bowling"
     },
     {
+      "player_name": "Krishang MV",
+      "stat": "3 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "SaiKrishna Gundeti",
       "stat": "3 wickets",
       "profile": "bowling"
@@ -473,6 +478,11 @@
       "profile": "bowling"
     },
     {
+      "player_name": "sai krishna V S",
+      "stat": "2 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "Anand TS",
       "stat": "2 wickets",
       "profile": "bowling"
@@ -484,11 +494,6 @@
     },
     {
       "player_name": "Akash Temkar",
-      "stat": "1 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Krishang MV",
       "stat": "1 wickets",
       "profile": "bowling"
     },
@@ -636,7 +641,7 @@
     },
     {
       "player_name": "Ashok Ramasamy",
-      "stat": "19 catches",
+      "stat": "21 catches",
       "profile": "fielding"
     },
     {
@@ -675,13 +680,13 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Ajas M A",
-      "stat": "4 catches",
+      "player_name": "Sajid",
+      "stat": "6 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "Sajid",
-      "stat": "5 catches",
+      "player_name": "Ajas M A",
+      "stat": "4 catches",
       "profile": "fielding"
     },
     {
@@ -757,6 +762,11 @@
     {
       "player_name": "Gurpreet Singh",
       "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Krishang MV",
+      "stat": "0 catches",
       "profile": "fielding"
     },
     {
