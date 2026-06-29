@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabase";
+import { matchScrapedResult } from "@/lib/cricheroes";
 
 export type MemberRole = "member" | "admin";
 
@@ -257,6 +258,14 @@ export interface MatchAvailability {
   set_by: string | null;
 }
 
+// Auto-fill a fixture's result from the scraped CricHeroes feed (refreshed by
+// the daily job) unless an admin has set one manually.
+function withResult(f: Fixture): Fixture {
+  if (f.result) return f;
+  const scraped = matchScrapedResult(f);
+  return scraped ? { ...f, result: scraped.result, result_note: f.result_note ?? scraped.result_note } : f;
+}
+
 export async function fetchFixtures(): Promise<Fixture[]> {
   const { data, error } = await supabase
     .from("fixtures")
@@ -264,7 +273,7 @@ export async function fetchFixtures(): Promise<Fixture[]> {
     .order("match_date", { ascending: true })
     .order("match_time", { ascending: true, nullsFirst: true });
   if (error) throw error;
-  return (data ?? []) as unknown as Fixture[];
+  return ((data ?? []) as unknown as Fixture[]).map(withResult);
 }
 
 /** Upcoming fixtures (today onward) — used by the public site. */
@@ -277,7 +286,7 @@ export async function fetchUpcomingFixtures(): Promise<Fixture[]> {
     .order("match_date", { ascending: true })
     .order("match_time", { ascending: true, nullsFirst: true });
   if (error) throw error;
-  return (data ?? []) as unknown as Fixture[];
+  return ((data ?? []) as unknown as Fixture[]).map(withResult);
 }
 
 export type FixtureInput = {
