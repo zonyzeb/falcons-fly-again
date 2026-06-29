@@ -1,11 +1,10 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Users, BarChart3, Brain, CalendarCheck, LogOut, Menu, X, Shield, Crosshair, TrendingUp, Zap, UserCog, Gavel, CalendarPlus, Trophy, LayoutDashboard } from "lucide-react";
+import { Users, BarChart3, Brain, CalendarCheck, LogOut, Menu, X, Shield, Crosshair, TrendingUp, Zap, UserCog, Gavel, CalendarPlus, LayoutDashboard } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/auth/AuthProvider";
 
 const navItems = [
-  { to: "/admin/tournaments", label: "Tournaments", icon: Trophy },
-  { to: "/admin/fixtures", label: "Fixtures", icon: CalendarPlus },
+  { to: "/admin/fixtures", label: "Tournaments & Fixtures", icon: CalendarPlus },
   { to: "/admin/availability", label: "Availability & XI", icon: CalendarCheck },
   { to: "/admin/umpiring", label: "Umpiring", icon: Gavel },
   { to: "/admin/squad", label: "Squad", icon: Users },
