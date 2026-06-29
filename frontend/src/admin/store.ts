@@ -34,21 +34,6 @@ export interface CombinationPlayer {
   bowlingPhase?: "powerplay" | "middle" | "death" | "";
 }
 
-export interface TeamCombination {
-  id: string;
-  name: string;
-  created: string;
-  players: CombinationPlayer[];
-  notes: string;
-  format?: FormatType;
-  playerCount?: number;
-}
-
-export interface AdminState {
-  squad: SquadPlayer[];
-  combinations: TeamCombination[];
-}
-
 // ── Match Format Engine ──
 
 export type FormatType = "T20" | "T15" | "T10" | "T5" | "CUSTOM";

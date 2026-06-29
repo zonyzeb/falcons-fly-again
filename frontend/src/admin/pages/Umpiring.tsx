@@ -151,6 +151,7 @@ export default function UmpiringPage() {
   };
 
   const removeDuty = async (id: string) => {
+    if (!confirm("Delete this umpiring duty?")) return;
     try { await deleteDuty(id); setDuties((p) => p.filter((d) => d.id !== id)); }
     catch (err) { setError(err instanceof Error ? err.message : "Could not delete."); }
   };

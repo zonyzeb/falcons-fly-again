@@ -124,6 +124,7 @@ export default function FixturesPage() {
   };
 
   const remove = async (id: string) => {
+    if (!confirm("Delete this match? Player availability and any selected XI for it will be removed too.")) return;
     try { await deleteFixture(id); setFixtures((p) => p.filter((f) => f.id !== id)); }
     catch (err) { setError(err instanceof Error ? err.message : "Could not delete."); }
   };
