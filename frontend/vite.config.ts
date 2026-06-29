@@ -36,6 +36,24 @@ function devApiPlugin(): PluginOption {
           res.end(JSON.stringify({ error: err instanceof Error ? err.message : "Dev API error" }));
         }
       });
+
+      server.middlewares.use("/api/notify", async (req, res) => {
+        let raw = "";
+        for await (const chunk of req) raw += chunk;
+        const auth = req.headers.authorization || "";
+        const token = auth.startsWith("Bearer ") ? auth.slice(7) : null;
+        try {
+          const mod = await import(pathToFileURL(path.resolve(__dirname, "../api/notify.js")).href);
+          const { status, body } = await mod.handleNotify({ method: req.method, token, body: raw });
+          res.statusCode = status;
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify(body));
+        } catch (err) {
+          res.statusCode = 500;
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify({ error: err instanceof Error ? err.message : "Dev API error" }));
+        }
+      });
     },
   };
 }
@@ -48,6 +66,11 @@ export default defineConfig(({ mode }) => {
   process.env.SUPABASE_URL = env.SUPABASE_URL ?? env.VITE_SUPABASE_URL ?? "";
   process.env.SUPABASE_ANON_KEY = env.SUPABASE_ANON_KEY ?? env.VITE_SUPABASE_ANON_KEY ?? "";
   process.env.SUPABASE_SERVICE_ROLE_KEY = env.SUPABASE_SERVICE_ROLE_KEY ?? "";
+  process.env.SMTP_HOST = env.SMTP_HOST ?? "";
+  process.env.SMTP_USER = env.SMTP_USER ?? "";
+  process.env.SMTP_PASS = env.SMTP_PASS ?? "";
+  process.env.SMTP_FROM = env.SMTP_FROM ?? "";
+  process.env.SMTP_ALLOW_INSECURE = env.SMTP_ALLOW_INSECURE ?? "";
 
   return {
     base: mode === "production" ? "/falcons-fly-again/" : "/",

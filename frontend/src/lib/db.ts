@@ -364,6 +364,28 @@ export async function setXiPublished(fixtureId: string, published: boolean) {
   if (error) throw error;
 }
 
+// ── notifications (serverless email) ──
+
+export async function sendNotification(payload: {
+  kind: "availability" | "team";
+  fixtureId?: string;
+  fixtureLabel?: string;
+  scope?: "all" | "pending";
+  team?: { order: number; name: string; captain: boolean; keeper: boolean }[];
+}): Promise<{ sent: number; note?: string }> {
+  const { data: sessionData } = await supabase.auth.getSession();
+  const token = sessionData.session?.access_token;
+  if (!token) throw new Error("You must be signed in.");
+  const res = await fetch("/api/notify", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify(payload),
+  });
+  const out = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(out.error || "Email failed.");
+  return out;
+}
+
 // ── invites (serverless) ──
 
 export async function inviteMember(input: {

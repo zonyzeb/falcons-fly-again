@@ -6,5 +6,8 @@
     "dev": "cd frontend && npx vite",
     "build": "cd frontend && npm run build",
     "test": "cd frontend && npm run test"
+  },
+  "dependencies": {
+    "nodemailer": "^9.0.1"
   }
 }

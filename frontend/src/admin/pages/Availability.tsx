@@ -1,9 +1,9 @@
 import { useState, useMemo, useEffect } from "react";
-import { CalendarCheck, AlertTriangle, Star, Loader2, Users, ChevronUp, ChevronDown, X, Plus, Check, Send, Sparkles } from "lucide-react";
+import { CalendarCheck, AlertTriangle, Star, Loader2, Users, ChevronUp, ChevronDown, X, Plus, Check, Send, Sparkles, Mail } from "lucide-react";
 import { loadState, getPlayerStats } from "@/admin/store";
 import type { SquadPlayer } from "@/admin/store";
 import {
-  fetchUpcomingFixtures, fetchFixtureAvailability, fetchSelection, saveSelection, setXiPublished,
+  fetchUpcomingFixtures, fetchFixtureAvailability, fetchSelection, saveSelection, setXiPublished, sendNotification,
   type Fixture, type MatchAvailStatus,
 } from "@/lib/db";
 
@@ -69,6 +69,8 @@ export default function AvailabilityPage() {
   const [busy, setBusy] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
+  const [emailing, setEmailing] = useState<string | null>(null);
+  const [emailMsg, setEmailMsg] = useState("");
 
   useEffect(() => {
     fetchUpcomingFixtures()
@@ -161,6 +163,27 @@ export default function AvailabilityPage() {
     finally { setBusy(false); }
   };
 
+  const selectedFixture = fixtures.find((f) => f.id === fixtureId);
+  const fixtureLabel = selectedFixture ? fmtFixture(selectedFixture) : "";
+
+  const requestAvailability = async (scope: "all" | "pending") => {
+    setEmailing(scope); setError(""); setEmailMsg("");
+    try {
+      const r = await sendNotification({ kind: "availability", fixtureId, fixtureLabel, scope });
+      setEmailMsg(r.sent > 0 ? `Availability request sent to ${r.sent} member(s).` : "No matching members to email.");
+    } catch (e) { setError(e instanceof Error ? e.message : "Email failed."); }
+    finally { setEmailing(null); }
+  };
+  const emailTeam = async () => {
+    setEmailing("team"); setError(""); setEmailMsg("");
+    try {
+      const team = selected.map((s, i) => ({ order: i + 1, name: squadById.get(s.player_id)?.name ?? `#${s.player_id}`, captain: s.is_captain, keeper: s.is_keeper }));
+      const r = await sendNotification({ kind: "team", fixtureId, fixtureLabel, team });
+      setEmailMsg(r.sent > 0 ? `Team emailed to ${r.sent} member(s).` : "No members to email.");
+    } catch (e) { setError(e instanceof Error ? e.message : "Email failed."); }
+    finally { setEmailing(null); }
+  };
+
   const Tag = ({ on, label, cls, onClick }: { on: boolean; label: string; cls: string; onClick: () => void }) => (
     <button onClick={onClick} className={`px-1.5 py-0.5 text-[10px] font-bold rounded border transition-colors ${on ? cls : "border-white/10 text-falcon-cream/30 hover:text-falcon-cream/60"}`}>{label}</button>
   );
@@ -184,6 +207,20 @@ export default function AvailabilityPage() {
             className="mt-2 w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40">
             {fixtures.map((f) => <option key={f.id} value={f.id}>{fmtFixture(f)}</option>)}
           </select>
+        )}
+        {fixtureId && (
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <span className="text-xs text-falcon-cream/40">Request availability:</span>
+            <button onClick={() => requestAvailability("all")} disabled={!!emailing}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg bg-white/5 text-falcon-cream/70 border border-white/10 hover:bg-white/10 disabled:opacity-50">
+              {emailing === "all" ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Mail className="w-3.5 h-3.5" />} All members
+            </button>
+            <button onClick={() => requestAvailability("pending")} disabled={!!emailing}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg bg-white/5 text-falcon-cream/70 border border-white/10 hover:bg-white/10 disabled:opacity-50">
+              {emailing === "pending" ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Mail className="w-3.5 h-3.5" />} No-reply only
+            </button>
+            {emailMsg && <span className="text-xs text-emerald-400">{emailMsg}</span>}
+          </div>
         )}
       </div>
 
@@ -233,6 +270,11 @@ export default function AvailabilityPage() {
                 <button onClick={togglePublish} disabled={busy} className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg border disabled:opacity-50 ${published ? "bg-red-500/10 text-red-300 border-red-500/25 hover:bg-red-500/15" : "bg-emerald-500/15 text-emerald-300 border-emerald-500/30 hover:bg-emerald-500/25"}`}>
                   <Send className="w-3.5 h-3.5" /> {published ? "Unpublish" : "Publish"}
                 </button>
+                {published && (
+                  <button onClick={emailTeam} disabled={!!emailing || selected.length === 0} className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg bg-falcon-gold/10 text-falcon-gold border border-falcon-gold/20 hover:bg-falcon-gold/15 disabled:opacity-50">
+                    {emailing === "team" ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Mail className="w-3.5 h-3.5" />} Email XI
+                  </button>
+                )}
               </div>
               {warnings.length > 0 && (
                 <div className="flex flex-wrap gap-1.5 mb-3">
