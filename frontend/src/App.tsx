@@ -28,9 +28,7 @@ const MyDutiesPage = lazy(() => import("@/pages/dashboard/MyDuties"));
 const MyProfilePage = lazy(() => import("@/pages/dashboard/MyProfile"));
 
 const AdminLayout = lazy(() => import("@/admin/components/AdminLayout"));
-const MatchSetupPage = lazy(() => import("@/admin/pages/MatchSetup"));
 const SquadPage = lazy(() => import("@/admin/pages/Squad"));
-const CombinationsPage = lazy(() => import("@/admin/pages/Combinations"));
 const BattingAnalysisPage = lazy(() => import("@/admin/pages/BattingAnalysis"));
 const BowlingAnalysisPage = lazy(() => import("@/admin/pages/BowlingAnalysis"));
 const ImpactStrategyPage = lazy(() => import("@/admin/pages/ImpactStrategy"));
@@ -92,9 +90,7 @@ const App = () => (
               <Route path="/admin">
                 <Route index element={<Navigate to="/admin/squad" replace />} />
                 <Route element={<RequireAdmin><AdminLayout /></RequireAdmin>}>
-                  <Route path="setup" element={<MatchSetupPage />} />
                   <Route path="squad" element={<SquadPage />} />
-                  <Route path="combinations" element={<CombinationsPage />} />
                   <Route path="batting" element={<BattingAnalysisPage />} />
                   <Route path="bowling" element={<BowlingAnalysisPage />} />
                   <Route path="impact" element={<ImpactStrategyPage />} />

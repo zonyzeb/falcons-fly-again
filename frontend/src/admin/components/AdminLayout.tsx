@@ -1,39 +1,26 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Users, Swords, BarChart3, Brain, CalendarCheck, LogOut, Menu, X, Shield, Settings, Crosshair, TrendingUp, Zap, UserCog, Gavel, CalendarPlus, Trophy, LayoutDashboard } from "lucide-react";
-import { useState, useEffect } from "react";
-import { loadSetup, getFormatConfig } from "@/admin/store";
-import type { MatchSetup } from "@/admin/store";
+import { Users, BarChart3, Brain, CalendarCheck, LogOut, Menu, X, Shield, Crosshair, TrendingUp, Zap, UserCog, Gavel, CalendarPlus, Trophy, LayoutDashboard } from "lucide-react";
+import { useState } from "react";
 import { useAuth } from "@/auth/AuthProvider";
 
 const navItems = [
-  { to: "/admin/setup", label: "Match Setup", icon: Settings },
+  { to: "/admin/tournaments", label: "Tournaments", icon: Trophy },
+  { to: "/admin/fixtures", label: "Fixtures", icon: CalendarPlus },
+  { to: "/admin/availability", label: "Availability & XI", icon: CalendarCheck },
+  { to: "/admin/umpiring", label: "Umpiring", icon: Gavel },
   { to: "/admin/squad", label: "Squad", icon: Users },
-  { to: "/admin/combinations", label: "XI Builder", icon: Swords },
+  { to: "/admin/members", label: "Members", icon: UserCog },
   { to: "/admin/batting", label: "Batting Analysis", icon: TrendingUp },
   { to: "/admin/bowling", label: "Bowling Analysis", icon: Crosshair },
   { to: "/admin/impact", label: "Impact Strategy", icon: Zap },
   { to: "/admin/matches", label: "Matches", icon: BarChart3 },
   { to: "/admin/insights", label: "Insights", icon: Brain },
-  { to: "/admin/tournaments", label: "Tournaments", icon: Trophy },
-  { to: "/admin/fixtures", label: "Fixtures", icon: CalendarPlus },
-  { to: "/admin/availability", label: "Availability", icon: CalendarCheck },
-  { to: "/admin/umpiring", label: "Umpiring", icon: Gavel },
-  { to: "/admin/members", label: "Members", icon: UserCog },
 ];
 
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [setup, setSetup] = useState<MatchSetup>(loadSetup);
   const navigate = useNavigate();
   const { signOut } = useAuth();
-
-  useEffect(() => {
-    const handler = () => setSetup(loadSetup());
-    window.addEventListener("matchSetupChanged", handler);
-    return () => window.removeEventListener("matchSetupChanged", handler);
-  }, []);
-
-  const config = getFormatConfig(setup);
 
   const handleLogout = async () => {
     await signOut();
@@ -112,17 +99,6 @@ export default function AdminLayout() {
               <NavLink to="/" className="text-falcon-cream/40 hover:text-falcon-gold text-sm transition-colors">
                 Back to Site
               </NavLink>
-            </div>
-            <div className="ml-auto flex items-center gap-3">
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-falcon-gold/10 border border-falcon-gold/20 rounded-lg text-xs">
-                <span className="text-falcon-gold font-semibold">{config.label}</span>
-                <span className="text-falcon-cream/30">·</span>
-                <span className="text-falcon-cream/60">{setup.playerCount} players</span>
-                <span className="text-falcon-cream/30">·</span>
-                <span className={`font-medium ${setup.impactSubEnabled ? "text-emerald-400" : "text-falcon-cream/30"}`}>
-                  Impact {setup.impactSubEnabled ? "ON" : "OFF"}
-                </span>
-              </div>
             </div>
           </div>
         </header>

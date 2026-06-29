@@ -1,8 +1,6 @@
 import { supabase } from "@/lib/supabase";
 
 export type MemberRole = "member" | "admin";
-export type AvailStatus = "available" | "unavailable" | "maybe";
-export type FitnessStatus = "Fit" | "Doubtful" | "Injured" | "Recovering";
 
 export interface Profile {
   id: string;
@@ -10,15 +8,6 @@ export interface Profile {
   role: MemberRole;
   player_id: number | null;
   created_at?: string;
-}
-
-export interface AvailabilityRow {
-  user_id: string;
-  player_id: number | null;
-  status: AvailStatus;
-  fitness: FitnessStatus;
-  note: string | null;
-  updated_at?: string;
 }
 
 // ── profiles ──
@@ -57,31 +46,6 @@ export async function adminUpdateProfile(
 ) {
   const { error } = await supabase.from("profiles").update(patch).eq("id", id);
   if (error) throw error;
-}
-
-// ── availability ──
-
-export async function fetchMyAvailability(userId: string): Promise<AvailabilityRow | null> {
-  const { data, error } = await supabase
-    .from("availability")
-    .select("*")
-    .eq("user_id", userId)
-    .maybeSingle();
-  if (error) throw error;
-  return data as AvailabilityRow | null;
-}
-
-export async function upsertMyAvailability(row: AvailabilityRow) {
-  const { error } = await supabase
-    .from("availability")
-    .upsert(row, { onConflict: "user_id" });
-  if (error) throw error;
-}
-
-export async function fetchAllAvailability(): Promise<AvailabilityRow[]> {
-  const { data, error } = await supabase.from("availability").select("*");
-  if (error) throw error;
-  return (data ?? []) as AvailabilityRow[];
 }
 
 // ── umpiring duties ──
