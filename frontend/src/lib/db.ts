@@ -209,6 +209,8 @@ export async function deleteTournament(id: string) {
 
 // ── fixtures (matches within a tournament) ──
 
+export type MatchResult = "won" | "lost" | "tied" | "no_result";
+
 export interface Fixture {
   id: string;
   tournament_id: string;
@@ -218,11 +220,32 @@ export interface Fixture {
   ground: string | null;
   notes: string | null;
   xi_published: boolean;
+  result: MatchResult | null;
+  result_note: string | null;
   tournament?: Tournament | null; // joined
 }
 
 const FIXTURE_SELECT =
-  "id, tournament_id, opponent, match_date, match_time, ground, notes, xi_published, tournament:tournaments(id, name, format, season, start_date)";
+  "id, tournament_id, opponent, match_date, match_time, ground, notes, xi_published, result, result_note, tournament:tournaments(id, name, format, season, start_date)";
+
+export interface AvailCounts { available: number; maybe: number; unavailable: number }
+
+/** Per-fixture availability tallies (signed-in only — RLS gates this). */
+export async function fetchAvailabilityCounts(fixtureIds: string[]): Promise<Map<string, AvailCounts>> {
+  const out = new Map<string, AvailCounts>();
+  if (fixtureIds.length === 0) return out;
+  const { data, error } = await supabase
+    .from("match_availability")
+    .select("fixture_id, status")
+    .in("fixture_id", fixtureIds);
+  if (error) throw error;
+  for (const r of (data ?? []) as { fixture_id: string; status: MatchAvailStatus }[]) {
+    const c = out.get(r.fixture_id) ?? { available: 0, maybe: 0, unavailable: 0 };
+    c[r.status] += 1;
+    out.set(r.fixture_id, c);
+  }
+  return out;
+}
 
 export type MatchAvailStatus = "available" | "maybe" | "unavailable";
 
@@ -264,6 +287,8 @@ export type FixtureInput = {
   match_time: string | null;
   ground: string | null;
   notes: string | null;
+  result?: MatchResult | null;
+  result_note?: string | null;
 };
 
 export async function createFixture(input: FixtureInput) {

@@ -44,7 +44,7 @@ function fmtDate(d: string) {
   return new Date(d + "T00:00:00").toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" });
 }
 
-const EMPTY = { tournament_id: "", opponent: "", match_date: "", match_time: "", ground: "", notes: "" };
+const EMPTY = { tournament_id: "", opponent: "", match_date: "", match_time: "", ground: "", notes: "", result: "", result_note: "" };
 
 // Module scope so inputs keep focus across renders (a component defined inside
 // the page remounts on every keystroke).
@@ -95,6 +95,7 @@ export default function FixturesPage() {
   const toForm = (f: Fixture) => ({
     tournament_id: f.tournament_id, opponent: f.opponent ?? "", match_date: f.match_date,
     match_time: f.match_time?.slice(0, 5) ?? "", ground: f.ground ?? "", notes: f.notes ?? "",
+    result: f.result ?? "", result_note: f.result_note ?? "",
   });
 
   const clean = (v: typeof EMPTY) => ({
@@ -104,6 +105,8 @@ export default function FixturesPage() {
     match_time: v.match_time || null,
     ground: v.ground.trim() || null,
     notes: v.notes.trim() || null,
+    result: (v.result || null) as "won" | "lost" | "tied" | "no_result" | null,
+    result_note: v.result_note.trim() || null,
   });
 
   const add = async (e: React.FormEvent) => {
@@ -212,6 +215,15 @@ export default function FixturesPage() {
                     <Field ph="Date" type="date" val={edit.match_date} on={(v) => setEdit({ ...edit, match_date: v })} />
                     <Field ph="Time" type="time" val={edit.match_time} on={(v) => setEdit({ ...edit, match_time: v })} />
                     <Field ph="Notes" val={edit.notes} on={(v) => setEdit({ ...edit, notes: v })} />
+                    <select value={edit.result} onChange={(e) => setEdit({ ...edit, result: e.target.value })}
+                      className="px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40">
+                      <option value="">Result —</option>
+                      <option value="won">Won</option>
+                      <option value="lost">Lost</option>
+                      <option value="tied">Tied</option>
+                      <option value="no_result">No result</option>
+                    </select>
+                    <Field ph="Result note (e.g. won by 5 wkts)" val={edit.result_note} on={(v) => setEdit({ ...edit, result_note: v })} />
                     <div className="flex gap-2 lg:col-span-3">
                       <button onClick={() => saveEdit(f.id)} className="px-3 py-1.5 text-xs rounded-lg bg-emerald-500/15 text-emerald-300 flex items-center gap-1"><Check className="w-3.5 h-3.5" /> Save</button>
                       <button onClick={() => setEditId(null)} className="px-3 py-1.5 text-xs rounded-lg bg-white/5 text-falcon-cream/50 flex items-center gap-1"><X className="w-3.5 h-3.5" /> Cancel</button>
@@ -227,11 +239,14 @@ export default function FixturesPage() {
                       <div className="text-falcon-cream/40 text-xs">{fmtDate(f.match_date).split(", ")[1]}{f.match_time ? ` · ${f.match_time.slice(0,5)}` : ""}</div>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-falcon-cream text-sm font-medium truncate">
-                        {f.tournament?.name ?? "Match"}{f.opponent ? <span className="text-falcon-cream/60"> · vs {f.opponent}</span> : null}
+                      <div className="text-falcon-cream text-sm font-medium truncate flex items-center gap-2">
+                        <span className="truncate">{f.tournament?.name ?? "Match"}{f.opponent ? <span className="text-falcon-cream/60"> · vs {f.opponent}</span> : null}</span>
+                        {f.result && (
+                          <span className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded-full shrink-0 ${f.result === "won" ? "text-emerald-300 bg-emerald-500/15" : f.result === "lost" ? "text-red-300 bg-red-500/15" : "text-amber-300 bg-amber-500/15"}`}>{f.result === "no_result" ? "No result" : f.result}</span>
+                        )}
                       </div>
                       <div className="text-xs text-falcon-cream/40 truncate">
-                        {[f.tournament?.format, f.ground, f.notes].filter(Boolean).join(" · ")}
+                        {[f.tournament?.format, f.ground, f.result_note, f.notes].filter(Boolean).join(" · ")}
                       </div>
                     </div>
                     <button onClick={() => toggleAvail(f.id)} className="px-3 py-1.5 text-xs rounded-lg border border-white/10 text-falcon-cream/60 hover:text-falcon-gold hover:border-falcon-gold/30 flex items-center gap-1.5">

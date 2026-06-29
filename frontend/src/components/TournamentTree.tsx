@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Trophy, Calendar, MapPin } from "lucide-react";
-import type { Fixture } from "@/lib/db";
+import type { Fixture, AvailCounts, MatchResult } from "@/lib/db";
 
 // Fixed-pixel layout so the SVG connectors line up exactly with the cards;
 // the wrapper scrolls horizontally on narrow screens.
-const CARD_H = 62;
+const CARD_H = 64;
 const GAP = 18;
 const STEP = CARD_H + GAP;
 const ROOT_W = 158;
 const CARD_X = 232;
-const CARD_W = 300;
+const CARD_W = 304;
 const VB_W = CARD_X + CARD_W;
+
+const RESULT_BADGE: Record<MatchResult, { label: string; cls: string }> = {
+  won: { label: "Won", cls: "text-emerald-300 bg-emerald-500/15 border-emerald-500/30" },
+  lost: { label: "Lost", cls: "text-red-300 bg-red-500/15 border-red-500/30" },
+  tied: { label: "Tied", cls: "text-amber-300 bg-amber-500/15 border-amber-500/30" },
+  no_result: { label: "No result", cls: "text-falcon-cream/40 bg-white/5 border-white/10" },
+};
 
 function fmt(d: string) {
   return new Date(d + "T00:00:00").toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" });
@@ -31,7 +39,15 @@ export function groupByTournament(fixtures: Fixture[]): TreeGroup[] {
   return [...map.values()];
 }
 
-export function TournamentTree({ groups, matchHref }: { groups: TreeGroup[]; matchHref?: (f: Fixture) => string }) {
+export function TournamentTree({
+  groups,
+  matchHref,
+  counts,
+}: {
+  groups: TreeGroup[];
+  matchHref?: (f: Fixture) => string;
+  counts?: Map<string, AvailCounts>;
+}) {
   return (
     <div className="space-y-10">
       {groups.map((g) => {
@@ -52,8 +68,10 @@ export function TournamentTree({ groups, matchHref }: { groups: TreeGroup[]; mat
                 {g.fixtures.map((f, i) => {
                   const y = i * STEP + CARD_H / 2;
                   return (
-                    <path key={f.id} d={`M${ROOT_W} ${rootY} C ${midX} ${rootY} ${midX} ${y} ${CARD_X} ${y}`}
-                      fill="none" stroke={`url(#tt-${g.id})`} strokeWidth={2.5} />
+                    <motion.path key={f.id} d={`M${ROOT_W} ${rootY} C ${midX} ${rootY} ${midX} ${y} ${CARD_X} ${y}`}
+                      fill="none" stroke={`url(#tt-${g.id})`} strokeWidth={2.5}
+                      initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{ duration: 0.55, delay: 0.15 + i * 0.08 }} />
                   );
                 })}
                 <circle cx={ROOT_W} cy={rootY} r={5} fill="#EAB44A" />
@@ -61,7 +79,8 @@ export function TournamentTree({ groups, matchHref }: { groups: TreeGroup[]; mat
               </svg>
 
               {/* Root: the tournament */}
-              <div className="absolute" style={{ left: 0, top: rootY - 60, width: ROOT_W }}>
+              <motion.div className="absolute" style={{ left: 0, top: rootY - 61, width: ROOT_W }}
+                initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4 }}>
                 <div className="rounded-2xl p-4 bg-gradient-to-br from-falcon-gold to-amber-600 shadow-lg shadow-falcon-gold/20">
                   <Trophy className="w-6 h-6 text-[#3a2406]" />
                   <div className="mt-2 font-display font-bold text-[#3a2406] leading-tight text-[15px]">{g.tournament?.name ?? "Tournament"}</div>
@@ -70,11 +89,11 @@ export function TournamentTree({ groups, matchHref }: { groups: TreeGroup[]; mat
                     {n} match{n !== 1 ? "es" : ""}
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Branches: the matches */}
               {g.fixtures.map((f, i) => {
-                const style = { left: CARD_X, top: i * STEP, width: CARD_W, height: CARD_H } as const;
+                const c = counts?.get(f.id);
                 const inner = (
                   <div className="h-full flex items-center gap-3 rounded-xl bg-[#0d1424] border border-white/5 border-l-2 border-l-falcon-gold/60 px-3.5 hover:border-falcon-gold/40 transition-colors">
                     <div className="flex-1 min-w-0">
@@ -86,17 +105,28 @@ export function TournamentTree({ groups, matchHref }: { groups: TreeGroup[]; mat
                         {f.ground && <span className="inline-flex items-center gap-1"><MapPin className="w-3 h-3 text-falcon-gold/60" />{f.ground}</span>}
                       </div>
                     </div>
-                    {f.xi_published ? (
-                      <span className="text-[10px] uppercase tracking-wide text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full shrink-0">XI set</span>
-                    ) : (
-                      <span className="text-[10px] uppercase tracking-wide text-falcon-cream/30 bg-white/[0.03] border border-white/10 px-2 py-0.5 rounded-full shrink-0">Scheduled</span>
-                    )}
+                    <div className="flex flex-col items-end gap-1 shrink-0">
+                      {f.result ? (
+                        <span className={`text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-full border ${RESULT_BADGE[f.result].cls}`}>{RESULT_BADGE[f.result].label}</span>
+                      ) : f.xi_published ? (
+                        <span className="text-[10px] uppercase tracking-wide text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">XI set</span>
+                      ) : (
+                        <span className="text-[10px] uppercase tracking-wide text-falcon-cream/30 bg-white/[0.03] border border-white/10 px-2 py-0.5 rounded-full">Scheduled</span>
+                      )}
+                      {!f.result && c && (c.available > 0 || c.maybe > 0) && (
+                        <span className="text-[10px] flex items-center gap-1.5">
+                          <span className="text-emerald-400">{c.available} in</span>
+                          {c.maybe > 0 && <span className="text-amber-400">{c.maybe} maybe</span>}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 );
-                return matchHref ? (
-                  <Link key={f.id} to={matchHref(f)} className="absolute block" style={style}>{inner}</Link>
-                ) : (
-                  <div key={f.id} className="absolute" style={style}>{inner}</div>
+                return (
+                  <motion.div key={f.id} className="absolute" style={{ left: CARD_X, top: i * STEP, width: CARD_W, height: CARD_H }}
+                    initial={{ opacity: 0, x: 14 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}>
+                    {matchHref ? <Link to={matchHref(f)} className="block h-full">{inner}</Link> : inner}
+                  </motion.div>
                 );
               })}
             </div>

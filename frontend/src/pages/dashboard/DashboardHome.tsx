@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CalendarCheck, User, ArrowRight, Trophy, Gavel } from "lucide-react";
 import { useAuth } from "@/auth/AuthProvider";
-import { fetchUpcomingFixtures, fetchPlayerAvailability, fetchMyDuties, type MatchAvailStatus, type Duty, type Fixture } from "@/lib/db";
+import { fetchUpcomingFixtures, fetchPlayerAvailability, fetchMyDuties, fetchAvailabilityCounts, type MatchAvailStatus, type Duty, type Fixture, type AvailCounts } from "@/lib/db";
 import { teamStats, matches } from "@/data/stats";
 import { TournamentTree, groupByTournament } from "@/components/TournamentTree";
 
@@ -16,6 +16,7 @@ export default function DashboardHome() {
   const { user, profile } = useAuth();
   const [nextFixture, setNextFixture] = useState<Fixture | null>(null);
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
+  const [counts, setCounts] = useState<Map<string, AvailCounts>>(new Map());
   const [fixtureStatus, setFixtureStatus] = useState<MatchAvailStatus | null>(null);
   const [nextDuty, setNextDuty] = useState<Duty | null>(null);
   const nextMatch = matches[0];
@@ -26,6 +27,7 @@ export default function DashboardHome() {
     fetchUpcomingFixtures()
       .then(async (fs) => {
         setFixtures(fs);
+        fetchAvailabilityCounts(fs.map((f) => f.id)).then(setCounts).catch(() => {});
         const next = fs[0] ?? null;
         setNextFixture(next);
         if (next && playerId != null) {
@@ -119,7 +121,7 @@ export default function DashboardHome() {
       {fixtures.length > 0 && (
         <div className="bg-[#0d1424] border border-white/5 rounded-xl p-5">
           <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-4">Season ahead</h2>
-          <TournamentTree groups={groupByTournament(fixtures)} matchHref={() => "/dashboard/availability"} />
+          <TournamentTree groups={groupByTournament(fixtures)} matchHref={() => "/dashboard/availability"} counts={counts} />
         </div>
       )}
 

@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Trophy, Loader2, Plus, Trash2, Pencil, Check, X } from "lucide-react";
 import {
   fetchTournaments, createTournament, updateTournament, deleteTournament,
-  fetchAllProfiles, fetchFixtures, type Tournament, type Profile, type Fixture,
+  fetchAllProfiles, fetchFixtures, fetchAvailabilityCounts,
+  type Tournament, type Profile, type Fixture, type AvailCounts,
 } from "@/lib/db";
 import { TournamentTree, groupByTournament } from "@/components/TournamentTree";
 
@@ -31,6 +32,7 @@ export default function TournamentsPage() {
   const [items, setItems] = useState<Tournament[]>([]);
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
+  const [counts, setCounts] = useState<Map<string, AvailCounts>>(new Map());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [form, setForm] = useState({ ...EMPTY });
@@ -41,7 +43,10 @@ export default function TournamentsPage() {
   const load = () => {
     setLoading(true);
     Promise.all([fetchTournaments(), fetchAllProfiles(), fetchFixtures()])
-      .then(([t, p, f]) => { setItems(t); setProfiles(p); setFixtures(f); })
+      .then(async ([t, p, f]) => {
+        setItems(t); setProfiles(p); setFixtures(f);
+        setCounts(await fetchAvailabilityCounts(f.map((x) => x.id)).catch(() => new Map()));
+      })
       .catch((e) => setError(e instanceof Error ? e.message : "Failed to load."))
       .finally(() => setLoading(false));
   };
@@ -99,7 +104,7 @@ export default function TournamentsPage() {
       {fixtures.length > 0 && (
         <div className="bg-[#0d1424] border border-white/5 rounded-xl p-5">
           <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-4">Season map</h2>
-          <TournamentTree groups={groupByTournament(fixtures)} matchHref={() => "/admin/availability"} />
+          <TournamentTree groups={groupByTournament(fixtures)} matchHref={() => "/admin/availability"} counts={counts} />
         </div>
       )}
 

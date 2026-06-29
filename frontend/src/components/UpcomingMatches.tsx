@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchUpcomingFixtures, type Fixture } from "@/lib/db";
+import { fetchFixtures, type Fixture } from "@/lib/db";
 import { TournamentTree, groupByTournament } from "@/components/TournamentTree";
 
 export function UpcomingMatches() {
@@ -7,13 +7,13 @@ export function UpcomingMatches() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    fetchUpcomingFixtures()
+    fetchFixtures()
       .then(setFixtures)
       .catch(() => {})
       .finally(() => setLoaded(true));
   }, []);
 
-  // Render nothing if there are no upcoming matches (keeps the page clean).
+  // Render nothing if there are no fixtures (keeps the page clean).
   if (!loaded || fixtures.length === 0) return null;
 
   return (
@@ -21,7 +21,7 @@ export function UpcomingMatches() {
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <p className="text-falcon-gold text-sm font-semibold tracking-[0.2em] uppercase mb-2">Fixtures</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-falcon-cream">Upcoming Matches</h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-falcon-cream">Match Schedule</h2>
         </div>
         <TournamentTree groups={groupByTournament(fixtures)} />
       </div>
