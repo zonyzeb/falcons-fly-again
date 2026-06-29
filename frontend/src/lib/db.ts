@@ -253,11 +253,12 @@ export interface Fixture {
   match_time: string | null; // HH:MM[:SS]
   ground: string | null;
   notes: string | null;
+  xi_published: boolean;
   tournament?: Tournament | null; // joined
 }
 
 const FIXTURE_SELECT =
-  "id, tournament_id, opponent, match_date, match_time, ground, notes, tournament:tournaments(id, name, format, season, start_date)";
+  "id, tournament_id, opponent, match_date, match_time, ground, notes, xi_published, tournament:tournaments(id, name, format, season, start_date)";
 
 export type MatchAvailStatus = "available" | "maybe" | "unavailable";
 
@@ -345,6 +346,57 @@ export async function setMatchAvailability(input: {
   const { error } = await supabase
     .from("match_availability")
     .upsert({ ...input, updated_at: new Date().toISOString() }, { onConflict: "fixture_id,player_id" });
+  if (error) throw error;
+}
+
+// ── team selection (final XI per fixture) ──
+
+export interface TeamSelection {
+  fixture_id: string;
+  player_id: number;
+  batting_order: number;
+  is_captain: boolean;
+  is_keeper: boolean;
+}
+
+export async function fetchSelection(fixtureId: string): Promise<TeamSelection[]> {
+  const { data, error } = await supabase
+    .from("team_selections")
+    .select("fixture_id, player_id, batting_order, is_captain, is_keeper")
+    .eq("fixture_id", fixtureId)
+    .order("batting_order", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as TeamSelection[];
+}
+
+export async function fetchSelectionsForFixtures(fixtureIds: string[]): Promise<TeamSelection[]> {
+  if (fixtureIds.length === 0) return [];
+  const { data, error } = await supabase
+    .from("team_selections")
+    .select("fixture_id, player_id, batting_order, is_captain, is_keeper")
+    .in("fixture_id", fixtureIds)
+    .order("batting_order", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as TeamSelection[];
+}
+
+/** Replace the whole XI for a fixture (delete + insert). */
+export async function saveSelection(
+  fixtureId: string,
+  players: { player_id: number; batting_order: number; is_captain: boolean; is_keeper: boolean }[]
+) {
+  const del = await supabase.from("team_selections").delete().eq("fixture_id", fixtureId);
+  if (del.error) throw del.error;
+  if (players.length > 0) {
+    const ins = await supabase
+      .from("team_selections")
+      .insert(players.map((p) => ({ ...p, fixture_id: fixtureId })));
+    if (ins.error) throw ins.error;
+  }
+}
+
+export async function setXiPublished(fixtureId: string, published: boolean) {
+  const { error } = await supabase.from("fixtures").update({ xi_published: published }).eq("id", fixtureId);
   if (error) throw error;
 }
 

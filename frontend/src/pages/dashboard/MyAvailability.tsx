@@ -1,14 +1,19 @@
 import { useEffect, useMemo, useState } from "react";
-import { Loader2, CalendarCheck } from "lucide-react";
+import { Loader2, CalendarCheck, Star, ChevronDown, CheckCircle2 } from "lucide-react";
 import { useAuth } from "@/auth/AuthProvider";
+import { players } from "@/data/stats";
 import {
   fetchUpcomingFixtures,
   fetchPlayerAvailability,
   setMatchAvailability,
+  fetchSelectionsForFixtures,
   type Fixture,
   type MatchAvailability,
   type MatchAvailStatus,
+  type TeamSelection,
 } from "@/lib/db";
+
+const playerName = (pid: number) => players.find((p) => p.player_id === pid)?.name ?? `#${pid}`;
 
 const STATUS: { value: MatchAvailStatus; label: string; ring: string; active: string }[] = [
   { value: "available", label: "Available", ring: "border-emerald-500/30", active: "bg-emerald-500/20 border-emerald-500/50 text-emerald-300" },
@@ -24,6 +29,8 @@ export default function MyAvailability() {
   const { user, profile } = useAuth();
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [rows, setRows] = useState<MatchAvailability[]>([]);
+  const [selections, setSelections] = useState<TeamSelection[]>([]);
+  const [openXi, setOpenXi] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [savingId, setSavingId] = useState<string | null>(null);
@@ -32,12 +39,16 @@ export default function MyAvailability() {
 
   useEffect(() => {
     if (!user) return;
-    const tasks: [Promise<Fixture[]>, Promise<MatchAvailability[]>] = [
-      fetchUpcomingFixtures(),
-      playerId != null ? fetchPlayerAvailability(playerId) : Promise.resolve([]),
-    ];
-    Promise.all(tasks)
-      .then(([f, r]) => { setFixtures(f); setRows(r); })
+    fetchUpcomingFixtures()
+      .then(async (f) => {
+        setFixtures(f);
+        const [avail, sels] = await Promise.all([
+          playerId != null ? fetchPlayerAvailability(playerId) : Promise.resolve([] as MatchAvailability[]),
+          fetchSelectionsForFixtures(f.map((x) => x.id)),
+        ]);
+        setRows(avail);
+        setSelections(sels);
+      })
       .catch((e) => setError(e instanceof Error ? e.message : "Failed to load."))
       .finally(() => setLoading(false));
   }, [user, playerId]);
@@ -47,6 +58,16 @@ export default function MyAvailability() {
     for (const r of rows) m.set(r.fixture_id, r.status);
     return m;
   }, [rows]);
+
+  const selByFixture = useMemo(() => {
+    const m = new Map<string, TeamSelection[]>();
+    for (const s of selections) {
+      if (!m.has(s.fixture_id)) m.set(s.fixture_id, []);
+      m.get(s.fixture_id)!.push(s);
+    }
+    for (const list of m.values()) list.sort((a, b) => a.batting_order - b.batting_order);
+    return m;
+  }, [selections]);
 
   const respond = async (fixtureId: string, status: MatchAvailStatus) => {
     if (!user || playerId == null) return;
@@ -119,6 +140,47 @@ export default function MyAvailability() {
                     </button>
                   ))}
                 </div>
+
+                {/* Selection status (members-only, once announced) */}
+                {(() => {
+                  if (!f.xi_published) {
+                    return <p className="mt-3 text-xs text-falcon-cream/30">Lineup not announced yet.</p>;
+                  }
+                  const xi = selByFixture.get(f.id) ?? [];
+                  const mine = playerId != null ? xi.find((s) => s.player_id === playerId) : undefined;
+                  return (
+                    <div className="mt-3 pt-3 border-t border-white/5">
+                      <div className="flex items-center justify-between gap-2">
+                        {mine ? (
+                          <span className="inline-flex items-center gap-1.5 text-sm text-emerald-300 font-medium">
+                            <CheckCircle2 className="w-4 h-4" /> You're in the XI · batting #{mine.batting_order}
+                            {mine.is_captain && <span className="text-[10px] px-1.5 py-0.5 rounded bg-falcon-gold/20 text-falcon-gold border border-falcon-gold/40 font-bold">C</span>}
+                            {mine.is_keeper && <span className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold">WK</span>}
+                          </span>
+                        ) : (
+                          <span className="text-sm text-falcon-cream/40">{playerId == null ? "XI announced" : "Not in the XI this time"}</span>
+                        )}
+                        {xi.length > 0 && (
+                          <button onClick={() => setOpenXi(openXi === f.id ? null : f.id)} className="inline-flex items-center gap-1 text-xs text-falcon-cream/50 hover:text-falcon-gold">
+                            <Star className="w-3.5 h-3.5" /> Team <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openXi === f.id ? "rotate-180" : ""}`} />
+                          </button>
+                        )}
+                      </div>
+                      {openXi === f.id && (
+                        <div className="mt-2 space-y-1">
+                          {xi.map((s) => (
+                            <div key={s.player_id} className={`flex items-center gap-2 px-2 py-1.5 rounded text-sm ${s.player_id === playerId ? "bg-emerald-500/[0.06]" : "bg-white/[0.02]"}`}>
+                              <span className="w-4 text-center text-xs text-falcon-gold font-bold">{s.batting_order}</span>
+                              <span className="flex-1 text-falcon-cream/80 truncate">{playerName(s.player_id)}</span>
+                              {s.is_captain && <span className="text-[10px] text-falcon-gold font-bold">C</span>}
+                              {s.is_keeper && <span className="text-[10px] text-cyan-300 font-bold">WK</span>}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
               </div>
             );
           })}

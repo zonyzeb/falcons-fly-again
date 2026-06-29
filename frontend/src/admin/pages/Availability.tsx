@@ -1,10 +1,14 @@
 import { useState, useMemo, useEffect } from "react";
-import { CalendarCheck, Zap, AlertTriangle, Star, Loader2, Users } from "lucide-react";
+import { CalendarCheck, AlertTriangle, Star, Loader2, Users, ChevronUp, ChevronDown, X, Plus, Check, Send, Sparkles } from "lucide-react";
 import { loadState, getPlayerStats } from "@/admin/store";
 import type { SquadPlayer } from "@/admin/store";
-import { fetchUpcomingFixtures, fetchFixtureAvailability, type Fixture, type MatchAvailStatus } from "@/lib/db";
+import {
+  fetchUpcomingFixtures, fetchFixtureAvailability, fetchSelection, saveSelection, setXiPublished,
+  type Fixture, type MatchAvailStatus,
+} from "@/lib/db";
 
 type Resp = MatchAvailStatus | "none";
+type Sel = { player_id: number; is_captain: boolean; is_keeper: boolean };
 
 const STATUS_PILL: Record<Resp, { label: string; cls: string }> = {
   available: { label: "Available", cls: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30" },
@@ -15,92 +19,36 @@ const STATUS_PILL: Record<Resp, { label: string; cls: string }> = {
 const STATUS_ORDER: Record<Resp, number> = { available: 0, maybe: 1, none: 2, unavailable: 3 };
 
 function computeFormScore(p: SquadPlayer): number {
-  const stats = getPlayerStats(p.player_id);
-  if (!stats) return 0;
+  const s = getPlayerStats(p.player_id);
+  if (!s) return 0;
   let score = 0;
-  const bat = stats.batting;
-  const bowl = stats.bowling;
-  if (bat?.runs) score += bat.runs * 0.2;
-  if (bat?.average) score += bat.average * 1.5;
-  if (bat?.strike_rate) score += bat.strike_rate * 0.3;
-  if (bowl?.wickets) score += bowl.wickets * 4;
-  if (bowl?.economy) score += Math.max(0, (10 - bowl.economy)) * 2;
-  if (stats.fielding?.catches) score += stats.fielding.catches * 2;
+  if (s.batting?.runs) score += s.batting.runs * 0.2;
+  if (s.batting?.average) score += s.batting.average * 1.5;
+  if (s.batting?.strike_rate) score += s.batting.strike_rate * 0.3;
+  if (s.bowling?.wickets) score += s.bowling.wickets * 4;
+  if (s.bowling?.economy) score += Math.max(0, 10 - s.bowling.economy) * 2;
+  if (s.fielding?.catches) score += s.fielding.catches * 2;
   return Math.round(score);
 }
 
-// Builds the best XI from players marked available for the selected match.
-function suggestXI(squad: SquadPlayer[]): { main: SquadPlayer[]; alt: SquadPlayer[]; risks: string[] } {
+function suggestEleven(squad: SquadPlayer[]): SquadPlayer[] {
   const eligible = squad
     .filter((p) => p.active && p.available && p.fitness === "Fit")
     .map((p) => ({ ...p, form: computeFormScore(p) }))
     .sort((a, b) => b.form - a.form);
-
-  const risks: string[] = [];
   const selected: typeof eligible = [];
   const remaining = [...eligible];
-
-  const pick = (filter: (p: SquadPlayer) => boolean, count: number, label: string) => {
-    let picked = 0;
-    for (let i = remaining.length - 1; i >= 0; i--) {
-      if (filter(remaining[i])) {
-        selected.push(remaining[i]);
-        remaining.splice(i, 1);
-        picked++;
-        if (picked >= count) break;
-      }
+  const pick = (filter: (p: SquadPlayer) => boolean, count: number) => {
+    let n = 0;
+    for (let i = remaining.length - 1; i >= 0 && n < count; i--) {
+      if (filter(remaining[i])) { selected.push(remaining[i]); remaining.splice(i, 1); n++; }
     }
-    if (picked < count) risks.push(`Only ${picked}/${count} ${label} available`);
   };
-
-  remaining.sort((a, b) => b.form - a.form);
-  pick((p) => p.role === "WK", 1, "wicketkeepers");
-  pick((p) => p.role === "BOWL", 3, "pure bowlers");
-  pick((p) => p.role === "ALL", 2, "all-rounders");
-
-  const slotsLeft = 11 - selected.length;
-  const fillers = remaining.sort((a, b) => b.form - a.form).slice(0, Math.max(0, slotsLeft));
-  selected.push(...fillers);
-
-  const main = selected.slice(0, 11);
-  const altPool = eligible.filter((p) => !main.some((m) => m.player_id === p.player_id));
-  const alt = altPool.slice(0, 11);
-
-  const bowlCount = main.filter((p) => p.role === "BOWL" || p.role === "ALL").length;
-  const batCount = main.filter((p) => p.role === "BAT" || p.role === "ALL" || p.role === "WK").length;
-  if (main.length >= 1 && bowlCount < 5) risks.push(`Only ${bowlCount} bowling options in XI (need 5+)`);
-  if (main.length >= 1 && batCount < 6) risks.push(`Only ${batCount} batting options`);
-  if (main.length < 11) risks.push(`Only ${main.length} available — need ${11 - main.length} more for a full XI`);
-
-  return { main, alt, risks };
-}
-
-function PlayerRow({ p, rank }: { p: SquadPlayer; rank: number }) {
-  const stats = getPlayerStats(p.player_id);
-  const form = computeFormScore(p);
-  return (
-    <div className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02]">
-      <span className="w-5 text-center text-xs font-bold text-falcon-gold">{rank}</span>
-      {p.photo && !p.photo.includes("default") ? (
-        <img src={p.photo} alt="" className="w-8 h-8 rounded-full object-cover" />
-      ) : (
-        <div className="w-8 h-8 rounded-full bg-falcon-gold/20 flex items-center justify-center text-falcon-gold text-xs font-bold">
-          {p.name.charAt(0)}
-        </div>
-      )}
-      <div className="flex-1 min-w-0">
-        <div className="text-falcon-cream text-sm font-medium truncate">{p.name}</div>
-        <div className="text-xs text-falcon-cream/30">{p.role} · {p.bowlingType}</div>
-      </div>
-      <div className="text-right text-xs space-y-0.5">
-        <div className="text-falcon-cream/50">{stats?.batting?.runs || 0}r · {stats?.bowling?.wickets || 0}w</div>
-        <div className="flex items-center gap-1 justify-end">
-          <Zap className="w-3 h-3 text-falcon-gold" />
-          <span className="text-falcon-gold font-medium">{form}</span>
-        </div>
-      </div>
-    </div>
-  );
+  pick((p) => p.role === "WK", 1);
+  pick((p) => p.role === "BOWL", 3);
+  pick((p) => p.role === "ALL", 2);
+  selected.push(...remaining.sort((a, b) => b.form - a.form).slice(0, Math.max(0, 11 - selected.length)));
+  return selected.slice(0, 11);
 }
 
 function fmtFixture(f: Fixture) {
@@ -110,11 +58,16 @@ function fmtFixture(f: Fixture) {
 
 export default function AvailabilityPage() {
   const squad = useMemo(() => loadState().squad, []);
+  const squadById = useMemo(() => new Map(squad.map((p) => [p.player_id, p])), [squad]);
+
   const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [fixtureId, setFixtureId] = useState("");
   const [availMap, setAvailMap] = useState<Map<number, MatchAvailStatus>>(new Map());
+  const [selected, setSelected] = useState<Sel[]>([]);
+  const [published, setPublished] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [loadingAvail, setLoadingAvail] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -125,22 +78,23 @@ export default function AvailabilityPage() {
   }, []);
 
   useEffect(() => {
-    if (!fixtureId) { setAvailMap(new Map()); return; }
-    setLoadingAvail(true);
-    fetchFixtureAvailability(fixtureId)
-      .then((rows) => setAvailMap(new Map(rows.map((r) => [r.player_id, r.status]))))
-      .catch((e) => setError(e instanceof Error ? e.message : "Failed to load availability."))
-      .finally(() => setLoadingAvail(false));
-  }, [fixtureId]);
+    if (!fixtureId) return;
+    setError(""); setSaved(false);
+    setPublished(fixtures.find((f) => f.id === fixtureId)?.xi_published ?? false);
+    Promise.all([fetchFixtureAvailability(fixtureId), fetchSelection(fixtureId)])
+      .then(([avail, sel]) => {
+        setAvailMap(new Map(avail.map((r) => [r.player_id, r.status])));
+        setSelected(sel.map((s) => ({ player_id: s.player_id, is_captain: s.is_captain, is_keeper: s.is_keeper })));
+      })
+      .catch((e) => setError(e instanceof Error ? e.message : "Failed to load."));
+  }, [fixtureId, fixtures]);
 
-  const activeSquad = useMemo(() => squad.filter((p) => p.active), [squad]);
   const statusOf = (pid: number): Resp => availMap.get(pid) ?? "none";
-
+  const activeSquad = useMemo(() => squad.filter((p) => p.active), [squad]);
   const mergedSquad = useMemo(
     () => squad.map((p) => ({ ...p, available: availMap.get(p.player_id) === "available" })),
     [squad, availMap]
   );
-  const { main, alt, risks } = useMemo(() => suggestXI(mergedSquad), [mergedSquad]);
 
   const sortedPlayers = useMemo(
     () => [...activeSquad].sort((a, b) => {
@@ -149,19 +103,76 @@ export default function AvailabilityPage() {
     }),
     [activeSquad, availMap]
   );
-
   const countOf = (s: Resp) => activeSquad.filter((p) => statusOf(p.player_id) === s).length;
-  const maybePlayers = sortedPlayers.filter((p) => statusOf(p.player_id) === "maybe");
+
+  const selectedIds = useMemo(() => new Set(selected.map((s) => s.player_id)), [selected]);
+  const pool = useMemo(
+    () => sortedPlayers.filter((p) => !selectedIds.has(p.player_id) && statusOf(p.player_id) !== "unavailable"),
+    [sortedPlayers, selectedIds, availMap]
+  );
+
+  // ── editing ──
+  const useSuggested = () => {
+    const xi = suggestEleven(mergedSquad);
+    const keeperId = xi.find((p) => p.role === "WK")?.player_id;
+    setSelected(xi.map((p, i) => ({ player_id: p.player_id, is_captain: i === 0, is_keeper: p.player_id === keeperId })));
+    setSaved(false);
+  };
+  const add = (pid: number) => { if (selected.length < 15) { setSelected((s) => [...s, { player_id: pid, is_captain: false, is_keeper: false }]); setSaved(false); } };
+  const remove = (pid: number) => { setSelected((s) => s.filter((x) => x.player_id !== pid)); setSaved(false); };
+  const move = (i: number, dir: -1 | 1) => {
+    setSelected((s) => {
+      const j = i + dir; if (j < 0 || j >= s.length) return s;
+      const next = [...s]; [next[i], next[j]] = [next[j], next[i]]; return next;
+    });
+    setSaved(false);
+  };
+  const toggleCaptain = (pid: number) => { setSelected((s) => s.map((x) => ({ ...x, is_captain: x.player_id === pid ? !x.is_captain : false }))); setSaved(false); };
+  const toggleKeeper = (pid: number) => { setSelected((s) => s.map((x) => ({ ...x, is_keeper: x.player_id === pid ? !x.is_keeper : false }))); setSaved(false); };
+
+  const warnings = useMemo(() => {
+    const w: string[] = [];
+    if (selected.length !== 11) w.push(`${selected.length}/11 selected`);
+    if (!selected.some((s) => s.is_captain)) w.push("No captain set");
+    if (!selected.some((s) => s.is_keeper)) w.push("No wicketkeeper set");
+    const unconfirmed = selected.filter((s) => statusOf(s.player_id) !== "available").length;
+    if (unconfirmed > 0) w.push(`${unconfirmed} selected player(s) not confirmed available`);
+    return w;
+  }, [selected, availMap]);
+
+  const persist = async (): Promise<boolean> => {
+    setBusy(true); setError("");
+    try {
+      await saveSelection(fixtureId, selected.map((s, i) => ({ player_id: s.player_id, batting_order: i + 1, is_captain: s.is_captain, is_keeper: s.is_keeper })));
+      return true;
+    } catch (e) { setError(e instanceof Error ? e.message : "Could not save."); return false; }
+    finally { setBusy(false); }
+  };
+  const save = async () => { if (await persist()) { setSaved(true); setTimeout(() => setSaved(false), 2500); } };
+  const togglePublish = async () => {
+    if (!published && selected.length !== 11) { setError("Pick 11 players before publishing."); return; }
+    setBusy(true); setError("");
+    try {
+      if (!published) { await persist(); }
+      await setXiPublished(fixtureId, !published);
+      setPublished(!published);
+      setFixtures((fs) => fs.map((f) => (f.id === fixtureId ? { ...f, xi_published: !published } : f)));
+    } catch (e) { setError(e instanceof Error ? e.message : "Could not publish."); }
+    finally { setBusy(false); }
+  };
+
+  const Tag = ({ on, label, cls, onClick }: { on: boolean; label: string; cls: string; onClick: () => void }) => (
+    <button onClick={onClick} className={`px-1.5 py-0.5 text-[10px] font-bold rounded border transition-colors ${on ? cls : "border-white/10 text-falcon-cream/30 hover:text-falcon-cream/60"}`}>{label}</button>
+  );
 
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-display font-bold text-falcon-cream flex items-center gap-3">
-        <CalendarCheck className="w-6 h-6 text-falcon-gold" /> Availability & Selection
+        <CalendarCheck className="w-6 h-6 text-falcon-gold" /> Availability &amp; Selection
       </h1>
 
       {error && <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">{error}</p>}
 
-      {/* Match selector */}
       <div className="bg-[#0d1424] border border-white/5 rounded-xl p-4">
         <label className="text-xs uppercase tracking-wide text-falcon-cream/50">Select match</label>
         {loading ? (
@@ -169,11 +180,8 @@ export default function AvailabilityPage() {
         ) : fixtures.length === 0 ? (
           <p className="text-falcon-cream/40 text-sm mt-2">No upcoming matches. Add one on the Fixtures page first.</p>
         ) : (
-          <select
-            value={fixtureId}
-            onChange={(e) => setFixtureId(e.target.value)}
-            className="mt-2 w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40"
-          >
+          <select value={fixtureId} onChange={(e) => setFixtureId(e.target.value)}
+            className="mt-2 w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-falcon-cream focus:outline-none focus:border-falcon-gold/40">
             {fixtures.map((f) => <option key={f.id} value={f.id}>{fmtFixture(f)}</option>)}
           </select>
         )}
@@ -181,82 +189,105 @@ export default function AvailabilityPage() {
 
       {fixtureId && (
         <>
-          {/* Quick stats */}
           <div className="grid grid-cols-4 gap-3">
             {([["available", "Available", "text-emerald-400"], ["maybe", "Maybe", "text-amber-400"], ["unavailable", "Out", "text-red-400"], ["none", "No reply", "text-falcon-cream/50"]] as [Resp, string, string][]).map(([key, label, cls]) => (
               <div key={key} className="bg-[#0d1424] border border-white/5 rounded-xl p-4 text-center">
-                <p className={`text-2xl font-display font-bold ${cls}`}>{loadingAvail ? "–" : countOf(key)}</p>
+                <p className={`text-2xl font-display font-bold ${cls}`}>{countOf(key)}</p>
                 <p className="text-xs text-falcon-cream/40">{label}</p>
               </div>
             ))}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Player responses */}
+            {/* Responses */}
             <div className="bg-[#0d1424] border border-white/5 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-3 flex items-center gap-2">
-                <Users className="w-4 h-4" /> Player responses
-              </h2>
+              <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-3 flex items-center gap-2"><Users className="w-4 h-4" /> Player responses</h2>
               <div className="space-y-1 max-h-[60vh] overflow-y-auto pr-1">
                 {sortedPlayers.map((p) => {
                   const pill = STATUS_PILL[statusOf(p.player_id)];
                   return (
-                    <div key={p.player_id} className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg border border-white/5 bg-white/[0.02]">
+                    <div key={p.player_id} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/5 bg-white/[0.02]">
                       <span className="text-falcon-cream text-sm flex-1 truncate">{p.name}</span>
                       <span className="text-[10px] text-falcon-cream/30">{p.role}</span>
                       <span className={`text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-full border ${pill.cls}`}>{pill.label}</span>
+                      {!selectedIds.has(p.player_id) && statusOf(p.player_id) !== "unavailable" && (
+                        <button onClick={() => add(p.player_id)} className="p-0.5 rounded text-falcon-cream/40 hover:text-falcon-gold"><Plus className="w-3.5 h-3.5" /></button>
+                      )}
                     </div>
                   );
                 })}
               </div>
             </div>
 
-            {/* Suggested XI */}
-            <div className="bg-[#0d1424] border border-white/5 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-1 flex items-center gap-2">
-                <Star className="w-4 h-4 text-falcon-gold" /> Suggested XI
-              </h2>
-              <p className="text-xs text-falcon-cream/40 mb-3">Best 11 from {countOf("available")} available, by role &amp; form.</p>
-              {risks.length > 0 && (
-                <div className="space-y-1.5 mb-3">
-                  {risks.map((r, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-amber-400 bg-amber-500/10 px-3 py-1.5 rounded-lg">
-                      <AlertTriangle className="w-3.5 h-3.5 shrink-0" /> {r}
-                    </div>
+            {/* Team sheet */}
+            <div className="bg-[#0d1424] border border-falcon-gold/15 rounded-xl p-4">
+              <div className="flex items-center justify-between mb-1">
+                <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide flex items-center gap-2"><Star className="w-4 h-4 text-falcon-gold" /> Team sheet ({selected.length}/11)</h2>
+                {published && <span className="text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Published</span>}
+              </div>
+              <div className="flex gap-2 mb-3">
+                <button onClick={useSuggested} className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg bg-falcon-gold/10 text-falcon-gold border border-falcon-gold/20 hover:bg-falcon-gold/15"><Sparkles className="w-3.5 h-3.5" /> Suggested XI</button>
+                <button onClick={save} disabled={busy} className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg bg-white/5 text-falcon-cream/70 border border-white/10 hover:bg-white/10 disabled:opacity-50">
+                  {busy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : saved ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : null} {saved ? "Saved" : "Save"}
+                </button>
+                <button onClick={togglePublish} disabled={busy} className={`flex items-center gap-1.5 px-2.5 py-1.5 text-xs rounded-lg border disabled:opacity-50 ${published ? "bg-red-500/10 text-red-300 border-red-500/25 hover:bg-red-500/15" : "bg-emerald-500/15 text-emerald-300 border-emerald-500/30 hover:bg-emerald-500/25"}`}>
+                  <Send className="w-3.5 h-3.5" /> {published ? "Unpublish" : "Publish"}
+                </button>
+              </div>
+              {warnings.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {warnings.map((w, i) => (
+                    <span key={i} className="flex items-center gap-1 text-[11px] text-amber-400 bg-amber-500/10 px-2 py-1 rounded"><AlertTriangle className="w-3 h-3" /> {w}</span>
                   ))}
                 </div>
               )}
-              {main.length === 0 ? (
-                <p className="text-falcon-cream/20 text-xs text-center py-8">No available players yet for this match.</p>
+              {selected.length === 0 ? (
+                <p className="text-falcon-cream/20 text-xs text-center py-10">No XI yet — tap “Suggested XI” or add players from the left.</p>
               ) : (
-                <div className="space-y-1.5">{main.map((p, i) => <PlayerRow key={p.player_id} p={p} rank={i + 1} />)}</div>
+                <div className="space-y-1.5">
+                  {selected.map((s, i) => {
+                    const p = squadById.get(s.player_id);
+                    const avail = statusOf(s.player_id);
+                    return (
+                      <div key={s.player_id} className="flex items-center gap-2 px-2 py-2 rounded-lg bg-white/[0.02]">
+                        <span className="w-5 text-center text-xs font-bold text-falcon-gold">{i + 1}</span>
+                        <div className="flex-1 min-w-0">
+                          <div className="text-falcon-cream text-sm truncate">{p?.name ?? s.player_id}</div>
+                          <div className="text-[10px] text-falcon-cream/30">{p?.role}{avail !== "available" ? ` · ${STATUS_PILL[avail].label}` : ""}</div>
+                        </div>
+                        <Tag on={s.is_captain} label="C" cls="bg-falcon-gold/20 border-falcon-gold/40 text-falcon-gold" onClick={() => toggleCaptain(s.player_id)} />
+                        <Tag on={s.is_keeper} label="WK" cls="bg-cyan-500/20 border-cyan-500/40 text-cyan-300" onClick={() => toggleKeeper(s.player_id)} />
+                        <div className="flex flex-col">
+                          <button onClick={() => move(i, -1)} className="text-falcon-cream/30 hover:text-falcon-cream"><ChevronUp className="w-3.5 h-3.5" /></button>
+                          <button onClick={() => move(i, 1)} className="text-falcon-cream/30 hover:text-falcon-cream"><ChevronDown className="w-3.5 h-3.5" /></button>
+                        </div>
+                        <button onClick={() => remove(s.player_id)} className="p-0.5 text-red-400/50 hover:text-red-400"><X className="w-4 h-4" /></button>
+                      </div>
+                    );
+                  })}
+                </div>
               )}
             </div>
 
-            {/* Bench & standby */}
+            {/* Add pool */}
             <div className="bg-[#0d1424] border border-white/5 rounded-xl p-4">
-              <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-3">Bench &amp; standby</h2>
-              {alt.length > 0 && (
-                <>
-                  <p className="text-xs text-falcon-cream/40 mb-1.5">Available, not in XI</p>
-                  <div className="space-y-1.5 mb-4">{alt.map((p, i) => <PlayerRow key={p.player_id} p={p} rank={i + 1} />)}</div>
-                </>
-              )}
-              {maybePlayers.length > 0 && (
-                <>
-                  <p className="text-xs text-amber-400/80 mb-1.5">Maybe (chase these up)</p>
-                  <div className="space-y-1.5">
-                    {maybePlayers.map((p) => (
-                      <div key={p.player_id} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-amber-500/[0.04] text-sm text-falcon-cream/80">
-                        <span className="flex-1 truncate">{p.name}</span>
+              <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-3">Add players</h2>
+              {pool.length === 0 ? (
+                <p className="text-falcon-cream/20 text-xs text-center py-8">Everyone available is selected.</p>
+              ) : (
+                <div className="space-y-1 max-h-[60vh] overflow-y-auto pr-1">
+                  {pool.map((p) => {
+                    const pill = STATUS_PILL[statusOf(p.player_id)];
+                    return (
+                      <button key={p.player_id} onClick={() => add(p.player_id)} className="w-full flex items-center gap-2 px-3 py-2 rounded-lg border border-white/5 bg-white/[0.02] hover:border-falcon-gold/30 text-left">
+                        <Plus className="w-3.5 h-3.5 text-falcon-gold/70" />
+                        <span className="text-falcon-cream text-sm flex-1 truncate">{p.name}</span>
                         <span className="text-[10px] text-falcon-cream/30">{p.role}</span>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
-              {alt.length === 0 && maybePlayers.length === 0 && (
-                <p className="text-falcon-cream/20 text-xs text-center py-8">No bench or standby players.</p>
+                        <span className={`text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded-full border ${pill.cls}`}>{pill.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
               )}
             </div>
           </div>
