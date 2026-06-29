@@ -4,6 +4,7 @@ import { CalendarCheck, User, ArrowRight, Trophy, Gavel } from "lucide-react";
 import { useAuth } from "@/auth/AuthProvider";
 import { fetchUpcomingFixtures, fetchPlayerAvailability, fetchMyDuties, type MatchAvailStatus, type Duty, type Fixture } from "@/lib/db";
 import { teamStats, matches } from "@/data/stats";
+import { TournamentTree, groupByTournament } from "@/components/TournamentTree";
 
 const STATUS_LABEL: Record<MatchAvailStatus, { label: string; cls: string }> = {
   available: { label: "Available", cls: "text-emerald-400" },
@@ -14,6 +15,7 @@ const STATUS_LABEL: Record<MatchAvailStatus, { label: string; cls: string }> = {
 export default function DashboardHome() {
   const { user, profile } = useAuth();
   const [nextFixture, setNextFixture] = useState<Fixture | null>(null);
+  const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [fixtureStatus, setFixtureStatus] = useState<MatchAvailStatus | null>(null);
   const [nextDuty, setNextDuty] = useState<Duty | null>(null);
   const nextMatch = matches[0];
@@ -23,6 +25,7 @@ export default function DashboardHome() {
     if (!user) return;
     fetchUpcomingFixtures()
       .then(async (fs) => {
+        setFixtures(fs);
         const next = fs[0] ?? null;
         setNextFixture(next);
         if (next && playerId != null) {
@@ -112,6 +115,13 @@ export default function DashboardHome() {
           </span>
         </Link>
       </div>
+
+      {fixtures.length > 0 && (
+        <div className="bg-[#0d1424] border border-white/5 rounded-xl p-5">
+          <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-4">Season ahead</h2>
+          <TournamentTree groups={groupByTournament(fixtures)} matchHref={() => "/dashboard/availability"} />
+        </div>
+      )}
 
       {nextMatch && (
         <div className="bg-[#0d1424] border border-white/5 rounded-xl p-5">

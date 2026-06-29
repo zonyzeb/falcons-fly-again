@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import { Trophy, Loader2, Plus, Trash2, Pencil, Check, X } from "lucide-react";
 import {
   fetchTournaments, createTournament, updateTournament, deleteTournament,
-  fetchAllProfiles, type Tournament, type Profile,
+  fetchAllProfiles, fetchFixtures, type Tournament, type Profile, type Fixture,
 } from "@/lib/db";
+import { TournamentTree, groupByTournament } from "@/components/TournamentTree";
 
 const EMPTY = { name: "", format: "", season: "", start_date: "", fee: "", paid_by: "" };
 
@@ -29,6 +30,7 @@ function PaidBySelect({ val, on, profiles }: { val: string; on: (v: string) => v
 export default function TournamentsPage() {
   const [items, setItems] = useState<Tournament[]>([]);
   const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [fixtures, setFixtures] = useState<Fixture[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [form, setForm] = useState({ ...EMPTY });
@@ -38,8 +40,8 @@ export default function TournamentsPage() {
 
   const load = () => {
     setLoading(true);
-    Promise.all([fetchTournaments(), fetchAllProfiles()])
-      .then(([t, p]) => { setItems(t); setProfiles(p); })
+    Promise.all([fetchTournaments(), fetchAllProfiles(), fetchFixtures()])
+      .then(([t, p, f]) => { setItems(t); setProfiles(p); setFixtures(f); })
       .catch((e) => setError(e instanceof Error ? e.message : "Failed to load."))
       .finally(() => setLoading(false));
   };
@@ -93,6 +95,13 @@ export default function TournamentsPage() {
       </h1>
 
       {error && <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">{error}</p>}
+
+      {fixtures.length > 0 && (
+        <div className="bg-[#0d1424] border border-white/5 rounded-xl p-5">
+          <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-4">Season map</h2>
+          <TournamentTree groups={groupByTournament(fixtures)} matchHref={() => "/admin/availability"} />
+        </div>
+      )}
 
       <div className="bg-[#0d1424] border border-white/5 rounded-xl p-5">
         <h2 className="text-sm font-semibold text-falcon-cream/60 uppercase tracking-wide mb-3 flex items-center gap-2">
