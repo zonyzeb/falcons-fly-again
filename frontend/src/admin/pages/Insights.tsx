@@ -2,7 +2,8 @@ import { useMemo } from "react";
 import { Brain } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend, CartesianGrid } from "recharts";
 import { playerStats } from "@/data/stats";
-import { loadState, loadSetup, getFormatConfig, FORMAT_CONFIGS, generateSmartXI, aggressionIndex, stabilityScore, finishingPower, bowlingDepthScore, deathBowlingStrength, getPlayerStats } from "@/admin/store";
+import { loadSetup, getFormatConfig, FORMAT_CONFIGS, generateSmartXI, aggressionIndex, stabilityScore, finishingPower, bowlingDepthScore, deathBowlingStrength, getPlayerStats } from "@/admin/store";
+import { useSquad } from "@/admin/useSquad";
 import type { FormatType, MatchSetup } from "@/admin/store";
 
 const gold = "#d4a843";
@@ -17,7 +18,7 @@ const tooltipStyle = {
 };
 
 export default function InsightsPage() {
-  const state = loadState();
+  const { squad } = useSquad();
   const setup = loadSetup();
   const config = getFormatConfig(setup);
 
@@ -26,14 +27,14 @@ export default function InsightsPage() {
     const formats: FormatType[] = ["T20", "T15", "T10", "T5"];
     return formats.map((f) => {
       const mockSetup: MatchSetup = { format: f, customOvers: 20, playerCount: 11, impactSubEnabled: false, impactSubs: [] };
-      const xi = generateSmartXI(state.squad, mockSetup, "balanced");
+      const xi = generateSmartXI(squad, mockSetup, "balanced");
       const totalAggr = xi.players.reduce((s, p) => s + aggressionIndex(p.player_id), 0);
       const totalStab = xi.players.reduce((s, p) => s + stabilityScore(p.player_id), 0);
       const totalFin = xi.players.reduce((s, p) => s + finishingPower(p.player_id), 0);
       const totalBD = xi.players.reduce((s, p) => s + bowlingDepthScore(p.player_id), 0);
       return { format: f, ...xi, aggression: totalAggr, stability: totalStab, finishing: totalFin, bowlingDepth: totalBD };
     });
-  }, [state.squad]);
+  }, [squad]);
 
   const formatCompare = useMemo(() => {
     return formatXIs.map((fx) => ({
@@ -73,15 +74,8 @@ export default function InsightsPage() {
       .slice(0, 12);
   }, []);
 
-  // Combination comparison (saved)
-  const comboStats = useMemo(() => {
-    return state.combinations.map((c) => {
-      const totalRuns = c.players.reduce((s, p) => s + (getPlayerStats(p.player_id)?.batting?.runs || 0), 0);
-      const totalWickets = c.players.reduce((s, p) => s + (getPlayerStats(p.player_id)?.bowling?.wickets || 0), 0);
-      const totalAggr = c.players.reduce((s, p) => s + aggressionIndex(p.player_id), 0);
-      return { name: `${c.name} (${c.format || "?"})`, runs: totalRuns, wickets: totalWickets, aggression: totalAggr };
-    });
-  }, [state.combinations]);
+  // Saved combinations were removed with the old XI Builder.
+  const comboStats: { name: string; runs: number; wickets: number; aggression: number }[] = [];
 
   // All-rounder radar
   const allRounders = useMemo(() => {
@@ -158,7 +152,7 @@ export default function InsightsPage() {
             <h3 className="text-sm font-semibold text-falcon-gold mb-2">Best XI — {fx.format}</h3>
             <div className="space-y-1">
               {fx.players.slice(0, 11).map((p, i) => {
-                const sp = state.squad.find((s) => s.player_id === p.player_id);
+                const sp = squad.find((s) => s.player_id === p.player_id);
                 return (
                   <div key={p.player_id} className="flex items-center gap-2 text-xs">
                     <span className="w-4 text-falcon-gold font-bold">{i + 1}</span>

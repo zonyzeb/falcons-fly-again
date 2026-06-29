@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Zap, ArrowUp, ArrowDown, Repeat, TrendingUp, Shield, Target } from "lucide-react";
-import { loadState, loadSetup, getFormatConfig, getPlayerStats, aggressionIndex, bowlingDepthScore, playerFormScore } from "@/admin/store";
+import { loadSetup, getFormatConfig, getPlayerStats, aggressionIndex, bowlingDepthScore, playerFormScore } from "@/admin/store";
+import { useSquad } from "@/admin/useSquad";
 
 interface Scenario {
   title: string;
@@ -13,17 +14,17 @@ interface Scenario {
 }
 
 export default function ImpactStrategyPage() {
-  const state = loadState();
+  const { squad } = useSquad();
   const setup = loadSetup();
   const config = getFormatConfig(setup);
 
   const impactPlayers = useMemo(() => {
     return setup.impactSubs.map((sub) => {
-      const sp = state.squad.find((p) => p.player_id === sub.player_id);
+      const sp = squad.find((p) => p.player_id === sub.player_id);
       const stats = getPlayerStats(sub.player_id);
       return { ...sub, name: sp?.name || "Unknown", role: sp?.role || "BAT", stats, form: sp ? playerFormScore(sp) : 0 };
     });
-  }, [setup.impactSubs, state.squad]);
+  }, [setup.impactSubs, squad]);
 
   const scenarios: Scenario[] = useMemo(() => {
     if (!setup.impactSubEnabled || impactPlayers.length === 0) return [];
@@ -94,20 +95,20 @@ export default function ImpactStrategyPage() {
   }, [setup, impactPlayers, config]);
 
   const bestBatImpact = useMemo(() => {
-    return state.squad
+    return squad
       .filter((p) => p.active && p.available && p.fitness === "Fit")
       .map((p) => ({ ...p, aggr: aggressionIndex(p.player_id), form: playerFormScore(p) }))
       .sort((a, b) => b.aggr - a.aggr)
       .slice(0, 5);
-  }, [state.squad]);
+  }, [squad]);
 
   const bestBowlImpact = useMemo(() => {
-    return state.squad
+    return squad
       .filter((p) => p.active && p.available && p.fitness === "Fit" && (p.role === "BOWL" || p.role === "ALL"))
       .map((p) => ({ ...p, depth: bowlingDepthScore(p.player_id), form: playerFormScore(p) }))
       .sort((a, b) => b.depth - a.depth)
       .slice(0, 5);
-  }, [state.squad]);
+  }, [squad]);
 
   if (!setup.impactSubEnabled) {
     return (

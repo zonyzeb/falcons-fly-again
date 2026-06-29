@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import { Crosshair, AlertTriangle } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from "recharts";
-import { loadState, loadSetup, getFormatConfig, getPlayerStats, bowlingDepthScore, deathBowlingStrength } from "@/admin/store";
+import { loadSetup, getFormatConfig, getPlayerStats, bowlingDepthScore, deathBowlingStrength } from "@/admin/store";
+import { useSquad } from "@/admin/useSquad";
 
 const tooltipStyle = {
   contentStyle: { background: "#0d1424", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "8px", fontSize: "12px" },
@@ -9,12 +10,12 @@ const tooltipStyle = {
 };
 
 export default function BowlingAnalysisPage() {
-  const state = loadState();
+  const { squad } = useSquad();
   const setup = loadSetup();
   const config = getFormatConfig(setup);
 
   const bowlers = useMemo(() => {
-    return state.squad
+    return squad
       .filter((p) => p.active && p.available && p.fitness === "Fit")
       .map((p) => {
         const s = getPlayerStats(p.player_id);
@@ -35,7 +36,7 @@ export default function BowlingAnalysisPage() {
       })
       .filter((p) => p.canBowl || p.innings > 0)
       .sort((a, b) => b.depth - a.depth);
-  }, [state.squad]);
+  }, [squad]);
 
   const totalOvers = config.overs;
   const maxPerBowler = config.maxPerBowler;

@@ -1,7 +1,7 @@
 import { players, playerStats, matches } from "@/data/stats";
 import type { PlayerStatsEntry } from "@/data/stats";
+import type { SquadRow } from "@/lib/db";
 
-const STORAGE_KEY = "falcons_admin";
 const SETUP_KEY = "falcons_match_setup";
 
 // ── Player types ──
@@ -367,55 +367,29 @@ function inferBowlingType(stats: PlayerStatsEntry): BowlingType {
   return (stats.bowling?.innings ?? 0) === 0 ? "N/A" : "Medium";
 }
 
-function buildInitialSquad(): SquadPlayer[] {
+/**
+ * Builds the squad from the static roster (names/photos) merged with the
+ * cloud-stored editable attributes. Players without a cloud row fall back to
+ * deterministic inferred defaults, so this works even with an empty table.
+ */
+export function buildSquad(rows: SquadRow[]): SquadPlayer[] {
+  const byId = new Map(rows.map((r) => [r.player_id, r]));
   return players.map((p) => {
     const stats = playerStats.find((s) => s.player_id === p.player_id);
+    const row = byId.get(p.player_id);
     return {
       player_id: p.player_id,
       name: p.name,
       slug: p.slug,
       photo: p.profile_pic_url,
-      role: inferRole(stats || ({} as PlayerStatsEntry), p.sub_title),
-      bowlingType: inferBowlingType(stats || ({} as PlayerStatsEntry)),
-      preferredPosition: 0,
+      role: (row?.role as PlayerRole) ?? inferRole(stats || ({} as PlayerStatsEntry), p.sub_title),
+      bowlingType: (row?.bowling_type as BowlingType) ?? inferBowlingType(stats || ({} as PlayerStatsEntry)),
+      preferredPosition: row?.preferred_position ?? 0,
       available: true,
-      active: true,
-      fitness: "Fit" as FitnessStatus,
+      active: row?.active ?? true,
+      fitness: (row?.fitness as FitnessStatus) ?? "Fit",
     };
   });
-}
-
-export function loadState(): AdminState {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const saved: AdminState = JSON.parse(raw);
-      const existingIds = new Set(saved.squad.map((s) => s.player_id));
-      for (const p of players) {
-        if (!existingIds.has(p.player_id)) {
-          const stats = playerStats.find((s) => s.player_id === p.player_id);
-          saved.squad.push({
-            player_id: p.player_id,
-            name: p.name,
-            slug: p.slug,
-            photo: p.profile_pic_url,
-            role: inferRole(stats || ({} as PlayerStatsEntry), p.sub_title),
-            bowlingType: inferBowlingType(stats || ({} as PlayerStatsEntry)),
-            preferredPosition: 0,
-            available: true,
-            active: true,
-            fitness: "Fit",
-          });
-        }
-      }
-      return saved;
-    }
-  } catch {}
-  return { squad: buildInitialSquad(), combinations: [] };
-}
-
-export function saveState(state: AdminState) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
 export function getPlayerStats(playerId: number): PlayerStatsEntry | undefined {

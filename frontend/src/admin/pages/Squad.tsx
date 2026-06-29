@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { Users, LayoutGrid, List, Search, Check, X, Heart, ChevronDown } from "lucide-react";
-import { loadState, saveState, getPlayerStats } from "@/admin/store";
-import type { SquadPlayer, PlayerRole, BowlingType, FitnessStatus } from "@/admin/store";
+import { getPlayerStats } from "@/admin/store";
+import type { PlayerRole, BowlingType, FitnessStatus } from "@/admin/store";
+import { useSquad } from "@/admin/useSquad";
 
 const ROLES: { value: PlayerRole; label: string; color: string }[] = [
   { value: "BAT", label: "Batsman", color: "bg-emerald-500/20 text-emerald-400" },
@@ -24,34 +25,24 @@ function RoleBadge({ role }: { role: PlayerRole }) {
 }
 
 export default function SquadPage() {
-  const [state, setState] = useState(loadState);
+  const { squad: allSquad, updatePlayer } = useSquad();
   const [view, setView] = useState<"table" | "card">("table");
   const [search, setSearch] = useState("");
   const [editId, setEditId] = useState<number | null>(null);
 
   const squad = useMemo(() => {
     const q = search.toLowerCase();
-    return state.squad.filter((p) => p.name.toLowerCase().includes(q));
-  }, [state.squad, search]);
-
-  const updatePlayer = (id: number, updates: Partial<SquadPlayer>) => {
-    const next = {
-      ...state,
-      squad: state.squad.map((p) => (p.player_id === id ? { ...p, ...updates } : p)),
-    };
-    setState(next);
-    saveState(next);
-  };
+    return allSquad.filter((p) => p.name.toLowerCase().includes(q));
+  }, [allSquad, search]);
 
   const counts = useMemo(() => {
-    const active = state.squad.filter((p) => p.active);
+    const active = allSquad.filter((p) => p.active);
     return {
-      total: state.squad.length,
+      total: allSquad.length,
       active: active.length,
-      available: active.filter((p) => p.available).length,
       fit: active.filter((p) => p.fitness === "Fit").length,
     };
-  }, [state.squad]);
+  }, [allSquad]);
 
   return (
     <div className="space-y-6">
@@ -61,7 +52,7 @@ export default function SquadPage() {
           <h1 className="text-2xl font-display font-bold text-falcon-cream flex items-center gap-3">
             <Users className="w-6 h-6 text-falcon-gold" /> Squad Management
           </h1>
-          <p className="text-falcon-cream/40 text-sm mt-1">{counts.total} players · {counts.available} available · {counts.fit} fit</p>
+          <p className="text-falcon-cream/40 text-sm mt-1">{counts.total} players · {counts.active} active · {counts.fit} fit</p>
         </div>
         <div className="flex items-center gap-2">
           <div className="relative">
@@ -94,7 +85,6 @@ export default function SquadPage() {
                 <th className="px-4 py-3 font-medium">Role</th>
                 <th className="px-4 py-3 font-medium">Bowling</th>
                 <th className="px-4 py-3 font-medium">Fitness</th>
-                <th className="px-4 py-3 font-medium text-center">Available</th>
                 <th className="px-4 py-3 font-medium text-center">Active</th>
                 <th className="px-4 py-3 font-medium">Bat Pos</th>
                 <th className="px-4 py-3 font-medium">Stats</th>
@@ -165,14 +155,6 @@ export default function SquadPage() {
                           <Heart className="w-3 h-3" /> {p.fitness}
                         </span>
                       )}
-                    </td>
-                    <td className="px-4 py-3 text-center">
-                      <button
-                        onClick={(e) => { e.stopPropagation(); updatePlayer(p.player_id, { available: !p.available }); }}
-                        className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${p.available ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-400" : "border-white/10 text-white/20"}`}
-                      >
-                        {p.available && <Check className="w-3.5 h-3.5" />}
-                      </button>
                     </td>
                     <td className="px-4 py-3 text-center">
                       <button
@@ -253,20 +235,12 @@ export default function SquadPage() {
                     <div className="text-falcon-cream/30">Catches</div>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => updatePlayer(p.player_id, { available: !p.available })}
-                    className={`flex-1 py-1.5 rounded-lg text-xs font-medium transition-colors ${p.available ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/30" : "bg-white/5 text-falcon-cream/30 border border-white/10"}`}
-                  >
-                    {p.available ? "Available" : "Unavailable"}
-                  </button>
-                  <button
-                    onClick={() => updatePlayer(p.player_id, { active: !p.active })}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${p.active ? "bg-falcon-gold/15 text-falcon-gold border border-falcon-gold/30" : "bg-white/5 text-falcon-cream/30 border border-white/10"}`}
-                  >
-                    {p.active ? "Active" : "Inactive"}
-                  </button>
-                </div>
+                <button
+                  onClick={() => updatePlayer(p.player_id, { active: !p.active })}
+                  className={`w-full py-1.5 rounded-lg text-xs font-medium transition-colors ${p.active ? "bg-falcon-gold/15 text-falcon-gold border border-falcon-gold/30" : "bg-white/5 text-falcon-cream/30 border border-white/10"}`}
+                >
+                  {p.active ? "Active" : "Inactive"}
+                </button>
               </div>
             );
           })}

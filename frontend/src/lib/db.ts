@@ -364,6 +364,35 @@ export async function setXiPublished(fixtureId: string, published: boolean) {
   if (error) throw error;
 }
 
+// ── squad (cloud-shared player attributes) ──
+
+export interface SquadRow {
+  player_id: number;
+  role: string | null;
+  bowling_type: string | null;
+  active: boolean;
+  fitness: string;
+  preferred_position: number;
+}
+
+export async function fetchSquad(): Promise<SquadRow[]> {
+  const { data, error } = await supabase
+    .from("squad")
+    .select("player_id, role, bowling_type, active, fitness, preferred_position");
+  if (error) throw error;
+  return (data ?? []) as SquadRow[];
+}
+
+export async function upsertSquadPlayer(
+  player_id: number,
+  patch: { role?: string; bowling_type?: string; active?: boolean; fitness?: string; preferred_position?: number }
+) {
+  const { error } = await supabase
+    .from("squad")
+    .upsert({ player_id, ...patch, updated_at: new Date().toISOString() }, { onConflict: "player_id" });
+  if (error) throw error;
+}
+
 // ── notifications (serverless email) ──
 
 export async function sendNotification(payload: {

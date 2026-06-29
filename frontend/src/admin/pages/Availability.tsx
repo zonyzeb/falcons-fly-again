@@ -1,7 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
 import { CalendarCheck, AlertTriangle, Star, Loader2, Users, ChevronUp, ChevronDown, X, Plus, Check, Send, Sparkles, Mail } from "lucide-react";
-import { loadState, getPlayerStats } from "@/admin/store";
+import { getPlayerStats } from "@/admin/store";
 import type { SquadPlayer } from "@/admin/store";
+import { useSquad } from "@/admin/useSquad";
 import {
   fetchUpcomingFixtures, fetchFixtureAvailability, fetchSelection, saveSelection, setXiPublished, sendNotification,
   type Fixture, type MatchAvailStatus,
@@ -57,7 +58,7 @@ function fmtFixture(f: Fixture) {
 }
 
 export default function AvailabilityPage() {
-  const squad = useMemo(() => loadState().squad, []);
+  const { squad } = useSquad();
   const squadById = useMemo(() => new Map(squad.map((p) => [p.player_id, p])), [squad]);
 
   const [fixtures, setFixtures] = useState<Fixture[]>([]);

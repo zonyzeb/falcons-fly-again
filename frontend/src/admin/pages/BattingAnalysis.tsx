@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import { TrendingUp, AlertTriangle } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from "recharts";
-import { loadState, loadSetup, getFormatConfig, getPlayerStats, aggressionIndex, stabilityScore, finishingPower } from "@/admin/store";
+import { loadSetup, getFormatConfig, getPlayerStats, aggressionIndex, stabilityScore, finishingPower } from "@/admin/store";
+import { useSquad } from "@/admin/useSquad";
 
 const tooltipStyle = {
   contentStyle: { background: "#0d1424", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "8px", fontSize: "12px" },
@@ -9,13 +10,13 @@ const tooltipStyle = {
 };
 
 export default function BattingAnalysisPage() {
-  const state = loadState();
+  const { squad } = useSquad();
   const setup = loadSetup();
   const config = getFormatConfig(setup);
 
   const activePlayers = useMemo(
-    () => state.squad.filter((p) => p.active && p.available && p.fitness === "Fit"),
-    [state.squad]
+    () => squad.filter((p) => p.active && p.available && p.fitness === "Fit"),
+    [squad]
   );
 
   const battingData = useMemo(() => {
@@ -170,7 +171,7 @@ export default function BattingAnalysisPage() {
                 <span className="w-5 text-center text-xs font-bold text-violet-400">{i + 1}</span>
                 <div className="flex-1 min-w-0">
                   <div className="text-falcon-cream text-sm font-medium truncate">{p.name}</div>
-                  <div className="text-xs text-falcon-cream/30">SR {p.sr} · NOuts {getPlayerStats(state.squad.find((s) => s.name === p.name)?.player_id || 0)?.batting?.not_outs || 0}</div>
+                  <div className="text-xs text-falcon-cream/30">SR {p.sr} · NOuts {getPlayerStats(squad.find((s) => s.name === p.name)?.player_id || 0)?.batting?.not_outs || 0}</div>
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-violet-400 font-semibold">{p.finishing}</div>
