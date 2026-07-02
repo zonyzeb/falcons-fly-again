@@ -299,23 +299,23 @@
     "slug": "fagun-al-fuad",
     "profile_photo": "https://media.cricheroes.in/user_profile/1593808735684_hJ7lPrFW18H6.jpg",
     "batting": {
-      "matches": 41,
-      "innings": 41,
+      "matches": 42,
+      "innings": 42,
       "not_outs": 4,
-      "runs": 527,
+      "runs": 541,
       "highest_score": 51,
       "highest_score_not_out": "*",
       "average": 14.24,
-      "strike_rate": 92.46,
+      "strike_rate": 92.01,
       "thirties": 3,
       "fifties": 1,
       "hundreds": 0,
-      "fours": 30,
+      "fours": 31,
       "sixes": 13,
       "ducks": 4
     },
     "bowling": {
-      "matches": 41,
+      "matches": 42,
       "innings": 8,
       "overs": "16.3",
       "maidens": 0,
@@ -334,10 +334,10 @@
       "sixes_conceded": 4
     },
     "fielding": {
-      "matches": 41,
+      "matches": 42,
       "catches": 21,
       "caught_behind": 5,
-      "run_outs": 4,
+      "run_outs": 5,
       "stumpings": 0,
       "assisted_run_outs": 0
     }
