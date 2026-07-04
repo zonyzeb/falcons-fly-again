@@ -98,6 +98,55 @@
     }
   },
   {
+    "player_id": 15868681,
+    "name": "Anand TS",
+    "slug": "anand-ts",
+    "profile_photo": "https://media.cricheroes.in/user_profile/1690399261717_HF3dS7l2vfhT.jpg",
+    "batting": {
+      "matches": 73,
+      "innings": 45,
+      "not_outs": 14,
+      "runs": 375,
+      "highest_score": 36,
+      "highest_score_not_out": "",
+      "average": 12.1,
+      "strike_rate": 100.81,
+      "thirties": 2,
+      "fifties": 0,
+      "hundreds": 0,
+      "fours": 27,
+      "sixes": 20,
+      "ducks": 6
+    },
+    "bowling": {
+      "matches": 73,
+      "innings": 64,
+      "overs": "134.3",
+      "maidens": 2,
+      "wickets": 62,
+      "runs_conceded": 915,
+      "best_figures": "4/14",
+      "three_wickets": 5,
+      "five_wickets": 0,
+      "economy": 6.8,
+      "strike_rate": 13.02,
+      "average": 14.76,
+      "wides": 82,
+      "noballs": 8,
+      "dot_balls": 398,
+      "fours_conceded": 58,
+      "sixes_conceded": 30
+    },
+    "fielding": {
+      "matches": 73,
+      "catches": 14,
+      "caught_behind": 0,
+      "run_outs": 4,
+      "stumpings": 0,
+      "assisted_run_outs": 3
+    }
+  },
+  {
     "player_id": 39432630,
     "name": "Ankit Pandey",
     "slug": "ankit-pandey",
@@ -389,6 +438,55 @@
       "run_outs": 5,
       "stumpings": 0,
       "assisted_run_outs": 0
+    }
+  },
+  {
+    "player_id": 5623956,
+    "name": "Hamzah Hashmi",
+    "slug": "hamzah-hashmi",
+    "profile_photo": "https://media.cricheroes.in/default/user_profile.png",
+    "batting": {
+      "matches": 38,
+      "innings": 25,
+      "not_outs": 6,
+      "runs": 191,
+      "highest_score": 28,
+      "highest_score_not_out": "*",
+      "average": 10.05,
+      "strike_rate": 69.45,
+      "thirties": 0,
+      "fifties": 0,
+      "hundreds": 0,
+      "fours": 11,
+      "sixes": 4,
+      "ducks": 5
+    },
+    "bowling": {
+      "matches": 38,
+      "innings": 27,
+      "overs": "54.2",
+      "maidens": 0,
+      "wickets": 16,
+      "runs_conceded": 411,
+      "best_figures": "3/21",
+      "three_wickets": 1,
+      "five_wickets": 0,
+      "economy": 7.56,
+      "strike_rate": 20.38,
+      "average": 25.69,
+      "wides": 41,
+      "noballs": 6,
+      "dot_balls": 151,
+      "fours_conceded": 27,
+      "sixes_conceded": 15
+    },
+    "fielding": {
+      "matches": 38,
+      "catches": 5,
+      "caught_behind": 3,
+      "run_outs": 2,
+      "stumpings": 0,
+      "assisted_run_outs": 1
     }
   },
   {
