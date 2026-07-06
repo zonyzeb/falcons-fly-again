@@ -1,7 +1,7 @@
 [
   {
     "label": "Matches",
-    "value": "55"
+    "value": "57"
   },
   {
     "label": "Wins",
@@ -17,10 +17,10 @@
   },
   {
     "label": "No Result",
-    "value": "1"
+    "value": "3"
   },
   {
     "label": "Win %",
-    "value": "49.1%"
+    "value": "47.4%"
   }
 ]
