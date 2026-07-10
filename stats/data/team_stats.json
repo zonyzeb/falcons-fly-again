@@ -1,7 +1,7 @@
 [
   {
     "label": "Matches",
-    "value": "57"
+    "value": "58"
   },
   {
     "label": "Wins",
@@ -9,7 +9,7 @@
   },
   {
     "label": "Losses",
-    "value": "27"
+    "value": "28"
   },
   {
     "label": "Ties",
@@ -21,6 +21,6 @@
   },
   {
     "label": "Win %",
-    "value": "49.1%"
+    "value": "48.3%"
   }
 ]
