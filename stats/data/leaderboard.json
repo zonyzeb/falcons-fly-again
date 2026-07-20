@@ -2,12 +2,22 @@
   "batting": [
     {
       "player_name": "Deepu Dileep",
-      "stat": "499 runs",
+      "stat": "515 runs",
       "profile": "batting"
     },
     {
       "player_name": "Prem",
-      "stat": "259 runs",
+      "stat": "267 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Fahsan K P",
+      "stat": "178 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Umesh Bh",
+      "stat": "159 runs",
       "profile": "batting"
     },
     {
@@ -18,16 +28,6 @@
     {
       "player_name": "Sherin Shamsudeen",
       "stat": "146 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Fahsan K P",
-      "stat": "145 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Umesh Bh",
-      "stat": "135 runs",
       "profile": "batting"
     },
     {
@@ -57,17 +57,17 @@
     },
     {
       "player_name": "Aman Singh",
-      "stat": "28 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Shahbaz Ahmed",
-      "stat": "27 runs",
+      "stat": "29 runs",
       "profile": "batting"
     },
     {
       "player_name": "JD",
-      "stat": "21 runs",
+      "stat": "29 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Shahbaz Ahmed",
+      "stat": "28 runs",
       "profile": "batting"
     },
     {
@@ -329,22 +329,22 @@
     },
     {
       "player_name": "Sony",
-      "stat": "18 wickets",
+      "stat": "19 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Prem",
-      "stat": "11 wickets",
+      "stat": "14 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Umesh Bh",
-      "stat": "10 wickets",
+      "stat": "13 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Manoj Chilla",
-      "stat": "9 wickets",
+      "stat": "11 wickets",
       "profile": "bowling"
     },
     {
@@ -561,17 +561,17 @@
     },
     {
       "player_name": "Deepu Dileep",
-      "stat": "14 catches",
+      "stat": "16 catches",
       "profile": "fielding"
     },
     {
       "player_name": "JD",
-      "stat": "8 catches",
+      "stat": "9 catches",
       "profile": "fielding"
     },
     {
       "player_name": "Sony",
-      "stat": "5 catches",
+      "stat": "6 catches",
       "profile": "fielding"
     },
     {
@@ -615,6 +615,11 @@
       "profile": "fielding"
     },
     {
+      "player_name": "Shahbaz Ahmed",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
       "player_name": "Hamzah Hashmi",
       "stat": "1 catches",
       "profile": "fielding"
@@ -631,11 +636,6 @@
     },
     {
       "player_name": "Sherin Shamsudeen",
-      "stat": "1 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Shahbaz Ahmed",
       "stat": "1 catches",
       "profile": "fielding"
     },
