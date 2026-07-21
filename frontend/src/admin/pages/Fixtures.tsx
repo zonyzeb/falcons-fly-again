@@ -299,8 +299,8 @@ export default function FixturesPage() {
                         {editMutWarn.map((m, i) => <div key={i} className="lg:col-span-3 flex items-center gap-2 text-xs text-amber-300"><Gavel className="w-3.5 h-3.5 shrink-0" /> {m} — consider reassigning it.</div>)}
                       </div>
                     ) : (
-                      <div className="flex items-center gap-4 p-4">
-                        <div className="text-center min-w-[60px]">
+                      <div className="flex items-center gap-2 sm:gap-4 p-3 sm:p-4">
+                        <div className="text-center min-w-[52px] sm:min-w-[60px]">
                           <div className="text-falcon-gold font-semibold text-sm">{fmtDate(f.match_date).split(",")[0]}</div>
                           <div className="text-falcon-cream/40 text-xs">{fmtDate(f.match_date).split(", ")[1]}{f.match_time ? ` · ${f.match_time.slice(0, 5)}` : ""}</div>
                         </div>
@@ -311,8 +311,8 @@ export default function FixturesPage() {
                           </div>
                           <div className="text-xs text-falcon-cream/40 truncate">{[f.ground, f.result_note, f.notes].filter(Boolean).join(" · ")}</div>
                         </div>
-                        <button onClick={() => toggleAvail(f.id)} className="px-3 py-1.5 text-xs rounded-lg border border-white/10 text-falcon-cream/60 hover:text-falcon-gold hover:border-falcon-gold/30 flex items-center gap-1.5">
-                          <Users className="w-3.5 h-3.5" /> Availability <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openId === f.id ? "rotate-180" : ""}`} />
+                        <button onClick={() => toggleAvail(f.id)} className="px-2 sm:px-3 py-1.5 text-xs rounded-lg border border-white/10 text-falcon-cream/60 hover:text-falcon-gold hover:border-falcon-gold/30 flex items-center gap-1.5 shrink-0">
+                          <Users className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Availability</span> <ChevronDown className={`w-3.5 h-3.5 transition-transform ${openId === f.id ? "rotate-180" : ""}`} />
                         </button>
                         <button onClick={() => { setEditId(f.id); setMEdit(mToForm(f)); }} className="p-1.5 rounded-lg text-falcon-cream/40 hover:text-falcon-gold hover:bg-white/5"><Pencil className="w-4 h-4" /></button>
                         <button onClick={() => removeMatch(f.id)} className="p-1.5 rounded-lg text-red-400/50 hover:text-red-400 hover:bg-red-400/10"><Trash2 className="w-4 h-4" /></button>

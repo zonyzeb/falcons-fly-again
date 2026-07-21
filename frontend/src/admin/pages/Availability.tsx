@@ -227,7 +227,7 @@ export default function AvailabilityPage() {
 
       {fixtureId && (
         <>
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {([["available", "Available", "text-emerald-400"], ["maybe", "Maybe", "text-amber-400"], ["unavailable", "Out", "text-red-400"], ["none", "No reply", "text-falcon-cream/50"]] as [Resp, string, string][]).map(([key, label, cls]) => (
               <div key={key} className="bg-[#0d1424] border border-white/5 rounded-xl p-4 text-center">
                 <p className={`text-2xl font-display font-bold ${cls}`}>{countOf(key)}</p>

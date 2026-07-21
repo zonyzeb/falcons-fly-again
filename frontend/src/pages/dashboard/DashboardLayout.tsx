@@ -52,20 +52,20 @@ export default function DashboardLayout() {
           {isAdmin && <span className="text-falcon-gold"> · admin</span>}
         </p>
 
-        <nav className="flex gap-1 p-1 mb-6 bg-white/5 rounded-xl w-fit">
+        <nav className="flex gap-1 p-1 mb-6 bg-white/5 rounded-xl w-full sm:w-fit">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               end={item.end}
               className={({ isActive }) =>
-                `flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                `flex-1 sm:flex-none flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-2 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors ${
                   isActive ? "bg-falcon-gold/20 text-falcon-gold" : "text-falcon-cream/50 hover:text-falcon-cream"
                 }`
               }
             >
-              <item.icon className="w-4 h-4" />
-              <span className="hidden sm:inline">{item.label}</span>
+              <item.icon className="w-4 h-4 shrink-0" />
+              <span className="sm:inline">{item.label.replace("My ", "")}</span>
             </NavLink>
           ))}
         </nav>
