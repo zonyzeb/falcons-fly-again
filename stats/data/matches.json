@@ -1,18 +1,18 @@
 [
   {
-    "tournament": "SPL-T20 V2 - SSA Season 20206",
-    "info": "North Sp\u00e5ngadalen, 24-Jul-26, 20 Ov",
+    "tournament": "SPL-T20 V2 - Season 2026",
+    "info": "South Sp\u00e5ngadalen, 26-Jul-26, 20 Ov",
     "score": [
-      "Stockholm Legends",
-      "Falcons"
+      "Falcons",
+      "Stockholm Ninjas"
     ],
     "result": "",
-    "url": "https://cricheroes.com/scorecard/26268760",
-    "date": "24-Jul-26",
-    "venue": "North Sp\u00e5ngadalen"
+    "url": "https://cricheroes.com/scorecard/26292964",
+    "date": "26-Jul-26",
+    "venue": "South Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V2 - SSA Season 20206",
+    "tournament": "SPL-T20 V2 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 27-Jul-26, 20 Ov",
     "score": [
       "Falcons",
@@ -24,7 +24,19 @@
     "venue": "North Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V2 - SSA Season 20206",
+    "tournament": "SPL-T20 V2 - Season 2026",
+    "info": "North Sp\u00e5ngadalen, 24-Jul-26, 20 Ov",
+    "score": [
+      "Stockholm Legends 94/10",
+      "Falcons 97/4"
+    ],
+    "result": "Falcons won by 5 wickets",
+    "url": "https://cricheroes.com/scorecard/26268760",
+    "date": "24-Jul-26",
+    "venue": "North Sp\u00e5ngadalen"
+  },
+  {
+    "tournament": "SPL-T20 V2 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 19-Jul-26, 20 Ov",
     "score": [
       "Kista Rising Stars 93/10",
@@ -36,7 +48,7 @@
     "venue": "North Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V2 - SSA Season 20206",
+    "tournament": "SPL-T20 V2 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 09-Jul-26, 20 Ov",
     "score": [
       "Falcons 85/10",
@@ -48,7 +60,7 @@
     "venue": "North Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V2 - SSA Season 20206",
+    "tournament": "SPL-T20 V2 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 06-Jul-26, 20 Ov",
     "score": [
       "Falcons 195/7",
@@ -60,7 +72,7 @@
     "venue": "North Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V1 - SSA Season 2026",
+    "tournament": "SPL-T20 V1 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 21-Jun-26, 20 Ov",
     "score": [
       "Falcons",
@@ -72,7 +84,7 @@
     "venue": "North Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V1 - SSA Season 2026",
+    "tournament": "SPL-T20 V1 - Season 2026",
     "info": "South Sp\u00e5ngadalen, 13-Jun-26, 20 Ov",
     "score": [
       "Vikings11 174/9",
@@ -84,7 +96,7 @@
     "venue": "South Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V1 - SSA Season 2026",
+    "tournament": "SPL-T20 V1 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 10-Jun-26, 18 Ov",
     "score": [
       "Falcons 92/9",
@@ -96,7 +108,7 @@
     "venue": "North Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V1 - SSA Season 2026",
+    "tournament": "SPL-T20 V1 - Season 2026",
     "info": "South Sp\u00e5ngadalen, 07-Jun-26, 20 Ov",
     "score": [
       "Keep It Cool Stockholm 171/8",
@@ -108,7 +120,7 @@
     "venue": "South Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V1 - SSA Season 2026",
+    "tournament": "SPL-T20 V1 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 29-May-26, 20 Ov",
     "score": [
       "Falcons 206/4",
@@ -120,7 +132,7 @@
     "venue": "North Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T20 V1 - SSA Season 2026",
+    "tournament": "SPL-T20 V1 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 23-May-26, 20 Ov",
     "score": [
       "Kalinga Warriors 132/10",
@@ -144,7 +156,7 @@
     "venue": "South Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T15 V1 - SSA Season 2026",
+    "tournament": "SPL-T15 V1 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 08-May-26, 15 Ov",
     "score": [
       "Falcons 83/10",
@@ -156,7 +168,7 @@
     "venue": "North Sp\u00e5ngadalen"
   },
   {
-    "tournament": "SPL-T15 V1 - SSA Season 2026",
+    "tournament": "SPL-T15 V1 - Season 2026",
     "info": "North Sp\u00e5ngadalen, 04-May-26, 15 Ov",
     "score": [
       "Falcons 83/10",
