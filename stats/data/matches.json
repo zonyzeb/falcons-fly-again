@@ -1,19 +1,7 @@
 [
   {
     "tournament": "SPL-T20 V2 - Season 2026",
-    "info": "South Sp\u00e5ngadalen, 26-Jul-26, 20 Ov",
-    "score": [
-      "Falcons",
-      "Stockholm Ninjas"
-    ],
-    "result": "",
-    "url": "https://cricheroes.com/scorecard/26292964",
-    "date": "26-Jul-26",
-    "venue": "South Sp\u00e5ngadalen"
-  },
-  {
-    "tournament": "SPL-T20 V2 - Season 2026",
-    "info": "North Sp\u00e5ngadalen, 27-Jul-26, 20 Ov",
+    "info": "South Sp\u00e5ngadalen, 27-Jul-26, 20 Ov",
     "score": [
       "Falcons",
       "Vikings11"
@@ -21,7 +9,19 @@
     "result": "",
     "url": "https://cricheroes.com/scorecard/25985221",
     "date": "27-Jul-26",
-    "venue": "North Sp\u00e5ngadalen"
+    "venue": "South Sp\u00e5ngadalen"
+  },
+  {
+    "tournament": "SPL-T20 V2 - Season 2026",
+    "info": "South Sp\u00e5ngadalen, 26-Jul-26, 20 Ov",
+    "score": [
+      "Stockholm Ninjas 88/10",
+      "Falcons 89/6"
+    ],
+    "result": "Falcons won by 4 wickets",
+    "url": "https://cricheroes.com/scorecard/26292964",
+    "date": "26-Jul-26",
+    "venue": "South Sp\u00e5ngadalen"
   },
   {
     "tournament": "SPL-T20 V2 - Season 2026",

@@ -7,12 +7,12 @@
     },
     {
       "player_name": "Prem",
-      "stat": "269 runs",
+      "stat": "274 runs",
       "profile": "batting"
     },
     {
       "player_name": "Fahsan K P",
-      "stat": "182 runs",
+      "stat": "199 runs",
       "profile": "batting"
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "152 runs",
+      "stat": "157 runs",
       "profile": "batting"
     },
     {
@@ -36,13 +36,13 @@
       "profile": "batting"
     },
     {
-      "player_name": "Aman Singh",
-      "stat": "64 runs",
+      "player_name": "Manoj Chilla",
+      "stat": "93 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Manoj Chilla",
-      "stat": "61 runs",
+      "player_name": "Aman Singh",
+      "stat": "71 runs",
       "profile": "batting"
     },
     {
@@ -61,18 +61,18 @@
       "profile": "batting"
     },
     {
+      "player_name": "Shahbaz Ahmed",
+      "stat": "36 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "JD",
       "stat": "29 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Shahbaz Ahmed",
-      "stat": "28 runs",
-      "profile": "batting"
-    },
-    {
       "player_name": "Anand TS",
-      "stat": "20 runs",
+      "stat": "21 runs",
       "profile": "batting"
     },
     {
@@ -324,7 +324,7 @@
   "bowling": [
     {
       "player_name": "JD",
-      "stat": "22 wickets",
+      "stat": "24 wickets",
       "profile": "bowling"
     },
     {
@@ -333,17 +333,17 @@
       "profile": "bowling"
     },
     {
+      "player_name": "Manoj Chilla",
+      "stat": "19 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "Prem",
-      "stat": "16 wickets",
+      "stat": "17 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Umesh Bh",
-      "stat": "13 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Manoj Chilla",
       "stat": "13 wickets",
       "profile": "bowling"
     },
@@ -398,6 +398,11 @@
       "profile": "bowling"
     },
     {
+      "player_name": "Nithin Pandu",
+      "stat": "1 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "Fahsan K P",
       "stat": "1 wickets",
       "profile": "bowling"
@@ -408,12 +413,12 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Aman Singh",
+      "player_name": "Anand TS",
       "stat": "1 wickets",
       "profile": "bowling"
     },
     {
-      "player_name": "Anand TS",
+      "player_name": "Aman Singh",
       "stat": "1 wickets",
       "profile": "bowling"
     },
@@ -561,12 +566,12 @@
     },
     {
       "player_name": "Rithwik K V",
-      "stat": "14 catches",
+      "stat": "16 catches",
       "profile": "fielding"
     },
     {
       "player_name": "JD",
-      "stat": "9 catches",
+      "stat": "10 catches",
       "profile": "fielding"
     },
     {
@@ -576,7 +581,12 @@
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "6 catches",
+      "stat": "7 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Prem",
+      "stat": "5 catches",
       "profile": "fielding"
     },
     {
@@ -585,7 +595,7 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Prem",
+      "player_name": "Fahsan K P",
       "stat": "4 catches",
       "profile": "fielding"
     },
@@ -595,8 +605,8 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Fahsan K P",
-      "stat": "3 catches",
+      "player_name": "Shahbaz Ahmed",
+      "stat": "2 catches",
       "profile": "fielding"
     },
     {
@@ -611,11 +621,6 @@
     },
     {
       "player_name": "Umesh Bh",
-      "stat": "1 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Shahbaz Ahmed",
       "stat": "1 catches",
       "profile": "fielding"
     },
