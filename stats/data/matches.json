@@ -1,12 +1,24 @@
 [
   {
     "tournament": "SPL-T20 V2 - Season 2026",
-    "info": "South Sp\u00e5ngadalen, 27-Jul-26, 20 Ov",
+    "info": "South Sp\u00e5ngadalen, 28-Jul-26, 20 Ov",
     "score": [
       "Falcons",
-      "Vikings11"
+      "Smashers"
     ],
     "result": "",
+    "url": "https://cricheroes.com/scorecard/26353829",
+    "date": "28-Jul-26",
+    "venue": "South Sp\u00e5ngadalen"
+  },
+  {
+    "tournament": "SPL-T20 V2 - Season 2026",
+    "info": "South Sp\u00e5ngadalen, 27-Jul-26, 20 Ov",
+    "score": [
+      "Falcons 167/10",
+      "Vikings11 82/10"
+    ],
+    "result": "Falcons won by 85 runs",
     "url": "https://cricheroes.com/scorecard/25985221",
     "date": "27-Jul-26",
     "venue": "South Sp\u00e5ngadalen"
