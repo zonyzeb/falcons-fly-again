@@ -784,6 +784,55 @@
     }
   },
   {
+    "player_id": 40609498,
+    "name": "Manoj Kumar M",
+    "slug": "manoj-kumar-m",
+    "profile_photo": "https://media.cricheroes.in/user_profile/default_user_profile_m.png?v=40609498",
+    "batting": {
+      "matches": 26,
+      "innings": 23,
+      "not_outs": 5,
+      "runs": 174,
+      "highest_score": 63,
+      "highest_score_not_out": "",
+      "average": 9.67,
+      "strike_rate": 94.05,
+      "thirties": 0,
+      "fifties": 1,
+      "hundreds": 0,
+      "fours": 9,
+      "sixes": 6,
+      "ducks": 2
+    },
+    "bowling": {
+      "matches": 26,
+      "innings": 10,
+      "overs": "19.5",
+      "maidens": 0,
+      "wickets": 2,
+      "runs_conceded": 192,
+      "best_figures": "1/19",
+      "three_wickets": 0,
+      "five_wickets": 0,
+      "economy": 9.68,
+      "strike_rate": 59.5,
+      "average": 96.0,
+      "wides": 10,
+      "noballs": 0,
+      "dot_balls": 47,
+      "fours_conceded": 10,
+      "sixes_conceded": 14
+    },
+    "fielding": {
+      "matches": 26,
+      "catches": 4,
+      "caught_behind": 0,
+      "run_outs": 2,
+      "stumpings": 0,
+      "assisted_run_outs": 0
+    }
+  },
+  {
     "player_id": 29241201,
     "name": "Nithin Pandu",
     "slug": "nithin-pandu",
