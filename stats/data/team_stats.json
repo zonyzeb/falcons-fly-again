@@ -1,11 +1,11 @@
 [
   {
     "label": "Matches",
-    "value": "62"
+    "value": "63"
   },
   {
     "label": "Wins",
-    "value": "32"
+    "value": "33"
   },
   {
     "label": "Losses",
@@ -21,6 +21,6 @@
   },
   {
     "label": "Win %",
-    "value": "51.6%"
+    "value": "52.4%"
   }
 ]

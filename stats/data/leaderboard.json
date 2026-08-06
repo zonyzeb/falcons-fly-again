@@ -12,12 +12,12 @@
     },
     {
       "player_name": "Fahsan K P",
-      "stat": "256 runs",
+      "stat": "276 runs",
       "profile": "batting"
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "189 runs",
+      "stat": "231 runs",
       "profile": "batting"
     },
     {
@@ -32,12 +32,12 @@
     },
     {
       "player_name": "Divin Barachel",
-      "stat": "102 runs",
+      "stat": "116 runs",
       "profile": "batting"
     },
     {
       "player_name": "Manoj Chilla",
-      "stat": "100 runs",
+      "stat": "108 runs",
       "profile": "batting"
     },
     {
@@ -51,18 +51,18 @@
       "profile": "batting"
     },
     {
+      "player_name": "JD",
+      "stat": "71 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "Rithwik K V",
-      "stat": "62 runs",
+      "stat": "70 runs",
       "profile": "batting"
     },
     {
       "player_name": "Sony",
-      "stat": "59 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "JD",
-      "stat": "59 runs",
+      "stat": "60 runs",
       "profile": "batting"
     },
     {
@@ -86,18 +86,23 @@
       "profile": "batting"
     },
     {
+      "player_name": "Yashas Paralath",
+      "stat": "8 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "Ramasamy Vallinayagam",
       "stat": "7 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Shinu",
+      "player_name": "Manoj Kumar M",
       "stat": "4 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Yashas Paralath",
-      "stat": "3 runs",
+      "player_name": "Shinu",
+      "stat": "4 runs",
       "profile": "batting"
     },
     {
@@ -334,12 +339,12 @@
     },
     {
       "player_name": "Sony",
-      "stat": "24 wickets",
+      "stat": "25 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Manoj Chilla",
-      "stat": "19 wickets",
+      "stat": "21 wickets",
       "profile": "bowling"
     },
     {
@@ -393,6 +398,16 @@
       "profile": "bowling"
     },
     {
+      "player_name": "Yashas Paralath",
+      "stat": "2 wickets",
+      "profile": "bowling"
+    },
+    {
+      "player_name": "Manoj Kumar M",
+      "stat": "2 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "Anand TS",
       "stat": "2 wickets",
       "profile": "bowling"
@@ -414,11 +429,6 @@
     },
     {
       "player_name": "Fahsan K P",
-      "stat": "1 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Yashas Paralath",
       "stat": "1 wickets",
       "profile": "bowling"
     },
@@ -566,7 +576,7 @@
   "fielding": [
     {
       "player_name": "Rithwik K V",
-      "stat": "17 catches",
+      "stat": "19 catches",
       "profile": "fielding"
     },
     {
@@ -586,7 +596,7 @@
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "9 catches",
+      "stat": "10 catches",
       "profile": "fielding"
     },
     {
@@ -625,6 +635,11 @@
       "profile": "fielding"
     },
     {
+      "player_name": "Yashas Paralath",
+      "stat": "2 catches",
+      "profile": "fielding"
+    },
+    {
       "player_name": "Umesh Bh",
       "stat": "1 catches",
       "profile": "fielding"
@@ -636,11 +651,6 @@
     },
     {
       "player_name": "Hamzah Hashmi",
-      "stat": "1 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Yashas Paralath",
       "stat": "1 catches",
       "profile": "fielding"
     },
