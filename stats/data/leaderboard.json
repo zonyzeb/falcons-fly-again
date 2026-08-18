@@ -2,17 +2,17 @@
   "batting": [
     {
       "player_name": "Deepu Dileep",
-      "stat": "670 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Prem",
-      "stat": "303 runs",
+      "stat": "691 runs",
       "profile": "batting"
     },
     {
       "player_name": "Fahsan K P",
-      "stat": "276 runs",
+      "stat": "326 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Prem",
+      "stat": "305 runs",
       "profile": "batting"
     },
     {
@@ -42,12 +42,12 @@
     },
     {
       "player_name": "Anand TS",
-      "stat": "78 runs",
+      "stat": "90 runs",
       "profile": "batting"
     },
     {
       "player_name": "Rithwik K V",
-      "stat": "77 runs",
+      "stat": "90 runs",
       "profile": "batting"
     },
     {
@@ -66,13 +66,18 @@
       "profile": "batting"
     },
     {
+      "player_name": "Shahbaz Ahmed",
+      "stat": "44 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "Tinu",
       "stat": "43 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Shahbaz Ahmed",
-      "stat": "36 runs",
+      "player_name": "Nithin Pandu",
+      "stat": "21 runs",
       "profile": "batting"
     },
     {
@@ -83,11 +88,6 @@
     {
       "player_name": "Yashas Paralath",
       "stat": "10 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Nithin Pandu",
-      "stat": "9 runs",
       "profile": "batting"
     },
     {
@@ -339,22 +339,22 @@
   "bowling": [
     {
       "player_name": "JD",
-      "stat": "32 wickets",
+      "stat": "35 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Sony",
-      "stat": "25 wickets",
+      "stat": "26 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Manoj Chilla",
-      "stat": "21 wickets",
+      "stat": "23 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Prem",
-      "stat": "17 wickets",
+      "stat": "20 wickets",
       "profile": "bowling"
     },
     {
@@ -373,6 +373,11 @@
       "profile": "bowling"
     },
     {
+      "player_name": "Nithin Pandu",
+      "stat": "4 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "Ankit Pandey",
       "stat": "4 wickets",
       "profile": "bowling"
@@ -380,11 +385,6 @@
     {
       "player_name": "Shahbaz Ahmed",
       "stat": "4 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Nithin Pandu",
-      "stat": "3 wickets",
       "profile": "bowling"
     },
     {
@@ -398,12 +398,12 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Manoj Kumar M",
+      "player_name": "Divin Barachel",
       "stat": "3 wickets",
       "profile": "bowling"
     },
     {
-      "player_name": "Divin Barachel",
+      "player_name": "Manoj Kumar M",
       "stat": "3 wickets",
       "profile": "bowling"
     },
@@ -586,7 +586,7 @@
   "fielding": [
     {
       "player_name": "Rithwik K V",
-      "stat": "21 catches",
+      "stat": "25 catches",
       "profile": "fielding"
     },
     {
@@ -596,7 +596,12 @@
     },
     {
       "player_name": "JD",
-      "stat": "12 catches",
+      "stat": "13 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Prem",
+      "stat": "11 catches",
       "profile": "fielding"
     },
     {
@@ -607,11 +612,6 @@
     {
       "player_name": "Ankit Pandey",
       "stat": "10 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Prem",
-      "stat": "8 catches",
       "profile": "fielding"
     },
     {
@@ -650,6 +650,11 @@
       "profile": "fielding"
     },
     {
+      "player_name": "Anand TS",
+      "stat": "2 catches",
+      "profile": "fielding"
+    },
+    {
       "player_name": "Yashas Paralath",
       "stat": "2 catches",
       "profile": "fielding"
@@ -666,11 +671,6 @@
     },
     {
       "player_name": "Hamzah Hashmi",
-      "stat": "1 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Anand TS",
       "stat": "1 catches",
       "profile": "fielding"
     },
