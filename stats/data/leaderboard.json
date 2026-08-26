@@ -2,22 +2,22 @@
   "batting": [
     {
       "player_name": "Deepu Dileep",
-      "stat": "750 runs",
+      "stat": "804 runs",
       "profile": "batting"
     },
     {
       "player_name": "Prem",
-      "stat": "387 runs",
+      "stat": "410 runs",
       "profile": "batting"
     },
     {
       "player_name": "Fahsan K P",
-      "stat": "336 runs",
+      "stat": "339 runs",
       "profile": "batting"
     },
     {
       "player_name": "Ankit Pandey",
-      "stat": "249 runs",
+      "stat": "259 runs",
       "profile": "batting"
     },
     {
@@ -36,13 +36,13 @@
       "profile": "batting"
     },
     {
-      "player_name": "Manoj Chilla",
-      "stat": "121 runs",
+      "player_name": "Anand TS",
+      "stat": "130 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Anand TS",
-      "stat": "115 runs",
+      "player_name": "Manoj Chilla",
+      "stat": "124 runs",
       "profile": "batting"
     },
     {
@@ -62,7 +62,7 @@
     },
     {
       "player_name": "Shahbaz Ahmed",
-      "stat": "67 runs",
+      "stat": "70 runs",
       "profile": "batting"
     },
     {
@@ -349,17 +349,17 @@
   "bowling": [
     {
       "player_name": "JD",
-      "stat": "36 wickets",
+      "stat": "38 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Sony",
-      "stat": "32 wickets",
+      "stat": "34 wickets",
       "profile": "bowling"
     },
     {
       "player_name": "Manoj Chilla",
-      "stat": "24 wickets",
+      "stat": "25 wickets",
       "profile": "bowling"
     },
     {
@@ -369,7 +369,7 @@
     },
     {
       "player_name": "Umesh Bh",
-      "stat": "14 wickets",
+      "stat": "15 wickets",
       "profile": "bowling"
     },
     {
@@ -403,6 +403,11 @@
       "profile": "bowling"
     },
     {
+      "player_name": "Hamzah Hashmi",
+      "stat": "3 wickets",
+      "profile": "bowling"
+    },
+    {
       "player_name": "Sherin Shamsudeen",
       "stat": "3 wickets",
       "profile": "bowling"
@@ -415,11 +420,6 @@
     {
       "player_name": "Divin Barachel",
       "stat": "3 wickets",
-      "profile": "bowling"
-    },
-    {
-      "player_name": "Hamzah Hashmi",
-      "stat": "2 wickets",
       "profile": "bowling"
     },
     {
@@ -611,7 +611,7 @@
     },
     {
       "player_name": "Deepu Dileep",
-      "stat": "24 catches",
+      "stat": "26 catches",
       "profile": "fielding"
     },
     {
@@ -625,13 +625,13 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Ankit Pandey",
-      "stat": "12 catches",
+      "player_name": "Sony",
+      "stat": "9 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "Sony",
-      "stat": "7 catches",
+      "player_name": "Ankit Pandey",
+      "stat": "12 catches",
       "profile": "fielding"
     },
     {
@@ -641,7 +641,12 @@
     },
     {
       "player_name": "Fahsan K P",
-      "stat": "4 catches",
+      "stat": "5 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Umesh Bh",
+      "stat": "2 catches",
       "profile": "fielding"
     },
     {
@@ -660,12 +665,12 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Shahbaz Ahmed",
+      "player_name": "Divin Barachel",
       "stat": "2 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "Divin Barachel",
+      "player_name": "Shahbaz Ahmed",
       "stat": "2 catches",
       "profile": "fielding"
     },
@@ -682,11 +687,6 @@
     {
       "player_name": "Yashas Paralath",
       "stat": "2 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Umesh Bh",
-      "stat": "1 catches",
       "profile": "fielding"
     },
     {
