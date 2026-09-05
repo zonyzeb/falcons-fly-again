@@ -127,7 +127,7 @@
     },
     {
       "player_name": "Shiva Arsi",
-      "stat": "603 runs",
+      "stat": "611 runs",
       "profile": "batting"
     },
     {
@@ -147,12 +147,12 @@
     },
     {
       "player_name": "Ashok Ramasamy",
-      "stat": "258 runs",
+      "stat": "271 runs",
       "profile": "batting"
     },
     {
       "player_name": "Yogi",
-      "stat": "201 runs",
+      "stat": "205 runs",
       "profile": "batting"
     },
     {
@@ -171,13 +171,13 @@
       "profile": "batting"
     },
     {
-      "player_name": "Akash Temkar",
-      "stat": "79 runs",
+      "player_name": "Ravi Shankar",
+      "stat": "89 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Ravi Shankar",
-      "stat": "74 runs",
+      "player_name": "Akash Temkar",
+      "stat": "83 runs",
       "profile": "batting"
     },
     {
@@ -193,6 +193,11 @@
     {
       "player_name": "Jithin T",
       "stat": "58 runs",
+      "profile": "batting"
+    },
+    {
+      "player_name": "Avan",
+      "stat": "55 runs",
       "profile": "batting"
     },
     {
@@ -226,6 +231,11 @@
       "profile": "batting"
     },
     {
+      "player_name": "Pramod Somanchi",
+      "stat": "29 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "Manikiran A",
       "stat": "25 runs",
       "profile": "batting"
@@ -241,12 +251,7 @@
       "profile": "batting"
     },
     {
-      "player_name": "Avan",
-      "stat": "18 runs",
-      "profile": "batting"
-    },
-    {
-      "player_name": "Pramod Somanchi",
+      "player_name": "Krishang MV",
       "stat": "14 runs",
       "profile": "batting"
     },
@@ -276,6 +281,11 @@
       "profile": "batting"
     },
     {
+      "player_name": "Vishnu Ajithsuma",
+      "stat": "8 runs",
+      "profile": "batting"
+    },
+    {
       "player_name": "Akshat Dhimole",
       "stat": "7 runs",
       "profile": "batting"
@@ -286,13 +296,13 @@
       "profile": "batting"
     },
     {
-      "player_name": "Vishnu Ajithsuma",
-      "stat": "7 runs",
+      "player_name": "Vignesh K",
+      "stat": "6 runs",
       "profile": "batting"
     },
     {
-      "player_name": "Vignesh K",
-      "stat": "6 runs",
+      "player_name": "Anand",
+      "stat": "5 runs",
       "profile": "batting"
     },
     {
@@ -454,7 +464,7 @@
     },
     {
       "player_name": "Yogi",
-      "stat": "64 wickets",
+      "stat": "66 wickets",
       "profile": "bowling"
     },
     {
@@ -464,7 +474,7 @@
     },
     {
       "player_name": "Ravi Shankar",
-      "stat": "17 wickets",
+      "stat": "18 wickets",
       "profile": "bowling"
     },
     {
@@ -473,13 +483,13 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Vigram Raja",
-      "stat": "11 wickets",
+      "player_name": "Shiva Arsi",
+      "stat": "12 wickets",
       "profile": "bowling"
     },
     {
-      "player_name": "Shiva Arsi",
-      "stat": "10 wickets",
+      "player_name": "Vigram Raja",
+      "stat": "12 wickets",
       "profile": "bowling"
     },
     {
@@ -488,12 +498,12 @@
       "profile": "bowling"
     },
     {
-      "player_name": "Anbarasan Thamizharasan",
-      "stat": "5 wickets",
+      "player_name": "Krishang MV",
+      "stat": "6 wickets",
       "profile": "bowling"
     },
     {
-      "player_name": "Krishang MV",
+      "player_name": "Anbarasan Thamizharasan",
       "stat": "5 wickets",
       "profile": "bowling"
     },
@@ -504,7 +514,7 @@
     },
     {
       "player_name": "Pramod Somanchi",
-      "stat": "3 wickets",
+      "stat": "4 wickets",
       "profile": "bowling"
     },
     {
@@ -746,7 +756,12 @@
     },
     {
       "player_name": "Jeevan George",
-      "stat": "7 catches",
+      "stat": "8 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Vigram Raja",
+      "stat": "6 catches",
       "profile": "fielding"
     },
     {
@@ -772,11 +787,6 @@
     {
       "player_name": "Sunil kumar Metta",
       "stat": "5 catches",
-      "profile": "fielding"
-    },
-    {
-      "player_name": "Vigram Raja",
-      "stat": "4 catches",
       "profile": "fielding"
     },
     {
@@ -835,18 +845,18 @@
       "profile": "fielding"
     },
     {
-      "player_name": "Pramod Somanchi",
-      "stat": "1 catches",
-      "profile": "fielding"
-    },
-    {
       "player_name": "Srinivas Attaluri",
       "stat": "0 catches",
       "profile": "fielding"
     },
     {
-      "player_name": "Krishang MV",
-      "stat": "0 catches",
+      "player_name": "Anand",
+      "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Pramod Somanchi",
+      "stat": "1 catches",
       "profile": "fielding"
     },
     {
@@ -857,6 +867,11 @@
     {
       "player_name": "Yashas Paralath",
       "stat": "1 catches",
+      "profile": "fielding"
+    },
+    {
+      "player_name": "Krishang MV",
+      "stat": "0 catches",
       "profile": "fielding"
     },
     {
