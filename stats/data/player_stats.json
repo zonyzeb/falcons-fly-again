@@ -250,23 +250,23 @@
     "slug": "deepu-dileep",
     "profile_photo": "https://media.cricheroes.in/user_profile/1717775336839_K9JAedgnT0Ca.jpeg",
     "batting": {
-      "matches": 95,
-      "innings": 92,
+      "matches": 97,
+      "innings": 94,
       "not_outs": 10,
-      "runs": 2199,
+      "runs": 2211,
       "highest_score": 195,
       "highest_score_not_out": "",
-      "average": 26.82,
-      "strike_rate": 148.38,
+      "average": 26.32,
+      "strike_rate": 148.19,
       "thirties": 13,
       "fifties": 13,
       "hundreds": 2,
-      "fours": 153,
+      "fours": 155,
       "sixes": 163,
       "ducks": 9
     },
     "bowling": {
-      "matches": 95,
+      "matches": 97,
       "innings": 1,
       "overs": "0.0",
       "maidens": 0,
@@ -285,7 +285,7 @@
       "sixes_conceded": 0
     },
     "fielding": {
-      "matches": 95,
+      "matches": 97,
       "catches": 40,
       "caught_behind": 66,
       "run_outs": 4,
@@ -691,7 +691,7 @@
     "slug": "mahesh-angadi",
     "profile_photo": "https://media.cricheroes.in/user_profile/1663418392346_dAayM8KgeSZ9.jpg",
     "batting": {
-      "matches": 193,
+      "matches": 194,
       "innings": 95,
       "not_outs": 41,
       "runs": 420,
@@ -707,31 +707,31 @@
       "ducks": 13
     },
     "bowling": {
-      "matches": 193,
-      "innings": 183,
-      "overs": "438.0",
+      "matches": 194,
+      "innings": 184,
+      "overs": "441.0",
       "maidens": 19,
-      "wickets": 231,
-      "runs_conceded": 2944,
+      "wickets": 233,
+      "runs_conceded": 2970,
       "best_figures": "4/9",
       "three_wickets": 30,
       "five_wickets": 0,
-      "economy": 6.72,
-      "strike_rate": 11.38,
-      "average": 12.74,
+      "economy": 6.73,
+      "strike_rate": 11.36,
+      "average": 12.75,
       "wides": 234,
-      "noballs": 62,
-      "dot_balls": 1453,
-      "fours_conceded": 164,
-      "sixes_conceded": 134
+      "noballs": 63,
+      "dot_balls": 1463,
+      "fours_conceded": 166,
+      "sixes_conceded": 136
     },
     "fielding": {
-      "matches": 193,
+      "matches": 194,
       "catches": 59,
       "caught_behind": 0,
       "run_outs": 27,
       "stumpings": 0,
-      "assisted_run_outs": 5
+      "assisted_run_outs": 6
     }
   },
   {
