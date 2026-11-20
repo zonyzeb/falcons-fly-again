@@ -1,10 +1,11 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Home, CalendarCheck, User, LogOut, Shield, Settings, Gavel } from "lucide-react";
+import { Home, CalendarCheck, User, LogOut, Shield, Settings, Gavel, Dumbbell } from "lucide-react";
 import { useAuth } from "@/auth/AuthProvider";
 
 const navItems = [
   { to: "/dashboard", label: "Home", icon: Home, end: true },
   { to: "/dashboard/availability", label: "My Availability", icon: CalendarCheck },
+  { to: "/dashboard/training", label: "My Training", icon: Dumbbell },
   { to: "/dashboard/duties", label: "My Duties", icon: Gavel },
   { to: "/dashboard/profile", label: "My Profile", icon: User },
 ];

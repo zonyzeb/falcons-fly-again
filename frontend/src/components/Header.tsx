@@ -9,6 +9,7 @@ const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/team", label: "The Squad" },
+  { to: "/tennis-ball-team", label: "Tennis Ball Team" },
   { to: "/matches", label: "Matches" },
   { to: "/gallery", label: "Gallery" },
   { to: "/join", label: "Join Us" },

@@ -427,12 +427,226 @@ export async function upsertSquadPlayer(
   if (error) throw error;
 }
 
+// ── training sessions ──
+
+export interface TrainingSession {
+  id: string;
+  title: string | null;
+  session_date: string; // YYYY-MM-DD
+  start_time: string | null; // HH:MM[:SS]
+  end_time: string | null;
+  location: string | null;
+  notes: string | null;
+  cost_sek: number | null;
+  paid_by: string | null; // auth user id of the member who fronted the cost
+  auto_remind: boolean;
+  last_reminded_at: string | null;
+}
+
+const TRAINING_SELECT =
+  "id, title, session_date, start_time, end_time, location, notes, cost_sek, paid_by, auto_remind, last_reminded_at";
+
+export async function fetchTrainingSessions(): Promise<TrainingSession[]> {
+  const { data, error } = await supabase
+    .from("training_sessions")
+    .select(TRAINING_SELECT)
+    .order("session_date", { ascending: true })
+    .order("start_time", { ascending: true, nullsFirst: true });
+  if (error) throw error;
+  return (data ?? []) as TrainingSession[];
+}
+
+/** Upcoming sessions (today onward) — the member schedule. */
+export async function fetchUpcomingTraining(): Promise<TrainingSession[]> {
+  const today = new Date().toISOString().slice(0, 10);
+  const { data, error } = await supabase
+    .from("training_sessions")
+    .select(TRAINING_SELECT)
+    .gte("session_date", today)
+    .order("session_date", { ascending: true })
+    .order("start_time", { ascending: true, nullsFirst: true });
+  if (error) throw error;
+  return (data ?? []) as TrainingSession[];
+}
+
+export type TrainingSessionInput = Omit<TrainingSession, "id" | "last_reminded_at">;
+
+export async function createTrainingSession(input: TrainingSessionInput) {
+  const { error } = await supabase.from("training_sessions").insert(input);
+  if (error) throw error;
+}
+
+export async function updateTrainingSession(id: string, patch: Partial<TrainingSessionInput>) {
+  const { error } = await supabase.from("training_sessions").update(patch).eq("id", id);
+  if (error) throw error;
+}
+
+export async function deleteTrainingSession(id: string) {
+  const { error } = await supabase.from("training_sessions").delete().eq("id", id);
+  if (error) throw error;
+}
+
+// ── training availability (+ carpool + payment) ──
+
+export type PickupKind = "none" | "offer" | "need";
+
+export interface TrainingAvailability {
+  id: string;
+  session_id: string;
+  player_id: number;
+  status: MatchAvailStatus;
+  pickup: PickupKind;
+  pickup_seats: number | null;
+  pickup_area: string | null;
+  paid: boolean;
+  paid_at: string | null;
+  set_by: string | null;
+}
+
+const TRAINING_AVAIL_SELECT =
+  "id, session_id, player_id, status, pickup, pickup_seats, pickup_area, paid, paid_at, set_by";
+
+export async function fetchTrainingAvailability(sessionId: string): Promise<TrainingAvailability[]> {
+  const { data, error } = await supabase
+    .from("training_availability")
+    .select(TRAINING_AVAIL_SELECT)
+    .eq("session_id", sessionId);
+  if (error) throw error;
+  return (data ?? []) as TrainingAvailability[];
+}
+
+/** All of a player's training rows (member's own view). */
+export async function fetchPlayerTrainingAvailability(playerId: number): Promise<TrainingAvailability[]> {
+  const { data, error } = await supabase
+    .from("training_availability")
+    .select(TRAINING_AVAIL_SELECT)
+    .eq("player_id", playerId);
+  if (error) throw error;
+  return (data ?? []) as TrainingAvailability[];
+}
+
+/** Rows for several sessions — used for cost-split counts and the carpool board. */
+export async function fetchTrainingAvailabilityForSessions(sessionIds: string[]): Promise<TrainingAvailability[]> {
+  if (sessionIds.length === 0) return [];
+  const { data, error } = await supabase
+    .from("training_availability")
+    .select(TRAINING_AVAIL_SELECT)
+    .in("session_id", sessionIds);
+  if (error) throw error;
+  return (data ?? []) as TrainingAvailability[];
+}
+
+/** Per-session availability tallies. */
+export async function fetchTrainingAvailabilityCounts(sessionIds: string[]): Promise<Map<string, AvailCounts>> {
+  const out = new Map<string, AvailCounts>();
+  if (sessionIds.length === 0) return out;
+  const { data, error } = await supabase
+    .from("training_availability")
+    .select("session_id, status")
+    .in("session_id", sessionIds);
+  if (error) throw error;
+  for (const r of (data ?? []) as { session_id: string; status: MatchAvailStatus }[]) {
+    const c = out.get(r.session_id) ?? { available: 0, maybe: 0, unavailable: 0 };
+    c[r.status] += 1;
+    out.set(r.session_id, c);
+  }
+  return out;
+}
+
+/** Upsert a player's training status + carpool choice (member sets own, admin sets anyone). */
+export async function setTrainingAvailability(input: {
+  session_id: string;
+  player_id: number;
+  status: MatchAvailStatus;
+  pickup?: PickupKind;
+  pickup_seats?: number | null;
+  pickup_area?: string | null;
+  set_by: string | null;
+}) {
+  const { error } = await supabase
+    .from("training_availability")
+    .upsert({ ...input, updated_at: new Date().toISOString() }, { onConflict: "session_id,player_id" });
+  if (error) throw error;
+}
+
+/** Mark a player's cost share paid / unpaid (member marks own, admin marks anyone). */
+export async function setTrainingPaid(sessionId: string, playerId: number, paid: boolean) {
+  const { error } = await supabase
+    .from("training_availability")
+    .update({ paid, paid_at: paid ? new Date().toISOString() : null, updated_at: new Date().toISOString() })
+    .eq("session_id", sessionId)
+    .eq("player_id", playerId);
+  if (error) throw error;
+}
+
+// ── 2027 squad (admin-curated public roster, served at /team) ──
+
+export type SquadStatus = "confirmed" | "in_talks";
+
+export interface Squad2027Member {
+  id: string;
+  player_id: number | null;
+  name: string | null;
+  role: string | null; // BAT/BOWL/ALL/WK
+  tagline: string | null;
+  photo_url: string | null;
+  jersey_number: number | null;
+  is_captain: boolean;
+  is_vice_captain: boolean;
+  status: SquadStatus;
+  sort_order: number;
+  published: boolean;
+}
+
+const SQUAD_2027_SELECT =
+  "id, player_id, name, role, tagline, photo_url, jersey_number, is_captain, is_vice_captain, status, sort_order, published";
+
+/** Admin view — every member incl. drafts / in-talks. */
+export async function fetchSquad2027(): Promise<Squad2027Member[]> {
+  const { data, error } = await supabase
+    .from("squad_2027")
+    .select(SQUAD_2027_SELECT)
+    .order("sort_order", { ascending: true })
+    .order("created_at", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as Squad2027Member[];
+}
+
+/** Public view — RLS returns only confirmed + published rows. */
+export async function fetchSquad2027Public(): Promise<Squad2027Member[]> {
+  const { data, error } = await supabase
+    .from("squad_2027")
+    .select(SQUAD_2027_SELECT)
+    .order("sort_order", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as Squad2027Member[];
+}
+
+export type Squad2027Input = Omit<Squad2027Member, "id">;
+
+export async function createSquad2027Member(input: Squad2027Input) {
+  const { error } = await supabase.from("squad_2027").insert(input);
+  if (error) throw error;
+}
+
+export async function updateSquad2027Member(id: string, patch: Partial<Squad2027Input>) {
+  const { error } = await supabase.from("squad_2027").update(patch).eq("id", id);
+  if (error) throw error;
+}
+
+export async function deleteSquad2027Member(id: string) {
+  const { error } = await supabase.from("squad_2027").delete().eq("id", id);
+  if (error) throw error;
+}
+
 // ── notifications (serverless email) ──
 
 export async function sendNotification(payload: {
-  kind: "availability" | "team";
+  kind: "availability" | "team" | "training";
   fixtureId?: string;
   fixtureLabel?: string;
+  sessionId?: string;
+  sessionLabel?: string;
   scope?: "all" | "pending";
   team?: { order: number; name: string; captain: boolean; keeper: boolean }[];
 }): Promise<{ sent: number; note?: string }> {

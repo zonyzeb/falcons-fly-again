@@ -1,35 +1,16 @@
-// Admin-only email sender for availability requests and team announcements.
-// Sends through Zoho SMTP (same account as the auth emails) — Supabase's own
-// SMTP only handles auth mail, so app emails go through here.
+// Admin-only email sender for availability requests, team announcements and
+// training reminders. Sends through Zoho SMTP (same account as the auth emails)
+// — Supabase's own SMTP only handles auth mail, so app emails go through here.
 //
 // Required env vars:
 //   SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY
 //   SMTP_HOST (e.g. smtp.zoho.eu), SMTP_USER, SMTP_PASS, SMTP_FROM
 //   SMTP_ALLOW_INSECURE=1  (local dev only — skips TLS verification)
 
-const nodemailer = require("nodemailer");
-
-const SITE = "https://falconsif.se";
-const BRAND = "#EAB44A";
-
-function env() {
-  return {
-    url: process.env.SUPABASE_URL,
-    anon: process.env.SUPABASE_ANON_KEY,
-    service: process.env.SUPABASE_SERVICE_ROLE_KEY,
-    smtpHost: process.env.SMTP_HOST || "smtp.zoho.eu",
-    smtpUser: process.env.SMTP_USER,
-    smtpPass: process.env.SMTP_PASS,
-    smtpFrom: process.env.SMTP_FROM || `Falcons Cricket Club <${process.env.SMTP_USER}>`,
-    insecure: process.env.SMTP_ALLOW_INSECURE === "1",
-  };
-}
-
-async function svc(e, path) {
-  const r = await fetch(`${e.url}${path}`, { headers: { apikey: e.service, Authorization: `Bearer ${e.service}` } });
-  if (!r.ok) throw new Error(`Supabase ${path} -> ${r.status}`);
-  return r.json();
-}
+const {
+  SITE, BRAND, env, svc, memberDirectory, pendingTrainingRecipients,
+  shell, trainingReminderEmail, sendBcc,
+} = require("./_lib/email");
 
 async function callerIsAdmin(e, token) {
   const ur = await fetch(`${e.url}/auth/v1/user`, { headers: { apikey: e.anon, Authorization: `Bearer ${token}` } });
@@ -38,18 +19,6 @@ async function callerIsAdmin(e, token) {
   if (!user?.id) return false;
   const rows = await svc(e, `/rest/v1/profiles?id=eq.${user.id}&select=role`);
   return Array.isArray(rows) && rows[0]?.role === "admin";
-}
-
-function shell(title, intro, bodyHtml, ctaText, ctaUrl) {
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0f1e;margin:0;padding:32px 12px;font-family:Arial,Helvetica,sans-serif;"><tr><td align="center">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background-color:#0d1424;border:1px solid #1e2a44;border-radius:16px;overflow:hidden;">
-    <tr><td align="center" style="padding:32px 32px 4px;"><div style="display:inline-block;width:52px;height:52px;line-height:52px;border-radius:14px;background:linear-gradient(135deg,${BRAND},#d97706);color:#0a0f1e;font-size:22px;font-weight:bold;">★</div>
-      <div style="margin-top:12px;font-size:12px;letter-spacing:3px;color:${BRAND};font-weight:bold;">FALCONS CRICKET CLUB</div></td></tr>
-    <tr><td style="padding:14px 34px 6px;"><h1 style="margin:0 0 10px;font-size:21px;color:#F5F2EC;">${title}</h1>
-      <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#9aa3b2;">${intro}</p>${bodyHtml || ""}</td></tr>
-    ${ctaUrl ? `<tr><td align="center" style="padding:6px 34px 26px;"><a href="${ctaUrl}" style="display:inline-block;background:linear-gradient(135deg,${BRAND},#d97706);color:#0a0f1e;text-decoration:none;font-weight:bold;font-size:15px;padding:13px 30px;border-radius:12px;">${ctaText}</a></td></tr>` : ""}
-    <tr><td style="padding:18px 34px;border-top:1px solid #1e2a44;"><p style="margin:0;font-size:12px;line-height:1.6;color:#6b7488;">Play with Pride. Fly as One.</p></td></tr>
-  </table></td></tr></table>`;
 }
 
 /** Framework-agnostic core. Returns { status, body }. */
@@ -61,15 +30,14 @@ async function handleNotify({ method, token, body }) {
   if (!(await callerIsAdmin(e, token))) return { status: 403, body: { error: "Admins only." } };
 
   const data = typeof body === "string" ? JSON.parse(body || "{}") : body || {};
-  const { kind, fixtureLabel, fixtureId, scope, team } = data;
+  const { kind, fixtureLabel, fixtureId, sessionId, sessionLabel, scope, team } = data;
 
-  const mr = await fetch(`${e.url}/rest/v1/rpc/member_directory`, {
-    method: "POST",
-    headers: { apikey: e.service, Authorization: `Bearer ${e.service}`, "Content-Type": "application/json" },
-    body: "{}",
-  });
-  if (!mr.ok) return { status: 500, body: { error: `Could not load members (${mr.status}).` } };
-  let recipients = ((await mr.json()) || []).filter((m) => m.email);
+  let recipients;
+  try {
+    recipients = await memberDirectory(e);
+  } catch (err) {
+    return { status: 500, body: { error: err instanceof Error ? err.message : "Could not load members." } };
+  }
 
   let subject, html;
   if (kind === "availability") {
@@ -94,18 +62,18 @@ async function handleNotify({ method, token, body }) {
       `<table role="presentation" width="100%" style="font-size:14px;border-collapse:collapse;margin-bottom:8px;">${rows}</table>`,
       "View on the site", `${SITE}/dashboard/availability`
     );
+  } else if (kind === "training") {
+    if (scope === "pending" && sessionId) {
+      recipients = await pendingTrainingRecipients(e, sessionId, recipients);
+    }
+    ({ subject, html } = trainingReminderEmail(sessionLabel));
   } else {
     return { status: 400, body: { error: "Unknown email kind." } };
   }
 
   if (recipients.length === 0) return { status: 200, body: { ok: true, sent: 0, note: "No recipients." } };
 
-  const transporter = nodemailer.createTransport({
-    host: e.smtpHost, port: 465, secure: true,
-    auth: { user: e.smtpUser, pass: e.smtpPass },
-    ...(e.insecure ? { tls: { rejectUnauthorized: false } } : {}),
-  });
-  await transporter.sendMail({ from: e.smtpFrom, to: e.smtpFrom, bcc: recipients.map((m) => m.email), subject, html });
+  await sendBcc(e, recipients, subject, html);
   return { status: 200, body: { ok: true, sent: recipients.length } };
 }
 

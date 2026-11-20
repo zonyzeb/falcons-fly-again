@@ -55,7 +55,7 @@ export function TeamSection() {
           className="text-center mb-16"
         >
           <span className="inline-block text-falcon-gold font-semibold text-sm uppercase tracking-wider mb-3 glass-dark px-4 py-1.5 rounded-full">
-            The Falcons Squad
+            Tennis Ball Team
           </span>
           <h2 className="falcon-heading text-falcon-cream mt-4 mb-6">
             One Team. One Badge.{" "}

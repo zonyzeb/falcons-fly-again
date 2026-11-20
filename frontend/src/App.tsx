@@ -13,6 +13,7 @@ import { lazy, Suspense } from "react";
 const HomePage = lazy(() => import("@/pages/Home"));
 const AboutPage = lazy(() => import("@/pages/About"));
 const TeamPage = lazy(() => import("@/pages/Team"));
+const TennisBallTeamPage = lazy(() => import("@/pages/TennisBallTeam"));
 const MatchesPublicPage = lazy(() => import("@/pages/Matches"));
 const GalleryPage = lazy(() => import("@/pages/Gallery"));
 const JoinUsPage = lazy(() => import("@/pages/JoinUs"));
@@ -24,6 +25,7 @@ const AuthCallbackPage = lazy(() => import("@/auth/AuthCallback"));
 const DashboardLayout = lazy(() => import("@/pages/dashboard/DashboardLayout"));
 const DashboardHome = lazy(() => import("@/pages/dashboard/DashboardHome"));
 const MyAvailabilityPage = lazy(() => import("@/pages/dashboard/MyAvailability"));
+const MyTrainingPage = lazy(() => import("@/pages/dashboard/MyTraining"));
 const MyDutiesPage = lazy(() => import("@/pages/dashboard/MyDuties"));
 const MyProfilePage = lazy(() => import("@/pages/dashboard/MyProfile"));
 
@@ -37,6 +39,8 @@ const InsightsPage = lazy(() => import("@/admin/pages/Insights"));
 const AvailabilityPage = lazy(() => import("@/admin/pages/Availability"));
 const UmpiringPage = lazy(() => import("@/admin/pages/Umpiring"));
 const FixturesPage = lazy(() => import("@/admin/pages/Fixtures"));
+const TrainingPage = lazy(() => import("@/admin/pages/Training"));
+const Squad2027Page = lazy(() => import("@/admin/pages/Squad2027"));
 const MembersPage = lazy(() => import("@/admin/pages/Members"));
 
 const Loading = () => (
@@ -61,6 +65,7 @@ const App = () => (
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/team" element={<TeamPage />} />
+                <Route path="/tennis-ball-team" element={<TennisBallTeamPage />} />
                 <Route path="/matches" element={<MatchesPublicPage />} />
                 <Route path="/gallery" element={<GalleryPage />} />
                 <Route path="/join" element={<JoinUsPage />} />
@@ -81,6 +86,7 @@ const App = () => (
               >
                 <Route index element={<DashboardHome />} />
                 <Route path="availability" element={<MyAvailabilityPage />} />
+                <Route path="training" element={<MyTrainingPage />} />
                 <Route path="duties" element={<MyDutiesPage />} />
                 <Route path="profile" element={<MyProfilePage />} />
               </Route>
@@ -99,6 +105,8 @@ const App = () => (
                   <Route path="umpiring" element={<UmpiringPage />} />
                   <Route path="tournaments" element={<Navigate to="/admin/fixtures" replace />} />
                   <Route path="fixtures" element={<FixturesPage />} />
+                  <Route path="training" element={<TrainingPage />} />
+                  <Route path="squad-2027" element={<Squad2027Page />} />
                   <Route path="members" element={<MembersPage />} />
                 </Route>
               </Route>
